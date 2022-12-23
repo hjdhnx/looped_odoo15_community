@@ -1,0 +1,2 @@
+# looped_odoo15_community
+looped_odoo15_community
