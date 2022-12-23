@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <record id="group_general_manager" model="res.groups">
+            <field name="name">General Manager</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+    </data>
+</odoo>

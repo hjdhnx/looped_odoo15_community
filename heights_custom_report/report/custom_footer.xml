@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="custom_report_footer">
+        <div class="text-center" style="border-top: 1px solid black;">
+            <div style="margin-top: 5px;">
+                <img t-if="company.footer_logo"
+                     t-att-src="image_data_uri(company.footer_logo)"
+                     style="max-height: 90px;" alt="Logo"/>
+            </div>
+            <div name="financial_infos">
+                <span t-field="company.report_footer"/>
+            </div>
+            <div t-if="report_type == 'pdf'" class="text-muted">
+                Page:
+                <span class="page"/>
+                /
+                <span class="topage"/>
+            </div>
+        </div>
+    </template>
+</odoo>

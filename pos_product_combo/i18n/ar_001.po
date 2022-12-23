@@ -1,0 +1,233 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_product_combo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-15 11:13+0000\n"
+"PO-Revision-Date: 2020-12-15 13:18+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: pos_product_combo
+#: model_terms:ir.ui.view,arch_db:pos_product_combo.package_product_template_only_form_view
+msgid "Addons"
+msgstr "الإضافات"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__attribute_value_ids
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__attribute_value_id
+msgid "Apply on Variants"
+msgstr "تطبيق على المتغيرات"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__pos_category_id
+msgid "Categories"
+msgstr "التصنيفات"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__create_uid
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__create_date
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__auto_select_num
+msgid "Default qty"
+msgstr "الكمية الافتراضية"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_order__display_name
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__display_name
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__display_name
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_product__display_name
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_template__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,help:pos_product_combo.field_product_combo__required
+msgid "Don't select it if you want to make it optional"
+msgstr "لا تحدده إذا كنت تريد جعله اختياريًا"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_config__enable_combo
+msgid "Enable Combo"
+msgstr "تمكين الإضافات"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__extra_price
+msgid "Extra Price"
+msgstr "سعر إضافي"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_product__is_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_template__is_combo
+msgid "Has Addons"
+msgstr "لديه اضافات"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_config__hide_uom
+msgid "Hide UOM"
+msgstr ""
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_order__id
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_order_line__id
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__id
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__id
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_product__id
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_template__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_order_line__is_combo_line
+msgid "Is a Combo line"
+msgstr ""
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_order____last_update
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_order_line____last_update
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo____last_update
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price____last_update
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_product____last_update
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_template____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__write_uid
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__write_date
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__no_of_items
+msgid "No. of Items"
+msgstr " عدد العناصر"
+
+#. module: pos_product_combo
+#: model:ir.model,name:pos_product_combo.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "إعدادات نقطة البيع"
+
+#. module: pos_product_combo
+#: model:ir.model,name:pos_product_combo.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "بنود أمر نقطة البيع"
+
+#. module: pos_product_combo
+#: model:ir.model,name:pos_product_combo.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "أوامر نقطة البيع"
+
+#. module: pos_product_combo
+#: model:ir.model,name:pos_product_combo.model_product_product
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: pos_product_combo
+#: model:ir.model,name:pos_product_combo.model_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_product__product_combo_ids
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_template__product_combo_ids
+msgid "Product Combo"
+msgstr ""
+
+#. module: pos_product_combo
+#: model:ir.model,name:pos_product_combo.model_product_combo_price
+msgid "Product Combo Price"
+msgstr ""
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_product__product_price_ids
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_template__product_price_ids
+msgid "Product Price"
+msgstr "سعر المنتج"
+
+#. module: pos_product_combo
+#: model:ir.model,name:pos_product_combo.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__product_tmpl_id
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__product_tmpl_id
+msgid "Product Tmpl"
+msgstr ""
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__product_ids
+msgid "Products"
+msgstr "الاصناف"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__required
+msgid "Required"
+msgstr "مطلوب"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__sequence
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo_price__sequence
+msgid "Sequence"
+msgstr "المسلسل"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_pos_config__edit_combo
+msgid "Single Click for Edit Combo"
+msgstr "نقره واحده لتحرير الوجبة"
+
+#. module: pos_product_combo
+#: model:ir.model.fields,help:pos_product_combo.field_product_combo__valid_product_attribute_value_ids
+#: model:ir.model.fields,help:pos_product_combo.field_product_product__valid_product_attribute_ids
+#: model:ir.model.fields,help:pos_product_combo.field_product_product__valid_product_attribute_value_ids
+#: model:ir.model.fields,help:pos_product_combo.field_product_template__valid_product_attribute_ids
+#: model:ir.model.fields,help:pos_product_combo.field_product_template__valid_product_attribute_value_ids
+msgid "Technical compute"
+msgstr ""
+
+#. module: pos_product_combo
+#: code:addons/pos_product_combo/models/product_template.py:0
+#, python-format
+msgid ""
+"Total Auto Selected Number [%s] of categ [%s] is greater than the number "
+"[%s] of items of the same category in combo table"
+msgstr ""
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_combo__valid_product_attribute_value_ids
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_product__valid_product_attribute_value_ids
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_template__valid_product_attribute_value_ids
+msgid "Valid Product Attribute Values"
+msgstr ""
+
+#. module: pos_product_combo
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_product__valid_product_attribute_ids
+#: model:ir.model.fields,field_description:pos_product_combo.field_product_template__valid_product_attribute_ids
+msgid "Valid Product Attributes"
+msgstr ""

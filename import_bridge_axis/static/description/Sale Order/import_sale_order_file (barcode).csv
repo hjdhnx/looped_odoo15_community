@@ -1,0 +1,4 @@
+"Order,Partner,Product,Quantity,Uom,Description,Price,Salesperson,Tax,Quotation Date,Payment Terms,Discount,Partner Name,Attributes Name,IMP Note,Other Details"
+"S1O025,Azure Interior,CAB001,1,Units,Large Cabinet product order.,10000,Mitchell Admin,Gst 2%,03/31/2020,Immediate Payment,5,David,red,available,none"
+"S1O026,Azure Interior,Tabl002,2,g,I want Cabinet With Doors.,10000,Mitchell Admin,Gst 2%,03/31/2020,10 Days,10,Rohan,white,only white,plain"
+"S1O026,Azure Interior,Desk4545,3,kg,Large Cabinet product order.,456,Mitchell Admin,Gst 2%,03/31/2020,10 Days,5,Vinkit,black,not available,next week will come"

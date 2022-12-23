@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_normal_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+               <xpath expr="//notebook/page[@name='general_information']" position="after">
+                    <!-- <page string= "Pricing">
+                        <group>
+                            <group>
+                                <field name="pricelist"/>
+                                <field name="price"/>
+                                <field name="ax_min_quantity"/> 
+                                <field name="ax_start_date"/> 
+                                <field name="end_date"/> 
+                            </group>
+                        </group>
+                    </page>-->
+                </xpath>
+            </field>
+        </record>
+
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="hr_attendance_view_form">
+            <field name="name">attendance.form</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="set_confirm_NB" string="Chuyển nghỉ bù" confirm="Bạn đã chắc chắn?" type="object"
+                                class="oe_highlight" groups="base.group_user" attrs="{'invisible':[('id','&lt;',1)]}"/>
+                        <button name="open_hr_leave_wizard" string="Tạo nghỉ phép" type="object" class="oe_highlight"
+                                groups="base.group_user" attrs="{'invisible':[('id','&gt;',0)]}"/>
+                    </header>
+                </xpath>
+                <field name="employee_id" position="before">
+                    <field name="name" invisible="1"/>
+                </field>
+                <field name="check_in" position="after">
+                    <field name="checkin_device_id"/>
+                </field>
+                <field name="check_out" position="after">
+                    <field name="checkout_device_id"/>
+                    <field name="activity_id"/>
+                    <field name="workday"/>
+                    <field name="reason"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="hr_attendance_action_2" model="ir.actions.act_window">
+            <field name="name">Attendances</field>
+            <field name="res_model">hr.attendance</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_month":1, 'create': False,
+                'search_default_employee_id': [active_id],
+                'default_employee_id': active_id}
+            </field>
+            <field name="search_view_id" ref="hr_attendance.hr_attendance_view_filter"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    Không có dữ liệu hiển thị!!!
+                </p>
+            </field>
+        </record>
+
+        <record id="hr_attendance.hr_attendance_action" model="ir.actions.act_window">
+            <field name="name">Attendances</field>
+            <field name="res_model">hr.attendance</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_month":1, 'create': False, 'search_default_employee': 1}</field>
+            <field name="search_view_id" ref="hr_attendance.hr_attendance_view_filter"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    Không có dữ liệu hiển thị!!!
+                </p>
+            </field>
+        </record>
+
+        <record id="hr_attendance_view_filter" model="ir.ui.view">
+            <field name="name">hr_attendance_view_filter</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='department_id']" position="before">
+                    <filter name="month" string="Vào" date="check_in"/>
+                    <filter name="month" string="Ra" date="check_out"/>
+                </xpath>
+                <xpath expr="//filter[@name='employee']" position="before">
+                    <filter name="group_department" string="Phòng ban" context="{'group_by': 'department_id'}"/>
+                </xpath>
+                <xpath expr="//group" position="after">
+                    <!--                    <searchpanel>-->
+                    <!--						<field name="company_id" groups="base.group_multi_company" icon="fa-building" string="CÔNG TY"/>-->
+                    <!--                        <field name="department_id" icon="fa-users"/>-->
+                    <!--                    </searchpanel>-->
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_attendance.view_attendance_tree">
+            <field name="name">hr.attendance.tree</field>
+            <field name="model">hr.attendance</field>
+            <field name="arch" type="xml">
+                <tree string="Employee attendances" decoration-danger="state == 'refuse'" decoration-success="state == 'validate'"
+                      decoration-info="state == 'confirm'" editable="bottom" create="0">
+                    <field name="employee_id" readonly="True" optional="show"/>
+                    <field name="check_in" readonly="True" string="Vào" optional="show"/>
+                    <field name="checkin_device_id" readonly="True"
+                           options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}" optional="hide"/>
+                    <field name="check_out" readonly="True" string="Ra"/>
+                    <field name="checkout_device_id" readonly="True"
+                           options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}" optional="hide"/>
+                    <field name="reason" attrs="{'readonly' : [('state', '!=', 'draft')] }" optional="show"/>
+                    <field name="type_workday" optional="show" attrs="{'readonly' : [('state', '!=', 'draft')] }"/>
+                    <field name="worked_hours" optional="show" string="Giờ làm việc"
+                           groups="om_hr_payroll.group_hr_payroll_manager"/>
+                    <field name="workday" attrs="{'readonly' : [('state', '!=', 'draft')] }" optional="show"/>
+                    <button string="Phê duyệt" name="action_attendance_approve" type="object"
+                            icon="fa-check text-success" states="draft"
+                            groups="om_hr_payroll.group_hr_payroll_manager"/>
+                    <button string="Từ chối" name="action_attendance_refuse" type="object" icon="fa-ban text-danger"
+                            states="draft" groups="om_hr_payroll.group_hr_payroll_manager"/>
+                    <button string="Quay lại" name="action_attendance_cancel" type="object" icon="fa-refresh text-muted"
+                            states="refuse,confirm" groups="om_hr_payroll.group_hr_payroll_manager"/>
+                    <button string="Phê duyệt" name="manager_validate_workday" type="object"
+                            icon="fa-check text-success" states="confirm"
+                            groups="hr_attendance.group_hr_attendance_manager"/>
+                    <button string="Từ chối" name="manager_cancel_workday" type="object" icon="fa-ban text-danger"
+                            states="confirm" groups="hr_attendance.group_hr_attendance_manager"/>
+                    <button string="Quay lại" name="manager_refuse_workday" type="object" icon="fa-refresh text-muted"
+                            states="validate" groups="hr_attendance.group_hr_attendance_manager"/>
+                    <field name="state" optional="show"/>
+                    <field name="overtime" string="Giờ làm thêm" optional="show"/>
+                    <field name="type_overtime" optional="show"
+                           attrs="{'readonly' : [('state_overtime', '!=', 'draft')] }" />
+                    <button string="Confirm overtime" name="confirm_overtime" type="object" icon="fa-check text-success"
+                            attrs="{'invisible': [('state_overtime', '!=', 'draft')]}"
+                            groups="om_hr_payroll.group_hr_payroll_manager"/>
+                    <button string="Refuse overtime" name="refuse_overtime" type="object" icon="fa-ban text-danger"
+                            attrs="{'invisible': [('state_overtime', '!=', 'draft')]}"
+                            groups="om_hr_payroll.group_hr_payroll_manager"/>
+                    <button string="Quay lại" name="action_cancel_overtime" type="object" icon="fa-refresh text-muted"
+                            attrs="{'invisible': [('state_overtime', '=', 'draft')]}"
+                            groups="om_hr_payroll.group_hr_payroll_manager"/>
+
+                    <button string="Confirm overtime" name="manager_validate_overtime" type="object" icon="fa-check text-success"
+                            attrs="{'invisible': [('state_overtime', '!=', 'confirm')]}"
+                            groups="hr_attendance.group_hr_attendance_manager"/>
+                    <button string="Refuse overtime" name="manager_cancel_overtime" type="object" icon="fa-ban text-danger"
+                            attrs="{'invisible': [('state_overtime', '!=', 'confirm')]}"
+                            groups="hr_attendance.group_hr_attendance_manager"/>
+                    <button string="Quay lại" name="manager_refuse_overtime" type="object" icon="fa-refresh text-muted"
+                            attrs="{'invisible': [('state_overtime', '!=', 'validate')]}"
+                            groups="hr_attendance.group_hr_attendance_manager"/>
+                    <field name="state_overtime" optional="show"/>
+                    <field name="approver_id" optional="show"/>
+                    <button name="set_confirm_NB" string="Chuyển nghỉ bù" confirm="Bạn đã chắc chắn?" type="object"
+                            class="oe_highlight" attrs="{'invisible':[('state','!=','validate')]}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_work_entry_gantt" model="ir.ui.view">
+            <field name="name">attendance.gantt</field>
+            <field name="model">hr.attendance</field>
+            <field name="arch" type="xml">
+                <gantt string="Bảng công"
+                       date_start="check_in"
+                       date_stop="check_out"
+                       scales="month"
+                       precision="{'month': 'day:full'}"
+                       create="0"
+                       edit="0"
+                       progress="name"
+                       thumbnails="{'employee_id': 'image_128'}"
+                       plan="0">
+                    <field name="name"/>
+                </gantt>
+            </field>
+        </record>
+
+<!--        <record model="ir.ui.view" id="test_attendance">-->
+<!--            <field name="name">attendance.xls</field>-->
+<!--            <field name="model">hr.attendance</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xls>-->
+<!--                    <field name="employee_id"/>-->
+<!--                    <field name="check_in"/>-->
+<!--                    <field name="checkin_device_id"/>-->
+<!--                    <field name="check_out"/>-->
+<!--                    <field name="checkout_device_id"/>-->
+<!--                    <field name="worked_hours"/>-->
+<!--                    <field name="workday"/>-->
+<!--                    <field name="name"/>-->
+<!--                    <field name="state"/>-->
+<!--                    <field name="resign_confirm_date"/>-->
+<!--                </xls>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="hr_work_attendance_action" model="ir.actions.act_window">
+            <field name="name">Bảng công</field>
+            <field name="res_model">hr.attendance</field>
+            <field name="context">{'search_default_month': 1, 'search_default_group_department': 1,
+                'search_default_employee': 1, 'show_name': 1,
+                'default_state': 'validate'}
+            </field>
+            <field name="domain">[('state', '=', 'validate')]</field>
+            <field name="view_mode">gantt,tree,form</field>
+            <field name="view_id" ref="hr_work_entry_gantt"/>
+        </record>
+
+        <record id="action_confirm_work_day" model="ir.actions.server">
+			<field name="name">Xác nhận ngày công</field>
+			<field name="model_id" ref="to_attendance_device.model_hr_attendance"/>
+			<field name="binding_model_id" ref="to_attendance_device.model_hr_attendance"/>
+			<field name="state">code</field>
+			<field name="code">
+				if records:
+					action = records.confirm_work_day()
+			</field>
+		</record>
+
+        <record id="action_manager_confirm_work_day" model="ir.actions.server">
+			<field name="name">Hành chính nhân sự xác nhận công</field>
+			<field name="model_id" ref="to_attendance_device.model_hr_attendance"/>
+			<field name="binding_model_id" ref="to_attendance_device.model_hr_attendance"/>
+			<field name="state">code</field>
+			<field name="code">action = records.manager_confirm_work_day()</field>
+		</record>
+
+    </data>
+</odoo>

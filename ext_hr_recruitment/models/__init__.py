@@ -1,0 +1,1 @@
+from . import ext_hr_recruitment

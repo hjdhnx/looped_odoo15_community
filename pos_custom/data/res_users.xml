@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="pos_user_pin_config" model="res.users">
+            <field name="name">Pos User Pin Config</field>
+            <field name="login">pos_api</field>
+            <field name="password">pos_api</field>
+            <field name="new_password">pos_api</field>
+            <field name="groups_id" eval="[(4, ref('base.group_system')),(4, ref('branch.group_multi_branch')),(4, ref('branch.group_branch_user_manager')),(4, ref('base.group_user'))]"/>
+        </record>
+    </data>
+</odoo>

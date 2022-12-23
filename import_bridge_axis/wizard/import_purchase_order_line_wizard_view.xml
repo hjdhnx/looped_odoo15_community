@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_import_purchase_order_line_view_wizard" model="ir.ui.view">
+        <field name="name">import.purchase.order.line.form.view</field>
+        <field name="model">import.purchase.order.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="file_option" widget="radio"/><div style="height:40px;"></div>
+                        <field name="import_file"/>
+                    </group>
+                    <group>
+                        <field name="product_by" widget="radio"/><div style="height:10px;"></div>
+                        <field name="product_detail_option" widget="radio"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="import_purchase_order_line" string="Import" type="object" default_focus="1" class="oe_highlight"/>
+                    <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_import_purchase_order_line_wizard">
+        <field name="name">Import Purchase Order Line</field>
+        <field name="res_model">import.purchase.order.line</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_import_purchase_order_line_view_wizard"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- <record id="hr_recruitment.menu_crm_case_categ0_act_job" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_hr_user')] )]"/>
+        </record>-->
+
+        <record id="hr_recruitment.action_hr_job" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{}</field>
+        </record> 
+
+        <!-- Jop Position -->
+
+        <!--    Inherit View   -->
+        <record model="ir.ui.view" id="view_hr_job_form_inherit">
+            <field name="name">hr.job.form inherit</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                    <field name="name" placeholder="Job Position English name"/>
+                    <field name="arabic_name" placeholder="Job Position Arabic name"/>
+                </field>
+                <field name="department_id" position="replace">
+                    <field name="department_id" required="1" />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

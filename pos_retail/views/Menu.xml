@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+
+        <menuitem id="menu_promotion_voucher_discount" name="Promotions/Vouchers &amp; Discounts"
+                  parent="point_of_sale.menu_point_root" groups="point_of_sale.group_pos_manager"/>
+
+         <menuitem id="menu_sale_coupon" sequence="11" name="Sale Coupons" parent="point_of_sale.menu_point_root"
+                  groups="point_of_sale.group_pos_manager"/>
+
+        <!-- <menuitem id="menu_coupon_type_config" action="coupon.coupon_program_action_coupon_program" 
+                parent="menu_sale_coupon" name="Coupon Programs" sequence="1"/>
+
+        <menuitem id="menu_promotion_type_config" action="coupon.coupon_program_action_promo_program"
+            parent="menu_sale_coupon" name="Promotion Programs" sequence="2" /> -->
+
+    </data>
+</odoo>

@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+
+        <record id="employee_resignation_form" model="ir.ui.view">
+            <field name="name">prepare.resignation</field>
+            <field name="model">prepare.resignation</field>
+            <field name="inherit_id" ref="hr_prepare_resignation.employee_resignation_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='reason']" position="before">
+                    <field name="employee_contract_type" required="1" readonly="1" force_save="1" />
+                    
+
+                </xpath>
+
+                <xpath expr="//field[@name='hr_notice']" position="after">
+                    <field name="gratuity_reason_id" string="HR Reason"
+                     attrs="{'required': [('state','=','hr')], 'readonly':[('state','!=','hr')]}" 
+                     domain="['|',('employee_contract_type','=',employee_contract_type),('employee_contract_type','=','both')]"
+                     options="{&quot;no_create&quot;: True}" 
+                     groups="hr.group_hr_manager"
+                    />
+
+                </xpath>
+
+                <xpath expr="//field[@name='reason']" position="attributes">
+                    <attribute name="string">Reason Description</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

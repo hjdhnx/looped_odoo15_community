@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--  Group category  -->
+        <record id="module_category_xxx" model="ir.module.category">
+            <field name="name">Xxx xxx</field>
+            <field name="sequence">11</field>
+            <field name="description">Helps you manage xxx xxx</field>
+        </record>
+        <!-- Security group -->
+        <record id="group_xxx" model="res.groups">
+            <field name="name">Xxx</field>
+            <field name="category_id" ref="xxx.xxx"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+            <field name="implied_ids" eval="[(4, ref('xxx.xxx'))]"/>
+        </record>
+
+    </data>
+</odoo>

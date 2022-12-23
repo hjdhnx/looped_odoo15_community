@@ -1,0 +1,40 @@
+<odoo>
+
+
+    <record id="pos_collection_wizard_from_view" model="ir.ui.view">
+        <field name="name">pos.collection.wizard.form.view</field>
+        <field name="model">pos.collection.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Pay With Petty Cash">
+
+                <group>
+                    <field name="collected_by_id" required="1"/>
+                    <field name="amount_to_collect"/>
+                    <field name="original_amount_to_collect" invisible="1"/>
+                    <field name="is_amount_change" invisible="1"/>
+                    <field name="payment_method_id" readonly="1" force_save="1"/>
+                    <field name="description" string="Reason"
+                    attrs="{'required':[('is_amount_change','=',True)]}"/>
+                    
+                </group>
+                <footer>
+                    <button string="Post" name="action_post" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+
+    <record id="pos_collection_wizard_action" model="ir.actions.act_window">
+        <field name="name">Pos Session Collection</field>
+        <field name="res_model">pos.collection.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="pos_collection_wizard_from_view"/>
+        <field name="target">new</field>
+    </record>
+
+
+
+</odoo>

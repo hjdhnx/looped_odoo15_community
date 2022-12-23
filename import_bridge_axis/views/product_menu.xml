@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_import_invoice_line_wizard" model="ir.ui.view">
+            <field name="name">account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='preview_invoice']" position="after">
+                    <button name="%(action_import_invoice_line_wizard)d" class="oe_highlight"
+                            string="Import Invoice Line" type="action"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"
+                            groups="import_bridge_axis.security_group_invoice"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_import_sale_order_line_button" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_cancel']" position="after">
+                    <button name="%(action_import_sale_order_line_wizard)d" class="oe_highlight"
+                            string="Import Sale Order Line" type="action"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"
+                            groups="import_bricdge_axis.security_group_sale_order"/>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="import_purchase_order_line_form_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='button_done']" position="after">
+                    <button name="%(action_import_purchase_order_line_wizard)d" class="oe_highlight"
+                            string="Import Purchase Order Line" type="action"
+                            attrs="{'invisible': [('state', '!=', 'draft'),('state', '!=', 'sent'),('state', '!=', 'purchase')]}"
+                            groups="import_bridge_axis.security_group_purchase_order"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

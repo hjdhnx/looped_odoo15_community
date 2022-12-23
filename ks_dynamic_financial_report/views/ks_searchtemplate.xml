@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="ks_repport_buttons">
+            <button type="button" class="btn btn-primary ks_report_pdf"
+                    style="position: relative;">Print (Pdf)
+            </button>
+            <button type="button" class="btn btn-primary ks_report_xlsx" style="position: relative;">
+                Export (XLSX)
+            </button>
+            <!--            <t name='new'>-->
+            <button type="button" class="btn btn-primary ks_send_email"
+                    style="position: relative;">
+                Send Email
+            </button>
+            <!--            </t>-->
+        </template>
+        <template id="ks_searchview_filters">
+            <div class="btn-group o_dropdown o_account_reports_filter_date ks_filter_date">
+                <t t-if="ks_df_informations['ks_intervals']">
+                    <t t-call="ks_dynamic_financial_report.ks_searchview_date_filter"/>
+                </t>
+            </div>
+            <div class="btn-group o_dropdown ks_df_differentiate">
+                <t t-if="ks_df_informations['ks_differentiation']">
+                    <t t-call="ks_dynamic_financial_report.ks_searchview_differentiate_filter"/>
+                </t>
+            </div>
+            <div class="btn-group o_dropdown ks_dynamic_report_base_journals_filter"
+                 t-if="ks_df_informations['ks_journal_filter_visiblity']">
+                <t t-call="ks_dynamic_financial_report.ks_searchview_journals_filter"/>
+            </div>
+            <div class="btn-group o_dropdown ks_dynamic_report_base_partner_filter"
+                 t-if="ks_df_informations['ks_partner_filter']">
+                <t t-call="ks_dynamic_financial_report.ks_searchview_partner_filter"/>
+            </div>
+            <div class="btn-group o_dropdown ks_dynamic_report_base_account_filter"
+                 t-if="ks_df_informations['ks_partner_account_type_filter']">
+                <t t-call="ks_dynamic_financial_report.ks_searchview_account_filter"/>
+            </div>
+<!--            <div class="btn-group o_dropdown ks_dynamic_report_base_account_filter"-->
+<!--                 t-if="ks_df_informations['ks_generic_tax_filter']">-->
+<!--                <t t-call="ks_dynamic_financial_report.ks_searchview_tax_report"/>-->
+<!--            </div>-->
+            <div class="btn-group o_dropdown ks_dynamic_report_base_account_filter"
+                 t-if="ks_df_informations['ks_analytic_account_visibility'] ">
+                <t t-call="ks_dynamic_financial_report.ks_searchview_analytic_filter"/>
+            </div>
+
+            <div id="extra_ks_df_informations_dropdown" class="btn-group o_dropdown o_account_reports_filter_bool">
+                <t t-call="ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations"/>
+            </div>
+
+            <div id="extra_ks_account_information" class="btn-group o_dropdown ks_dynamic_report_base_journals_filter"
+                t-if="ks_df_informations['ks_account_filter_visiblity']">
+                <t t-call="ks_dynamic_financial_report.ks_searchview_extra_ks_account_information"/>
+            </div>
+
+        </template>
+
+        <template id="ks_searchview_date_filter">
+            <button type="button" class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown">
+                <span class="fa fa-calendar" title="Dates" role="img" aria-label="Dates"/>
+                <t t-if="ks_df_informations['date'].get('ks_string') and ks_df_informations['date'].get('ks_filter') != 'custom'">
+                    <t t-esc="ks_df_informations['date']['ks_string']"/>
+                </t>
+                <t t-if="ks_df_informations['date'].get('ks_filter') == 'custom'">
+                    <t t-if="ks_df_informations['date']['ks_process'] == 'single'">Date:
+                        <span class="js_format_date">
+                            <t t-esc="ks_df_informations['date']['ks_end_date']"/>
+                        </span>
+                    </t>
+                    <t t-if="ks_df_informations['date']['ks_process'] == 'range'">From:
+                        <span class="js_format_date">
+                            <t t-esc="ks_df_informations['date']['ks_start_date']"/>
+                        </span>
+                        <br/>
+                        <span class="o_reports_date_to">to:
+                            <span class="js_format_date">
+                                <t t-esc="ks_df_informations['date']['ks_end_date']"/>
+                            </span>
+                        </span>
+                    </t>
+                </t>
+            </button>
+            <div class="dropdown-menu o_filter_menu" role="menu">
+                <t t-if="ks_df_informations['date']['ks_process'] == 'single'">
+                    <a role="menuitem" class="dropdown-item js_account_report_date_filter" title="Today"
+                       data-filter="today">Today
+                    </a>
+                    <a role="menuitem" class="dropdown-item js_account_report_date_filter" title="End of Last Month"
+                       data-filter="last_month">End of Last Month
+                    </a>
+                    <a role="menuitem" class="dropdown-item js_account_report_date_filter" title="End of Last Quarter"
+                       data-filter="last_quarter">End of Last Quarter
+                    </a>
+                    <a role="menuitem" class="dropdown-item js_account_report_date_filter"
+                       title="End of Last Financial Year" data-filter="last_year">End of Last Financial Year
+                    </a>
+                </t>
+                <t t-if="ks_df_informations['date']['ks_process'] == 'range'">
+                    <a role="menuitem" class="dropdown-item js_account_report_date_filter" title="This Month"
+                       data-filter="this_month">This Month
+                    </a>
+                    <a role="menuitem" class="dropdown-item js_account_report_date_filter" title="This Quarter"
+                       data-filter="this_quarter">This Quarter
+                    </a>
+                    <a role="menuitem" class="dropdown-item js_account_report_date_filter" title="This Financial Year"
+                       data-filter="this_year">This Financial Year
+                    </a>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <a role="menuitem" class="dropdown-item js_account_report_date_filter" title="Last Month"
+                       data-filter="last_month">Last Month
+                    </a>
+                    <a role="menuitem" class="dropdown-item js_account_report_date_filter" title="Last Quarter"
+                       data-filter="last_quarter">Last Quarter
+                    </a>
+                    <a role="menuitem" class="dropdown-item js_account_report_date_filter" title="Last Financial Year"
+                       data-filter="last_year">Last Financial Year
+                    </a>
+                </t>
+                <div role="separator" class="dropdown-divider"></div>
+                <a role="menuitem" class="dropdown-item js_foldable_trigger o_closed_menu ks_stop_propagation"
+                   data-filter='custom_filter_date'>Custom
+                </a>
+                <div class="o_foldable_menu o_closed_menu o_account_report_search p-3" data-filter='custom_filter_date'>
+                    <t t-if="ks_df_reports_ids.ks_name not in ['Age Receivable', 'Age Payable']">
+                        <label class="custom-date" for="ks_start_date">Start Date :</label>
+                        <div class="form-group custom-date">
+                            <div class='o_datepicker js_account_reports_datetimepicker'
+                                 t-att-data-default-value="ks_df_informations['date']['ks_start_date']">
+                                <input type='text' class="o_datepicker_input" name="ks_start_date"/>
+                                <span class="o_datepicker_button"/>
+                            </div>
+                        </div>
+                    </t>
+                    <label class="custom-date" for="ks_date_to"
+                           t-if="ks_df_informations['date']['ks_process'] in ['single', 'range']">End Date :
+                    </label>
+                    <div class="form-group custom-date">
+                        <div class='o_datepicker js_account_reports_datetimepicker'
+                             t-att-data-default-value="ks_df_informations['date']['ks_end_date']">
+                            <input type='text' class="o_datepicker_input" name="ks_end_date"/>
+                            <span class="o_datepicker_button"/>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary js_account_report_date_filter" data-filter="custom">
+                        Apply
+                    </button>
+                </div>
+            </div>
+        </template>
+
+        <template id="ks_searchview_differentiate_filter">
+            <button type="button" class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown">
+                <span class="fa fa-bar-chart"/>
+                Differentiate:
+                <t t-if="ks_df_informations['ks_differ'].get('string') and ks_df_informations['ks_differ'].get('ks_differentiate_filter') != 'custom'">
+                    <t t-esc="ks_df_informations['ks_differ']['string']"/>
+                </t>
+                <t t-if="ks_df_informations['ks_differ'].get('ks_differentiate_filter') == 'custom'">
+                    <t t-if="ks_df_informations['date']['ks_process'] == 'range'">
+                        <span class="o_reports_date_to">
+                            <span class="js_format_date">
+                                <t t-esc="ks_df_informations['ks_differ']['ks_start_date']"/>
+                            </span>
+                        </span>
+                        <span class="o_reports_date_to">-
+                            <span class="js_format_date">
+                                <t t-esc="ks_df_informations['ks_differ']['ks_end_date']"/>
+                            </span>
+                        </span>
+                    </t>
+                    <t t-if="ks_df_informations['date']['ks_process'] == 'single'">Date:
+                        <span class="js_format_date">
+                            <t t-esc="ks_df_informations['ks_differ']['ks_end_date']"/>
+                        </span>
+                    </t>
+                </t>
+                -
+            </button>
+            <div class="dropdown-menu p-3 o_filter_menu" role="menu">
+                <a role="menuitem" title="No Comparison" data-filter="no_differentiation"
+                   class="dropdown-item js_account_report_date_cmp_filter">No Comparison
+                </a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a role="menuitem" class="dropdown-item js_foldable_trigger o_closed_menu ks_stop_propagation"
+                   data-filter='earlier_interval_filter'>Previous Period
+                </a>
+                <div class="o_foldable_menu o_closed_menu o_account_report_search"
+                     data-filter='earlier_interval_filter'>
+                    <label for="periods_number">Number of periods :</label>
+                    <br/>
+                    <input type="number" name="periods_number"
+                    />
+                    <br/>
+                    <button type="button" class="btn btn-primary js_account_report_date_cmp_filter"
+                            data-filter='earlier_interval'>Apply
+                    </button>
+                </div>
+                <div role="separator" class="dropdown-divider"></div>
+                <a role="menuitem" class="dropdown-item js_foldable_trigger o_closed_menu ks_stop_propagation"
+                   data-filter='custom_cmp_filter'>Custom
+                </a>
+                <div class="o_foldable_menu o_closed_menu o_account_report_search p-3" data-filter='custom_cmp_filter'>
+                    <t t-if="ks_df_informations['date']['ks_process'] in ['range', 'single']">
+                        <label class="custom-date" for="date_from_cmp">Start Date :</label>
+                        <div class="form-group custom-date">
+                            <div class='o_datepicker js_account_reports_datetimepicker'
+                                 t-att-data-default-value="ks_df_informations['ks_differ']['ks_start_date']">
+                                <input type='text' class="o_datepicker_input" name="date_from_cmp"/>
+                                <span class="o_datepicker_button"/>
+                            </div>
+                        </div>
+                    </t>
+                    <label class="custom-date" for="date_to_cmp"
+                           t-if="ks_df_informations['date']['ks_process'] in ['range', 'single']">End Date :
+                    </label>
+                    <div class="form-group custom-date">
+                        <div class='o_datepicker js_account_reports_datetimepicker'
+                             t-att-data-default-value="ks_df_informations['ks_differ']['ks_end_date']">
+                            <input type='text' class="o_datepicker_input" name="date_to_cmp"/>
+                            <span class="o_datepicker_button"/>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary js_account_report_date_cmp_filter"
+                            data-filter='custom'>Apply
+                    </button>
+                </div>
+            </div>
+        </template>
+
+        <template id="ks_searchview_journals_filter">
+            <button type="button" class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown">
+                <span class="fa fa-book"/>journals
+                <t t-set="selected_journals"
+                   t-value="ks_df_informations.get('name_journal_group') or ', '.join(journal.get('code') for journal in ks_df_informations['journals'] if journal.get('selected'))"/>
+                <t t-if="selected_journals">
+                    <t t-esc="selected_journals"/>
+                </t>
+                <t t-else="">
+                    All
+                </t>
+            </button>
+
+            <t t-if="ks_df_informations.get('ks_journal_enable')">
+                <div class="dropdown-menu o_filter_menu p-3 ks_d_block" role="menu">
+                <t t-foreach="ks_df_informations['journals']" t-as="j">
+                    <t t-if="j.get('id') == 'divider'">
+                        <div role="separator" class="dropdown-divider"/>
+                        <b role="menuitem" class="ml4 dropdown-item-text">
+                            <t t-esc="j.get('name')"/>
+                        </b>
+                        <div role="separator" class="dropdown-divider"/>
+                    </t>
+                    <t t-if="j.get('id') != 'divider'">
+                        <t t-if="j.get('id') == 'group'">
+                            <a role="menuitem" class="dropdown-item js_account_report_group_choice_filter"
+                               data-filter="journals" t-att-data-id="j.get('id')" t-att-data-member-ids="j.get('ids')">
+                                <t t-esc="j.get('name')"/>
+                            </a>
+                        </t>
+                        <t t-else="">
+                            <a role="menuitem" class="dropdown-item js_account_report_choice_filter"
+                               t-att-title="j.get('name')+ '-' + j.get('code')" t-att-data-id="j.get('id')"
+                               data-filter="journals">
+                                <t t-esc="j.get('name')"/>
+                            </a>
+                        </t>
+                    </t>
+                </t>
+            </div>
+            </t>
+            <t t-else="">
+                <div class="dropdown-menu o_filter_menu p-3" role="menu">
+                <t t-foreach="ks_df_informations['journals']" t-as="j">
+                    <t t-if="j.get('id') == 'divider'">
+                        <div role="separator" class="dropdown-divider"/>
+                        <b role="menuitem" class="ml4 dropdown-item-text">
+                            <t t-esc="j.get('name')"/>
+                        </b>
+                        <div role="separator" class="dropdown-divider"/>
+                    </t>
+                    <t t-if="j.get('id') != 'divider'">
+                        <t t-if="j.get('id') == 'group'">
+                            <a role="menuitem" class="dropdown-item js_account_report_group_choice_filter"
+                               data-filter="journals" t-att-data-id="j.get('id')" t-att-data-member-ids="j.get('ids')">
+                                <t t-esc="j.get('name')"/>
+                            </a>
+                        </t>
+                        <t t-else="">
+                            <a role="menuitem" class="dropdown-item js_account_report_choice_filter"
+                               t-att-title="j.get('name')+ '-' + j.get('code')" t-att-data-id="j.get('id')"
+                               data-filter="journals">
+                                <t t-esc="j.get('name')"/>
+                            </a>
+                        </t>
+                    </t>
+                </t>
+            </div>
+            </t>
+        </template>
+
+        <template id="ks_searchview_partner_filter">
+            <button type="button" t-if="ks_df_informations.get('ks_partner')"
+                    class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle ks_df_partner_filter"
+                    data-toggle="dropdown">
+                <span class="fa fa-folder-open"/>
+                Partners
+            </button>
+            <ul class="dropdown-menu o_filter_menu p-3" role="menu">
+                <li class="o_account_report_search js_account_partner_m2m"/>
+            </ul>
+        </template>
+
+        <template id="ks_searchview_account_filter">
+            <button type="button" class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle ks_search_account_filter"
+                    data-toggle="dropdown">
+                <span class="fa fa-user"/>
+                Account:
+                <t t-set="account_value">Both</t>
+                <t t-foreach="ks_df_informations['account_type']" t-as="a">
+                    <t t-if="a.get('selected') == True">
+                        <t t-set="account_value" t-value="''"/>
+                        <t t-esc="a.get('name')"/>
+                    </t>
+                </t>
+                <t t-esc="account_value"/>
+
+            </button>
+            <t t-if="ks_df_informations.get('ks_account_both_enable')">
+                <div class="dropdown-menu o_filter_menu ks_d_block p-3" role="menu">
+                    <t t-foreach="ks_df_informations['account_type']" t-as="a">
+                        <a role="menuitem" class="dropdown-item js_account_report_choice_filter" t-att-title="a.get('name')"
+                           t-att-data-id="a.get('id')" data-filter="account_type">
+                            <t t-esc="a.get('name')"/>
+                        </a>
+                    </t>
+                </div>
+            </t>
+            <t t-else="">
+                <div class="dropdown-menu o_filter_menu p-3" role="menu">
+                    <t t-foreach="ks_df_informations['account_type']" t-as="a">
+                        <a role="menuitem" class="dropdown-item js_account_report_choice_filter" t-att-title="a.get('name')"
+                           t-att-data-id="a.get('id')" data-filter="account_type">
+                            <t t-esc="a.get('name')"/>
+                        </a>
+                    </t>
+                </div>
+            </t>
+        </template>
+
+        <template id="ks_searchview_extra_ks_df_informations">
+            <button type="button" class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown">
+                <span class="fa fa-filter"/>
+                Options:
+                <t t-if="ks_df_informations.get('ks_posted_entries') != None" groups="account.group_account_readonly">
+                    <t t-if="ks_df_informations.get('ks_posted_entries') or ks_df_informations.get('ks_unposted_entries')  ">
+                        <t t-if="ks_df_informations.get('ks_posted_entries') and not ks_df_informations.get('ks_unposted_entries')">
+                            <t>Posted Entries</t>
+                        </t>
+                        <t t-if="ks_df_informations.get('ks_unposted_entries') and  not ks_df_informations.get('ks_posted_entries')">
+                            <t>Draft Entries</t>
+                        </t>
+                    </t>
+                    <t t-if="ks_df_informations.get('ks_posted_entries') and ks_df_informations.get('ks_unposted_entries') ">
+                        <t>Posted Entries,Draft Entries</t>
+                    </t>
+
+                </t>
+            </button>
+            <t t-if="ks_df_informations.get('ks_option_enable')">
+                <div class="dropdown-menu o_filter_menu ks_d_block" role="menu">
+
+                    <a role="menuitem" class="dropdown-item js_account_report_bool_filter"
+                   title="Posted entries" data-filter="ks_posted_entries"
+                   t-if="ks_df_informations.get('ks_posted_entries') != None"
+                   groups="account.group_account_readonly">Posted Entries
+                </a>
+
+                    <a role="menuitem" class="dropdown-item js_account_report_bool_filter"
+                   title="UnPosted entries" data-filter="ks_unposted_entries"
+                   t-if="ks_df_informations.get('ks_unposted_entries') != None"
+                   groups="account.group_account_readonly">UnPosted Entries(Draft)
+                </a>
+
+                    <a role="menuitem" class="dropdown-item js_account_report_bool_filter"
+                   title="reconciled" data-filter="ks_reconciled"
+                   t-if="ks_df_reports_ids.ks_name=='Partner Ledger'">Show
+                    reconciled Entriess
+                </a>
+
+                    <a role="menuitem" class="dropdown-item js_account_report_bool_filter"
+                   title="Unreconciled" data-filter="ks_unreconciled"
+                   t-if="ks_df_reports_ids.ks_name=='Partner Ledger'">Show
+                    Unreconciled Entries
+                </a>
+
+                    <a t-if="ks_df_reports_ids.ks_name not in ['Age Receivable', 'Age Payable']" role="menuitem"
+                   class="dropdown-item js_account_report_bool_filter"
+                   title="Change_date_range" data-filter="ks_comparison_range">To change date range
+                </a>
+
+                    <a role="menuitem" class="dropdown-item js_account_report_bool_filter"
+                   title="Detail reports" data-filter="ks_report_with_lines"
+                   t-if="ks_df_reports_ids.ks_name not in ['Balance Sheet', 'Profit and Loss', 'Cash Flow Statement', 'Executive Summary', 'Tax Report', 'Trial Balance']">
+                    To Print Report With Details
+                </a>
+            </div>
+            </t>
+            <t t-else="">
+                <div class="dropdown-menu o_filter_menu" role="menu">
+                <a role="menuitem" class="dropdown-item js_account_report_bool_filter"
+                   title="Posted entries" data-filter="ks_posted_entries"
+                   t-if="ks_df_informations.get('ks_posted_entries') != None"
+                   groups="account.group_account_readonly">Posted Entries
+                </a>
+                <a role="menuitem" class="dropdown-item js_account_report_bool_filter"
+                   title="UnPosted entries" data-filter="ks_unposted_entries"
+                   t-if="ks_df_informations.get('ks_unposted_entries') != None"
+                   groups="account.group_account_readonly">UnPosted Entries(Draft)
+                </a>
+
+                <a role="menuitem" class="dropdown-item js_account_report_bool_filter"
+                   title="reconciled" data-filter="ks_reconciled"
+                   t-if="ks_df_reports_ids.ks_name=='Partner Ledger'">Show
+                    reconciled Entriess
+                </a>
+                <a role="menuitem" class="dropdown-item js_account_report_bool_filter"
+                   title="Unreconciled" data-filter="ks_unreconciled"
+                   t-if="ks_df_reports_ids.ks_name=='Partner Ledger'">Show
+                    Unreconciled Entries
+                </a>
+                <a t-if="ks_df_reports_ids.ks_name not in ['Age Receivable', 'Age Payable']" role="menuitem"
+                   class="dropdown-item js_account_report_bool_filter"
+                   title="Change_date_range" data-filter="ks_comparison_range">To change date range
+                </a>
+                <a role="menuitem" class="dropdown-item js_account_report_bool_filter"
+                   title="Detail reports" data-filter="ks_report_with_lines"
+                   t-if="ks_df_reports_ids.ks_name not in ['Balance Sheet', 'Profit and Loss', 'Cash Flow Statement', 'Executive Summary', 'Tax Report', 'Trial Balance']">
+                    To Print Report With Details
+                </a>
+            </div>
+            </t>
+        </template>
+
+        <template id="ks_searchview_extra_ks_account_information">
+            <button type="button" class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown">
+                <span class="fa fa-book"/>
+                Account
+                <t t-set="selected_account"
+                   t-value="', '.join(account.get('name') for account in ks_df_informations['account'] if account.get('selected'))"/>
+                <t t-if="selected_account">
+                    <t t-esc="selected_account"/>
+                </t>
+            </button>
+            <t t-if="ks_df_informations.get('ks_account_enable')">
+                <div class="dropdown-menu o_filter_menu p-3 ks_d_block" role="menu" style="height: auto;max-height: 500px; overflow-x: hidden;">
+                <t t-foreach="ks_df_informations['account']" t-as="a">
+                    <a role="menuitem" class="dropdown-item js_account_report_choice_filter" t-att-title="a.get('name')"
+                       t-att-data-id="a.get('id')" data-filter="account">
+                        <t t-esc="a.get('name')"/>
+                    </a>
+                </t>
+            </div>
+            </t>
+
+            <t t-else="">
+               <div class="dropdown-menu o_filter_menu p-3" role="menu" style="height: auto;max-height: 500px; overflow-x: hidden;">
+                <t t-foreach="ks_df_informations['account']" t-as="a">
+                    <a role="menuitem" class="dropdown-item js_account_report_choice_filter" t-att-title="a.get('name')"
+                       t-att-data-id="a.get('id')" data-filter="account">
+                        <t t-esc="a.get('name')"/>
+                    </a>
+                </t>
+            </div>
+            </t>
+
+        </template>
+
+        <template id="ks_searchview_analytic_filter">
+            <button type="button" t-if="ks_df_informations.get('analytic')"
+                    class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle ks_df_analytic_filter"
+                    data-toggle="dropdown">
+                <span class="fa fa-folder-open"/>
+                Analytic
+            </button>
+            <ul class="dropdown-menu o_filter_menu p-3" role="menu">
+                <li class="o_account_report_search js_account_analytic_m2m"/>
+            </ul>
+        </template>
+
+    </data>
+</odoo>

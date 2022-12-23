@@ -1,0 +1,36 @@
+<openerp>
+    <data noupdate="1">
+
+           <record id="sever_configurationo_bject0" model="sever.configuration">
+             <field name="host">localhost</field>
+             <field name="port">22</field>
+             <field name="user_name">admin</field>
+           </record>
+
+        	<record id="use_server_to_transfer_file" model="ir.config_parameter">
+                <field name="key">use_server_to_transfer_file</field>
+                <field name="value">1</field>
+            </record>
+        <!--  -->
+        <!--   <record id="object1" model="file_save.file_save"> -->
+        <!--     <field name="name">Object 1</field> -->
+        <!--     <field name="value">10</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object2" model="file_save.file_save"> -->
+        <!--     <field name="name">Object 2</field> -->
+        <!--     <field name="value">20</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object3" model="file_save.file_save"> -->
+        <!--     <field name="name">Object 3</field> -->
+        <!--     <field name="value">30</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object4" model="file_save.file_save"> -->
+        <!--     <field name="name">Object 4</field> -->
+        <!--     <field name="value">40</field> -->
+        <!--   </record> -->
+        <!--  -->
+    </data>
+</openerp>

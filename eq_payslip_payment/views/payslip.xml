@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--	<record id="inherit_view_hr_payslip_form" model="ir.ui.view">-->
+<!--		<field name="name">hr.payslip.form.view</field>-->
+<!--		<field name="model">hr.payslip</field>-->
+<!--		<field name="inherit_id" ref="hr_payroll.view_hr_payslip_form" />-->
+<!--		<field name="arch" type="xml">-->
+<!--			<button name="action_payslip_cancel" position="before">-->
+<!--				<button string="Payslip Payment" name="wizard_payslip_payment"-->
+<!--					type="object" states="done" class="oe_highlight"  groups="eq_payslip_payment.group_payslip_payment"/>-->
+<!--			</button>-->
+<!--			<field name="credit_note" position="after">-->
+<!--				<field name="pay_amount" invisible="1" />-->
+<!--				<field name="payment_move_ids" widget="many2many_tags"-->
+<!--					invisible="1" />-->
+<!--			</field>-->
+<!--			<xpath expr="//sheet/div[hasclass('oe_button_box')]" position="inside">-->
+<!--				<button name="action_view_entries" class="oe_stat_button"-->
+<!--					icon="fa-bars" type="object" string="Payslip Payment"-->
+<!--					attrs="{'invisible': [('payment_move_ids', '=', [])]}" />-->
+<!--			</xpath>-->
+<!--		</field>-->
+<!--	</record>-->
+
+
+
+<!--	<record id="inherit_view_hr_payslip_run_form" model="ir.ui.view">-->
+<!--		<field name="name">hr.payslip.run.form.view</field>-->
+<!--		<field name="model">hr.payslip.run</field>-->
+<!--		<field name="inherit_id" ref="hr_payroll.hr_payslip_run_form" />-->
+<!--		<field name="arch" type="xml">-->
+<!--			<button name="action_draft" position="before">-->
+<!--				<button string="Payslip Payment" name="wizard_payslip_payment"-->
+<!--					type="object" states="close" class="oe_highlight" -->
+<!--					 groups="eq_payslip_payment.group_payslip_payment"/>-->
+<!--			</button>-->
+<!--			-->
+<!--		</field>-->
+<!--	</record>-->
+</odoo>

@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+        <record id="hr_leave_allocation_view_form_manager" model="ir.ui.view">
+            <field name="name">hr.leave.allocation.view.form</field>
+            <field name="model">hr.leave.allocation</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form_manager"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_id']" position="after">
+                <field name="request_reason" invisible="1"/>
+                    <field name="manual_allocation" invisible="0" attrs="{'readonly':[('state','not in',['draft','confirm'])]}"/>
+                    <field name="contract_id" domain="[('employee_id','=',employee_id)]" attrs="{
+                        'invisible':[('manual_allocation','!=',True)],
+                        'required':[('manual_allocation','=',True)],
+                        'readonly':[('state','not in',['draft','confirm'])]}"/>
+                    <field name="date" attrs="{'invisible':[('manual_allocation','!=',True)],
+                        'required':[('manual_allocation','=',True)],
+                    'readonly':[('state','not in',['draft','confirm'])]}"/>
+                    <field name="is_created_auto" invisible="1"/>
+                    
+                   
+                </xpath>
+
+                <xpath expr="//field[@name='number_of_days_display']" position="before">
+                    <field name="used_duration" invisible="1"/>
+                    <div class="o_td_label" attrs="{'invisible':[('manual_allocation','!=',True)]}">
+                        <label for="used_duration" string="Used Duration" attrs="{'invisible': [('allocation_type', '=', 'accrual')]}"/>
+                    </div>
+                    <div attrs="{'invisible':[('manual_allocation','!=',True)]}">
+                        <field name="used_duration" class="oe_inline" nolabel="1" attrs="{'readonly': ['|', ('type_request_unit', '=', 'hour'), ('state', 'not in', ('draft', 'confirm'))], 'invisible': [('type_request_unit', '=', 'hour')]}"/>
+                        <span class="ml8" attrs="{'invisible': [('type_request_unit', '=', 'hour')]}">Days</span>
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

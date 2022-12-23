@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="custody_property_form" model="ir.ui.view">
+        <field name="name">custody.property.form</field>
+        <field name="model">custody.property</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <field name="image" widget='image' class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <div class="o_row">
+                                <field name="code"/>
+                                <field name="name"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="item_id"
+                                   options="{'no_open': True, 'no_create': True}"/>
+                            <field name="property_type" widget="radio"/>
+                            <field name="asset_id"
+                                   options="{'no_open': True, 'no_create': True}"
+                                   attrs="{'invisible': [('property_type', '!=', 'asset')]}"/>
+                            <field name="product_id"
+                                   options="{'no_open': True, 'no_create': True}"
+                                   attrs="{'invisible': [('property_type', '!=', 'product')]}"/>
+                            <field name="company_id"
+                                   options="{'no_open': True, 'no_create': True}"
+                                   groups="base.group_multi_company"/>
+                        </group>
+                        <group groups="hr_custody.group_manage_custody" attrs="{'invisible': [('asset_id', '=', False)]}">
+<!--                            <field name="original_value"/>-->
+<!--                            <field name="book_value"/>-->
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="description" string="Description">
+                            <field name="desc"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="custody_property_tree" model="ir.ui.view">
+        <field name="name">custody.property.tree</field>
+        <field name="model">custody.property</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="item_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="custody_property_action" model="ir.actions.act_window">
+        <field name="name">Custody Property</field>
+        <field name="res_model">custody.property</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="custody_property_menu"
+              name="Property"
+              action="custody_property_action"
+              parent="hr_custody_root_menu"
+              groups="hr.group_hr_manager,hr_custody.group_manage_custody"
+              sequence="5"/>
+
+</odoo>

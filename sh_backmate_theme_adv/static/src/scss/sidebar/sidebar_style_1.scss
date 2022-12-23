@@ -1,0 +1,144 @@
+@if $theme_style == 'style_1' AND $sidebar_collapse_style == 'collapsed'{
+	@media only screen and (min-width: 993px){
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block,nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .logo{background: $primaryColor;}
+	}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block:hover,nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block:hover .logo{background: $sidebar_bg_color;}
+	@media only screen and (min-width: 993px){
+		nav.o_main_navbar .sh_backmate_theme_appmenu_div .o-dropdown--menu.dropdown-menu.d-block .cssmenu span.dropdown-item.o_app2 span.sh_fa_icon, nav.o_main_navbar .sh_backmate_theme_appmenu_div .o-dropdown--menu.dropdown-menu.d-block .cssmenu span.dropdown-item.o_app span.sh_fa_icon{color: #fff !important;}
+	}
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div.focus span.dropdown-item.o_app2 span.sh_fa_icon,
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app2 span.sh_fa_icon, nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app span.sh_fa_icon{color: $sidebar_font_color !important;}
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.focus span.sh_fa_icon,
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:hover span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:focus span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.active span.sh_fa_icon, 
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app.focus span.sh_fa_icon,
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:hover span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:focus span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app.active span.sh_fa_icon,
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app.focus span.sh_fa_icon,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:hover span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:focus span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app.active span.sh_fa_icon,.sh_backmate_theme_appmenu_div .cssmenu span.dropdown-item:hover span,.sh_backmate_theme_appmenu_div .cssmenu span.dropdown-item:focus span,.sh_backmate_theme_appmenu_div .cssmenu span.dropdown-item:active span,.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .logo #hide_top_bar, .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .logo #show_top_bar,.icon-top_hide:hover:before, .icon-top_show:hover::before{color: $primaryColor !important;}
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.focus,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:hover,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.focus, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:focus, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:active,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.active,
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app.focus,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:hover, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:focus, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:active,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app.active,
+	.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu .dropdown-header > a:hover,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu .dropdown-header > a:focus,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu .dropdown-header > a.active,
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:hover > a,
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:focus > a,
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app.focus > a,
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:active > a{background: transparent !important;color: $primaryColor !important;}
+	.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block ul.dropdown-menu a.active span,.sh_backmate_theme_appmenu_div ul.dropdown-menu.show_ul .dropdown-item a:hover span,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a:hover span,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a:focus span,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a.active span,
+	.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > .dropdown-item:hover,
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app2:hover span.sh_fa_icon, nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app:hover span.sh_fa_icon,
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app2.focus span.sh_fa_icon, nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app.focus span.sh_fa_icon,
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app.active span{color: $primaryColor !important;}
+	.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu:hover .dropdown-item:hover span,.sh_backmate_theme_appmenu_div ul.dropdown-menu .dropdown-header a:hover{letter-spacing: .5px;transition: all .5s;}
+	.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu .dropdown-item span,.sh_backmate_theme_appmenu_div ul.dropdown-menu .dropdown-header a{transition: all .3s;}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu span.dropdown-item.active,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu span.dropdown-item.focus{background: #fff !important;}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu span.dropdown-item.active .sh_fa_icon,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu span.dropdown-item.focus .sh_fa_icon
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover .dropdown.cssmenu a.dropdown-item.active > .sh_fa_icon{color: $primaryColor !important;}
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2 span.sh_fa_icon{margin-right: 16px !important;}
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block::-webkit-scrollbar{width: 0px !important;}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block:hover .cssmenu span.dropdown-item.o_app2 span.sh_fa_icon, nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block:hover .cssmenu span.dropdown-item.o_app span.sh_fa_icon,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu ul.dropdown-menu .dropdown-header a{color: $sidebar_font_color !important;}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block:hover .cssmenu > span.dropdown-item:hover span.sh_fa_icon,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block:hover .cssmenu > span.dropdown-item.focus span.sh_fa_icon,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu ul.dropdown-menu .dropdown-header a:hover,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu ul.dropdown-menu .dropdown-header a.focus{background: transparent !important;color: $primaryColor !important;}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu ul.dropdown-menu .dropdown-header > span,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu .dropdown-item span + span{font-weight: normal !important;}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block ul.dropdown-menu .dropdown-header.o_menu_header_lvl_2{padding-top: 0px !important;padding-bottom: 0px !important;margin-top: 0px;}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu .dropdown-item.focus span,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu .dropdown-item.active span{color: $primaryColor !important;}
+}
+@if $theme_style == 'style_1' AND $sidebar_collapse_style == 'expanded'{
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.focus span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app.focus span.sh_fa_icon,
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:hover span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:focus span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.active span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:hover span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:focus span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app.active span.sh_fa_icon,.sh_backmate_theme_appmenu_div a.dropdown-item:hover span,.sh_backmate_theme_appmenu_div a.dropdown-item:focus span,.sh_backmate_theme_appmenu_div a.dropdown-item:active span,.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .logo #hide_top_bar, .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .logo #show_top_bar,.icon-top_hide:hover:before, .icon-top_show:hover::before{color: $primaryColor !important;}
+	.icon-top_hide:hover:before,.icon-top_show:hover::before{color: #252525;}
+	.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block::-webkit-scrollbar{width: 0px;}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .logo{background: #fff;}
+	.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu:hover .dropdown-item:hover span,.sh_backmate_theme_appmenu_div ul.dropdown-menu .dropdown-header a:hover{letter-spacing: .5px;transition: all .5s;}
+	.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu .dropdown-item span,.sh_backmate_theme_appmenu_div ul.dropdown-menu .dropdown-header a{transition: all .3s;}
+	.sh_backmate_theme_appmenu_div a.dropdown-item:hover,.sh_backmate_theme_appmenu_div a.dropdown-item:focus,.sh_backmate_theme_appmenu_div a.dropdown-item:active,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:hover, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.focus,
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.focus,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:focus, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.active,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a:hover,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a:focus,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a:active,
+	.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > .dropdown-item:hover,
+	.sh_backmate_theme_appmenu_div span.dropdown-item.o_app.focus ,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:hover, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:focus, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app.active{background: transparent !important;color: $primaryColor !important;}
+	nav.o_main_navbar .sh_backmate_theme_appmenu_div ul.dropdown-menu a.active{background: transparent !important;}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu ul.dropdown-menu .dropdown-header a{color: $sidebar_font_color !important;}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu .dropdown-item span + span{font-weight: normal !important;}
+	.sh_backmate_theme_appmenu_div ul.dropdown-menu a.active span,.sh_backmate_theme_appmenu_div ul.dropdown-menu.show_ul .dropdown-item a:hover span,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu .dropdown-item.focus span,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu .dropdown-item.active span,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu .dropdown-menu.dropdown-menu-right .dropdown-header .dropdown-item.dropdown-toggle:hover::after,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu .dropdown-menu.dropdown-menu-right .dropdown-header .dropdown-item.dropdown-toggle.focus::after,
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu .dropdown-menu.dropdown-menu-right .dropdown-header .dropdown-item.dropdown-toggle.sh_sub_dropdown::after{color: $primaryColor !important;}
+	nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu .dropdown-menu.dropdown-menu-right .dropdown-header.o_menu_header_lvl_2 > a.dropdown-item.dropdown-toggle{padding-left: 25px !important;}
+	
+}
+@if $theme_style == 'style_1'{
+	
+	@if $sidebar_background_style == 'image'{
+		.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block{background: url('/web/image?model=sh.back.theme.config.settings&id=1&field=sidebar_background_image') !important;background-repeat: no-repeat;background-size: cover !important;background-position: top center;}
+		.o_navbar_apps_menu.sh_backmate_theme_appmenu_div .dropdown-menu.d-block.o-dropdown--menu:before{position: fixed;top: 0;left: 0;right: 0;bottom: 0;content: "";z-index: -1;opacity: .8;background: linear-gradient(0deg, $primaryColor 0%, $primaryColor 100%);width: inherit;}
+		.o_navbar_apps_menu.sh_backmate_theme_appmenu_div .o-dropdown--menu .cssmenu span.dropdown-item.o_app,.o_navbar_apps_menu.sh_backmate_theme_appmenu_div .o-dropdown--menu .cssmenu span.dropdown-item.o_app2,
+		.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .logo #hide_top_bar, .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .logo #show_top_bar{color: $sidebar_font_color !important;}
+		
+		.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.focus,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:hover, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:focus, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:active,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.active,
+		.sh_backmate_theme_appmenu_div span.dropdown-item.o_app.focus,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:hover, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:focus, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:active,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app.active{background: transparent !important;box-shadow: transparent !important;}
+		.sh_backmate_theme_appmenu_div span.dropdown-item.o_app.focus span,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:hover span,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:focus span,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:active span,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app.active span,
+		.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.focus span,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:hover span,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:focus span,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:active span,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.active span,
+		.sh_backmate_theme_appmenu_div ul.dropdown-menu.show_ul .dropdown-header .action_menu:focus > span,.sh_backmate_theme_appmenu_div ul.dropdown-menu.show_ul .dropdown-header .action_menu:hover span,.sh_backmate_theme_appmenu_div ul.dropdown-menu.show_ul .dropdown-header .action_menu:active span,.sh_backmate_theme_appmenu_div ul.dropdown-menu a.active span,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a:hover,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > .dropdown-item:hover,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a:focus,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a.active,.sh_backmate_theme_appmenu_div ul.dropdown-menu .dropdown-header span,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-toggle:after{color: $sidebar_font_color !important;}
+		.sh_backmate_theme_appmenu_div ul.dropdown-menu.show_ul .dropdown-header .action_menu:focus,.sh_backmate_theme_appmenu_div ul.dropdown-menu.show_ul .dropdown-header .action_menu:hover,.sh_backmate_theme_appmenu_div ul.dropdown-menu.show_ul .dropdown-header .action_menu:active,.sh_backmate_theme_appmenu_div ul.dropdown-menu a.active,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a:hover,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > .dropdown-item:hover,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a:focus,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a.active,
+		.sh_backmate_theme_appmenu_div ul.dropdown-menu.show_ul .dropdown-item.o_menu_header_lvl_1 a:hover{background: transparent !important;box-shadow: none !important;}
+		
+		.sh_backmate_theme_appmenu_div ul.dropdown-menu a.active span,.sh_backmate_theme_appmenu_div ul.dropdown-menu.show_ul .dropdown-item a:hover span,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a:hover span,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > .dropdown-item:hover span,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a:focus span,.sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > a.active span,
+		nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app2:hover span.sh_fa_icon, nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app:hover span.sh_fa_icon,
+		nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app2.focus span.sh_fa_icon, nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app.focus span.sh_fa_icon,
+		nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app.active span,
+		div.sh_backmate_theme_appmenu_div.dropdown-menu .dropdown.cssmenu a.dropdown-item.active .sh_fa_icon,
+		nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover .dropdown.cssmenu a.dropdown-item.active > .sh_fa_icon,
+		nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app2 span.sh_fa_icon, nav.o_main_navbar .sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app span.sh_fa_icon{color: $sidebar_font_color !important;}
+	
+		nav.o_main_navbar .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.focus span.sh_fa_icon,nav.o_main_navbar .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:hover span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2:focus span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app2.active span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:hover span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app.focus span.sh_fa_icon , .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:focus span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app.active span.sh_fa_icon,
+		.sh_backmate_theme_appmenu_div span.dropdown-item.o_app.focus span.sh_fa_icon,.sh_backmate_theme_appmenu_div span.dropdown-item.o_app:hover span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app:focus span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app.active span.sh_fa_icon,.sh_backmate_theme_appmenu_div a.dropdown-item:hover span,.sh_backmate_theme_appmenu_div a.dropdown-item:focus span,.sh_backmate_theme_appmenu_div a.dropdown-item:active span,.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .logo #hide_top_bar, .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .logo #show_top_bar,.icon-top_hide:hover:before, .icon-top_show:hover::before{color: $sidebar_font_color !important;}
+		.o_view_controller .o_form_view .o_form_statusbar{margin-left: 2px;}
+		.o_main_navbar .o_navbar_apps_menu.sh_backmate_theme_appmenu_div .logo,
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu span.dropdown-item.active,
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu span.dropdown-item.focus,
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu .dropdown-menu-right .dropdown-header > a:hover, .sh_backmate_theme_appmenu_div .cssmenu .dropdown-menu-right .dropdown-header > .dropdown-item:hover{background: transparent !important;}
+		.sh_backmate_theme_appmenu_div.dropdown-menu .cssmenu a.dropdown-item.active{background: transparent !important;}
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu .dropdown-item.focus span,
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu .dropdown-item.active span,
+		.sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app2.child_app.active:before,
+		.sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app2.child_app.focus:before,
+		.sh_backmate_theme_appmenu_div:hover span.dropdown-item.o_app2.child_app.sh_dropdown:before,
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu span.dropdown-item.active .sh_fa_icon,
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block .cssmenu span.dropdown-item.focus .sh_fa_icon,
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block:hover .cssmenu > span.dropdown-item.focus span.sh_fa_icon,
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block:hover .cssmenu > span.dropdown-item:hover span.sh_fa_icon,
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu .dropdown-menu.dropdown-menu-right .dropdown-header .dropdown-item.dropdown-toggle.sh_sub_dropdown::after,
+		nav.o_main_navbar .dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu .dropdown-menu.dropdown-menu-right .dropdown-header .dropdown-item.dropdown-toggle:hover::after{color: $sidebar_font_hover_color !important;}
+		
+		@if $sidebar_collapse_style == 'expanded'{
+			.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block::-webkit-scrollbar{width: 0px;}
+			.o_action_manager{margin-left: 260px !important;}
+			.o_cp_top .o_cp_top_right .o_searchview_input_container{width: 100%;}
+			.o_web_client > header,.o_search_panel .o_search_panel_section header{margin-left: 0 !important;}
+			.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu{margin: 5px 7px 0px 10px;border-radius: 3px;}
+			.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu a{border-radius: 3px !important;}
+			.sh_backmate_theme_appmenu_div .cssmenu ul.dropdown-menu-right{margin: 5px 0px;}
+			.sh_backmate_theme_appmenu_div span.dropdown-item.o_app2 span.sh_fa_icon, .sh_backmate_theme_appmenu_div span.dropdown-item.o_app span.sh_fa_icon{color: $sidebar_font_color !important;}
+		}
+		@if $sidebar_collapse_style == 'collapsed'{
+			.o_search_panel header{margin-left: 0px !important;}
+			.o_cp_top .o_cp_top_right .o_searchview_input_container{width: 100%;}	
+			.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block:hover::-webkit-scrollbar{width: 0px;}
+			.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu{margin: 0px;border-radius: 3px;}
+			.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .cssmenu a{border-radius: 3px !important;}
+			.dropdown.sh_backmate_theme_appmenu_div.o_navbar_apps_menu .o-dropdown--menu.dropdown-menu.d-block:hover .cssmenu{margin: 5px 7px 0px 10px;} 
+			.sh_backmate_theme_appmenu_div .cssmenu ul.dropdown-menu-right{margin: 5px 0px;}
+		}
+	}
+}
+@if $theme_style == 'style_1'{
+	@if $sidebar_collapse_style == 'expanded'{
+		.sh_backmate_theme_appmenu_div .logo #company_name_logo{padding-left: 16px !important;}
+	}
+}
+
+

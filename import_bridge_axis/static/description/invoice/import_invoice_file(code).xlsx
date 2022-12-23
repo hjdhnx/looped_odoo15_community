@@ -1,0 +1,4 @@
+Invoice Name,Partner,Currency,Product,Account,Quantity,Uom,Description,Price,Salesperson,Tax,Date
+Invoice 1,Azure Interior,EUR,DESK009,12345,1,Unit(s),Cabinet With Doors,10000,Mitchell Admin,Gst 2%,03/31/2020
+Inovice 2,Azure Interior,EUR,E_COM07,12345,2,Unit(s),Cabinet With Doors,10000,Mitchell Admin,Gst 2%,03/31/2020
+Inovice 3,Camptocamp,EUR,E_COM08,45678,3,Unit(s),Table kit,2000,Mitchell Admin,Get 5%,03/31/2020

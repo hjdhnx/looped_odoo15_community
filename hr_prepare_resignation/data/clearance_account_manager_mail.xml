@@ -1,0 +1,102 @@
+<odoo>
+    <record id="clearance_account_manager_mail_template" model="mail.template">
+        <field name="name">Clearance Account Manager</field>
+        <field name="model_id" ref="hr_prepare_resignation.model_prepare_clearance"/>
+        <field name="model">prepare.clearance</field>
+        <field name="subject"> طلب أخلاء طرف من :${object.employee_id.name}</field>
+         <field eval="0" name="auto_delete"/>
+        <field name="lang">${ctx.get('lang') or user.lang}</field>
+        <field name="email_from">${('&quot;%s&quot; &lt;%s&gt;' % (object.company_id.name, object.company_id.email or user.email)) | safe}</field>
+        <field name="email_to">${object.get_account_manager_group_email_to()}</field>
+        <field name="body_html"><![CDATA[
+<table style="border-collapse: separate; padding-top: 16px; background-color: rgb(241, 241, 241); font-family: Verdana, Arial, sans-serif; color: rgb(69, 71, 72); width: 1069px;" cellspacing="0" cellpadding="0" border="0">
+   <tbody>
+      <tr>
+         <td align="center">
+            <table style="border-collapse: separate; padding: 16px; background-color: white;" width="590" cellspacing="0" cellpadding="0" border="0">
+               <tbody>
+                  <tr>
+                     <td style="min-width: 590px;" align="center">
+                        <table style="border-collapse: separate; min-width: 590px; padding: 0px 8px;" width="590" cellspacing="0" cellpadding="0" border="0">
+                           <tbody>
+                              <tr>
+                                 <td valign="middle"><span style="font-size: 10px;">Heights</span><br><span style="font-size: 20px; font-weight: bold;text-align:center;">   طلب أخلاء طرف من الموظف   :  ${object.employee_id.name}</span></td>
+                                 <td valign="middle" align="right"><img src="/logo.png?company=${object.company_id.id}" alt="${object.company_id.name}" style="padding: 0px; margin: 0px; height: auto; width: 80px;"></td>
+                              </tr>
+                              <tr>
+                                 <td colspan="2" style="text-align: center;">
+                                    <hr style="border-style:solid none none none;border-image-width:1;border-image-source:none;border-image-slice:100%;border-image-repeat:stretch;border-image-outset:0;border-left-color:currentcolor;border-bottom-color:currentcolor;border-right-color:currentcolor;margin: 16px 0px; border-width: medium; border-style: none; border-top-color: initial; background-color: rgb(204, 204, 204); clear: both; font-size: 0px; min-height: 1px; line-height: 0;" width="100%">
+                                 </td>
+                              </tr>
+                              <tr>
+                     <td style="min-width: 590px;" align="center">
+                        <table style="border-collapse: separate; min-width: 590px; padding: 0px 8px;" width="590" cellspacing="0" cellpadding="0" border="0">
+                           <tbody>
+                              <tr>
+                                 <td style="font-size: 13px;" valign="top">
+                                    <span style="font-weight: bold;">رقم الطلب  : &#x2063; &#x2063;&nbsp;&nbsp; ${object.name} </span>
+                                    <br>
+                                    <span style="font-weight: bold;">أسم الموظف  : &#x2063; &#x2063;&nbsp;&nbsp; ${object.employee_id.name} </span>
+                                    <br>
+                                    <span style="font-weight: bold;"> أسم القسم : &#x2063; &#x2063;&nbsp;&nbsp; ${object.department_id.name} </span>
+                                    <br>
+                                    <span style="font-weight: bold;"> موجود بشركة : &#x2063; &#x2063;&nbsp;&nbsp; ${object.company_id.name} </span>
+                                    <br>
+                                    <span t-if="object.joined_date" style="font-weight: bold;"> تاريخ ألتحاقه بالشركة : &#x2063; &#x2063;&nbsp;&nbsp; ${object.joined_date}  </span>
+                                    <br>
+                                    <span style="font-weight: bold;"> للمزيد من المعلمومات الرجاء اضغط الزر :  </span>
+                                    <div style="margin: 16px 0px;"><a href="${object.create_uid.partner_id.get_base_url()}/mail/view?model=prepare.clearance&amp;res_id=${object.id}" style="color: rgb(255, 255, 255); background-color: rgb(135, 90, 123); padding: 8px 16px; border-radius: 5px;" data-original-title="" title="" aria-describedby="tooltip234017">View Clearance</a><br><br></div>
+                                    شكرا جزيلا<br>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+
+                  <tr>
+                     <td style="min-width: 590px;" align="center">
+                        <table style="border-collapse: separate; min-width: 590px; font-size: 11px; padding: 0px 8px;" width="590" cellspacing="0" cellpadding="0" border="0">
+                           <tbody>
+                              <tr>
+                                 <td valign="middle" align="left">${object.company_id.name}</td>
+                              </tr>
+                              <tr>
+                                 <td style="opacity: 0.7;" valign="middle" align="left">
+                                     ${object.company_id.phone}
+                                     % if object.company_id.email:
+                                          |&nbsp;
+                                          <a href="${'mailto:%s' % object.company_id.email}" style="color: rgb(69, 71, 72);">
+                                             ${object.company_id.email}
+                                          </a>
+                                          &nbsp;
+                                     % endif
+                                     % if object.company_id.website:
+                                         |&nbsp;
+                                         <a style="color: rgb(69, 71, 72);">${object.company_id.website}&nbsp;</a>
+                                     % endif
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </td>
+      </tr>
+      <tr>
+         <td style="min-width: 590px;" align="center">
+            <table style="border-collapse: separate; min-width: 590px; padding: 8px;" width="590" cellspacing="0" cellpadding="0" border="0">
+               <tbody>
+                  <tr>
+                  </tr>
+               </tbody>
+            </table>
+         </td>
+      </tr>
+   </tbody>
+</table>
+        ]]></field>
+    </record>
+</odoo>

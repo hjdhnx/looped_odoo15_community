@@ -1,0 +1,41 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record id="pos_config_form" model="ir.ui.view">
+      <field name="name">pos.scrap_reason.form</field>
+      <field name="model">pos.config</field>
+      <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[@id='accounting_section']" position="after">
+
+          <h2>Collection</h2>
+          <div class="row mt16 o_settings_container" id="accounting_section">
+            <div class="col-12 col-lg-6 o_setting_box">
+              <div class="o_setting_right_pane">
+                <span class="o_form_label">Collection Journal</span>
+                <div class="text-muted">
+                                   Select    Collection Journal to be used
+                </div>
+                <div class="content-group">
+                  <div class="row mt16" title="Whenever you close a session, one entry is generated in the following accounting journal for all the orders not invoiced. Invoices are recorded in accounting separately.">
+                    <label string=" " for="collection_journal" class="col-lg-1 o_light_label" widget="selection"/>
+                    <field name="collection_journal"  options="{'no_create':True}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+        </xpath>
+
+      </field>
+    </record>
+
+  </data>
+</odoo>

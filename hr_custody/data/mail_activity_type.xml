@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="activity_type_custody_receipt" model="mail.activity.type">
+        <field name="name">Custody Receipt</field>
+        <field name="icon">fa-box-open</field>
+        <field name="res_model_id" ref="hr_custody.model_hr_custody"/>
+        <field name="delay_count">0</field>
+    </record>
+
+    <record id="activity_type_custody_return" model="mail.activity.type">
+        <field name="name">Custody Return</field>
+        <field name="icon">fa-box-open</field>
+        <field name="res_model_id" ref="hr_custody.model_hr_custody"/>
+        <field name="delay_count">0</field>
+    </record>
+
+</odoo>

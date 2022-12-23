@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template id="report_employee_payslip">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-if="report_language == 'ar'">
+                        <!--                        <div style="width:100%;">-->
+                        <!--                            <img style="width:100%;height:120px;"-->
+                        <!--                                 src="/employee_payroll_report/static/src/img/emp_payslip.png"/>-->
+                        <!--                        </div>-->
+                        <table style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th style="width:20%">
+                                        <img style="width:75%;height:75%;"
+                                             src="/employee_payroll_report/static/src/img/emp_payslip2.png"/>
+                                    </th>
+                                    <th style="width:50%" class="text-center">
+                                        <p style="font-size:60px;">
+                                            <b>
+                                                شركة عبدالاله وإبراهيم ابناء عبدالعزيز الموسي العقارية
+                                            </b>
+                                        </p>
+
+                                    </th>
+                                    <th style="width:20%">
+                                        <div class="text-right" style="float:right;">
+                                            <p style="font-size:15px;">
+                                                <span t-esc="now"/>
+                                                :تاريخ طباعة التقرير
+                                            </p>
+                                            <p style="font-size:15px;">
+                                                <span t-esc="nowtime.strftime('%X')"/>
+                                                :وقت الطباعة
+                                            </p>
+                                            <p style="font-size:15px;">
+                                                <span t-esc="current_user"/>
+                                                :اسم المستخدم
+                                            </p>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+
+<!--                        <div class="text-center">-->
+<!--                            <p style="font-size:20px;">-->
+<!--                                تقرير الرواتب الشهري-->
+<!--                            </p>-->
+<!--                        </div>-->
+
+<!--                        <div>-->
+<!--                            <div class="text-right" style="float:right;">-->
+<!--                                <p style="font-size:15px;">-->
+<!--                                    :موقع العمل-->
+<!--                                </p>-->
+<!--                                <p style="font-size:15px;">-->
+<!--                                    :التصنيف الوظيفي-->
+<!--                                </p>-->
+<!--                                <p style="font-size:15px;">-->
+<!--                                    <span t-esc="year"/>-->
+<!--                                    :السنه-->
+
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <div class="text-right" style="float:left;">-->
+<!--                                <p style="font-size:15px;">-->
+<!--&lt;!&ndash;                                    <span t-esc="currency"/>&ndash;&gt;-->
+<!--                                    :عملة التقرير-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <table class="table" name="crossovered_budget_line_table"
+                               style="width:100%;direction:rtl;">
+                            <thead>
+                                <tr style="style; font-size: 14px !important;">
+                                    <th class="text-right">الرمز</th>
+                                    <th class="text-right">اسم الموظف</th>
+                                    <th class="text-right">الراتب الاساسي</th>
+                                    <th class="text-right">عدد الايام</th>
+                                    <th class="text-right">اتصال</th>
+                                    <th class="text-right">سكن للاعزب مقدما</th>
+                                    <th class="text-right">سكن للاعزب</th>
+                                    <th class="text-right">سكن للعائلات</th>
+                                    <th class="text-right">سكن للعائلات مقدما</th>
+                                    <th class="text-right">طعام</th>
+                                    <th class="text-right">نقل</th>
+                                    <th class="text-right">العمل الاضافي</th>
+                                    <th class="text-right">بدل محروقات</th>
+                                    <th class="text-right">مكافاه</th>
+                                    <th class="text-right">مجموع الدخل</th>
+                                    <th class="text-right">التامينات الاجتماعيه</th>
+                                    <th class="text-right">سلفه نقديه</th>
+                                    <th class="text-right">فرق التامين الطبي</th>
+                                    <th class="text-right">سداد قيمه السياره</th>
+                                    <th class="text-right">فرق تامين السيارات</th>
+                                    <th class="text-right">صندوق البر</th>
+                                    <th class="text-right">المقابل المالي للمرافقين</th>
+                                    <th class="text-right">مجموع الاقتطاعات</th>
+                                    <th class="text-right">المدفوع نقدا</th>
+                                    <th class="text-right">المدفوع للبنك</th>
+                                    <th class="text-right">المدفوع بشيك</th>
+                                </tr>
+                            </thead>
+                            <t t-set="i" t-value="1"/>
+                            <t t-set="colm1" t-value="0"/>
+                            <t t-set="colm2" t-value="0"/>
+                            <t t-set="colm3" t-value="0"/>
+                            <t t-set="colm4" t-value="0"/>
+                            <t t-set="colm6" t-value="0"/>
+                            <t t-set="colm8" t-value="0"/>
+                            <t t-set="colm9" t-value="0"/>
+                            <t t-set="colm13" t-value="0"/>
+                            <tbody>
+                                <t t-set="current_subtotal" t-value="0"/>
+                                <t t-foreach="all_payslips" t-as="payslip">
+                                    <t t-set="current_subtotal"
+                                       t-value="payslip['wage'] + payslip['phone_allowance_amount'] + payslip['house_allowance_amount'] + payslip['food_allowance_amount'] + payslip['transportation_allowance_amount']"/>
+
+                                    <tr>
+                                        <td class="text-center">
+                                            <span t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['employee_name']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['wage']"/>
+                                            <t t-set="colm1" t-value="colm1 + payslip['wage']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['number_of_days']"/>
+                                            <t t-set="colm2" t-value="colm2 + payslip['number_of_days']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['phone_allowance_amount']"/>
+                                            <t t-set="colm3" t-value="colm3 + payslip['phone_allowance_amount']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['house_allowance_amount']"/>
+                                            <t t-set="colm6" t-value="colm6 + payslip['house_allowance_amount']"/>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['food_allowance_amount']"/>
+                                            <t t-set="colm8" t-value="colm8 + payslip['food_allowance_amount']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['transportation_allowance_amount']"/>
+                                            <t t-set="colm9"
+                                               t-value="colm9 + payslip['transportation_allowance_amount']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="current_subtotal"/>
+                                            <t t-set="colm13" t-value="colm13 + current_subtotal"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center" colspan="2" style="background-color: rgb(204, 204, 204);">
+                                        <b>مجاميع التقارير</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm1"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm2"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm3"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm6"/>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm8"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm9"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm13"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </t>
+
+                    <t t-if="report_language == 'en'">
+                        <!--                        <div style="width:100%;">-->
+                        <!--                            <img style="width:100%;height:120px;"-->
+                        <!--                                 src="/employee_payroll_report/static/src/img/emp_payslip.png"/>-->
+                        <!--                        </div>-->
+                        <table style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th style="width:20%">
+                                        <img style="width:100%;height:100%;"
+                                             src="/employee_payroll_report/static/src/img/emp_payslip2.png"/>
+                                    </th>
+                                    <th style="width:50%" class="text-center">
+                                        <p style="font-size:60px;">
+                                            <b>
+                                                شركة عبدالاله وإبراهيم ابناء عبدالعزيز الموسي العقارية
+                                            </b>
+                                        </p>
+
+                                    </th>
+                                    <th style="width:20%">
+                                        <div class="text-right" style="float:right;">
+                                            <p style="font-size:15px;">
+                                                <span t-esc="now"/>
+                                                :تاريخ طباعة التقرير
+                                            </p>
+                                            <p style="font-size:15px;">
+                                                <span t-esc="nowtime.strftime('%X')"/>
+                                                :وقت الطباعة
+                                            </p>
+                                            <p style="font-size:15px;">
+                                                <span t-esc="current_user"/>
+                                                :اسم المستخدم
+                                            </p>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+
+                        <div class="text-center">
+                            <p style="font-size:20px;">
+                                Monthly Payroll Report
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="text-right" style="float:right;">
+                                <p style="font-size:15px;">
+                                    :Work site
+                                </p>
+                                <p style="font-size:15px;">
+                                    :Job classification
+                                </p>
+                                <p style="font-size:15px;">
+                                    :year
+                                    <span t-esc="year"/>
+                                </p>
+                            </div>
+                            <div class="text-right" style="float:left;">
+                                <p style="font-size:15px;">
+                                    :Report currency
+                                    <span t-esc="currency"/>
+                                </p>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-striped" name="crossovered_budget_line_table"
+                               style="width:100%;direction:ltr;">
+                            <thead>
+                                <tr style="style; font-size: 14px !important;">
+                                    <th class="text-right">code</th>
+                                    <th class="text-right">Employee Name</th>
+                                    <th class="text-right">basic salary</th>
+                                    <th class="text-right">The number of days</th>
+                                    <th class="text-right">Contact</th>
+                                    <th class="text-right">Hous. singl. adv.</th>
+                                    <th class="text-right">Hous. singl</th>
+                                    <th class="text-right">Hous. family</th>
+                                    <th class="text-right">Hous. famil. adv.</th>
+                                    <th class="text-right">food</th>
+                                    <th class="text-right">transportation</th>
+                                    <th class="text-right">overtime</th>
+                                    <th class="text-right">fuel allowance</th>
+                                    <th class="text-right">Reward</th>
+                                    <th class="text-right">total income</th>
+                                    <th class="text-right">Social Security</th>
+                                    <th class="text-right">cash advance</th>
+                                    <th class="text-right">Medic. insur. teams</th>
+                                    <th class="text-right">Pay value of car</th>
+                                    <th class="text-right">Car insurance teams</th>
+                                    <th class="text-right">wild box</th>
+                                    <th class="text-right">Reimb. for escorts</th>
+                                    <th class="text-right">Total deductions</th>
+                                    <th class="text-right">Paid in cash</th>
+                                    <th class="text-right">paid to the bank</th>
+                                    <th class="text-right">paid by check</th>
+                                </tr>
+                            </thead>
+                            <t t-set="i" t-value="1"/>
+                            <t t-set="colm1" t-value="0"/>
+                            <t t-set="colm2" t-value="0"/>
+                            <t t-set="colm3" t-value="0"/>
+                            <t t-set="colm4" t-value="0"/>
+                            <t t-set="colm6" t-value="0"/>
+                            <t t-set="colm8" t-value="0"/>
+                            <t t-set="colm9" t-value="0"/>
+                            <t t-set="colm13" t-value="0"/>
+                            <tbody>
+                                <t t-set="current_subtotal" t-value="0"/>
+                                <t t-foreach="all_payslips" t-as="payslip">
+                                    <t t-set="current_subtotal"
+                                       t-value="payslip['wage'] + payslip['phone_allowance_amount'] + payslip['house_allowance_amount'] + payslip['food_allowance_amount'] + payslip['transportation_allowance_amount']"/>
+
+                                    <tr>
+                                        <td class="text-center">
+                                            <span t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['employee_name']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['wage']"/>
+                                            <t t-set="colm1" t-value="colm1 + payslip['wage']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['number_of_days']"/>
+                                            <t t-set="colm2" t-value="colm2 + payslip['number_of_days']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['phone_allowance_amount']"/>
+                                            <t t-set="colm3" t-value="colm3 + payslip['phone_allowance_amount']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['house_allowance_amount']"/>
+                                            <t t-set="colm6" t-value="colm6 + payslip['house_allowance_amount']"/>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['food_allowance_amount']"/>
+                                            <t t-set="colm8" t-value="colm8 + payslip['food_allowance_amount']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="payslip['transportation_allowance_amount']"/>
+                                            <t t-set="colm9"
+                                               t-value="colm9 + payslip['transportation_allowance_amount']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="current_subtotal"/>
+                                            <t t-set="colm13" t-value="colm13 + current_subtotal"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                        <td class="text-center">
+                                            <b>--</b>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center" colspan="2" style="background-color: rgb(204, 204, 204);">
+                                        <b>Report totals</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm1"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm2"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm3"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm6"/>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm8"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm9"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="colm13"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                    <td class="text-center">
+                                        <b>--</b>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

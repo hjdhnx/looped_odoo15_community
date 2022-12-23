@@ -1,0 +1,40 @@
+<odoo>
+
+
+    <record id="pos_collection_accountant_wizard_from_view" model="ir.ui.view">
+        <field name="name">pos.collection.accountant.wizard.form.view</field>
+        <field name="model">pos.collection.accountant.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Pay With Petty Cash">
+
+                <group>
+                    <field name="collected_by_id"/>
+                    <field name="amount_diffrence" readonly="1" force_save="1"/>
+                    
+                    <field name="diffrence_type" required="1"/>
+                    <field name="payment_method_id" readonly="1" force_save="1" attrs="{'invisible':[('diffrence_type','!=','account')]}"/>
+                    
+                    <field name="account_id" attrs="{'required':[('diffrence_type','=','account')],'invisible':[('diffrence_type','!=','account')]}"/>
+                    <field name="type_id" attrs="{'required':[('diffrence_type','=','petty')],'invisible':[('diffrence_type','!=','petty')]}"/>
+                </group>
+                <footer>
+                    <button string="Post" name="action_post" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+
+    <record id="pos_collection_accountant_wizard_action" model="ir.actions.act_window">
+        <field name="name">Pos Session Accountant Collection</field>
+        <field name="res_model">pos.collection.accountant.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="pos_collection_accountant_wizard_from_view"/>
+        <field name="target">new</field>
+    </record>
+
+
+
+</odoo>

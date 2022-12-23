@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale_data" model="custom.dashboard">
+        <field name="name">Sale</field>
+    </record>
+
+     <record id="purchase_data" model="custom.dashboard">
+        <field name="name">Purchase</field>
+    </record>
+
+     <record id="invoice_data" model="custom.dashboard">
+        <field name="name">Invoice</field>
+    </record>
+
+     <record id="partner_data" model="custom.dashboard">
+        <field name="name">Partner</field>
+    </record>
+
+     <record id="sale_pricelist_data" model="custom.dashboard">
+        <field name="name">Sale Pricelist</field>
+    </record>
+
+     <record id="vendor_pricelist_data" model="custom.dashboard">
+        <field name="name">Vendor Pricelist</field>
+    </record>
+
+     <record id="product_template_data" model="custom.dashboard">
+        <field name="name">Product Template</field>
+    </record>
+
+     <record id="product_pricelist_data" model="custom.dashboard">
+        <field name="name">Product Pricelist</field>
+    </record>
+
+     <record id="inventory_data" model="custom.dashboard">
+        <field name="name">Inventory</field>
+    </record>
+
+     <record id="inventory_adjustment_data" model="custom.dashboard">
+        <field name="name">Inventory Adjustment</field>
+    </record>
+
+     <record id="bom_data" model="custom.dashboard">
+        <field name="name">Bill Of Material</field>
+    </record>
+
+     <record id="paytment_data" model="custom.dashboard">
+        <field name="name">Payment</field>
+    </record>
+
+     <record id="pos_data" model="custom.dashboard">
+        <field name="name">POS</field>
+    </record>
+
+      
+    </data>
+</odoo>

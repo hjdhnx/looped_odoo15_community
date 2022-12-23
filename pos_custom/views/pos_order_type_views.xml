@@ -1,0 +1,123 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record id="pos_order_type_form" model="ir.ui.view">
+      <field name="name">pos.order_type.form</field>
+      <field name="model">pos.order_type</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                <label for="name"/>
+                <field name="name" placeholder="Order Type"/>
+              </h1>
+            </div>
+            <div class="oe_title">
+              <h1>
+                <label for="arbic_name"/>
+                <field name="arbic_name"/>
+              </h1>
+            </div>
+            <group colspan="4" col="4">
+              <field name="category_order_type_id"/>
+            </group>
+            <group colspan="4" col="4">
+              <field name="is_show_customer_info"/>
+              <field name="is_require_information"/>
+              <field name="is_require_driver"/>
+              <field name="is_auto_open_table_screen"/>
+            </group>
+            <group string="" colspan="2" col="2">
+              <field name="pricelist_id"/>
+              <field name="customer_id" attrs="{'required':[('is_show_customer_info', '=', True)]}"/>
+              <field name="account_journal_ids" widget="many2many_tags" invisible="1"/>
+              <field name="payment_method_ids" widget="many2many_tags"/>
+              <field name="type"/>
+              <field name="delivary_product_id" attrs="{'required':[('type','=','delivary')],'invisible':[('type','!=','delivary')]}"/>
+              <field name="extra_product_id" attrs="{'required':[('type','=','extra')],'invisible':[('type','!=','extra')]}"/>
+              <field name="extra_percentage" attrs="{'required':[('type','=','extra')],'invisible':[('type','!=','extra')]}"/>
+              <field name="tax_ids" widget="many2many_tags" attrs="{'required':[('type','=','extra')],'invisible':[('type','!=','extra')]}"/>
+              <field name="company_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="key_type_tree" model="ir.ui.view">
+      <field name="name">key.type.tree</field>
+      <field name="model">key.type</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+
+        </tree>
+      </field>
+    </record>
+
+    <record id="pos_type_tree" model="ir.ui.view">
+      <field name="name">pos.type.tree</field>
+      <field name="model">pos.type</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="pos_type_form" model="ir.ui.view">
+      <field name="name">pos.type.form</field>
+      <field name="model">pos.type</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="is_kds"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="pos_order_type_tree" model="ir.ui.view">
+      <field name="name">pos.order_type.tree</field>
+      <field name="model">pos.order_type</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="pricelist_id"/>
+          <field name="account_journal_ids" widget="many2many_tags" invisible="1"/>
+          <field name="payment_method_ids" widget="many2many_tags"/>
+          <field name="type"/>
+          <field name="company_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="key_type_action">
+      <field name="name">Key Type</field>
+      <field name="res_model">key.type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="pos_type_action">
+      <field name="name">POS Type</field>
+      <field name="res_model">pos.type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="pos_order_type_action">
+      <field name="name">Order Type</field>
+      <field name="res_model">pos.order_type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_key_type_menu" parent="menu_pos_security_main" action="key_type_action" name="Key Type" sequence="4" groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+    <menuitem id="menu_pos_type_menu" parent="point_of_sale.menu_point_config_product" action="pos_type_action" name="POS Type" sequence="7" groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+    <menuitem id="menu_pos_order_type_menu" parent="point_of_sale.menu_point_config_product" action="pos_order_type_action" name="Order Type" sequence="8" groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+
+  </data>
+</odoo>

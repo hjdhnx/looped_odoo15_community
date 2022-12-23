@@ -1,0 +1,46 @@
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="file_save.list">
+      <field name="name">file_save list</field>
+      <field name="model">attachment.file.save</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+                <group>
+                   <field name="name"/>
+                    <field name="file_compute"/>
+                    <field name="file"/>
+                </group>
+                <group>
+                  <field name="model"/>
+                  <field name="res_id"/>
+                  <field name="database_file"/>
+                  <field name="attachment_location_paramter"/>
+                </group>
+            </group>
+          </sheet>
+
+
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="file_save.action_window">
+      <field name="name">file_save window</field>
+      <field name="res_model">attachment.file.save</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="file_save" id="file_save.menu_root"/>
+
+
+    <menuitem name="Server to list" id="file_save" parent="file_save.menu_root"
+              action="file_save.action_window"/>
+  </data>
+</openerp>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_prepare_resignation,prepare_resignation,model_prepare_resignation,hr_prepare_resignation.group_resignation_users,1,1,1,1
+access_prepare_resignations,prepare_resignations,model_prepare_resignation,hr_prepare_resignation.group_resignation_manager,1,1,1,1
+access_prepare_clearance,prepare_clearance,model_prepare_clearance,hr_prepare_resignation.group_clearance_users,1,1,1,1
+access_prepare_clearances,prepare_clearances,model_prepare_clearance,hr_prepare_resignation.group_clearance_manager,1,1,1,1

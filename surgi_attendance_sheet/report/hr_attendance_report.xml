@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="action_report_attendance_sheet" model="ir.actions.report">
+            <field name="name">Attendance Sheet</field>
+            <field name="model">attendance.sheet</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">surgi_attendance_sheet.report_attendance_sheet</field>
+            <field name="report_file">surgi_attendance_sheet.report_attendance_sheet</field>
+            <field name="print_report_name">'Attendance Sheet - %s' % (object.employee_id.name)</field>
+            <field name="binding_model_id" ref="model_attendance_sheet"/>
+            <field name="binding_type">report</field>
+        </record>
+        
+</odoo>

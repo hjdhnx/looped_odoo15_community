@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_attendance_device_tree" model="ir.ui.view">
+    <field name="name">Attendance Device</field>
+    <field name="model">attendance.device</field>
+    <field name="arch" type="xml">
+      <tree string="Attendance Device">
+        <field name="device_id" />
+        <field name="location_id" />
+        <field name="device_enable" />
+      </tree>
+    </field>
+  </record>
+
+  <!-- actions opening views on models -->
+
+  <record model="ir.actions.act_window"
+    id="action_attendance_device">
+    <field name="name">Attendance Device</field>
+    <field name="res_model">attendance.device</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem
+    id="attendace_devices_menu"
+    name="Attendance Devices"
+    parent="attendace_device_menu"
+    action="action_attendance_device"
+    sequence="10"
+    groups="hr_attendance.group_hr_attendance_manager" />
+
+</odoo>

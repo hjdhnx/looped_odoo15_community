@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="view_employee_attendance_form">
+			<field name="name">employee.form</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form" />
+			<field name="arch" type="xml">
+				<div name="button_box" position="inside">
+					<button class="oe_stat_button" type="action" name="%(hr_attendance_action_2)d" icon="fa-calendar">
+						<div class="o_stat_info">
+							<span class="o_stat_text">Dữ liệu công</span>
+						</div>
+					</button>
+				</div>
+			</field>
+		</record>
+	</data>
+</odoo>

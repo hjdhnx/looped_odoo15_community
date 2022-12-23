@@ -1,0 +1,230 @@
+<odoo>
+    <data>
+        <menuitem id="rewards_menu" name="Rewards" parent="base.menu_loans_root" sequence="15"/>
+        <menuitem id="rewards_config_menu" name="Rewards settings" parent="menu_loans_config" sequence="100"/>
+
+        <!--Rewards type-->
+        <record model="ir.ui.view" id="hr_reward_type_form">
+            <field name="name">hr.reward.type form</field>
+            <field name="model">hr.reward.type</field>
+            <field name="arch" type="xml">
+                <form string="Rewards type">
+                    <header>
+                        <button name="confirm" string="Confirm" states="new" type="object" class="oe_highlight" confirm="Are you sure that you want to confirm this reward type"/>
+                        <button name="reset" string="Set to new" states="confirmed" type="object" confirm="Are you sure that you want to set this Reward type to new?"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box">
+                            <button name="open_employee_rewards" string="Employees rewards" type="object" class="oe_stat_button" icon="fa-ticket"/>
+                        </div>
+                        <h1>
+                            <field name="name" placeholder="Arabic Description" required="1" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                            <br/>
+                            <field name="en_name" placeholder="English Description" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                            <br/>
+                            <field name="code" readonly="1" force_save="1"/>
+                            <br/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="calc_method" required="1" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                                <div style="border: 1px #a24689 solid;border-radius: 5px;padding: 10px;" attrs="{'invisible':[['calc_method','not in',['basic','basic_house','basic_house_transportation','basic_house_transportation_phone','total']]]}">
+                                    المكافئات تحسب بناءً على نسبة من الأجر اليومي Rewards will be calculated based on daily salary
+                                </div>
+                                <div/>
+                                <label for="amount" string="Amount"/>
+                                <div>
+                                    <field name="amount" required="1" class="oe_inline" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                                    <span class="oe_inline" attrs="{'invisible':[['calc_method','not in',['basic','basic_house','basic_house_transportation','basic_house_transportation_phone','total']]]}">
+                                        %
+                                    </span>
+                                </div>
+                                <label for="maximum_numbers" string="Maximum number" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                                <div>
+                                    <field name="maximum_numbers" required="1" class="oe_inline" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                                    <span class="oe_inline" attrs="{'invisible':[['calc_method','not in',['basic','basic_house','basic_house_transportation','basic_house_transportation_phone','total']]]}">
+
+                                    </span>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="create_uid" readonly="1" force_save="1"/>
+                                <field name="confirm_uid" readonly="1" force_save="1"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Employee old Rewards">
+                                <group string="Employee old Rewards">
+                                    <field name="employee_reward_ids" nolabel="1" readonly="1" force_save="1"/>
+                                </group>
+                            </page>
+                            <page string="Attachments">
+                                <group string="Attachments">
+                                    <field name="attachment_ids" nolabel="1" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                                </group>
+                            </page>
+                            <page string="Notes">
+                                <group string="Notes">
+                                    <field name="note" nolabel="1" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_reward_type_tree">
+            <field name="name">deduction.violation.category form</field>
+            <field name="model">hr.reward.type</field>
+            <field name="arch" type="xml">
+                <tree string="Rewards type">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="en_name"/>
+                    <field name="calc_method"/>
+                    <field name="amount"/>
+                    <field name="maximum_numbers"/>
+                    <field name="create_uid"/>
+                    <field name="confirm_uid"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="hr_reward_type_action" model="ir.actions.act_window">
+            <field name="name">Rewards type</field>
+            <field name="res_model">hr.reward.type</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'readonly_by_pass': True}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Click to define a new Rewards type.</p>
+            </field>
+        </record>
+        <menuitem id="hr_reward_type_menu" name="Rewards type" parent="rewards_config_menu" action="hr_reward_type_action" sequence="5"/>
+        <!--Employee Rewards-->
+        <record model="ir.ui.view" id="hr_employee_rewards_form">
+            <field name="name">hr.employee.rewards form</field>
+            <field name="model">hr.employee.rewards</field>
+            <field name="arch" type="xml">
+                <form string="Employee Rewards">
+                    <header>
+                        <button name="review" string="Data Reviewed" states="new" type="object" class="oe_highlight" confirm="Are You sure that you reviewed  this reward?"/>
+                        <button name="confirm" string="Confirm" states="reviewed" type="object" class="oe_highlight" confirm="Are You sure that you want to confirm this reward?"/>
+                        <button name="reverse" string="Reverse Reward" states="confirmed" type="object" confirm="Are you sure that you want to reverse this Reward?"/>
+                        <field name="state" widget="statusbar" clickable="true"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box">
+                            <button name="open_employee_rewards" string="Employees rewards" type="object" class="oe_stat_button" icon="fa-ticket"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="code" readonly="1" force_save="1"/>
+                                <field name="desc" required="1" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                                <field name="employee_id" required="1" options="{'no_create':True}" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                                <field name="contract_id" readonly="1" force_save="1"/>
+                                <field name="adjusted_date" readonly="1" force_save="1"/>
+                                <field name="reward_date" required="1" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                                <field name="reward_to_date" attrs="{'invisible':[('calc_method','!=','annual')],'required':[('calc_method','=','annual')],'readonly':[['state','=','confirmed']]}"/>
+                                
+                                <field name="reward_typ_id" attrs="{'readonly':[['state','=','confirmed']]}" options="{'no_create':True}" domain="[['state','=','confirmed']]" required="1"/>
+                                <field name="calc_method" readonly="1" force_save="1"/>
+                                <field name="hr_leave_allocation_id" readonly="1" force_save="1" attrs="{'invisible':[('hr_leave_allocation_id','=',False)]}"/>
+                                <div style="border: 1px #a24689 solid;border-radius: 5px;padding: 10px;" attrs="{'invisible':[['calc_method','not in',['basic','basic_house','basic_house_transportation','basic_house_transportation_phone','total']]]}">
+                                    المكافئات تحسب بناءً على نسبة من الأجر اليومي Rewards will be calculated based on daily salary
+                                </div>
+                                <div/>
+                            </group>
+                            <group>
+                                <label for="amount" string="Amount"/>
+                                <div>
+                                    <field name="amount" required="1" class="oe_inline" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                                    <span class="oe_inline" attrs="{'invisible':[['calc_method','not in',
+                                        ['basic','basic_house','basic_house_transportation','basic_house_transportation_phone','total']]]}">%
+                                    </span>
+                                </div>
+                                <field name="minus_value" readonly="1" force_save="1"/>
+                                <label for="maximum_numbers" string="Maximum number" readonly="1" force_save="1"/>
+                                <div>
+                                    <field name="maximum_numbers" required="1" readonly="1" force_save="1" class="oe_inline" attrs="{'readonly':[['state','=','confirmed']]}"/>
+                                    <span class="oe_inline" attrs="{'invisible':[['calc_method','not in',
+                                          ['basic','basic_house','basic_house_transportation','basic_house_transportation_phone','total']]]}">%
+                                    </span>
+                                </div>
+                                <field name="reward_amount" readonly="1" force_save="1"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Employee Old rewards">
+
+                                <field name="old_reward_ids" nolabel="1" readonly="1" force_save="1"/>
+
+                            </page>
+                            <page string="Attachments">
+                                <group string="Attachments">
+                                    <field name="attachment_ids" nolabel="1" attrs="{'readonly':[['state','=','confirmed']]}">
+                                        <tree editable="bottom">
+                                            <field name="name" required="1"/>
+                                            <field name="file" required="1"/>
+                                            <field name="note"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Notes">
+                                <group string="Notes">
+                                    <field name="note" nolabel="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_employee_rewards_tree">
+            <field name="name">deduction.violation.category form</field>
+            <field name="model">hr.employee.rewards</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Rewards">
+                    <field name="desc"/>
+                    <field name="employee_id"/>
+                    <field name="contract_id"/>
+                    <field name="adjusted_date"/>
+                    <field name="reward_date"/>
+                    <field name="reward_typ_id"/>
+                    <field name="calc_method"/>
+                    <field name="amount"/>
+                    <field name="minus_value"/>
+                    <field name="maximum_numbers"/>
+                    <field name="reward_amount"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="hr_employee_rewards_action" model="ir.actions.act_window">
+            <field name="name">Employee Rewards</field>
+            <field name="res_model">hr.employee.rewards</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'readonly_by_pass': True}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Click to define a new Employee Rewards.</p>
+            </field>
+        </record>
+        <menuitem id="hr_employee_rewards_menu" name="Employee Rewards" parent="rewards_menu" action="hr_employee_rewards_action" sequence="5"/>
+    
+    
+       
+    
+    
+    </data>
+</odoo>

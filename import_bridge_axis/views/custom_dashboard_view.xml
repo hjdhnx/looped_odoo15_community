@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<record id="general_dashboard_action" model="ir.actions.act_window">
+<field name="name">Custom Dashboard</field>
+<field name="res_model">custom.dashboard</field>
+<field name="view_mode">kanban,tree</field>
+<field name="help" type="html">
+<p>
+    To create general dashboard
+</p>
+</field>
+</record>
+<menuitem id="custom_dashboard_menu" name="Cutomize Dashboard" sequence="0" web_icon="import_bridge_axis,static/description/dashboard.png"/>
+<menuitem id="general_dashboard_menu" action="general_dashboard_action"
+sequence="2" parent="import_bridge_axis.custom_dashboard_menu"/>
+
+<record id="custom_dashboard_kanban_view" model="ir.ui.view">
+<field name="name">res.partner.kanban</field>
+<field name="model">custom.dashboard</field>
+<field name="arch" type="xml">
+<kanban class="o_res_partner_kanban" create="0">
+<field name="count"/>
+<field name="name"/>
+<templates>
+<t t-name="kanban-box">
+<div t-attf-class="oe_kanban_global_click">
+    <div class="oe_kanban_details">
+        <strong class="o_kanban_record_title">
+        <div t-if="record.name.value == 'Sale'">
+            <div class="o_kanban_image">
+                <i class="fa fa-bar-chart" style="font-size:48px;color:#c64d71"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_sale_order">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_export_sale_order)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #c64d71"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_sale_order">
+                 <button class="btn btn-primary" type="object" name="action_import_sale_order" string="Quotations">Import Sale Order</button>
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'Purchase'">
+            <div class="o_kanban_image">
+                <i class="fa fa-file-text" style="font-size:48px;color:#208689"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                   <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_purchase_order">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_export_purchase_order)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #208689"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_purchase_order">
+                    <button class="btn btn-primary" type="object" name="action_import_purchase_order" string="Quotations">Import Purchase Order</button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(action_export_purchase_order)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'Invoice'">
+            <div class="o_kanban_image">
+                <i class="fa fa-paste" style="font-size:48px;color:#abb224"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_invoice">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_export_invoice)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #abb224"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_invoice">
+                    <button class="btn btn-primary" type="object" name="action_import_invoice_order" string="Quotations">Import Invoice Order</button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(action_export_invoice)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'Partner'">
+            <div class="o_kanban_image">
+                <i class="fa fa-group" style="font-size:48px;color:#f58220"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_partner">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_export_client)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #f58220"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_partner">
+                    <button class="btn btn-primary" type="object" name="action_import_partner" string="Quotations">Import Partner Order</button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(action_export_client)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'Sale Pricelist'">
+            <div class="o_kanban_image">
+                <i class="fa fa-money" style="font-size:48px;color:#c64f72"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_sale_pricelist">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_export_sale_pricelist)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #c64f72"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_sale_pricelist">
+                    <button class="btn btn-primary" type="object" name="action_import_sale_pricelist" string="Quotations">Import Sale Pricelist</button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(action_export_sale_pricelist)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'Vendor Pricelist'">
+            <div class="o_kanban_image">
+                <i class="fa fa-user" style="font-size:48px;color:#208689"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_vendor_pricelist">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_export_vendor_pricelist)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #208689"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_vendor_pricelist">
+                    <button class="btn btn-primary" type="object" name="action_import_vendor_pricelist" string="Quotations">Import Vendor Pricelist</button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(action_export_vendor_pricelist)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'Product Template'">
+            <div class="o_kanban_image">
+                <i class="fa fa-shopping-cart" style="font-size:48px;color:#9e3d96"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_product_template">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_export_product)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #9e3d96"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_product_template">
+                    <button class="btn btn-primary" type="object" name="action_import_product" string="Quotations">Import Product Template</button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(action_export_product)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'Product Pricelist'">
+            <div class="o_kanban_image">
+            <i class="fa fa-th" style="font-size:48px;color:#5dc7d0"></i></div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_product_pricelist">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_export_product_pricelist)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #5dc7d0"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_product_pricelist">
+                    <button class="btn btn-primary" type="object" name="action_import_product_pricelist" string="Quotations">Import Product Pricelist</button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(action_export_product_pricelist)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'Inventory'">
+            <div class="o_kanban_image">
+                <i class="fa fa-dropbox" style="font-size:48px;color:#f47b3e"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_inventory">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_export_inventory_action)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #f47b3e"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_inventory">
+                    <button class="btn btn-primary" type="object" name="action_import_inventory" string="Quotations">Import Inventory </button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(action_export_inventory_action)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'Inventory Adjustment'">
+            <div class="o_kanban_image">
+                <i class="fa fa-truck" style="font-size:48px;color:#8bc24a"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_inventory_adj">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_export_inventory_adjustment_action)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #8bc24a"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_inventory_adj">
+                    <button class="btn btn-primary" type="object" name="action_import_inventory_adjustment" string="Quotations">Import Inventory Adjustment</button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(action_export_inventory_adjustment_action)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'Bill Of Material'">
+            <div class="o_kanban_image">
+                <i class="fa fa-inbox" style="font-size:48px;color:#fbb11a"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_bom">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(my_action_export_bom_wizard)d" type="action" string="data"><i class="fa fa-file-excel-o" style="color: #fbb11a"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_bom">
+                    <button class="btn btn-primary" type="action" name="%(action_import_bom_wizard)d" string="Quotations">Import BOM Order</button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(my_action_export_bom_wizard)d" type="action" string="data"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'Payment'">
+            <div class="o_kanban_image">
+                <i class="fa fa-usd" style="font-size:48px;color:#cf1e4c"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_payment">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_export_client_payment)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #cf1e4c"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_payment">
+                    <button class="btn btn-primary" type="object" name="action_import_payment" string="Quotations">Import Payment</button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(action_export_client_payment)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        <div t-if="record.name.value == 'POS'">
+            <div class="o_kanban_image">
+                <i class="fa fa-desktop" style="font-size:48px;color:#5dc6f1"></i>
+            </div>
+            <div class="oe_kanban_details" style="position: relative;">
+                <h2 style="font-size: 17px"><field name="name"/></h2>
+                <h2><field name="count"/></h2>
+                <div style="position: relative;right: 68px;top: 18px;" groups="import_bridge_axis.security_group_pos">
+                    <span>Sample Files</span>
+                    <div style="position: absolute;top: 18px;display: flex;border-top: 1px solid;">
+                        <div><i class="fa fa-download"></i></div>
+                        <div><i class="fa fa-long-arrow-right"></i></div>
+                        <div><button class="" style="display:contents;" name="%(action_pos_export_order)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="color: #5dc6f1"></i></button></div>
+                    </div>
+                </div>
+                <div style="text-align: center;" groups="import_bridge_axis.security_group_pos">
+                    <button class="btn btn-primary" type="object" name="action_import_pos_order" string="POS Order">Import POS Order </button>
+                    <!-- <button class="btn btn-primary" style="margin-top:4px;" name="%(action_pos_export_order)d" type="action" string="Quotations"><i class="fa fa-file-excel-o" style="margin-right: 5px;"></i>Sample Files</button> -->
+                </div>
+            </div>
+        </div>
+        
+        </strong>
+        
+    </div>
+</div>
+</t>
+</templates>
+</kanban>
+</field>
+</record>
+<record id="general_dashboard_view_tree" model="ir.ui.view">
+<field name="name">ax_general.dashboard.tree</field>
+<field name="model">custom.dashboard</field>
+<field name="arch" type="xml">
+<tree string="Dashboard">
+    <field name="name"/>
+    <field name="count"/>
+</tree>
+</field>
+</record>
+</data>
+</odoo>

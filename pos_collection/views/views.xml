@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+
+    <record id="view_pos_session_form" model="ir.ui.view">
+      <field name="name">pos.session.form.view</field>
+      <field name="model">pos.session</field>
+      <field name="inherit_id" ref="point_of_sale.view_pos_session_form"></field>
+      <field name="arch" type="xml">
+        <button name="action_pos_session_closing_control" position="after">
+
+
+          <button id="action_collect_cash" name="action_collect_cash" type="object" string="Collect Money" 
+          attrs="{'invisible':['|',('state','!=','closed'),('cash_state','!=','uncollect')]}"
+           class="oe_highlight" groups="pos_collection.group_pos_collect"/>
+
+          <button id="action_accountant_collect_cash" name="action_accountant_collect_cash" 
+          
+          groups="pos_collection.pos_collect_accountant"
+          type="object" string="Accountant Collect Approve" attrs="{'invisible':['|',('state','!=','closed'),('cash_state','!=','accountant')]}" class="oe_highlight"/>
+
+          <button id="action_collect_cancel" confirm="Do you reaaly want to cancel Collection?" 
+          name="action_collect_cancel" type="object" string="Cancel Collection" 
+          attrs="{'invisible':['|',('state','!=','closed'),('cash_state','!=','collect')]}" 
+          groups="pos_collection.pos_collect_cancel"
+          class="oe_highlight"/>
+
+
+
+        </button>
+        <field name="stop_at" position="after">
+
+          <field name="cash_state" widget="badge" decoration-info="cash_state in ('uncollect')" decoration-success="cash_state in ('collect')" />
+          <field name="cash_amount"/>
+          <field name="collected_by_id" readonly="1" force_save="1"/>
+          <field name="collection_diffrence" readonly="1" force_save="1"/>
+          <field name="petty_cash_id" readonly="1" force_save="1" attrs="{'invisible':[('petty_cash_id','=',False)]}"/>
+        </field>
+
+      </field>
+    </record>
+
+
+    <record id="view_pos_session_tree" model="ir.ui.view">
+      <field name="name">pos.session.tree.view</field>
+      <field name="model">pos.session</field>
+      <field name="inherit_id" ref="point_of_sale.view_pos_session_tree"></field>
+      <field name="arch" type="xml">
+
+        <field name="state" position="before">
+
+          <field name="cash_state" widget="badge" decoration-info="cash_state in ('uncollect')" decoration-success="cash_state in ('collect')" />
+        </field>
+
+      </field>
+    </record>
+  </data>
+</odoo>

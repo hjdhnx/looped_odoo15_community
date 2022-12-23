@@ -1,0 +1,50 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record id="view_attendance_data_tree" model="ir.ui.view">
+      <field name="name">Attendance Data</field>
+      <field name="model">attendance.log</field>
+      <field name="arch" type="xml">
+        <tree string="Attendance Data" create="false" edit="false">
+          <field name="loging_date" />
+          <field name="finger_print_pin"/>
+          <field name="device_id"/>
+          <field name="check_type" />
+          <field name="verify_code" />
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window"
+      id="action_user_attendance_data">
+      <field name="name">Attendance Data</field>
+      <field name="res_model">attendance.log</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem
+      id="attendace_device_menu"
+      name="Attendance Devices"
+      parent="looped_menus.main_menu_looped_hr_attendance"
+      sequence="29"
+      groups="hr_attendance.group_hr_attendance_manager" />
+
+
+    <!-- Second Level menu item -->
+
+    <menuitem
+      id="user_attendance_data_menu"
+      name="Attendance Data"
+      parent="attendace_device_menu"
+      action="action_user_attendance_data"
+      sequence="15"
+      groups="hr_attendance.group_hr_attendance_user" />
+
+
+  </data>
+</odoo>

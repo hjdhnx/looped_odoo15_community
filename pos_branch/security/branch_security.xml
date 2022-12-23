@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+	<record model="ir.module.category" id="module_branch_management">
+		<field name="name">Branch POS</field>
+		<field name="sequence">11</field>
+	</record>
+	<record id="group_branch_user" model="res.groups">
+		<field name="name">User</field>
+		<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+		<field name="category_id" ref="module_branch_management"/>
+	</record>
+
+	<record id="group_branch_user_manager" model="res.groups">
+		<field name="name">Manager</field>
+		<field name="category_id" ref="module_branch_management"/>
+		<field name="implied_ids" eval="[(4, ref('group_branch_user'))]"/>
+		<field name="users" eval="[(4, ref('base.user_root'))]"/>
+	</record>
+
+	<record id="group_no_branch_user" model="res.groups">
+		<field name="name">Non branch User</field>
+		<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+	</record>
+
+</data>
+
+<data noupdate="0">
+
+	<record id="res_branch_manager_rule" model="ir.rule">
+		<field name="name">Res Branch Manager</field>
+		<field name="model_id" ref="branch.model_res_branch"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">[(1,'=',1)]</field>
+		<field name="groups" eval="[(4, ref('pos_branch.group_branch_user_manager'))]"/>
+	</record>
+
+
+	<record id="res_branch_user_rule" model="ir.rule">
+		<field name="name">Res Branch User</field>
+		<field name="model_id" ref="branch.model_res_branch"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">[('id','=',user.branch_id.id)]</field>
+		<field name="groups" eval="[(4, ref('pos_branch.group_branch_user'))]"/>
+	</record>
+	
+	<!-- =================== pos order ======================== -->
+
+	<record id="pos_order_branch_manager_rule" model="ir.rule">
+		<field name="name">POS Order Branch Manager</field>
+		<field name="model_id" ref="model_pos_order"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">[(1,'=',1)]</field>
+		<field name="groups" eval="[(4, ref('pos_branch.group_branch_user_manager'))]"/>
+	</record>
+
+
+	<record id="pos_order_branch_user_rule" model="ir.rule">
+		<field name="name">POS Order Branch User</field>
+		<field name="model_id" ref="model_pos_order"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">['|', ('branch_id','=',False),('branch_id','in',user.branch_active_ids.ids)]</field>
+		<field name="groups" eval="[(4, ref('pos_branch.group_branch_user'))]"/>
+	</record>
+
+	<record id="pos_order_non_branch_user_rule" model="ir.rule">
+		<field name="name">POS Order Non Branch User</field>
+		<field name="model_id" ref="model_pos_order"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">[('branch_id','=',False)]</field>
+		<field name="groups" eval="[(4, ref('group_no_branch_user'))]"/>
+	</record>
+
+	<!-- =================== pos session ======================== -->
+
+	<record id="pos_session_branch_manager_rule" model="ir.rule">
+		<field name="name">POS Session Branch Manager</field>
+		<field name="model_id" ref="model_pos_session"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">[(1,'=',1)]</field>
+		<field name="groups" eval="[(4, ref('pos_branch.group_branch_user_manager'))]"/>
+	</record>
+
+
+	<record id="pos_session_branch_user_rule" model="ir.rule">
+		<field name="name">POS Session Branch User</field>
+		<field name="model_id" ref="model_pos_session"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">['|', ('branch_id','=',False),('branch_id','in',user.branch_active_ids.ids)]</field>
+		<field name="groups" eval="[(4, ref('pos_branch.group_branch_user'))]"/>
+	</record>
+
+	<record id="pos_ssn_non_branch_user_rule" model="ir.rule">
+		<field name="name">POS Session Non Branch User</field>
+		<field name="model_id" ref="model_pos_session"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">[('branch_id','=',False)]</field>
+		<field name="groups" eval="[(4, ref('group_no_branch_user'))]"/>
+	</record>
+
+	<!-- =================== pos config ======================== -->
+
+	<record id="pos_config_branch_manager_rule" model="ir.rule">
+		<field name="name">POS Config Branch Manager</field>
+		<field name="model_id" ref="model_pos_config"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">[(1,'=',1)]</field>
+		<field name="groups" eval="[(4, ref('pos_branch.group_branch_user_manager'))]"/>
+	</record>
+
+
+	<record id="pos_config_branch_user_rule" model="ir.rule">
+		<field name="name">POS Config Branch User</field>
+		<field name="model_id" ref="model_pos_config"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">['|', ('branch_id','=',False),('branch_id','in',user.branch_active_ids.ids)]</field>
+		<field name="groups" eval="[(4, ref('pos_branch.group_branch_user'))]"/>
+	</record>
+
+	<record id="pos_config_non_branch_user_rule" model="ir.rule">
+		<field name="name">POS Config Non Branch User</field>
+		<field name="model_id" ref="model_pos_config"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">[('branch_id','=',False)]</field>
+		<field name="groups" eval="[(4, ref('group_no_branch_user'))]"/>
+	</record>
+
+	<!-- =================== pos payment ======================== -->
+	
+	<record id="pos_payment_branch_manager_rule" model="ir.rule">
+		<field name="name">POS Payment Branch Manager</field>
+		<field name="model_id" ref="model_pos_payment"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">[(1,'=',1)]</field>
+		<field name="groups" eval="[(4, ref('pos_branch.group_branch_user_manager'))]"/>
+	</record>
+
+
+	<record id="pos_payment_branch_user_rule" model="ir.rule">
+		<field name="name">POS Payment Branch User</field>
+		<field name="model_id" ref="model_pos_payment"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">['|', ('branch_id','=',False),('branch_id','in',user.branch_active_ids.ids)]</field>
+		<field name="groups" eval="[(4, ref('pos_branch.group_branch_user'))]"/>
+	</record>
+
+	<record id="pos_payment_non_branch_user_rule" model="ir.rule">
+		<field name="name">POS Payment Non Branch User</field>
+		<field name="model_id" ref="model_pos_payment"/>
+		<field name="global" eval="True"/>
+		<field name="domain_force">[('branch_id','=',False)]</field>
+		<field name="groups" eval="[(4, ref('group_no_branch_user'))]"/>
+	</record>
+	
+
+</data>
+
+</odoo>

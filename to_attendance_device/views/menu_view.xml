@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--	<data>			-->
+<!--&lt;!&ndash;		<menuitem name="Settings" parent="hr_attendance.menu_hr_attendance_settings"&ndash;&gt;-->
+<!--&lt;!&ndash;			id="hr_attendance_settings" sequence="1"&ndash;&gt;-->
+<!--&lt;!&ndash;			groups="hr_attendance.group_hr_attendance_manager" action="hr_attendance.action_hr_attendance_settings" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;		<record model="ir.ui.menu" id="hr_attendance.menu_hr_attendance_my_attendances">&ndash;&gt;-->
+<!--&lt;!&ndash;			<field name="action" eval="False"/>&ndash;&gt;-->
+<!--&lt;!&ndash;		</record>&ndash;&gt;-->
+<!--&lt;!&ndash;		<record model="ir.ui.menu" id="hr_attendance.menu_hr_attendance_view_employees_kanban">&ndash;&gt;-->
+<!--&lt;!&ndash;			<field name="action" eval="False"/>&ndash;&gt;-->
+<!--&lt;!&ndash;		</record>&ndash;&gt;-->
+<!--&lt;!&ndash;		<record model="ir.ui.menu" id="hr_attendance.menu_hr_attendance_kiosk_mode">&ndash;&gt;-->
+<!--&lt;!&ndash;			<field name="action" eval="False"/>&ndash;&gt;-->
+<!--&lt;!&ndash;		</record>&ndash;&gt;-->
+<!--	</data>-->
+</odoo>

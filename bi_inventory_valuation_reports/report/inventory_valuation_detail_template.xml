@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="sales_daybook_template">
+		<t t-call="web.html_container">
+		<t t-call="web.external_layout">
+			<br/><br/><br/><br/>
+			<div class="page">
+				<t t-if="not data['display_sum']">
+					<center>
+						<h2 style="color: #3398db;font-size:20;"><u><b>Inventory Valuation Report</b></u></h2>
+	                    <br/><br/><br/>
+						<table style="border: 1px solid black;" width="100%" class="text-center table-sm">
+							<tr>
+								<th style="border: 1px solid black;" class="text-center">Company</th>
+								<th style="border: 1px solid black;" class="text-center">Warehouse</th>
+								<th style="border: 1px solid black;" class="text-center">Valuation Date</th>
+								<th style="border: 1px solid black;" class="text-center">Amount in currency</th>
+							</tr>
+							<tr>
+								 <th style="border: 1px solid black;" class="text-center"><span t-esc="data['company_id']"/></th>
+								 <th style="border: 1px solid black;" class="text-center"><span t-esc="get_warehouse(data['warehouse'])"/></th>
+								 <th style="border: 1px solid black;" class="text-center"><span t-esc="data['start_date']"/> To <span t-esc="data['end_date']"/> </th>
+								<th style="border: 1px solid black;" class="text-center"><span t-esc="data['currency']"/></th>
+							</tr>
+						</table>
+						<br/>
+					
+						<table width='100%'>
+							<tr>
+								<th style="border: 1px solid black;" class="text-center">Default Code</th>
+								<th style="border: 1px solid black; width:15%;" class="text-center">Name</th>
+								<th style="border: 1px solid black;" class="text-center">Category</th>
+								<th style="border: 1px solid black;" class="text-center">Costing Method </th>
+								<th style="border: 1px solid black;" class="text-center">Cost Price</th>
+								<th style="border: 1px solid black;" class="text-center">Beginning</th>
+								<th style="border: 1px solid black;" class="text-center">Internal</th>
+								<th style="border: 1px solid black;" class="text-center">Received</th>
+								<th style="border: 1px solid black;" class="text-center">Sales</th>
+								<th style="border: 1px solid black;" class="text-center">Adjustment</th>
+								<th style="border: 1px solid black;" class="text-center">Ending</th>
+								<th style="border: 1px solid black;" class="text-center">Valuation</th>
+							</tr>
+							<t t-set="final_total" t-value="0.0" type="float"/>
+							<tr t-foreach="get_lines(data)" t-as="line">
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('sku')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black; width:15%;" class="text-center"><span t-esc="line.get('name')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('category')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('costing_method')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('cost_price')" t-options="{'widget' : 'monetary','display_currency': line.get('currency')}"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('beginning')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('internal')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('incoming')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('sale_value')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('outgoing')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('net_on_hand')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('total_value')" t-options="{'widget':'monetary', 'display_currency': line.get('currency')}"/></td>
+								<t t-set="final_total" t-value="final_total + line.get('total_value')"/>
+							</tr>
+						</table>
+					</center>
+				</t>
+				<t t-if="data['display_sum']">
+					<center>
+						<h2 style="color: #3398db;font-size:20;"><u><b>Inventory Valuation Summary Report</b></u></h2>
+	                    <br/>
+	                    <br/>
+	                    <br/><br/>
+						<table style="border: 1px solid black;" width="100%" class="text-center">
+							<tr>
+								<th style="border: 1px solid black;" class="text-center">Company</th>
+								<th style="border: 1px solid black;" class="text-center">Warehouse</th>
+								<th style="border: 1px solid black;" class="text-center">Valuation Date</th>
+								<th style="border: 1px solid black;" class="text-center">Amount in currency</th>
+							</tr>
+							<tr>
+								 <th style="border: 1px solid black;" class="text-center"><span t-esc="data['company_id']"/></th>
+								 <th style="border: 1px solid black;" class="text-center"><span t-esc="get_warehouse(data['warehouse'])"/></th>
+								 <th style="border: 1px solid black;" class="text-center"><span t-esc="data['start_date']"/> To <span t-esc="data['end_date']"/> </th>
+								<th style="border: 1px solid black;" class="text-center"><span t-esc="data['currency']"/></th>
+							</tr>
+						</table>
+						<br/>
+					
+						<table width='100%'>
+							<tr>
+								<th style="border: 1px solid black;" class="text-center">Category</th>
+								<th style="border: 1px solid black;" class="text-center">Beginning</th>
+								<th style="border: 1px solid black;" class="text-center">Internal</th>
+								<th style="border: 1px solid black;" class="text-center">Received</th>
+								<th style="border: 1px solid black;" class="text-center">Sales</th>	
+								<th style="border: 1px solid black;" class="text-center">Adjustment</th>
+								<th style="border: 1px solid black;" class="text-center">Ending</th>
+								<th style="border: 1px solid black;" class="text-center">Valuation</th>
+							</tr>
+							<t t-set="final_total" t-value="0.0" type="float"/>
+							<tr t-foreach="get_data(data)" t-as="line">
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('category')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('beginning')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('internal')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('incoming')"/></td>
+								<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('sale_value')"/></td>
+							   	<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('outgoing')"/></td>
+							   	<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('net_on_hand')"/></td>
+							  	<td style="border-bottom: 2px solid black; border-top:2px solid black; border-left:2px solid black; border-right:2px solid black;" class="text-center"><span t-esc="line.get('total_value')" t-options="{'widget':'monetary', 'display_currency': line.get('currency')}"/></td>
+							  	<t t-set="final_total" t-value="final_total + line.get('total_value')"/>
+							</tr>
+						</table>
+					</center>
+				</t>
+				<br/>
+				<table class="table-sm" style="width:100%;">
+					<tbody>
+						<td style="width:35%;"></td>
+						<td style="width:30%;"></td>
+						<td class="text-right" style="width:35%;border:2px solid #000000;border-radius: 4px;">
+							<table class="table-sm" style="width:100%;">
+								<tbody>
+									<td class="text-left" style="width:50%;">
+										<h3>Total Value</h3>
+									</td>
+									<td class="text-right" style="width:50%;">
+										<h3><t t-esc="final_total" t-options="{'widget':'monetary', 'display_currency': currency}"/></h3>
+									</td>
+								</tbody>
+							</table>
+						</td>
+					</tbody>
+				</table>
+			</div>
+		</t>
+		</t>
+	</template>
+
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+        <record model="ir.config_parameter" id="default_show_petty_cash" forcecreate="False">
+            <field name="key">hr_end_of_service.show_petty_cash</field>
+            <field name="value">0</field>
+        </record>
+
+
+        <record model="ir.config_parameter" id="default_show_custody_eos" forcecreate="False">
+            <field name="key">hr_end_of_service.show_custody</field>
+            <field name="value">0</field>
+        </record>
+
+        <record model="ir.config_parameter" id="default_end_of_service_amount_type" forcecreate="False">
+            <field name="key">hr_end_of_service.default_end_of_service_amount_type</field>
+            <field name="value">basic_salary</field>
+        </record>
+
+        <record model="ir.config_parameter" id="default_end_of_service_months_days" forcecreate="False">
+            <field name="key">hr_end_of_service.default_end_of_service_months_days</field>
+            <field name="value" eval="30"/>
+        </record>
+       
+    </data>
+</odoo>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="emp_payslip_payment_form_view" model="ir.ui.view">
+		<field name="name">emp.payslip.payment.form</field>
+		<field name="model">emp.payslip.payment</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group col="4">
+						<field name="journal_id" required="1" domain="[('type','in',['bank','cash'])]"/>
+						<field name="payment_date" required="1" />
+					</group>
+					<notebook>
+						<page name="payment_line" string="Payment Lines">
+							<field name="emp_payslip_payment_lines">
+								<tree editable="bottom" create="0" delete="0">
+									<field name="employee_id" required="1" options="{'no_create':True}"
+										readonly="1" force_save="1" />
+									<field name="number" readonly="1" force_save="1" />
+									<field name="payslip_id" readonly="1" force_save="1" />
+									<field name="journal_id" force_save="1" required="1"
+										options="{'no_create':True}" />
+									<field name="payslip_due_amount" required="1" readonly="1"
+										force_save="1" />
+									<field name="paid_amount" required="1" />
+									<field name="company_id" invisible="1" />
+									<field name="currency_id" invisible="1" />
+									<field name="emp_payslip_payment_id" invisible="1" />
+								</tree>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+				<footer>
+					<button name="do_confirm_payslip_payment" string="Confirm"
+						type="object" class="oe_highlight" />
+					or
+					<button string="Close" class="oe_link" special="cancel" />
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_emp_payslip_payment" model="ir.actions.act_window">
+		<field name="name">Payslip Payment</field>
+		<field name="res_model">emp.payslip.payment</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+<!--	<record id="action_wizard_payslip_payment" model="ir.actions.act_window">-->
+<!--		<field name="name">Payslip Payment</field>-->
+<!--		<field name="res_model">emp.payslip.payment</field>-->
+<!--		<field name="view_mode">form</field>-->
+<!--		<field name="target">new</field>-->
+<!--		<field name="binding_model_id" ref="hr_payroll.model_hr_payslip" />-->
+<!--		<field name="context">{'payslip_ids': active_ids}</field>-->
+<!--	</record>-->
+	<!-- Inherit Form View to Modify it -->
+	<record id="view_inherit_account_journal_form" model="ir.ui.view">
+	    <field name="name">view.inherit.account.journal.form</field>
+	    <field name="model">account.journal</field>
+	    <field name="inherit_id" ref="account.view_account_journal_form"/>
+	    <field name="arch" type="xml">
+
+	        <!-- position: after|before|replace|attributes|inside -->
+	        <xpath expr="//field[@name='code']" position="before">
+<!--	            <field name="default_credit_account_id"/>-->
+<!--				<field name="default_debit_account_id"/>-->
+				<field name="default_account_id" />
+				<field name="default_account_type" invisible="0" readonly="0"/>
+	        </xpath>
+
+	    </field>
+	</record>
+
+</odoo>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="seq_pos_scrap_reason" model="ir.sequence">
+            <field name="name">Seq Scrap Reason</field>
+            <field name="code">pos.scrap_reason</field>
+            <field name="prefix">SR/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+
+        <record id="pos_seurity_rule_1" model="pos.security.role">
+            <field name="name">Login</field>
+            <field name="key">login</field>
+            <field name="name_ar">تسجيل الدخول</field>
+
+        </record>
+
+        <record id="pos_seurity_rule_2" model="pos.security.role">
+            <field name="name">Open session</field>
+            <field name="key">open_session</field>
+            <field name="name_ar">فتح الجلسة</field>
+        </record>
+
+        <record id="pos_seurity_rule_3" model="pos.security.role">
+            <field name="name">CLose session</field>
+            <field name="key">close_session</field>
+            <field name="name_ar">اغلاق الجلسة</field>
+        </record>
+
+        <record id="pos_seurity_rule_4" model="pos.security.role">
+            <field name="name">Print last session report</field>
+            <field name="key">print_last_session_report</field>
+            <field name="name_ar">طباعة تقرير اخر جلسة</field>
+        </record>
+
+        <record id="pos_seurity_rule_5" model="pos.security.role">
+            <field name="name">Records</field>
+            <field name="key">records</field>
+            <field name="name_ar">التسجيلات</field>
+        </record>
+
+        <record id="pos_seurity_rule_6" model="pos.security.role">
+            <field name="name">Reports</field>
+            <field name="key">reports</field>
+            <field name="name_ar">التقارير</field>
+        </record>
+
+        <record id="pos_seurity_rule_7" model="pos.security.role">
+            <field name="name">Display promotions</field>
+            <field name="key">display_promotions</field>
+            <field name="name_ar">اظهار العروض</field>
+        </record>
+
+        <record id="pos_seurity_rule_8" model="pos.security.role">
+            <field name="name">Application settings</field>
+            <field name="key">application_settings</field>
+            <field name="name_ar">اعدادات التطبيق</field>
+        </record>
+
+        <record id="pos_seurity_rule_9" model="pos.security.role">
+            <field name="name">POS settings</field>
+            <field name="key">pos_settings</field>
+            <field name="name_ar">اعدادات نقطة البيع</field>
+        </record>
+
+        <record id="pos_seurity_rule_10" model="pos.security.role">
+            <field name="name">Change user</field>
+            <field name="key">change_user</field>
+            <field name="name_ar">تغير المستخدم</field>
+        </record>
+
+        <record id="pos_seurity_rule_11" model="pos.security.role">
+            <field name="name">Payment device</field>
+            <field name="key">payment_device</field>
+            <field name="name_ar">اجهزة الدفع</field>
+        </record>
+
+        <record id="pos_seurity_rule_12" model="pos.security.role">
+            <field name="name">Printing settings</field>
+            <field name="key">printing_settings</field>
+            <field name="name_ar">اعدادات الطباعه</field>
+        </record>
+
+        <record id="pos_seurity_rule_13" model="pos.security.role">
+            <field name="name">ODOO conection settings</field>
+            <field name="key">odoo_connection_settings</field>
+            <field name="name_ar">اعدادات الاتصال باودو</field>
+        </record>
+
+        <record id="pos_seurity_rule_14" model="pos.security.role">
+            <field name="name">App settings</field>
+            <field name="key">app_settings</field>
+            <field name="name_ar">اعداد التطبيق</field>
+        </record>
+
+        <record id="pos_seurity_rule_15" model="pos.security.role">
+            <field name="name">App log</field>
+            <field name="key">app_log</field>
+            <field name="name_ar">ملخص عمليات التطبيق</field>
+        </record>
+
+        <record id="pos_seurity_rule_16" model="pos.security.role">
+            <field name="name">Multi session</field>
+            <field name="key">multi_session</field>
+            <field name="name_ar">تعدد الجلسات</field>
+        </record>
+
+        <record id="pos_seurity_rule_17" model="pos.security.role">
+            <field name="name">Change cahier pin code</field>
+            <field name="key">change_cashier_pin_code</field>
+            <field name="name_ar">تغير كود المستخدم</field>
+        </record>
+
+        <record id="pos_seurity_rule_18" model="pos.security.role">
+            <field name="name">Order type</field>
+            <field name="key">order_type</field>
+            <field name="name_ar">نوع الطلب</field>
+        </record>
+
+        <record id="pos_seurity_rule_19" model="pos.security.role">
+            <field name="name">Discount</field>
+            <field name="key">discount</field>
+            <field name="name_ar">الخصم</field>
+        </record>
+
+        <record id="pos_seurity_rule_20" model="pos.security.role">
+            <field name="name">Invoice note</field>
+            <field name="key">invoice_note</field>
+            <field name="name_ar">تعليقات الفاتورة</field>
+        </record>
+
+        <record id="pos_seurity_rule_21" model="pos.security.role">
+            <field name="name">Draft print</field>
+            <field name="key">draft_print</field>
+            <field name="name_ar">طباعه طلب مسودة</field>
+        </record>
+
+        <record id="pos_seurity_rule_22" model="pos.security.role">
+            <field name="name">Delete order</field>
+            <field name="key">delete_order</field>
+            <field name="name_ar">حذف طلب</field>
+        </record>
+
+        <record id="pos_seurity_rule_23" model="pos.security.role">
+            <field name="name">Split order</field>
+            <field name="key">split_order</field>
+            <field name="name_ar">فصل طلب</field>
+        </record>
+
+        <record id="pos_seurity_rule_24" model="pos.security.role">
+            <field name="name">Add coupon</field>
+            <field name="key">add_coupon</field>
+            <field name="name_ar">اضافة كوبون</field>
+        </record>
+
+        <record id="pos_seurity_rule_25" model="pos.security.role">
+            <field name="name">Transfer table</field>
+            <field name="key">transfer_table</field>
+            <field name="name_ar">تغيير الطاولة</field>
+        </record>
+
+        <record id="pos_seurity_rule_26" model="pos.security.role">
+            <field name="name">Return order</field>
+            <field name="key">return_order</field>
+            <field name="name_ar">ارجاع الطلب</field>
+        </record>
+
+        <record id="pos_seurity_rule_27" model="pos.security.role">
+            <field name="name">Add customer</field>
+            <field name="key">add_customer</field>
+            <field name="name_ar">اضافة زبون</field>
+        </record>
+
+        <record id="pos_seurity_rule_28" model="pos.security.role">
+            <field name="name">Delete item</field>
+            <field name="key">delete_item</field>
+            <field name="name_ar">حذف منتج</field>
+        </record>
+
+        <record id="pos_seurity_rule_29" model="pos.security.role">
+            <field name="name">Scrap item</field>
+            <field name="key">scrap_item</field>
+            <field name="name_ar">هلك منتج</field>
+        </record>
+
+        <record id="pos_seurity_rule_30" model="pos.security.role">
+            <field name="name">Order payment process</field>
+            <field name="key">order_payment_process</field>
+            <field name="name_ar">عملية الدفع</field>
+        </record>
+
+        <record id="pos_seurity_rule_31" model="pos.security.role">
+            <field name="name">Delete all</field>
+            <field name="key">delete_all</field>
+            <field name="name_ar">حذف الكل</field>
+        </record>
+
+        <record id="pos_seurity_rule_32" model="pos.security.role">
+            <field name="name">All order tab</field>
+            <field name="key">all_order_tab</field>
+            <field name="name_ar">كل الاختيارات</field>
+        </record>
+
+    </data>
+</odoo>

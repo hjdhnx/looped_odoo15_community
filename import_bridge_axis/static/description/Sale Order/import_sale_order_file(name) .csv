@@ -1,0 +1,4 @@
+Order,Partner,Product,Quantity,Uom,Description,Price,Salesperson,Tax,Quotation Date,Payment Terms,Discount,Partner Name,Attributes Name,IMP Note,Other Details
+S1O025,Azure Interior,Table Kit,1,Units,Large Cabinet product order.,10000,Mitchell Admin,Gst 2%,03/31/2020,Immediate Payment,5,aaa,red,available,none
+S1O026,Azure Interior,Desk,2,g,I want Cabinet With Doors.,10000,Mitchell Admin,Gst 2%,03/31/2020,10 Days,10,bbb,white,only white,plain
+S1O026,Azure Interior,Office Chair Black,3,kg,Large Cabinet product order.,456,Mitchell Admin,Gst 2%,03/31/2020,10 Days,15,cc,black,not available,

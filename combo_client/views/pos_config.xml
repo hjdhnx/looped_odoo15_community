@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pos_config_form_inherit" model="ir.ui.view">
+            <field name="name">pos.config.form.inherit</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <group>
+                        <label for="server_pin_code"/>
+                        <div>
+                            <field name="server_pin_code" class="oe_inline" readonly="1"/>
+                            <![CDATA[&nbsp;]]>
+                            <button class="btn-primary oe_inline" name="get_pin_Code" type="object" string="Get Server Pin Code"/>
+                        </div>
+                        <label for="pos_url"/>
+                        <div>
+                            <field name="pos_url" class="oe_inline" readonly="1"/>
+                        </div>   
+                        <label for="pos_database"/>
+                        <div>
+                            <field name="pos_database" class="oe_inline" readonly="1"/>
+                        </div>   
+                        <label for="pos_user"/>
+                        <div>
+                            <field name="pos_user" class="oe_inline" readonly="1"/>
+                        </div>                                                                   
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

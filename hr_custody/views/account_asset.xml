@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="custody_account_asset_form" model="ir.ui.view">
+        <field name="name">custody.account.asset.form</field>
+        <field name="model">account.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='asset_type']/parent::group"
+                   position="inside">
+                <group name="custody" string="Custody" attrs="{'invisible':[('custody_item_ids','=',[])]}">
+                    <field name="custody_item_ids" invisible="1"/>
+                    <field name="custody_item_id"
+                           domain="[('id', 'in', custody_item_ids)]"
+                           options="{'no_open': True, 'no_create': True}"
+                           attrs="{'required':[('custody_item_ids','!=',[])],'readonly':[('custody_item_ids','=',[])]}"/>
+                    <field name="custody_property_id"
+                           attrs="{'invisible':[('custody_property_id','=',False)]}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

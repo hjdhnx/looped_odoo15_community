@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_custody_item_form" model="ir.ui.view">
+        <field name="name">custody.item.form</field>
+        <field name="model">custody.item</field>
+        <field name="arch" type="xml">
+            <form string="Item">
+                <sheet>
+                    <field name="image" widget='image' class="oe_avatar"
+                           options='{"preview_image": "image_medium"}'/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="company_id"
+                                   options="{'no_create': True}"
+                                   groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="property_ids" string="Properties">
+                            <field name="property_ids" mode="tree">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="desc"/>
+                                    <field name="company_id"
+                                           options="{'no_create': True}"
+                                           groups="base.group_multi_company"/>
+                                </tree>
+                                <form>
+                                    <field name="image" widget='image'
+                                           class="oe_avatar"
+                                           options='{"preview_image": "image_medium"}'/>
+                                    <div class="oe_title">
+                                        <h1>
+                                            <field name="name"
+                                                   placeholder="Name"/>
+                                        </h1>
+                                    </div>
+                                    <group string="Description">
+                                        <div>
+                                            <field name="desc" class="oe_inline"
+                                                   placeholder="Description..."/>
+                                        </div>
+                                    </group>
+                                    <group>
+                                        <field name="company_id"
+                                               options="{'no_create': True}"
+                                               groups="base.group_multi_company"/>
+
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page name="description" string="Description">
+                            <div>
+                                <field name="description" class="oe_inline"
+                                       placeholder="Description..."/>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_custody_item_tree" model="ir.ui.view">
+        <field name="name">custody.item.tree</field>
+        <field name="model">custody.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="property_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_custody_item_filter" model="ir.ui.view">
+        <field name="name">custody.item.filter</field>
+        <field name="model">custody.item</field>
+        <field name="arch" type="xml">
+            <search string="Item">
+                <field name="name"/>
+                <group expand="0" string="Group By">
+                    <filter name="groupby_name" string="Name" domain="[]"
+                            context="{'group_by':'name'}" help=" "/>
+                    <separator/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_custody_item_action" model="ir.actions.act_window">
+        <field name="name">Custody Item</field>
+        <field name="res_model">custody.item</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menuitem_custody_item" name="Items"
+              parent="hr_custody.hr_custody_root_menu"
+              action="view_custody_item_action" sequence="6"
+              groups="hr.group_hr_user,hr_custody.group_manage_custody"/>
+</odoo>

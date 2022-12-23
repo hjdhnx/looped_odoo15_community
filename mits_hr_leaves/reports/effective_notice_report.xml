@@ -1,0 +1,144 @@
+<odoo>
+<data>
+    <record id="paperformat_effective_notice" model="report.paperformat">
+        <field name="name">Effective Notice</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">23</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">68</field>
+        <field name="dpi">90</field>
+    </record>
+    <report
+        id="report_effective_notice"
+        model="effective.notice"
+        string="Effective Notice Report"
+        name="mits_hr_leaves.report_effective_notice_main"
+        file="report_effective_notice"
+        report_type="qweb-pdf"
+        paperformat="paperformat_effective_notice"    />
+
+<template id="report_effective_notice_main">
+    <t t-foreach="docs" t-as="doc">
+        <t t-call="mits_hr_leaves.report_effective_notice_view" t-lang="doc.employee_id.sudo().address_home_id.lang"/>
+    </t>
+</template>
+
+    <template id="report_effective_notice_view">
+        <t t-call="web.html_container">
+         <t t-call="web.external_layout">
+         <!-- <t t-set="docs" t-value="docs[0].with_context(lang=docs.employee_id.sudo().address_home_id.lang)" /> -->
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+
+            <!-- <t t-foreach="docs" t-as="doc"> -->
+
+               <t t-set="doc" t-value="doc.with_context(lang=docs.employee_id.sudo().address_home_id.lang)" />
+               <!--<t t-call="mits_document_management.document_holder_layout">-->
+                   <div class="page" style="direction:rtl;">
+                       <div class="header" style="direction: rlt;font-family:FreeSerif;">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 100px;"/>
+                            </div>
+                            <div class="col-xs-8 text-right" style="margin-top:20px;" t-field="company.name"/>
+                        </div>
+                        <div class="row zero_min_height">
+                            <div class="col-xs-12">
+                                <div style="border-bottom: 1px solid black;"></div>
+                            </div>
+                        </div>
+                    </div>
+                        <center><span style="font-size:18px;">
+                            إشعار مباشرة العمل
+                            <br/>
+                        Effective Date Notice
+                        </span></center>
+                       <br/>
+                       <table class="table table-bordered" style="width:100%;border: 2px solid black;">
+                           <tr>
+                               <td style="width:40px;text-align:center;font-weight: bold;font-size:15px;">1</td>
+                               <td rowspan="2">
+                                   <label style="font-weight:normal;margin-left:8px;">الأسم:</label><span t-field="doc.employee_id"/><label style="float:left;font-weight:normal;">:Name</label>
+                                   <br/><label style="font-weight:normal;margin-left:8px;">الأدارة:</label><span t-field="doc.department_id"/><label style="float:left;font-weight:normal;">:Department</label>
+                                   <br/><label style="font-weight:normal;margin-left:8px;">تاريخ المباشرة:</label><span t-field="doc.start_work"/><label style="float:left;font-weight:normal;">:Starting Work at</label>
+                               </td>
+                               <td rowspan="2">
+                                   <label style="font-weight:normal;margin-left:8px;">الوظيفة:</label><span t-field="doc.job_id"/><label style="float:left;font-weight:normal;">:Title</label>
+                                   <br/><label style="font-weight:normal;margin-left:8px;">رقم الوظيفة:</label><span t-field="doc.employee_number"/><label style="float:left;font-weight:normal;">:ID NO</label>
+                                   <br/><label style="font-weight:normal;margin-left:8px;">الجنسية:</label><span t-field="doc.employee_id.country_id"/><label style="float:left;font-weight:normal;">:Nationality</label>
+                               </td>
+                               <td style="width:40px;text-align:center;font-weight: bold;font-size:15px;">1</td>
+                           </tr>
+                           <tr>
+                               <td rowspan="2" style="text-align:center;background-color:gray;"><center><span style="position: absolute;right: 0%;margin-top: 30px;-webkit-transform:rotate(-90deg);">بيانات الموظف</span></center></td>
+                               <td rowspan="2" style="text-align:center;background-color:gray;"><center><span style="position: absolute;left: 0%;margin-top: 30px;-webkit-transform:rotate(-90deg);">Emp. Data</span></center></td>
+                           </tr>
+                           <tr>
+                               <td colspan="2" style="text-align:center;"><label style="font-weight:normal;">توقيع الموظف:</label>ـــــــــــــــــــــــــــــــــــــ<label style="font-weight:normal;">:Employee signature</label></td>
+                           </tr>
+                       </table>
+                       <table class="table table-bordered" style="width:100%;border: 2px solid black;">
+                           <tr>
+                               <td style="width:40px;text-align:center;font-weight: bold;font-size:15px;">2</td>
+                               <td rowspan="2">
+                                   <label style="font-weight:normal;margin-left:8px;">إلي:</label><span>شئون الموظفين.</span><label style="float:left;font-weight:normal;margin-right:8px;">:To</label><span style="float:left;">.Personal Department</span>
+                                   <br/><label style="font-weight:normal;margin-left:8px;">نأمل أعتماد مباشرة العمل للموظف:</label> <label style="float:left;font-weight:normal;">:Please be Advised that, the Employee</label>
+                                   <br/> <label for="checkbox" style=" border: 1px solid #888; width: 15px; height: 15px; display: inline-block;margin-bottom:0px;"/> <label style="font-weight:normal;margin-left:8px;"> التحقق بالعمل ﻷول مرة</label> <label for="checkbox" style=" border: 1px solid #888; width: 15px; height: 15px; display: inline-block;margin-bottom:3px;float:left;"/> <label style="float:left;font-weight:normal;margin-left:8px;"> Started the work for the first time</label>
+                                   <br/> <label for="checkbox" style=" border: 1px solid #888; width: 15px; height: 15px; display: inline-block;margin-bottom:0px;"/> <label style="font-weight:normal;margin-left:8px;"> التحقق بالعمل بعد الأجازة</label> <label for="checkbox" style=" border: 1px solid #888; width: 15px; height: 15px; display: inline-block;margin-bottom:3px;float:left;"/> <label style="float:left;font-weight:normal;margin-left:8px;"> Joined the work after vacation</label>
+                               </td>
+                               <td style="width:40px;text-align:center;font-weight: bold;font-size:15px;">2</td>
+                           </tr>
+                           <tr>
+                               <td rowspan="2" style="text-align:center;background-color:gray;"><center><span style="position: absolute;right: 0%;margin-top: 80px;-webkit-transform:rotate(-90deg);">إدارة الموظف</span></center></td>
+                               <td rowspan="2" style="text-align:center;background-color:gray;"><center><span style="position: absolute;left: -1%;margin-top: 80px;-webkit-transform:rotate(-90deg);">.Employ Dept</span></center></td>
+                           </tr>
+                           <tr>
+                               <td style="text-align:center;">
+                                   <span>مدير الإدارة</span>
+                                   <br/><span>Dept. Manager</span>
+                                   <br/><label style="font-weight:normal;">الأسم:</label>ـــــــــــــــــــــــــــــــــــــ<label style="font-weight:normal;">:Name</label>
+                                   <br/><label style="font-weight:normal;">التوقيع:</label>ـــــــــــــــــــــــــــــــــــــ<label style="font-weight:normal;">:Signature</label>
+                                   <br/><label style="font-weight:normal;">التاريخ:</label>ـــــــــــــــــــــــــــــــــــــ<label style="font-weight:normal;">:Date</label>
+                               </td>
+                           </tr>
+                       </table>
+                       <table class="table table-bordered" style="width:100%;border: 2px solid black;">
+                           <tr>
+                               <td style="width:40px;text-align:center;font-weight: bold;font-size:15px;">3</td>
+                               <td rowspan="2" style="height:150px;">
+                                   <label for="checkbox" style=" border: 1px solid #888; width: 15px; height: 15px; display: inline-block;margin-bottom:0px;"/> المذكور باشر في التاريخ المحدد ويدر أسمه بكشوفات الرواتب أعتبارا من: ـــــ/ــــ/ــــــ
+                                   <br/> <label for="checkbox" style=" border: 1px solid #888; width: 15px; height: 15px; display: inline-block;margin-bottom:0px;"/> المذكور باشر العمل متأخرا ـــــــــــــــــ يوم ويدرج أسمه بكشوفات الرواتب اعتبارا من: ــــــ/ــــ/ــــــ
+                               </td>
+                               <td style="width:40px;text-align:center;font-weight: bold;font-size:15px;">3</td>
+                           </tr>
+                           <tr>
+                               <td rowspan="2" style="text-align:center;background-color:gray;height:200px;"><center><span style="position: absolute;right: -7%;margin-top: 80px;-webkit-transform:rotate(-90deg);">لاستخدام شئون الموظفين فقط</span></center></td>
+                               <td rowspan="2" style="text-align:center;background-color:gray;height:200px;"><center><span style="position: absolute;left: -3%;margin-top:  80px;-webkit-transform:rotate(-90deg);">Personal use only</span></center></td>
+                           </tr>
+                           <tr>
+                               <td style="text-align:center;">
+                                   <span>مدير الإدارة</span>
+                                   <br/><label style="font-weight:normal;">التوقيع:</label>ـــــــــــــــــــــــــــ
+                                   <br/><label style="font-weight:normal;">التاريخ:</label>ــــــ/ــــ/ـــــــــــــ
+                               </td>
+                           </tr>
+                       </table>
+               </div>
+            <!-- </t> -->
+        </t>
+             </t>
+    </template>
+</data>
+</odoo>

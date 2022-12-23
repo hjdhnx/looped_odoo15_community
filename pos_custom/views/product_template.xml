@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="point_of_sale.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="before">
+                <group name="product_type" col="2">
+                    <field name="product_type"/>
+                    <field name="available_apps_ids" widget="many2many_tags" invisible="1"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='available_in_pos']" position="after">
+                <!-- <field name="invisible_in_ui"/> -->
+                <field name="is_delivery_app"/>
+                <field name="exclude_template_config_ids" widget="many2many_tags"/>
+                <field name="open_price"/>
+                <field name="preparation_time" widget="float_time"/>
+            </xpath>
+
+            <xpath expr="//h1" position="after">
+                <div name="names">
+                    <group>
+                        <field name="name_ar" invisible="1"/>
+                        <div class="oe_inline">
+                            <label for="other_lang_name" string="Arabic Name" invisible="context.get('lang') and 'ar' in context.get('lang')" class="oe_inline font-weight-bold"/>
+                            <label for="other_lang_name" string="English Name" invisible="context.get('lang')  and 'en' in context.get('lang')" class="oe_inline font-weight-bold"/>
+                        </div>
+                        <field name="other_lang_name" nolabel="1" class="oe_inline"/>
+                    </group>
+                </div>
+
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="update_price_extra_wizard_form" model="ir.ui.view">
+        <field name="name">update.price.extra.wizard.form</field>
+        <field name="model">update.price.extra.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="update_price">
+                        <group>
+                            <field name="value_id" invisible="1"/>
+                            <field name="price_extra" required="0" string="Price Extra"/>
+                            <field name="arabic_name" string="Arabic Name"/>
+                        </group>
+                        <footer>
+                            <button name="action_ok" string="Update" type="object" default_focus="1" class="oe_highlight"/>
+                            <button special="cancel" string="Close" class="btn-secondary"/>
+                        </footer>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_template_only_form_view_custom" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='general_information']" position="inside">
+                <field name="pricelist_item_ids" nolabel="1" options="{'no_create': True, 'no_open': True}" force_save="1">
+                    <tree editable="bottom">
+                        <field name="pricelist_id"/>
+                        <field name="min_quantity"/>
+                        <field name="fixed_price"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </tree>
+                </field>
+            </xpath>
+            <page name="variants" position="inside">
+                <field name="product_template_value_ids" nolabel="1" options="{'no_create': True, 'no_open': True}" force_save="1">
+                    <tree editable="bottom">
+                        <field name="name"/>
+                        <field name="arabic_name"/>
+                        <field name="html_color" widget="color"/>
+                        <field name="price_extra" string="Price Extra"/>
+                        <button name="action_update_price_extra" string="Update Price - Arabic name" type="object" class="oe_highlight oe_inline"/>
+                        <field name="calorie_extra"/>
+                    </tree>
+                </field>
+            </page>
+             <xpath expr="//field[@name='attribute_line_ids']//field[@name='attribute_id']" position="attributes">
+                <attribute name="context">{'default_create_variant': 'always'}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="product_template_form_view_custom" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <page name="inventory" position="after">
+                <page string="Pos Images">
+                    <field name="pos_product_template_image_ids" class="o_website_sale_image_list" context="{'default_name': name}" mode="kanban" add-label="Add a Media" nolabel="1"/>
+                </page>
+            </page>
+            <!-- <xpath expr="//sheet//div[@name='options']" position="inside">
+                <div>
+                    <field name="is_extra" />
+                    <label for="is_extra" />
+                </div>
+                <div>
+                    <field name="product_type" invisible="1"/>
+                    <field name="is_discount" />
+                    <label for="is_discount" />
+                </div>                
+            </xpath>             -->
+            <notebook position="inside">
+                <page name="extra_products" string="Extra Products" attrs="{'invisible': [('product_type', '=', 'is_extra')]}">
+                    <group>
+                        <group>
+                            <field name="extra_products" widget="many2many_tags" domain="[('product_type', '=', 'is_extra')]" options="{'no_create': True, 'no_edit': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+
+    <record id="view_pos_product_image_form" model="ir.ui.view">
+        <field name="name">pos.product.image.view.form</field>
+        <field name="model">pos.product.image</field>
+        <field name="arch" type="xml">
+            <form string="Product Images">
+                <field name="sequence" invisible="1"/>
+                <div class="row o_website_sale_image_modal">
+                    <div class="col-md-6 col-xl-5">
+                        <label for="name" string="Image Name"/>
+                        <h2><field name="name" placeholder="Image Name"/></h2>
+                        <label for="video_url" string="Video URL"/><br/>
+                        <field name="video_url"/><br/>
+                    </div>
+                    <div class="col-md-6 col-xl-7 text-center o_website_sale_image_modal_container">
+                        <div class="row">
+                            <div class="col">
+                                <field name="image_1920" widget="image"/>
+                            </div>
+                            <div class="col" attrs="{'invisible': [('video_url', 'in', ['', False])]}">
+                                <div class="o_video_container p-2">
+                                    <span>Video Preview</span>
+                                    <field name="embed_code" class="mt-2" widget="video_preview"/>
+                                    <h4 class="o_invalid_warning text-muted text-center" attrs="{'invisible': [('embed_code', '!=', False)]}">
+                                        Please enter a valid Video URL.
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="pos_product_image_view_kanban" model="ir.ui.view">
+        <field name="name">pos.product.image.view.kanban</field>
+        <field name="model">pos.product.image</field>
+        <field name="arch" type="xml">
+            <kanban string="Product Images" default_order="sequence">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="image_1920"/>
+                <field name="sequence" widget="handle"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="card oe_kanban_global_click p-0">
+                            <div class="o_squared_image">
+                                <img class="card-img-top" t-att-src="kanban_image('pos.product.image', 'image_1920', record.id.raw_value)" t-att-alt="record.name.value"/>
+                            </div>
+                            <div class="card-body p-0">
+                                <h4 class="card-title p-2 m-0 bg-200">
+                                    <small><field name="name"/></small>
+                                </h4>
+                            </div>
+                            <!-- below 100 Kb: good -->
+                            <t t-if="record.image_1920.raw_value.length &lt; 100*1000">
+                                <t t-set="size_status" t-value="'badge-success'"/>
+                                <t t-set="message">Acceptable file size</t>
+                            </t>
+                            <!-- below 1000 Kb: decent -->
+                            <t t-elif="record.image_1920.raw_value.length &lt; 1000*1000">
+                                <t t-set="size_status" t-value="'badge-warning'" />
+                                <t t-set="message">Huge file size. The image should be optimized/reduced.</t>
+                            </t>
+                            <!-- above 1000 Kb: bad -->
+                            <t t-else="1">
+                                <t t-set="size_status" t-value="'badge-danger'"/>
+                                <t t-set="message">Optimization required! Reduce the image size or increase your compression settings.</t>
+                            </t>
+                            <span t-attf-class="badge #{size_status} o_product_image_size" t-esc="record.image_1920.value" t-att-title="message"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+
+
+
+
+    <record id="product_template_attribute_value_view_tree" model="ir.ui.view">
+        <field name="name">product.template.attribute.value.tree.inherit</field>
+        <field name="model">product.template.attribute.value</field>
+        <field name="inherit_id" ref="product.product_template_attribute_value_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="product_tmpl_id"/>
+             
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="product_template_attribute_value_view_search" model="ir.ui.view">
+        <field name="name">product.template.attribute.value.search</field>
+        <field name="model">product.template.attribute.value</field>
+        
+        <field name="inherit_id" ref="product.product_template_attribute_value_view_search"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//search" position="inside">
+            <group>
+                <filter string="Product Template" name="product_tmpl_id" context="{'group_by':'product_tmpl_id'}"/>
+            </group>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="product_template_attrib_value_variant_action" model="ir.actions.act_window">
+        <field name="name">Product Template Attibutes Value</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template.attribute.value</field>
+        <field name="context">{'create': False}</field>
+        <field name="search_view_id" ref="product.product_template_attribute_value_view_search"/>
+        <field name="view_ids" eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('product.product_template_attribute_value_view_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('product.product_template_attribute_value_view_form')}),
+                          ]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a new product variant
+            </p>
+            <p>
+            You must define a product for everything you sell or purchase,
+            whether it's a storable product, a consumable or a service.
+            The product form contains information to simplify the sale process:
+            price, notes in the quotation, accounting data, procurement methods, etc.
+            </p>
+        </field>
+
+    </record>
+
+
+
+    <menuitem id="menu_pos_product_variant_menu" parent="point_of_sale.menu_point_config_product" 
+    action="product_template_attrib_value_variant_action" name="Product Attribute Value" sequence="4" groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+
+
+</odoo>

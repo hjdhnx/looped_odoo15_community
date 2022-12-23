@@ -1,0 +1,167 @@
+<odoo>
+
+    <report
+        id="action_report_clearance_form"
+        string="Resignation Form"
+        model="prepare.clearance"
+        report_type="qweb-pdf"
+        file="hr_prepare_resignation.report_clearance_template"
+        name="hr_prepare_resignation.report_clearance_template"
+        print_report_name="(object._get_report_clearance_form_filename())"
+        menu="False"
+    />
+
+    <template id="report_clearance_template">
+        <t t-call="web.html_container">
+        <!-- <t t-call="heights_custom_report.custom_external_layout"> -->
+        <t t-call="web.external_layout">
+        <t t-foreach="docs" t-as="doc">
+            <div class="page">
+                <div class="oe_structure"/>
+                <div align="center">
+                <h3 style="color:#f8f9fa;background-color:#003570; background-size: 150px;width: 500px;
+                    height: 80px;display:inline-block;border-radius: 25px;text-align:center;">
+                        <span style="position:relative; top: 20px;"> <span>إخلاء طرف</span> Clearance Form  </span>
+                </h3>
+                </div>
+                <table class="table" style="width:100%;font-size: large;text-align:center;">
+                    <tr>
+                        <td style="border: 1px solid black;">   اﻻسم  :   <span t-esc="doc.employee_id.name"/>  </td>
+                        <td style="border: 1px solid black;">  Name : <span t-esc="doc.employee_id.name"/>  </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black;">   المسمي الوظيفي :   <span t-field="doc.employee_id.job_title"/>  </td>
+                        <td style="border: 1px solid black;">  Job Title : <span t-field="doc.employee_id.job_title"/> </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black;">    القسم :   <span t-field="doc.employee_id.department_id"/>  </td>
+                        <td style="border: 1px solid black;">  Department : <span t-field="doc.employee_id.department_id"/> </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black;">    أخر يوم عمل :   <span t-field="doc.expected_revealing_date"/>  </td>
+                        <td style="border: 1px solid black;">  Last Working Day : <span t-field="doc.expected_revealing_date"/> </td>
+                    </tr>
+                </table>
+                <table class="table table-bordered" style="text-align:center;">
+                    <thead>
+                        <tr style="color:#f8f9fa;background-color:#003570;">
+                            <th style="border: 1px solid black">
+                                <strong>المسؤول</strong>
+                            </th>
+                            <th style="border: 1px solid black;text-align:center;">
+                                <strong>الحاله</strong>
+                            </th>
+                            <th style="border: 1px solid black">
+                                <strong>الملاحظات</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td style="border: 1px solid black">قسم الموارد البشرية</td>
+                        <td style="border: 1px solid black;text-align:center;">وافق</td>
+                        <td style="border: 1px solid black"><span t-esc="doc.hr_notice"/></td>
+                    </tr>
+                        <tr>
+                            <td style="border: 1px solid black">المدير المباشر</td>
+                            <td style="border: 1px solid black;text-align:center;">وافق</td>
+                            <td style="border: 1px solid black"><span t-esc="doc.dir_man_notice"/></td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black">قسم الحاسب اﻻلى</td>
+                            <td style="border: 1px solid black;text-align:center;">وافق</td>
+                            <td style="border: 1px solid black"><span t-esc="doc.gen_man_notice"/></td>
+                        </tr>
+                        <!-- <tr>
+                            <td style="border: 1px solid black">قسم المستودعات</td>
+                            <td style="border: 1px solid black;text-align:center;">وافق</td>
+                            <td style="border: 1px solid black"><span t-esc="doc.stock_notice"/></td>
+                        </tr> -->
+                        <tr>
+                            <td style="border: 1px solid black">قسم الحسابات</td>
+                            <td style="border: 1px solid black;text-align:center;">وافق</td>
+                            <td style="border: 1px solid black"><span t-esc="doc.acc_notice"/></td>
+                        </tr>
+                        <tr t-if="doc.receive_officer">
+                            <td style="border: 1px solid black">القائم بأعمال</td>
+                            <td style="border: 1px solid black;text-align:center;"><span t-esc="doc.employee_id.name"/></td>
+                            <td style="border: 1px solid black;text-align:center;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered" style="text-align:center;">
+                    <thead>
+                        <tr style="color:#f8f9fa;background-color:#003570;">
+                            <th style="border: 1px solid black;text-align:center;">
+                                <strong>تسليمات الاقسام</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:center;vertical-align : middle;" rowspan="4">قسم الموارد البشرية</td>
+                            <td style="border: 1px solid black;text-align:center;">الغاء البصمة</td>
+                            <td style="border: 1px solid black;text-align:center;">
+                            <t t-if="doc.fingerprint">
+                                    <img src="/hr_prepare_resignation/static/description/true.png" width="25" height="25"/>
+                            </t>
+                            <t t-if="not doc.fingerprint">
+                                    <img src="/hr_prepare_resignation/static/description/empty.png" width="25" height="25" />
+                            </t>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:center;">استلام ملصق موقف السيارة</td>
+                            <td style="border: 1px solid black;text-align:center;">
+                            <t t-if="doc.parking_sticker">
+                                    <img src="/hr_prepare_resignation/static/description/true.png" width="25" height="25"/>
+                            </t>
+                            <t t-if="not doc.parking_sticker">
+                                    <img src="/hr_prepare_resignation/static/description/empty.png" width="25" height="25" />
+                            </t>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:center;">استلام التأمين</td>
+                            <td style="border: 1px solid black;text-align:center;">
+                            <t t-if="doc.insurance">
+                                    <img src="/hr_prepare_resignation/static/description/true.png" width="25" height="25"/>
+                            </t>
+                            <t t-if="not doc.insurance">
+                                    <img src="/hr_prepare_resignation/static/description/empty.png" width="25" height="25" />
+                            </t>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;text-align:center;">استلام البطاقة الوظيفية</td>
+                            <td style="border: 1px solid black;text-align:center;">
+                            <t t-if="doc.job_card">
+                                    <img src="/hr_prepare_resignation/static/description/true.png" width="25" height="25"/>
+                            </t>
+                            <t t-if="not doc.job_card">
+                                    <img src="/hr_prepare_resignation/static/description/empty.png" width="25" height="25" />
+                            </t>
+                        </td>
+                        </tr>
+
+                        <tr>
+                            <td style="border: 1px solid black;text-align:center;"> قسم الحاسب الالي </td>
+                            <td style="border: 1px solid black;text-align:center;"> استلمت الجهاز </td>
+                            <td style="border: 1px solid black;text-align:center;">
+                            <t t-if="doc.receive_pc">
+                                    <img src="/hr_prepare_resignation/static/description/true.png" width="25" height="25"/>
+                            </t>
+                            <t t-if="not doc.receive_pc">
+                                    <img src="/hr_prepare_resignation/static/description/empty.png" width="25" height="25" />
+                            </t>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+        </t>
+        </t>
+    </template>
+
+</odoo>

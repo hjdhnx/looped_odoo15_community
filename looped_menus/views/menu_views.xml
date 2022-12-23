@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+        <record id="account.action_account_payments_payable" model="ir.actions.act_window">
+            <field name="name">Vendor Payments</field>
+            <field name="res_model">account.payment</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="context">{
+                'default_payment_type': 'outbound',
+                'default_partner_type': 'supplier',
+                'search_default_outbound_filter': 1,
+                'default_move_journal_types': ('bank', 'cash'),
+            }</field>
+            <field name="view_id" ref="account.view_account_supplier_payment_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Register a payment
+                </p><p>
+                  Payments are used to register liquidity movements. You can process those payments by your own means or by using installed facilities.
+                </p>
+            </field>
+        </record>
+
+        <record id="account.action_account_payments" model="ir.actions.act_window">
+            <field name="name">Customer Payments</field>
+            <field name="res_model">account.payment</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="context">{
+                'default_payment_type': 'inbound',
+                'default_partner_type': 'customer',
+                'search_default_inbound_filter': 1,
+                'default_move_journal_types': ('bank', 'cash'),
+            }</field>
+            <field name="view_id" ref="account.view_account_payment_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Register a payment
+                </p><p>
+                  Payments are used to register liquidity movements. You can process those payments by your own means or by using installed facilities.
+                </p>
+            </field>
+        </record>
+
+        <record id="mrp_bom_form_action_pos" model="ir.actions.act_window">
+            <field name="name">Final Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.bom</field>
+            <field name="domain">[]</field> <!-- force empty -->
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="mrp.view_mrp_bom_filter"/>
+            <field name="context">{'default_company_id': allowed_company_ids[0]}</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No final products found. Let's create one!
+              </p>
+            </field>
+        </record>
+
+		<record id="product_product_action_material" model="ir.actions.act_window">
+			<field name="name">Materials</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.template</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context" eval="{'search_default_filter_can_not_be_sale': 1,}"/>
+			<field name="domain" eval="[]"/>
+			<field name="search_view_id" eval="False"/>
+			<field name="view_id" ref="product.product_template_tree_view"/>
+			<field name="help" type="html">
+				<p class="o_view_nocontent_smiling_face">
+					Create a new product
+				</p><p>
+					You must define a product for everything you sell through
+					the point of sale interface.
+				</p>
+			</field>
+		</record>
+
+		<record id="product_bundle_product_search_view" model="ir.ui.view">
+			<field name="name">product.template.search</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product.product_template_search_view" />
+			<field name="arch" type="xml">
+				<xpath expr="//search/filter[@name='filter_to_sell']" position="after">
+					<filter string="Can not be sold" name="filter_can_not_be_sale"  domain="[('sale_ok','!=',1)]"/>
+				</xpath>  
+			</field>
+		</record>
+
+		<record id="product_product_action_pos" model="ir.actions.act_window">
+			<field name="name">Products</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.product</field>
+			<field name="view_mode">kanban,tree,form,activity</field>
+			<field name="context" eval="{'search_default_filter_to_availabe_pos': 1, 'default_available_in_pos': True}"/>
+			<field name="domain" eval="[]"/>
+			<field name="search_view_id" eval="False"/>
+			<field name="view_id" ref="product.product_product_tree_view"/>
+			<field name="help" type="html">
+				<p class="o_view_nocontent_smiling_face">
+					Create a new product
+				</p><p>
+					You must define a product for everything you sell through
+					the point of sale interface.
+				</p>
+			</field>
+		</record>
+
+		<menuitem id="root_menu_looped" name="Looped Management" sequence="1" web_icon="sh_backmate_theme_adv,static/src/icons/2d/setting_icons/looped_manag.svg" />
+
+		<menuitem id="root_menu_looped_dashboards" parent="looped_menus.root_menu_looped" name="Dashboards" groups="base.group_user" sequence="-1" />
+
+		<record id="ks_pos_dashboard_ninja.default_sales_dashboard_pos" model="ks_dashboard_ninja.board">
+			<field name="name">POS Dashboard</field>
+			<field name="ks_dashboard_menu_name">POS Dashboard</field>
+			<field name="ks_dashboard_top_menu_id" eval="ref('looped_menus.root_menu_looped_dashboards')"/>
+			<field name="ks_dashboard_default_template" eval="ref('ks_pos_dashboard_ninja.ks_pos_dashboard')"/>
+			<field name="ks_dashboard_active">1</field>
+			<field name="ks_dashboard_group_access" eval="False"/>
+			<field name="ks_dashboard_menu_sequence" eval="1"/>
+
+		</record>
+		<menuitem id="main_menu_looped_analysis" name="Looped Analysis" sequence="8" web_icon="sh_backmate_theme_adv,static/src/icons/2d/setting_icons/analysis.svg" />
+
+
+		<record id="default_sales_dashboard_pos" model="ks_dashboard_ninja.board">
+			<field name="name">POS Dashboard</field>
+			<field name="ks_dashboard_menu_name">POS Dashboard</field>
+			<field name="ks_dashboard_top_menu_id" eval="ref('looped_menus.main_menu_looped_analysis')"/>
+			<field name="ks_dashboard_default_template" eval="ref('ks_pos_dashboard_ninja.ks_pos_dashboard')"/>
+			<field name="ks_dashboard_active">1</field>
+			<field name="ks_dashboard_group_access" eval="False"/>
+			<field name="ks_dashboard_menu_sequence" eval="1"/>
+
+		</record>
+
+
+		<record id="default_sales_dashboard" model="ks_dashboard_ninja.board">
+			<field name="name">Sale Dashboard</field>
+			<field name="ks_dashboard_menu_name">Sale Dashboard</field>
+			<field name="ks_dashboard_top_menu_id" eval="ref('looped_menus.main_menu_looped_analysis')"/>
+			<!-- <field name="ks_dashboard_default_template" eval="ref('ks_pos_dashboard_ninja.ks_pos_dashboard')"/> -->
+			<field name="ks_dashboard_active">1</field>
+			<field name="ks_dashboard_group_access" eval="False"/>
+			<field name="ks_dashboard_menu_sequence" eval="1"/>
+
+		</record>
+
+
+
+		<!-- <menuitem id="root_menu_looped_dashboards_reporting_inv_report" parent="looped_menus.root_menu_looped_dashboards" name="Inventory Report" action="stock.dashboard_open_quants" sequence="2" /> -->
+
+
+
+
+
+		<!-- <menuitem id="root_menu_looped_dashboards_inventory_dashboard" parent="looped_menus.root_menu_looped_dashboards" name="Inventory Dahsboard" action="stock.stock_picking_type_action" sequence="3" />
+
+		   <menuitem id="root_menu_looped_dashboards_finance_dashboard" parent="looped_menus.root_menu_looped_dashboards" name="Finance Dashboard" action="account.open_account_journal_dashboard_kanban" sequence="4"/>
+
+ <menuitem id="root_menu_looped_dashboards_my_dashboard_root" parent="looped_menus.root_menu_looped_dashboards" name="My Dashboard" sequence="5" action="ks_dashboard_ninja.board_dashboard_action_window"/>
+ -->
+
+
+
+
+		<menuitem id="root_menu_looped_discuss" parent="looped_menus.root_menu_looped" name="Discuss" action="mail.action_discuss" groups="base.group_user" sequence="0" />
+
+		<menuitem id="root_menu_looped_users" parent="looped_menus.root_menu_looped" action="base.action_res_users" name="Users" sequence="1" />
+
+		<menuitem id="root_menu_looped_company" parent="looped_menus.root_menu_looped" action="base.action_res_company_form" name="Companies" sequence="1" />
+
+		<menuitem id="root_menu_looped_customer" parent="looped_menus.root_menu_looped" action="account.res_partner_action_customer" name="Customers" sequence="1" />
+
+		<menuitem id="root_menu_looped_supplier" parent="looped_menus.root_menu_looped" action="account.res_partner_action_supplier" name="Vendors" sequence="1" />
+
+
+
+		<!-- parent="looped_menus.root_menu_looped" -->
+		<menuitem id="main_menu_looped_pos" name="Looped POS" sequence="4" web_icon="sh_backmate_theme_adv,static/src/icons/2d/setting_icons/point_of_sale.svg" />
+
+
+		<menuitem id="menu_looped_pos_order" parent="looped_menus.main_menu_looped_pos" name="Orders" action="point_of_sale.action_pos_pos_form" sequence="2" />
+
+
+		<!-- <menuitem id="main_menu_looped_pos_cust_invoice" name="Customer Invoices" parent="looped_menus.main_menu_looped_pos" action="account.action_move_out_invoice_type" sequence="3"/> -->
+		<menuitem id="main_menu_looped_pos_finance_receivables" name="Invoicing" parent="looped_menus.main_menu_looped_pos" sequence="3">
+			<menuitem id="menu_action_move_out_invoice_type" action="account.action_move_out_invoice_type" sequence="1"/>
+			<menuitem id="menu_action_move_out_refund_type" action="account.action_move_out_refund_type" sequence="2"/>
+			<menuitem id="menu_action_move_out_receipt_type" action="account.action_move_out_receipt_type" groups="account.group_sale_receipts" sequence="3"/>
+			<menuitem id="menu_action_account_payments_receivable" action="account.action_account_payments" sequence="4"/>
+			<menuitem id="product_product_menu_sellable" name="Products" action="looped_menus.product_product_action_pos" sequence="5"/>
+			<menuitem id="menu_account_customer" name="Customers" action="account.res_partner_action_customer" sequence="6"/>
+		<!-- </menuitem> -->
+
+		<!-- <menuitem id="main_menu_looped_pos_finance_payables" name="Vendors" parent="looped_menus.main_menu_looped_pos" sequence="4"> -->
+			<menuitem id="menu_action_move_in_invoice_type" action="account.action_move_in_invoice_type" sequence="7"/>
+			<menuitem id="menu_action_move_in_refund_type" action="account.action_move_in_refund_type" sequence="8"/>
+			<menuitem id="menu_action_move_in_receipt_type" action="account.action_move_in_receipt_type" groups="account.group_purchase_receipts" sequence="9"/>
+			<menuitem id="menu_action_account_payments_payable" action="account.action_account_payments_payable" sequence="10"/>
+			<!-- <menuitem id="product_product_menu_purchasable" name="Products" action="account.product_product_action_purchasable" sequence="100"/> -->
+			<menuitem id="menu_account_supplier" name="Vendors" action="account.res_partner_action_supplier" sequence="11"/>
+		<!-- </menuitem> -->
+
+		<!-- <menuitem id="main_menu_looped_pos_finance_entries" name="Accounting" sequence="4" parent="looped_menus.main_menu_looped_pos" groups="account.group_account_readonly"> -->
+			<menuitem id="menu_pos_action_move_journal_line_form" action="account.action_move_journal_line" groups="account.group_account_readonly" sequence="12"/>
+			<menuitem id="menu_pos_action_account_moves_all" action="account.action_account_moves_all" groups="base.group_no_one" sequence="13"/>
+			<menuitem id="menu_pos_action_account_moves_journal_sales" action="account.action_account_moves_journal_sales" groups="account.group_account_readonly" sequence="14"/>
+			<menuitem id="menu_pos_action_account_moves_journal_purchase" action="account.action_account_moves_journal_purchase" groups="account.group_account_readonly" sequence="15"/>
+			<menuitem id="menu_pos_action_account_moves_journal_bank_cash" action="account.action_account_moves_journal_bank_cash" groups="account.group_account_readonly" sequence="16"/>
+			<menuitem id="menu_pos_action_account_moves_journal_misc" action="account.action_account_moves_journal_misc" groups="account.group_account_readonly" sequence="17"/>
+			<menuitem id="menu_pos_action_account_moves_ledger_general" action="account.action_account_moves_ledger_general" groups="account.group_account_readonly" sequence="18"/>
+			<menuitem id="menu_pos_action_account_moves_ledger_partner" action="account.action_account_moves_ledger_partner" groups="account.group_account_readonly" sequence="19"/>
+		</menuitem>
+		<!-- Check Invoices type -->
+		<!-- <menuitem id="menu_looped_pos_invoicing" parent="looped_menus.main_menu_looped_pos" name="Invoicing" action="account.action_move_out_invoice_type" sequence="3" /> -->
+
+		<!-- <menuitem id="menu_looped_pos_customers" parent="looped_menus.main_menu_looped_pos" name="Customers" action="account.res_partner_action_customer" sequence="4" /> -->
+
+		<menuitem id="menu_looped_pos_sessions" parent="looped_menus.main_menu_looped_pos" name="Sessions" action="point_of_sale.action_pos_session" sequence="5" />
+
+		<menuitem id="menu_looped_pos_products" parent="looped_menus.main_menu_looped_pos" name="POS Products" action="point_of_sale.product_template_action_pos_product" sequence="6" />
+
+		<menuitem id="menu_looped_pos_config" parent="looped_menus.main_menu_looped_pos" name="Point of Sale config" action="looped_menus.action_pos_config_pos" sequence="7" />
+
+		<menuitem id="menu_looped_pos_category" parent="looped_menus.main_menu_looped_pos" name="POS Category" action="point_of_sale.product_pos_category_action" sequence="8" />
+		<!-- Ask Fahmi -->
+		<!-- <menuitem id="menu_looped_pos_looped_suppply" parent="looped_menus.main_menu_looped_pos" name="Looped Supply Chain" action="point_of_sale.product_pos_category_action" sequence="9" /> -->
+
+		<menuitem id="menu_looped_pos_looped_bom" parent="looped_menus.main_menu_looped_pos" name="Final Products" action="looped_menus.mrp_bom_form_action_pos" sequence="10" />
+
+		<menuitem id="menu_looped_pos_looped_driver" parent="looped_menus.main_menu_looped_pos" name="Drivers" action="pos_custom.pos_driver_action" sequence="11" />
+
+		<menuitem id="menu_looped_pos_looped_discount" parent="looped_menus.main_menu_looped_pos" name="Discount Program" action="pos_custom.pos_discount_program_action" sequence="12" />
+
+		<menuitem id="menu_looped_pos_looped_giftcard" action="pos_retail.action_pos_coupan" parent="looped_menus.main_menu_looped_pos" name="Gift Cards" sequence="13" />
+
+		<menuitem id="menu_looped_pos_looped_promotion" parent="looped_menus.main_menu_looped_pos" name="Promotion Program" action="pos_retail.action_pos_promotion" sequence="14" />
+
+        <menuitem id="menu_looped_pos_looped_wallet" parent="looped_menus.main_menu_looped_pos"  name="Wallet Program"  action="pos_retail.action_pos_wallet_rule" sequence="15"  />
+
+
+		<menuitem id="menu_looped_pos_looped_reporting" parent="looped_menus.main_menu_looped_pos" name="Reporting" sequence="16" />
+
+
+
+		<menuitem id="menu_looped_pos_looped_reporting_orders" parent="looped_menus.menu_looped_pos_looped_reporting" name="Orders" action="point_of_sale.action_report_pos_order_all" sequence="1" />
+
+		<menuitem id="menu_looped_pos_looped_reporting_sales" parent="looped_menus.menu_looped_pos_looped_reporting" name="Sales Details" action="point_of_sale.action_report_pos_details" sequence="2" />
+
+
+		<menuitem id="menu_looped_pos_looped_reporting_order_analysis" parent="looped_menus.menu_looped_pos_looped_reporting" name="Order Analysis" action="sale.action_order_report_all" sequence="3" />
+
+		<menuitem id="menu_looped_pos_looped_reporting_sales_order" parent="looped_menus.menu_looped_pos_looped_reporting" name="Sales Orders" action="point_of_sale.action_report_pos_order_all" sequence="4" />
+
+		<menuitem id="menu_looped_pos_looped_reporting__payments" parent="looped_menus.menu_looped_pos_looped_reporting" name="Payments" action="looped_menus.action_account_payments_all" sequence="5" />
+
+
+		<menuitem id="menu_looped_pos_looped_configuration" parent="looped_menus.main_menu_looped_pos" name="Configuration" sequence="16" />
+
+
+		
+        <menuitem id="menu_looped_pos_looped_wallet_rule" action="pos_retail.action_pos_wallet_rule" parent="looped_menus.menu_looped_pos_looped_configuration" sequence="1"  />
+
+		<menuitem id="menu_looped_pos_looped_configuration_price_list" parent="looped_menus.menu_looped_pos_looped_configuration" name="Price List" action="product.product_pricelist_action2" sequence="2" />
+
+		<menuitem id="menu_looped_pos_looped_configuration_payment_methods" parent="looped_menus.menu_looped_pos_looped_configuration" name="Payment Methods" action="point_of_sale.action_pos_payment_method_form" sequence="3" />
+
+		<menuitem id="menu_looped_pos_looped_configuration_order_type" parent="looped_menus.menu_looped_pos_looped_configuration" name="Order Type" action="pos_custom.pos_order_type_action" sequence="4" />
+
+		<menuitem id="menu_looped_pos_looped_configuration_scrap_reasons" parent="looped_menus.menu_looped_pos_looped_configuration" name="Scrap Reasons" action="pos_custom.pos_scrap_reason_action" sequence="5" />
+
+		<menuitem id="menu_looped_pos_looped_configuration__return_reasons" parent="looped_menus.menu_looped_pos_looped_configuration" name="Return Reasons" action="pos_custom.pos_return_reason_action" sequence="6" />
+
+
+
+		<!-- Fix sub menu not open when it under configuration -->
+		<menuitem id="menu_looped_pos_looped_configuration_pos_security" parent="looped_menus.main_menu_looped_pos" name="POS Security" sequence="17"/>
+
+
+		<menuitem id="menu_pos_security_group" parent="looped_menus.menu_looped_pos_looped_configuration_pos_security" action="pos_custom.pos_security_group_action" name="POS Security Group" sequence="1" />
+
+
+		<menuitem id="menu_pos_security_role" parent="looped_menus.menu_looped_pos_looped_configuration_pos_security" action="pos_custom.pos_security_role_action" name="POS Security Role" sequence="2" />
+
+		<menuitem id="menu_pos_security_user" parent="looped_menus.menu_looped_pos_looped_configuration_pos_security" action="pos_custom.pos_security_user_action" name="POS Security Users" sequence="3" />
+
+		<menuitem id="menu_key_type_menu" parent="looped_menus.menu_looped_pos_looped_configuration_pos_security" action="pos_custom.key_type_action" name="Key Type" sequence="4" />
+
+
+
+
+		<menuitem id="menu_looped_pos_looped_configuration_product_note" parent="looped_menus.menu_looped_pos_looped_configuration" name="Product Note" action="pos_custom.pos_product_note_action" sequence="8" />
+
+
+
+		<menuitem id="menu_looped_pos_looped_configuration_floor_plans" parent="looped_menus.menu_looped_pos_looped_configuration" name="Floor Plans" action="pos_restaurant.action_restaurant_floor_form" sequence="10" />
+
+		<menuitem id="menu_looped_pos_looped_configuration_table" parent="looped_menus.menu_looped_pos_looped_configuration" name="Table" action="pos_retail.action_restaurant_table" sequence="11" />
+
+
+		<menuitem id="menu_looped_pos_looped_configuration_order_printers" parent="looped_menus.menu_looped_pos_looped_configuration" name="Order Printers" action="pos_restaurant.action_restaurant_printer_form" sequence="12" />
+
+		<menuitem id="menu_looped_pos_looped_configuration_taxes" parent="looped_menus.menu_looped_pos_looped_configuration" name="Taxes" action="account.action_tax_form" sequence="13" />
+
+		<!-- 
+
+
+
+ -->
+
+
+
+
+
+		<menuitem id="menu_looped_pos_looped_setting" parent="looped_menus.main_menu_looped_pos" name="Setting" action="point_of_sale.action_pos_configuration" sequence="18" />
+
+
+
+		<!-- <menuitem id="main_menu_looped_invoicing" parent="looped_menus.root_menu_looped" name="Invoicing" sequence="3" /> -->
+		<!-- Ask Fahmi Enterprise -->
+		<!-- <menuitem id="menu_looped_invoicing_acc_dashboard" parent="looped_menus.main_menu_looped_invoicing" name="Accounting Dashboard" action="point_of_sale.action_pos_configuration" sequence="1" /> -->
+		<!-- 
+	<menuitem id="menu_looped_invoicing_acc_invoices" parent="looped_menus.main_menu_looped_invoicing" name="Invoices" action="account.action_move_out_invoice_type" sequence="2" /> 
+
+	<menuitem id="menu_looped_invoicing_credit_notes" parent="looped_menus.main_menu_looped_invoicing" name="Credit Notes" action="account.action_move_out_refund_type" sequence="3" /> 
+	
+	<menuitem id="menu_looped_invoicing_bills" parent="looped_menus.main_menu_looped_invoicing" name="Bills" action="account.action_move_in_invoice_type" sequence="4" />
+
+	<menuitem id="menu_looped_invoicing_refund" parent="looped_menus.main_menu_looped_invoicing" name="Refund" action="account.action_move_in_refund_type" sequence="5" /> 
+	
+	<menuitem id="menu_looped_invoicing_vendors" parent="looped_menus.main_menu_looped_invoicing" name="Vendors" action="account.res_partner_action_supplier" sequence="6" /> 
+
+	<menuitem id="menu_looped_invoicing_payments" parent="looped_menus.main_menu_looped_invoicing" name="Payments" action="looped_menus.action_account_payments_all" sequence="6" />  -->
+
+
+
+
+		<!-- parent="looped_menus.root_menu_looped" -->
+		<menuitem id="main_menu_looped_supply_chain" name="Looped Supply Chain" sequence="3" web_icon="sh_backmate_theme_adv,static/src/icons/2d/setting_icons/supply_chain.svg" />
+
+		<menuitem id="menu_looped_supply_chain_overview" parent="looped_menus.main_menu_looped_supply_chain" name="Overview" action="stock.stock_picking_type_action" sequence="1" />
+
+		<menuitem id="menu_looped_supply_chain_purchase_order" parent="looped_menus.main_menu_looped_supply_chain" name="Purchase Order" action="purchase.purchase_form_action" sequence="2" />
+
+		<menuitem id="menu_looped_supply_chain_stock_request" parent="looped_menus.main_menu_looped_supply_chain" name="Stock Request" action="stock_request.action_stock_request_form" sequence="3" />
+
+		<menuitem id="menu_looped_supply_chain_material_products" parent="looped_menus.main_menu_looped_supply_chain" name="Material Products" action="product_product_action_material" sequence="4"/>
+
+		<menuitem id="menu_looped_supply_chain_inventory_adjustment" parent="looped_menus.main_menu_looped_supply_chain" name="Inventory Adjustment" action="stock.action_view_inventory_tree" sequence="5" />
+
+		<!-- Edit to filter delivary and transfere -->
+		<!-- <menuitem id="menu_looped_supply_chain_delivery_order" parent="looped_menus.main_menu_looped_supply_chain" name="Delivery Orders" action="stock.action_view_inventory_tree" sequence="6" />
+
+			<menuitem id="menu_looped_supply_chain_receipted_order" parent="looped_menus.main_menu_looped_supply_chain" name="Receipted Orders" action="stock.action_view_inventory_tree" sequence="7" /> -->
+
+		<menuitem id="menu_looped_supply_chain_scrap_order" parent="looped_menus.main_menu_looped_supply_chain" name="Scrap Orders" action="stock.action_stock_scrap" sequence="8" />
+
+		<menuitem id="menu_looped_supply_chain_replenishment" parent="looped_menus.main_menu_looped_supply_chain" name="Replenishment" action="stock.action_replenishment" sequence="9" />
+
+		<menuitem id="menu_looped_supply_chain_lot_serial" parent="looped_menus.main_menu_looped_supply_chain" name="Lots/Serial Numbers" action="stock.action_production_lot_form" sequence="10" />
+
+		<menuitem id="menu_looped_supply_chain_lot_serial" parent="looped_menus.main_menu_looped_supply_chain" name="Landed Cost" action="stock_landed_costs.action_stock_landed_cost" sequence="11" />
+
+		<menuitem id="stock.menu_warehouse_report" name="Reporting" parent="looped_menus.main_menu_looped_supply_chain" sequence="12" />
+
+		<menuitem id="main_menu_looped_reporting_purchase_order_reporting" parent="stock.menu_warehouse_report" 
+		name="Purchase Order Reporting" action="purchase.action_purchase_order_report_all" sequence="20" />
+
+
+		<menuitem id="main_menu_looped_reporting_reception_report" parent="stock.menu_warehouse_report" name="Reception Report" action="stock.stock_reception_report_action" sequence="6" />
+
+		<menuitem id="menu_looped_supply_chain_mrp_orders" parent="looped_menus.main_menu_looped_supply_chain" name="Manufacturing Orders" action="mrp.mrp_production_action" sequence="13" />
+		<menuitem id="menu_looped_pos_looped__oyalty" parent="looped_menus.main_menu_looped_pos" 
+		name="Loyalty Program" sequence="15" />
+
+
+
+
+		<!-- parent="looped_menus.root_menu_looped" -->
+
+		<!-- web_icon="sh_backmate_theme_adv,static/src/icons/2d/setting_icons/report.svg" -->
+
+		<!-- <menuitem id="main_menu_looped_reporting" parent="looped_menus.main_menu_looped_supply_chain" name="Reporting B" sequence="13" /> -->
+
+		<!-- <menuitem id="main_menu_looped_reporting_purchase_order_reporting" parent="looped_menus.main_menu_looped_reporting" 
+		name="Purchase Order Reporting" action="purchase.action_purchase_order_report_all" sequence="1" /> -->
+		<!-- ask fahmi not found in the system -->
+		<!-- <menuitem id="main_menu_looped_reporting_inv_eval_report" parent="looped_menus.main_menu_looped_reporting" name="Inventory Valuation Report" action="purchase.action_purchase_order_report_all" sequence="2" /> -->
+
+		<!-- <menuitem id="main_menu_looped_reporting_inv_report" parent="looped_menus.main_menu_looped_reporting" name="Inventory Report" action="stock.dashboard_open_quants" sequence="3" /> -->
+
+		<!-- <menuitem id="main_menu_looped_reporting_forcaseted_inv_report" parent="looped_menus.main_menu_looped_reporting" name="Forecasted Inventory Report" action="stock.report_stock_quantity_action" sequence="4" /> -->
+
+		<!-- <menuitem id="main_menu_looped_reporting_inv_valu" parent="looped_menus.main_menu_looped_reporting" name="Inventory Valuation" action="stock_account.stock_valuation_layer_action" sequence="5" /> -->
+
+		<!-- <menuitem id="main_menu_looped_reporting_stock_move_report" parent="looped_menus.main_menu_looped_reporting" name="Stock Move" action="stock.stock_move_action" sequence="7" /> -->
+
+		<!-- <menuitem id="main_menu_looped_reporting_product_move_report" parent="looped_menus.main_menu_looped_reporting" name="Product Move" action="stock.stock_move_line_action" sequence="8" /> -->
+
+
+		<menuitem id="menu_looped_supply_chain_setting" parent="looped_menus.root_menu_looped" name="Setting" action="stock.action_stock_config_settings" sequence="6" />
+
+		<menuitem id="main_menu_looped_setting" parent="looped_menus.main_menu_looped_supply_chain" name="Setting" sequence="14" />
+
+
+		<menuitem id="main_menu_looped_setting_setting" parent="looped_menus.main_menu_looped_setting" name="Setting" action="stock.action_stock_config_settings" sequence="0" />
+
+
+
+		<menuitem id="main_menu_looped_setting_warehouses" parent="looped_menus.main_menu_looped_setting" name="Warehouses" action="stock.action_warehouse_form" sequence="1" />
+
+
+
+		<menuitem id="main_menu_looped_setting_location" parent="looped_menus.main_menu_looped_setting" name="Locations" action="stock.action_location_form" sequence="2" />
+
+
+		<menuitem id="main_menu_looped_setting_product_categories" parent="looped_menus.main_menu_looped_setting" name="Product Categories" action="product.product_category_action_form" sequence="3" />
+
+		<menuitem id="main_menu_looped_setting_transfers" parent="looped_menus.main_menu_looped_setting" name="Transfers" action="stock.action_picking_tree_all" sequence="4" />
+
+		<menuitem id="main_menu_looped_setting_re_rules" parent="looped_menus.main_menu_looped_setting" name="Reordering Rules" action="stock.action_orderpoint" sequence="5" />
+
+		<menuitem id="main_menu_looped_setting_units_measure" parent="looped_menus.main_menu_looped_setting" name="Units of Measure" action="uom.product_uom_form_action" sequence="6" />
+
+
+
+		<!-- 
+
+ -->
+
+
+
+		<!-- 
+    <menuitem id="root_menu_looped" action="sh_back_theme_config_settings_action" parent="base.menu_administration" groups="base.group_user" sequence="10" /> -->
+
+
+		<!-- parent="looped_menus.root_menu_looped" -->
+		<menuitem id="main_menu_looped_tech_support" name="Technical Support" sequence="-5" groups="base.group_no_one" web_icon="sh_backmate_theme_adv,static/src/icons/2d/setting_icons/technical_sett.svg" />
+
+		<menuitem id="import_bridge_axis.custom_dashboard_menu" parent="looped_menus.main_menu_looped_tech_support" name="Cutomize Dashboard" sequence="1" />
+
+		<!-- <menuitem id="main_menu_looped_setting" name="Setting" action="base_setup.action_general_configuration" sequence="-4" groups="base.group_no_one" /> -->
+
+		<menuitem name="Settings" id="base.menu_administration" sequence="-4" groups="base.group_no_one"/>
+		<!-- groups="base.group_erp_manager" -->
+
+
+		<!-- <menuitem id="main_menu_looped_apps" name="Apps" action="base.open_module_tree" sequence="-3" groups="base.group_no_one" /> -->
+		<menuitem id="base.menu_management" name="Apps" sequence="-3" groups="base.group_no_one" />
+		<!-- groups="base.group_system" -->
+
+		<!-- main_menu_looped_tech_support_disucss -->
+		<menuitem id="mail.menu_root_discuss" parent="looped_menus.main_menu_looped_tech_support" name="Discuss" action="mail.action_discuss" groups="base.group_user" sequence="0" />
+
+		<menuitem id="im_livechat.menu_livechat_root" parent="looped_menus.main_menu_looped_tech_support" name="Live Chat" groups="im_livechat.im_livechat_group_user" sequence="2"/>
+
+
+		<menuitem id="point_of_sale.menu_point_root" parent="looped_menus.main_menu_looped_tech_support" name="Point of Sale" sequence="3" />
+
+
+		<menuitem id="sale.sale_menu_root" parent="looped_menus.main_menu_looped_tech_support" name="Sales" sequence="4" />
+
+
+		<menuitem id="purchase.menu_purchase_root" parent="looped_menus.main_menu_looped_tech_support" name="Purchase" sequence="5" />
+
+		<menuitem id="stock.menu_stock_root" parent="looped_menus.main_menu_looped_tech_support" name="Inventory" groups="stock.group_stock_manager,stock.group_stock_user" sequence="6" />
+
+		<!-- <menuitem id="main_menu_looped_tech_support_stock_request" parent="looped_menus.main_menu_looped_tech_support" name="Stock Request" action="stock_request.action_stock_request_form" sequence="7" /> -->
+
+		<menuitem id="stock_request.menu_stock_request_root" parent="looped_menus.main_menu_looped_tech_support" name="Stock Requests" groups="stock_request.group_stock_request_user,stock_request.group_stock_request_manager" sequence="7" />
+
+		<menuitem id="main_menu_looped_tech_support_mrp_orders" parent="looped_menus.main_menu_looped_tech_support" name="Manufacturing Orders" action="mrp.mrp_production_action" sequence="8" />
+
+		<menuitem id="mrp.menu_mrp_root" parent="looped_menus.main_menu_looped_tech_support" name="Manufacturing" groups="mrp.group_mrp_user,mrp.group_mrp_manager" sequence="8"/>
+
+		<menuitem id="account.menu_finance" parent="looped_menus.main_menu_looped_tech_support" name="Invoicing" groups="account.group_account_readonly,account.group_account_invoice" sequence="9" />
+
+
+		<menuitem id="website.menu_website_configuration" parent="looped_menus.main_menu_looped_tech_support" name="Website" groups="base.group_user" sequence="10"/>
+
+		<menuitem id="hr.menu_hr_root" parent="looped_menus.main_menu_looped_tech_support" name="Employees" groups="hr.group_hr_manager,hr.group_hr_user,base.group_user" sequence="11"/>
+
+
+		<menuitem id="hr_attendance.menu_hr_attendance_root" parent="looped_menus.main_menu_looped_tech_support" name="Attendances" groups="hr_attendance.group_hr_attendance,hr_attendance.group_hr_attendance_kiosk" sequence="12" />
+
+
+		<menuitem id="hr_holidays.menu_hr_holidays_root" parent="looped_menus.main_menu_looped_tech_support" name="Time Off" groups="base.group_user" sequence="13" />
+
+
+
+		<menuitem id="hr_expense.menu_hr_expense_root" parent="looped_menus.main_menu_looped_tech_support" name="Expenses" sequence="14" />
+
+		<menuitem id="petty_cash_management.menu_account_petty_cash_root" parent="looped_menus.main_menu_looped_tech_support" name="Petty Cash" sequence="15"/>
+		<!-- when find 15 enterprise -->
+		<!-- <menuitem id="petty_cash_management.menu_finance_petty_cash" parent="looped_menus.main_menu_looped_tech_support" name="Payroll" sequence="16"/> -->
+
+		<menuitem name="Events" id="event.event_main_menu" parent="looped_menus.main_menu_looped_tech_support" groups="event.group_event_registration_desk" sequence="17"/>
+
+
+
+		<menuitem name="Projects" parent="looped_menus.main_menu_looped_tech_support" id="project.menu_main_pm" groups="project.group_project_manager,project.group_project_user" sequence="18"/>
+
+
+		<!-- <menuitem name="Accounting" parent="looped_menus.main_menu_looped_tech_support" id="account_accouna.menu_finance" groups="account.group_account_readonly,account.group_account_invoice" sequence="19" /> -->
+
+		<menuitem name="Accounting" parent="looped_menus.main_menu_looped_tech_support" id="account_accountant.menu_accounting" groups="account.group_account_readonly,account.group_account_invoice" sequence="19"/>
+
+		<menuitem id="ks_dashboard_ninja.board_menu_root" parent="looped_menus.main_menu_looped_tech_support" name="My Dashboard" sequence="20" action="ks_dashboard_ninja.board_dashboard_action_window"/>
+
+		<menuitem id="utm.menu_link_tracker_root" parent="looped_menus.main_menu_looped_tech_support" name="Link Tracker" sequence="21" groups="base.group_no_one"/>
+
+
+		<menuitem id="calendar.mail_menu_calendar" parent="looped_menus.main_menu_looped_tech_support" name="Calendar" action="calendar.action_calendar_event" sequence="22" groups="base.group_user"/>
+
+		<menuitem id="sh_backmate_theme_adv.sh_dynamic_action_action_menu" parent="looped_menus.main_menu_looped_tech_support" name="Global Search" sequence="23" action="sh_backmate_theme_adv.sh_dynamic_action_action" groups="sh_backmate_theme_adv.group_global_search"/>
+
+
+
+
+		<menuitem id="main_menu_looped_delivary" name="Looped Delivary" sequence="5" web_icon="sh_backmate_theme_adv,static/src/icons/2d/setting_icons/delivary.svg" />
+
+		<menuitem id="main_menu_looped_delivary_analytic_order" parent="looped_menus.main_menu_looped_delivary" name="Analytic Order" action="website.backend_dashboard" sequence="1" />
+
+		<menuitem id="main_menu_looped_delivary_order" parent="looped_menus.main_menu_looped_delivary" name="Order" action="website_sale.action_orders_ecommerce" sequence="2" />
+		<!-- Invocing miss here -->
+		<!-- <menuitem id="main_menu_looped_delivary_order" parent="looped_menus.main_menu_looped_delivary" name="Invocing" action="website_sale.action_orders_ecommerce" sequence="3" /> -->
+
+		<menuitem id="main_menu_looped_delivary_abandoned_carts" parent="looped_menus.main_menu_looped_delivary" name="Abandoned Carts" action="website_sale.action_view_abandoned_tree" sequence="4" />
+
+		<menuitem id="main_menu_looped_delivary_customers" parent="looped_menus.main_menu_looped_delivary" name="Customers" action="base.action_partner_customer_form" sequence="5" />
+
+		<menuitem id="main_menu_looped_delivary_abandoned_carts_products" parent="looped_menus.main_menu_looped_delivary" name="Products" action="website_sale.product_template_action_website" sequence="6" />
+
+		<!-- Not found Website Category -->
+		<!-- <menuitem id="main_menu_looped_delivary_abandoned_carts" parent="looped_menus.main_menu_looped_delivary" name="eCommerce" action="website_sale.action_view_abandoned_tree" sequence="7" /> -->
+
+
+		<menuitem id="main_menu_looped_delivary_online_sale" parent="looped_menus.main_menu_looped_delivary" name="Online Sales Analysis" action="website_sale.sale_report_action_dashboard" sequence="8" />
+
+
+		<menuitem id="main_menu_looped_delivary_setting" parent="looped_menus.main_menu_looped_delivary" name="Setting" sequence="9" />
+
+		<menuitem id="main_menu_looped_delivary_setting_pricelist" parent="looped_menus.main_menu_looped_delivary_setting" name="Pricelist" action="product.product_pricelist_action2" sequence="1" />
+
+		<menuitem id="main_menu_looped_delivary_setting_prom_program" parent="looped_menus.main_menu_looped_delivary_setting" name="Promotion Program" action="coupon.coupon_program_action_promo_program" sequence="2" />
+
+		<menuitem id="main_menu_looped_delivary_setting_coupon" parent="looped_menus.main_menu_looped_delivary_setting" name="Coupon" action="coupon.coupon_program_action_coupon_program" sequence="3" />
+
+
+
+
+		<menuitem id="main_menu_looped_hr" name="Looped HR" web_icon="sh_backmate_theme_adv,static/src/icons/2d/setting_icons/hr.svg" sequence="6" />
+		<!-- No Self Service in Odoo 15 -->
+		<!-- <menuitem id="main_menu_looped_hr_self_service" parent="looped_menus.main_menu_looped_hr" name="Self Service" sequence="1" /> -->
+
+		<menuitem id="main_menu_looped_hr_employees" parent="looped_menus.main_menu_looped_hr" name="Employees" action="hr.open_view_employee_list_my" sequence="2" />
+
+
+		<menuitem id="main_menu_looped_hr_employees_time_off" name="My Time Off" parent="looped_menus.main_menu_looped_hr" sequence="3"/>
+
+		<menuitem id="main_menu_looped_hr_employees_time_off_new_request" parent="looped_menus.main_menu_looped_hr_employees_time_off" action="hr_holidays.hr_leave_action_new_request" sequence="1"/>
+
+		<menuitem id="main_menu_looped_hr_employees_time_off_menu_my" parent="looped_menus.main_menu_looped_hr_employees_time_off" action="hr_holidays.hr_leave_action_my" sequence="2"/>
+
+		<menuitem id="main_menu_looped_hr_employees_time_off_open_allocation" name="My Allocations" parent="looped_menus.main_menu_looped_hr_employees_time_off" action="hr_holidays.hr_leave_allocation_action_my" sequence="3"/>
+
+
+
+
+
+
+
+
+		<menuitem id="main_menu_looped_hr_attendance" name="Attendances" parent="looped_menus.main_menu_looped_hr" sequence="4" groups="hr_attendance.group_hr_attendance,hr_attendance.group_hr_attendance_kiosk" />
+
+		<menuitem id="menu_hr_attendance_my_attendances" name="Check In / Check Out" parent="looped_menus.main_menu_looped_hr_attendance" sequence="1" groups="hr_attendance.group_hr_attendance" action="hr_attendance.hr_attendance_action_my_attendances"/>
+
+		<menuitem id="menu_hr_attendance_attendances_overview" name="Attendances" parent="looped_menus.main_menu_looped_hr_attendance" sequence="2" groups="hr_attendance.group_hr_attendance" action="hr_attendance.hr_attendance_action_overview"/>
+
+		<menuitem id="menu_hr_attendance_kiosk_no_user_mode" name="Kiosk Mode" parent="looped_menus.main_menu_looped_hr_attendance" sequence="3" groups="hr_attendance.group_hr_attendance_kiosk" action="hr_attendance.hr_attendance_action_kiosk_mode"/>
+
+		<menuitem id="menu_hr_attendance_view_attendances" name="Attendances" parent="looped_menus.main_menu_looped_hr_attendance" sequence="4" groups="hr_attendance.group_hr_attendance_user" action="hr_attendance.hr_attendance_action"/>
+		<menuitem id="menu_hr_attendance_report" name="Reporting" sequence="5" parent="looped_menus.main_menu_looped_hr_attendance" action="hr_attendance.hr_attendance_report_action" groups="hr_attendance.group_hr_attendance_user"/>
+
+		<menuitem id="hr_attendance.menu_hr_attendance_settings" name="Configuration" parent="looped_menus.main_menu_looped_hr_attendance" sequence="6" action="hr_attendance.action_hr_attendance_settings" groups="hr_attendance.group_hr_attendance_manager"/>
+
+		<!-- Employee payroll enterprice  , others not in v15 like loan and clearance and end of service , Custody -->
+
+
+
+		<menuitem id="main_menu_looped_finance" name="Looped Finance" sequence="2" web_icon="sh_backmate_theme_adv,static/src/icons/2d/setting_icons/account.svg" />
+
+
+		<menuitem id="main_menu_looped_finance_overview" name="Finance Overview" parent="looped_menus.main_menu_looped_finance" action="account.open_account_journal_dashboard_kanban" sequence="1"/>
+
+		<menuitem id="main_menu_looped_finance_quotations" name="Quotations" parent="looped_menus.main_menu_looped_finance" action="sale.action_quotations_with_onboarding" sequence="2"/>
+
+
+		<menuitem id="main_menu_looped_finance_cust_invoice" name="Customer Invoices" parent="looped_menus.main_menu_looped_finance" action="account.action_move_out_invoice_type" sequence="3"/>
+
+		<menuitem id="main_menu_looped_finance_cust_payment" name="Customer Payments" parent="looped_menus.main_menu_looped_finance" action="account.action_account_payments" sequence="4"/>
+
+		<menuitem id="main_menu_looped_finance_cust_credit_notes" name="Credit Notes" parent="looped_menus.main_menu_looped_finance" action="account.action_move_out_refund_type" sequence="5"/>
+
+
+
+		<menuitem id="main_menu_looped_finance_vendor_bill" name="Vendor Bills" parent="looped_menus.main_menu_looped_finance" action="account.action_move_in_invoice_type" sequence="6"/>
+
+		<menuitem id="main_menu_looped_finance_vendor_payment" name="Vendor Payment" parent="looped_menus.main_menu_looped_finance" action="account.action_account_payments_payable" sequence="7"/>
+
+
+		<menuitem id="main_menu_looped_finance_vendor_refund" name="Refund" parent="looped_menus.main_menu_looped_finance" action="account.action_move_in_refund_type" sequence="8"/>
+
+
+		<menuitem id="main_menu_looped_finance_journal" name="Jouranl and Items Entry" sequence="9" parent="looped_menus.main_menu_looped_finance">
+			<menuitem id="menu_action_move_journal_line" action="account.action_move_journal_line" sequence="0"/>
+
+			<menuitem id="menu_action_account_moves_journal_sales" action="account.action_account_moves_journal_sales" groups="account.group_account_readonly" sequence="1"/>
+			<menuitem id="menu_action_account_moves_journal_purchase" action="account.action_account_moves_journal_purchase" groups="account.group_account_readonly" sequence="2"/>
+			<menuitem id="menu_action_account_moves_journal_bank_cash" action="account.action_account_moves_journal_bank_cash" groups="account.group_account_readonly" sequence="3"/>
+			<menuitem id="menu_action_account_moves_journal_misc" action="account.action_account_moves_journal_misc" groups="account.group_account_readonly" sequence="4"/>
+
+			<menuitem id="menu_action_account_moves_ledger_general" action="account.action_account_moves_ledger_general" groups="account.group_account_readonly" sequence="5"/>
+			<menuitem id="menu_action_account_moves_ledger_partner" action="account.action_account_moves_ledger_partner" groups="account.group_account_readonly" sequence="6"/>
+			<menuitem id="menu_action_analytic_lines_tree" name="Analytic Items" action="analytic.account_analytic_line_action_entries" groups="analytic.group_analytic_accounting" sequence="7"/>
+
+		</menuitem>
+
+
+
+
+
+		<menuitem id="main_menu_looped_finance_action" name="Actions" sequence="11" parent="looped_menus.main_menu_looped_finance" groups="account.group_account_user">
+			
+			<menuitem id="menu_action_tax_adjustment" action="account.tax_adjustments_form" groups="base.group_no_one" sequence="2"/>
+
+			<menuitem 
+              id="main_menu_looped_finance_action_crossovered_budget"
+              name="Budgets"
+              action="account_budget.act_crossovered_budget_view" sequence="3"
+              groups="account.group_account_manager"/>
+
+			  <menuitem 
+              id="main_menu_looped_finance_action_account_asset_form"
+              name="Assets"
+              action="account_asset.action_account_asset_form" sequence="4"
+              />
+
+			  <menuitem id="main_menu_looped_finance_action_account_inc_deffered_menu"
+			   name="Deferred Revenue Models" sequence="5" action="account_asset.action_account_revenue_model_form"/>
+		<menuitem id="main_menu_looped_finance_action_account_exp_deffered_menu" 
+		 name="Deferred Expense Models" sequence="6" action="account_asset.action_account_expense_model_form"/>
+
+
+			  	
+<menuitem id="menu_action_manual_reconciliation" 
+action="account_accountant.action_manual_reconciliation" sequence="7" groups="account.group_account_user"/>
+
+
+		
+		<menuitem id="main_menu_looped_finance_action_lock_dateS" 
+		 name="Lock Dates" sequence="9" action="account_accountant.action_view_account_change_lock_date"/>
+
+		</menuitem>
+
+
+
+
+		<menuitem id="main_menu_looped_finance_action_finance_reports" name="Reporting" sequence="12" parent="looped_menus.main_menu_looped_finance" groups="account.group_account_readonly,account.group_account_invoice">
+
+
+		</menuitem>
+
+
+
+		<menuitem id="menu_action_account_report_pnl" name="Profit and Loss" action="account_reports.action_account_report_pnl" sequence="1" parent="looped_menus.main_menu_looped_finance_action_finance_reports" />
+
+		<menuitem id="menu_action_account_report_bs" name="Balance Sheet" action="account_reports.action_account_report_bs" sequence="2" parent="looped_menus.main_menu_looped_finance_action_finance_reports" />
+
+		<menuitem id="menu_action_account_report_cs" name="Cash Flow Statement" action="account_reports.action_account_report_cs" sequence="3" parent="looped_menus.main_menu_looped_finance_action_finance_reports" />
+
+		<menuitem id="menu_action_account_report_gt" name="Tax Report" action="account_reports.action_account_report_gt" sequence="4" parent="looped_menus.main_menu_looped_finance_action_finance_reports" />
+
+
+
+		<menuitem id="menu_action_account_report_cj" name="Consolidated Journal" action="account_reports.action_account_report_cj" sequence="4" parent="looped_menus.main_menu_looped_finance_action_finance_reports" />
+
+		<menuitem id="menu_action_account_report_bank_reconciliation" name="Bank Reconciliation" action="account_reports.action_account_report_bank_reconciliation" sequence="4" parent="looped_menus.main_menu_looped_finance_action_finance_reports" />
+
+		<menuitem id="menu_action_account_report_general_ledger" name="General Ledger" action="account_reports.action_account_report_general_ledger" sequence="4" parent="looped_menus.main_menu_looped_finance_action_finance_reports" />
+
+		<menuitem id="menu_action_account_report_multicurrency_revaluation" name="Unrealized Currency Gains/Losses" action="account_reports.action_account_report_multicurrency_revaluation" sequence="4" parent="looped_menus.main_menu_looped_finance_action_finance_reports" />
+
+
+
+
+
+
+
+		<menuitem id="menu_action_account_invoice_report_all" name="Invoice Analysis" action="account.action_account_invoice_report_all" sequence="10" parent="looped_menus.main_menu_looped_finance_action_finance_reports" />
+
+		<menuitem id="account_reports_legal_statements_menu" name="Generic Statements" sequence="3" parent="looped_menus.main_menu_looped_finance_action_finance_reports" groups="account.group_account_readonly"/>
+
+
+		<menuitem id="account_reports.menu_print_journal" name="Journals Audit" parent="looped_menus.main_menu_looped_finance_action_finance_reports" action="account_reports.action_account_print_journal_menu" sequence="20"/>
+
+
+
+		<!-- <menuitem id="account_reports_partners_reports_menu" name="Partner Reports" parent="looped_menus.main_menu_looped_finance_action_finance_reports" sequence="2"/> -->
+		<!-- <menuitem id="account_reports_audit_reports_menu" name="Audit Reports" parent="looped_menus.main_menu_looped_finance_action_finance_reports" sequence="3"/> -->
+
+		<menuitem id="menu_action_account_report_partner_ledger" name="Partner Ledger" action="account_reports.action_account_report_partner_ledger" parent="looped_menus.main_menu_looped_finance_action_finance_reports" groups="account.group_account_readonly"/>
+		<menuitem id="menu_action_account_report_aged_receivable" name="Aged Receivable" action="account_reports.action_account_report_ar" parent="looped_menus.main_menu_looped_finance_action_finance_reports"/>
+		<menuitem id="menu_action_account_report_aged_payable" name="Aged Payable" action="account_reports.action_account_report_ap" parent="looped_menus.main_menu_looped_finance_action_finance_reports"/>
+		<menuitem id="menu_action_account_report_general_ledger" name="General Ledger" action="account_reports.action_account_report_general_ledger" parent="looped_menus.main_menu_looped_finance_action_finance_reports" groups="account.group_account_readonly"/>
+		<menuitem id="menu_action_account_report_coa" name="Trial Balance" action="account_reports.action_account_report_coa" parent="looped_menus.main_menu_looped_finance_action_finance_reports" groups="account.group_account_readonly"/>
+		<menuitem id="menu_action_account_report_cj" name="Consolidated Journals" action="account_reports.action_account_report_cj" parent="looped_menus.main_menu_looped_finance_action_finance_reports" groups="account.group_account_readonly"/>
+		<!-- <menuitem id="menu_action_account_report_gt" name="Tax Report" action="account_reports.action_account_report_gt" parent="looped_menus.main_menu_looped_finance_action_finance_reports"/> -->
+		<menuitem id="menu_action_account_report_sales" action="account_reports.action_account_report_sales" parent="looped_menus.main_menu_looped_finance_action_finance_reports" groups="account.group_account_readonly" active="False"/>
+		<menuitem id="menu_action_report_account_analytic" name="Analytic Report" action="account_reports.action_account_report_analytic" parent="looped_menus.main_menu_looped_finance_action_finance_reports" groups="analytic.group_analytic_accounting"/>
+		<menuitem id="menu_action_account_report_multicurrency_revaluation" name="Unrealized Currency Gains/Losses" action="account_reports.action_account_report_multicurrency_revaluation" parent="main_menu_looped_finance_action_finance_reports" groups="base.group_multi_currency"/>
+
+
+		<menuitem id="main_menu_looped_finance_settings" 
+		name="Settings"
+		sequence="13" 
+		parent="looped_menus.main_menu_looped_finance" 
+		groups="account.group_account_readonly,account.group_account_invoice"/>
+
+		<menuitem id="main_menu_looped_finance_settings_settings" name="Settings" sequence="1" parent="looped_menus.main_menu_looped_finance_settings" action="account.action_account_config" />
+
+		<menuitem id="main_menu_looped_finance_settings_chart" parent="looped_menus.main_menu_looped_finance_settings" name="Chart of Account" sequence="2" action="account.action_account_form"/>
+
+		<menuitem id="main_menu_looped_finance_settings_account_tag" parent="looped_menus.main_menu_looped_finance_settings" name="Account Tags" sequence="3" action="account_accountant.account_tag_action"/>
+
+		<menuitem id="main_menu_looped_finance_settings_account_tag_group" parent="looped_menus.main_menu_looped_finance_settings" name="Account Group" sequence="4" action="account_accountant.action_account_group_tree"/>
+
+
+		<menuitem id="main_menu_looped_finance_settings_analytic_line_menu" parent="looped_menus.main_menu_looped_finance_settings" name="Analytic Items" sequence="9" action="analytic.account_analytic_line_action_entries"/>
+
+
+
+
+		<menuitem id="main_menu_looped_finance_settings_analytic_group_menu" parent="looped_menus.main_menu_looped_finance_settings" name="Analytic Account Groups" sequence="10" action="analytic.account_analytic_group_action"/>
+
+		<menuitem id="main_menu_looped_finance_settings_analyticlist_menu" parent="looped_menus.main_menu_looped_finance_settings" name="Analytic Defaults Rules" sequence="11" action="account.action_analytic_default_list"/>
+
+
+
+
+		<menuitem id="main_menu_looped_finance_settings_tax" parent="looped_menus.main_menu_looped_finance_settings" name="Tax" sequence="12" action="account.action_tax_form"/>
+
+		<menuitem id="main_menu_looped_finance_settings_tax_adj" parent="looped_menus.main_menu_looped_finance_settings" name="Tax Adjustment" sequence="13" action="account.tax_adjustments_form"/>
+
+		<menuitem id="main_menu_looped_finance_settings_journals" parent="looped_menus.main_menu_looped_finance_settings" name="Journals" sequence="14" action="account.action_account_journal_form"/>
+
+		<menuitem id="main_menu_looped_finance_settings_payment_term" parent="looped_menus.main_menu_looped_finance_settings" name="Payment Term" sequence="15" action="account.action_payment_term_form"/>
+
+		<menuitem id="main_menu_looped_finance_settings_tax_report_config" parent="looped_menus.main_menu_looped_finance_settings" name="Tax Report" sequence="15" action="account.action_configure_tax_report"/>
+
+		<menuitem id="main_menu_looped_finance_settings_analytic_account" parent="looped_menus.main_menu_looped_finance_settings" name="Analytic Account" sequence="16" action="analytic.action_account_analytic_account_form"/>
+
+		<menuitem id="main_menu_looped_finance_settings_analytic_tag" parent="looped_menus.main_menu_looped_finance_settings" name="Analytic Tag" sequence="17" action="analytic.account_analytic_tag_action"/>
+
+		<menuitem id="main_menu_looped_finance_settings_recon_model" parent="looped_menus.main_menu_looped_finance_settings" name="Reconciliation Models" sequence="18" action="account.action_account_reconcile_model"/>
+
+		<menuitem id="main_menu_looped_finance_settings_account_asset_model" parent="looped_menus.main_menu_looped_finance_settings" name="Asset Model" sequence="19" action="account_asset.action_account_asset_model_form"/>
+		<menuitem id="main_menu_looped_finance_settings_account_inc_deffered_menu" parent="looped_menus.main_menu_looped_finance_settings" name="Deferred Revenue Models" sequence="20" action="account_asset.action_account_revenue_model_form"/>
+		<menuitem id="main_menu_looped_finance_settings_account_exp_deffered_menu" parent="looped_menus.main_menu_looped_finance_settings" name="Deferred Expense Models" sequence="21" action="account_asset.action_account_expense_model_form"/>
+
+
+		<menuitem id="main_menu_looped_finance_settings_open_budget_post_menu" parent="looped_menus.main_menu_looped_finance_settings" name="Budgetary Positions" sequence="22" action="account_budget.open_budget_post_form"/>
+
+
+		<menuitem id="menu_product_product_categories" action="product.product_category_action_form" sequence="5" parent="looped_menus.main_menu_looped_finance" />
+
+
+
+
+		<menuitem id="main_menu_looped_operation" name="Looped Operation" sequence="7" web_icon="sh_backmate_theme_adv,static/src/icons/2d/setting_icons/operation.svg" />
+
+
+
+		<menuitem id="main_menu_looped_operation_project_task" parent="looped_menus.main_menu_looped_operation" name="Employee Tasks" sequence="1" action="project.action_view_all_task"/>
+
+		<menuitem id="main_menu_looped_operation_employees" parent="looped_menus.main_menu_looped_operation" name="Employees" sequence="2" action="hr.open_view_employee_list_my"/>
+
+
+		<!-- Not found pos dashboard -->
+		<!-- 
+		  <menuitem id="main_menu_looped_analysis_pos_dahsboard" name="POS Dashboard" sequence="1" /> -->
+
+		<!-- <menuitem id="main_menu_looped_analysis_inventory_dashboard" parent="looped_menus.main_menu_looped_analysis" name="Inventory Dahsboard" action="stock.stock_picking_type_action" sequence="2" /> -->
+
+		<!-- <menuitem id="main_menu_looped_analysis_finance_dashboard" parent="looped_menus.main_menu_looped_analysis" name="Finance Dashboard" action="account.open_account_journal_dashboard_kanban" sequence="3"/> -->
+
+		<!-- Delivary Dahboard Not Found -->
+
+	</data>
+</odoo>

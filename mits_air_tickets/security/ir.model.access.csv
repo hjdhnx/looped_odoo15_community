@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_air_ticket_type_employee,mits_a_t.air_ticket_type.user,mits_hr_leaves.model_air_ticket_type,base.group_user,1,1,1,0
+access_air_ticket_type,mits_a_t.air_ticket_type.user,mits_hr_leaves.model_air_ticket_type,hr.group_hr_user,1,1,1,1

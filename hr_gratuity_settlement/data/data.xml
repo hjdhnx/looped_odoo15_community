@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="gratuity_reason_a" model="hr.gratuity.reason">
+            <field name="name">انتهاء مدة العقد أو باتفاق الطرفين على إنهاء العقد</field>
+            <field name="employee_contract_type">limited</field>
+        </record>
+
+        <record id="gratuity_reason_b" model="hr.gratuity.reason">
+            <field name="name">فسخ العقد من صاحب العمل</field>
+            <field name="employee_contract_type">both</field>
+        </record>
+
+
+        <record id="gratuity_reason_c" model="hr.gratuity.reason">
+            <field name="name">فسخ العقد من قبل صاحب العمل لأحد الحالات الواردة في المادة (80)</field>
+            <field name="employee_contract_type">both</field>
+            <field name="no_gratuity" eval="1"></field>
+        </record>
+
+
+
+        <record id="gratuity_reason_d" model="hr.gratuity.reason">
+            <field name="name">ترك العمل نتيجة قوة قاهرة</field>
+            <field name="employee_contract_type">both</field>
+            <field name="power_reason" eval="1"></field>
+        </record>
+
+        <record id="gratuity_reason_e" model="hr.gratuity.reason">
+            <field name="name">إنهاء العاملة لعقد العمل خلال ستة أشهر من عقد الزواج أو خلال ثلاثة أشهر من الوضع</field>
+            <field name="employee_contract_type">both</field>
+            <field name="woman_special_reason" eval="1"></field>
+        </record>
+
+        <record id="gratuity_reason_f" model="hr.gratuity.reason">
+            <field name="name">ترك العامل العمل لأحد الحالات الواردة في المادة (81)</field>
+            <field name="employee_contract_type">both</field>
+        </record>
+
+        <record id="gratuity_reason_g" model="hr.gratuity.reason">
+            <field name="name">فسخ العقد من قبل العامل أو ترك العامل العمل لغير الحالات الواردة في المادة (81)</field>
+            <field name="employee_contract_type">limited</field>
+            <field name="no_gratuity" eval="1"></field>
+        </record>
+
+
+        <record id="gratuity_reason_h" model="hr.gratuity.reason">
+            <field name="name">اتفاق العامل وصاحب العمل على إنهاء العقد</field>
+            <field name="employee_contract_type">unlimited</field>
+        </record>
+
+        <record id="gratuity_reason_i" model="hr.gratuity.reason">
+            <field name="name">استقالة العامل</field>
+            <field name="employee_contract_type">unlimited</field>
+            <field name="employee_resign" eval="1"></field>
+        </record>
+
+        <record id="gratuity_reason_j" model="hr.gratuity.reason">
+            <field name="name">ترك العامل العمل دون تقديم استقالة لغير الحالات الواردة في المادة (81)</field>
+            <field name="employee_contract_type">unlimited</field>
+            <field name="no_gratuity" eval="1"></field>
+        </record>
+
+
+        <record id="gratuity_reason_k" model="hr.gratuity.reason">
+            <field name="name">إنهاء التعاقد مع دفع الشرط الجزائي</field>
+            <field name="employee_contract_type">both</field>
+        </record>
+
+
+
+
+
+
+        <record id="gratuity_base_config_c" model="hr.gratuity.accounting.configuration">
+            <field name="name">مكافأة نهاية الخدمة</field>
+        </record>
+
+        <record id="gratuity_base_less_five" model="gratuity.configuration">
+            <field name="name">أقل من خمس سنوات</field>
+            <field name="from_year">0</field>
+            <field name="to_year">5</field>
+            <field name="employee_daily_wage_days">1</field>
+            <field name="employee_working_days">1</field>
+            <field name="percentage">0.5</field>
+            <field name="gratuity_accounting_configuration_id" ref="hr_gratuity_settlement.gratuity_base_config_c"/>
+            
+
+        </record>
+
+
+
+        <record id="gratuity_base_more_than_five" model="gratuity.configuration">
+            <field name="name">أكثر من خمس سنوات</field>
+            <field name="from_year">5</field>
+            <field name="to_year">999</field>
+            <field name="employee_daily_wage_days">1</field>
+            <field name="employee_working_days">1</field>
+            <field name="percentage">1</field>
+            <field name="gratuity_accounting_configuration_id" ref="hr_gratuity_settlement.gratuity_base_config_c"/>
+            
+
+        </record>
+
+
+    </data>
+</odoo>

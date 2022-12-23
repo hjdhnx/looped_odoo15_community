@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">            
+                <xpath expr="//group[@name='sale_reporting']" position="before">
+                    <group name="additional_details">
+                        <div>
+                            <h3>Additional Details</h3>
+                            <field name="sale_add_details_id">
+                                <tree editable="bottom">
+                                    <field name="product_id" invisible="1"/>
+                                    <field name="partner_name"/>
+                                    <field name="attributes_name"/>
+                                    <field name="imp_note"/>
+                                    <field name="other_details"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+
+
+
+    </data>
+</odoo>

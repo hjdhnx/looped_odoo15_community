@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="job_offer_report"
+            model="hr.applicant"
+            string="Job Offer Specification"
+            report_type="qweb-pdf"
+            name="ext_hr_recruitment.report_job_offer"
+            file="ext_hr_recruitment.report_job_offer"
+        />		
+    </data>
+</odoo>

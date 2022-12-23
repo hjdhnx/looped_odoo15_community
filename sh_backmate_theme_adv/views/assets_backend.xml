@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sh_web_layout" inherit_id="web.layout" name="Web layout">
+        <xpath expr="//head/meta[last()]" position="inside">
+            <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+        </xpath>
+
+        <!-- Change Fav Icon -->
+        <xpath expr="//head/link[last()]" position="replace">
+            <!-- <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/sh_backmate_theme_adv/static/icon/FavLogo.ico'"/> -->
+            <link type="image/x-icon" rel="shortcut icon" t-att-href="'/sh_backmate_theme_adv/static/icon/FavLogo.ico'"/>
+
+        </xpath>
+    </template>
+
+
+
+
+
+</odoo>
+    

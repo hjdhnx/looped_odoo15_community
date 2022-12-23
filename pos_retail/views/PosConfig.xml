@@ -1,0 +1,86 @@
+<odoo>
+    <data>
+
+        <record id="auto_pos_create_invoice" model="base.automation">
+            <field name="name">auto pos create invoice</field>
+            <field name="model_id" ref="model_pos_order"/>
+            <field name="state">code</field>
+            <field name="trigger">on_create</field>
+            <field name="active" eval="True"/>
+            <field name="code" eval="'records.pos_create_invoice()'"/>
+        </record>
+
+        <record id="pos_payment_method_view_form_inherit" model="ir.ui.view">
+            <field name="name">pos.payment.method.view.form.inherit</field>
+            <field name="model">pos.payment.method</field>
+            <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <div class="oe_title">
+                        <label for="arbic_name"/>
+                        <h1>
+                            <field name="arbic_name"/>
+                        </h1>
+                    </div>
+                </xpath>             
+                <xpath expr="//field[@name='journal_id']" position="replace">
+                    <!-- <field name="journal_id" attrs="{'required': ['|',('split_transactions', '=', False),('create_invoice', '=', False)]}" /> -->
+                    <field name="journal_id"/>
+                    <field name="type"/>
+                    <field name="create_invoice"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="pos_config_retail">
+            <field name="name">pos.config.retail</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <notebook groups="point_of_sale.group_pos_manager">
+                        <page groups="point_of_sale.group_pos_manager" string="Restaurant">
+                            <group string="Restaurant Setting Extend">
+                                <field name="allow_lock_table"/>
+                                <field name="allow_split_table"/>
+                                <!-- <field name="allow_merge_table"/> -->
+                                <field name="allow_transfer_table"/>
+                            </group>
+                        </page>
+                        <page groups="point_of_sale.group_pos_manager" string="Wallets">
+                            <group string="Wallets">
+                               <field name="wallet_id"/>
+                            </group>
+                        </page>
+                        <page string="Promotions, Vouchers" groups="point_of_sale.group_pos_manager">
+                            <group>
+                                <!-- <group string="Loyalty Program">
+                                    <field name="pos_loyalty_id"/>
+                                    <field name="loyalty_combine_promotion"/>
+                                </group> -->
+                                <group string="Promotions Program">
+                                    <field name="promotion_manual_select"/>
+                                    <field name="promotion_auto_add"/>
+                                    <field name="promotion_ids" widget="many2many_tags" colspan="4"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="WhatsApp Receipt">
+                            <group>
+                                <field name="whatsapp_api"/>
+                                <field name="whatsapp_token"
+                                       password="True"
+                                       attrs="{'invisible': [('whatsapp_api', '=', None)]}"/>
+                                <field name="whatsapp_send_type"
+                                       attrs="{'invisible': [('whatsapp_api', '=', None)]}"/>
+                                <field name="whatsapp_message_receipt"
+                                       attrs="{'invisible': [('whatsapp_api', '=', None)]}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

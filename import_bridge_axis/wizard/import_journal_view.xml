@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="wizard_import_journal" model="ir.ui.view">
+            <field name="name">wizard.wizard.import.journal.journal.form</field>
+            <field name="model">import.journal.journal</field>
+            <field name="arch" type="xml">
+                <form string="Import Journal" >
+                    <group>
+                    <field name="import_option" widget="radio" />
+                </group>
+
+                <group>
+                    <field name="File_slect" filename="name"/>
+                </group>
+                    <footer>
+
+                        <button string="Import" name="imoport_file"
+                            type="object" class="oe_highlight" />
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="act_import_jounal" model="ir.actions.act_window">
+            <field name="name">Import Journal</field>
+            <field name="res_model">import.journal.journal</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wizard_import_journal"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

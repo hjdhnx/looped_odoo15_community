@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+
+    <record id="product_pricelist_view_inherit" model="ir.ui.view">
+        <field name="name">product.pricelist.view.inherit</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <div class="oe_title">
+                    <label for="arbic_name"/>
+                    <h1>
+                        <field name="arbic_name"/>
+                    </h1>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_pos_category_form_view" model="ir.ui.view">
+      <field name="name">pos.category.form</field>
+      <field name="model">pos.category</field>
+      <field name="inherit_id" ref="point_of_sale.product_pos_category_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+            <div class="oe_title">
+                <label for="arbic_name"/>
+                <h1>
+                    <field name="arbic_name"/>
+                </h1>
+            </div>
+            <button name="action_open_product_ids" type="object" class="oe_highlight" string="Open related products">
+            </button>             
+        </xpath>      
+        <xpath expr="//field[@name='sequence']" position="after">
+            <field name="exclude_pos_ids" widget="many2many_tags"/>
+            <field name="restaurant_printer_ids" widget="many2many_tags"/>
+            <field name="invisible_in_ui"/>
+            <field name="is_multi_company" invisible="1"/>
+            <field name="company_id" attrs="{'invisible': [('is_multi_company', '!=', True)]}"/>
+        </xpath>
+        <xpath expr="//group" position="after">
+          <notebook>
+            <page string="Online Menu" name="online_menu">
+              <group>
+                <group>
+                  <field name="website_image_1920" widget="image" class="oe_avatar"/>
+                  <field name="is_published"/>
+                </group>
+              </group>
+            </page>
+          </notebook>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

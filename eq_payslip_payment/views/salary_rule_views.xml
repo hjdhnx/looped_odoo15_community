@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--	<record id="hr_salary_rule_view_form" model="ir.ui.view">-->
+<!--		<field name="name">hr.salary.rule.form</field>-->
+<!--		<field name="model">hr.salary.rule</field>-->
+<!--		<field name="inherit_id" ref="hr_payroll_account.hr_salary_rule_view_form"/>-->
+<!--		<field name="arch" type="xml">-->
+<!--			-->
+<!--			<xpath expr="//field[@name='active']" position="after">-->
+<!--				<field name="rule_account" groups="eq_payslip_payment.group_rule_account"/>-->
+<!--			</xpath>-->
+<!--			<xpath expr="//notebook/page[@name='accounting']" position="attributes">-->
+<!--				<attribute name="attrs">{'invisible':[('rule_account','=',False)]}</attribute>-->
+<!--			</xpath>-->
+<!--		</field>-->
+<!--	</record>-->
+
+</odoo>

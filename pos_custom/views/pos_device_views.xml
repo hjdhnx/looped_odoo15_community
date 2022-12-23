@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record id="pos_device_form" model="ir.ui.view">
+      <field name="name">pos.device.form</field>
+      <field name="model">pos.device</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="proxy_ip"/>
+              <field name="pos_id"/>
+            </group>
+
+            <group >
+              <field name="company_id" groups="base.group_multi_company"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="pos_device_tree" model="ir.ui.view">
+      <field name="name">pos.device.tree</field>
+      <field name="model">pos.device</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="proxy_ip"/>
+          <field name="pos_id"/>
+          <field name="company_id" groups="base.group_multi_company"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="pos_device_action">
+      <field name="name">POS Device</field>
+      <field name="res_model">pos.device</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_pos_device_menu" parent="point_of_sale.menu_point_config_product" action="pos_device_action" name="POS Device" sequence="4" groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+
+
+  </data>
+</odoo>

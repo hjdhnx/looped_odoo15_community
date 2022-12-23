@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+        <record id="view_custom_gratuity_sheet" model="ir.ui.view">
+            <field name="name">Create Gratuity Sheet</field>
+            <field name="model">auh.custom.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Create Gratuity Sheet">
+                    <separator string="This wizard will create gratuity sheet"/>
+                    <footer>
+                        <button name="create_auh_gratuity_sheet" string="Create Gratuity Sheet" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_custom_gratuity_sheet" model="ir.actions.act_window">
+            <field name="name">Create Gratuity Sheet</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">auh.custom.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem 
+            id="mih_auh_gratuity_sheets"
+            name="Create Gratuity Sheet"
+            action="hr_gratuity.action_view_custom_gratuity_sheet"
+            parent="mih_auh_gratuity_sheet_custom"
+            sequence='2'
+            />
+
+</odoo>

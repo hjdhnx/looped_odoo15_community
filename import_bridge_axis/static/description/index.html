@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+    Import data in odoo for Import Sales, Import Purchase, Invoice, Import Stock Inventory in odoo, Import Product, Bill of material(BOM), Payment, Bank Statement, All Entry, Order Picking, Import Product, Import Customer, Stock, Import Account charts, Sales Pricelist, Import Supplier all data import in odoo using EXCEL or CSV
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">    
+  </head>
+  <body>
+    <div class="container">
+      <hr>
+      <div class="row">
+        <div class="col-lg-2" style="text-align: left;">
+          <img src="images/axis-logo.png" alt="axistechnolabs all odoo apps" class="img-fluid" >
+        </div>
+        <div class="col-lg-3 justify-content-between align-self-center" style="border-left: 1px solid #e5e5e5;border-right: 1px solid #e5e5e5;align-self: center;justify-content: space-between;padding: 0px 12px !important;">
+          <div class="text-right">
+            <a href="https://apps.odoo.com/apps/modules/browse?search=axis+technolabs" target="_blank" class="btn btn-sm" style="font-size:14px;font-weight:500;background-color:#406d8d;color:#fff;border-radius: 25px;padding: 5px 10px 5px 10px;"><i class="fa fa-list-alt mr-1"></i>Axis Technolabs Odoo Apps</a>
+          </div>
+        </div>
+        <div class="col-lg-7 justify-content-between align-self-center" style="align-self: center !important;text-align: right;">
+          
+          <div class="mt-md-0 mt-4 mb-3 mb-lg-0">
+            <span class="fa fa-support" style="margin-right: 2px;color:#6c55bd; font-size:18px; vertical-align:middle"></span>
+            <span style="color:#406d8d; font-size:14px;font-weight: 800;">Support :</span>
+            <div style="display: inline-block;">
+              <a href="mailto:business@axistechnolabs.com?subject=Odoo Import Data Bridge" target="_blank" style="color:#406d8d;display:inline-block;padding: 3px 7px;border: 1px solid #6c55bd;border-radius: 5px;margin: 0 0 3px 0;">
+                <span class="fa fa-envelope-o" style="margin-right: 2px;color:#6c55bd; font-size:18px;"></span>
+                <span style="color:#406d8d; font-size:14px;font-weight: 500;">Email</span>
+              </a>
+            </div>
+            <span class="btn btn-sm" style="padding: 4px 12px 4px 6px !important;font-size:14px; font-weight:500;margin-bottom: 2px !important; border-radius: 25px; background-color:#406d8d; color:#fff"><span style="position: relative;background-color: white;border-radius: 33px;padding: 2px;display: inline-flex;"><i class="fa fa-check" style="color: #406d8d;"></i></span> Community</span>
+            <span class="btn btn-sm" style="padding: 4px 10px 4px 6px !important;font-size:14px; font-weight:500;margin-bottom: 2px !important; border-radius: 25px; background-color:#406d8d; color:#fff"><span style="position: relative;background-color: white;border-radius: 33px;padding: 2px;display: inline-flex;"><i class="fa fa-check" style="color: #406d8d;"></i></span> Enterprise</span>
+            <span class="btn btn-sm" style="padding: 4px 10px 4px 6px !important;font-size:14px; font-weight:500;margin-bottom: 2px !important; border-radius: 25px; background-color:#406d8d; color:#fff"><span style="position: relative;background-color: white;border-radius: 33px;padding: 2px;display: inline-flex;"><i class="fa fa-check" style="color: #406d8d;"></i></span> Odoo.sh</span>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!-- Begin: All Data Import Bridge Module for Odoo -->
+      <div class="" style="text-align: center;">
+        <h2 style="color:#bd4398;font-size:28px;">Import Data Bridge Module for Odoo - (CSV or Excel File), <br></h2>
+        <h1 style="font-size:28px;padding-bottom:20px;"> <a href="https://apps.odoo.com/apps/modules/14.0/import_bridge_axis/">Import data in odoo using excel or CSV</a></h1>
+        <div style="color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Bulk data import in odoo</h1> using excel or CSV, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import data in odoo</h1> using excel or CSV such as; 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import Sale Orders</h1>, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import Purchase Orders</h1>, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import POS orders</h1>, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import Order line</h1>, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import sales data</h1>, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">import products</h1>, payment, invoice, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import Inventory data</h1>, Pricelist, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">import Bill of material</h1> (BOM), 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import Customer data</h1>, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import Supplier</h1>, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import Stock</h1>, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import Purchase</h1>, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Import Journal data</h1>, 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">journal entry data import</h1>, Bank entry, Chart Of Account only with our 
+          <h1 style="display: inline;color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">all in one data import bridge module</h1> using CSV file or Excel file.
+        </div>
+        <p style="color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Odoo import bridge helps you to import data in odoo 15, odoo 14, odoo 13, odoo 12 from CSV or Excel files. Import a set of data into odoo, You need to select the individual data file in .csv or .xlsx format and upload it in odoo, With few clicks data import successful finished in odoo.</p>
+        <p style="color:#000000;font-size:20px;padding-bottom:5px;text-align: justify;">Odoo import bridge allows to import data using CSV, Excel in odoo to save time, efforts then why need to add data manually.
+        </p>
+        <h1 style="color:red; padding:2px 0; font-size:18px;text-align: justify;font-weight: bold;">Odoo Data Import bridge module Supported Odoo V15, V14, V13, V12 version with <b>Multiple languages supported (English, Arabic, Chinese Traditional, Chinese Simplified, Danish-dansk, Dutch-Nederlands, Spanish - Español, French-français) </b> in odoo backend. </h1><span style="color:#3266b7;font-size: 17px;">Email us for your language support without any cost. We have used google translator for translation, let us know if any translation needs to update.</span>
+          
+       <p style="color:red;font-size:18px;padding-bottom:2px;text-align: justify;">Ask us for import extra fields other than sample files, We can help you to add those fields on our import module without any extra price. Buy this import data odoo module and contact us on <a href="mailto:business@axistechnolabs.com">business@axistechnolabs.com</a>
+      For Example: If you want to add sale commission in sale order or invoice details on sale order line.</p>
+      </div>
+      <h2 class="oe_slogan" style="color: #1c74cb;text-align:center;font-size: 28px;font-weight: 500;">This module is supported in odoo community and enterprise edition</h2>
+      <!-- End: All Data Import Bridge Module for Odoo -->
+      <div class="" style="text-align: justify;">
+        <h2 class="text-center alert" style="font-family:Montserrat; font-weight:500;font-size: 25px; color:#ffffff; border-radius:10px; background-color:#158dd3;padding: 7px 0;">All in One Odoo Import Bridge (CSV or Excel File) for importing data</h2>
+       
+      <!-- Begin: All Data Import Bridge Module for Odoo features -->
+      
+      <img class="img-fluid" src="images/sales-border.svg" alt="">
+      <h2 style="color:#bd4398;font-size:30px;text-align:center;">Features of all data import module in odoo</h2>
+      <img class="img-fluid" src="images/sales-border.svg" alt="">
+      
+    <!-- Feature Start -->
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+            <div class="card" style="border: 1px solid cadetblue;min-height: 220px;">
+              <div>
+                <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Customers / Import Supplier Payment in odoo</h2>
+                <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+              </div>
+              <div class="row" style="margin:0;">
+                <div class="col-3">
+                  <img src="https://i.ibb.co/gJpjRTc/1-odoo.png" alt="Import Customers data in odoo/Import Supplier Payment in odoo, Customers data import in odoo, Supplier Import" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                </div>
+                <div class="col-9" style="padding-left:0;">
+                  <p style="color:#000000;text-align:justify;margin: 0 !important;">Create several customers without any manual process and import customers list using csv, xls, xlsx file. Supplier payment information import using csv, excel in odoo</p>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;">
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;"><a href="https://apps.odoo.com/apps/modules/13.0/import_product_variant_axis/" target="_blank">Import Product Information, Product Variants in Odoo</a></h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/y8ZQ6NP/2-odoo.png" alt="Import Product Variants in odoo, Import Attributes Values in odoo, Product Variants import " style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Import Products Information with Attributes and Attributes Values in odoo, you can update product template wizard using odoo product import excel file or CSV file format.</p>
+                  </div>
+                </div>
+              </div>
+            </div>            
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;">
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Purchase Orders with code, barcode, name</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/zR6jhHR/odoo-4.png" alt="Import Purchase Order in odoo, purchase order import" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Purchase orders Import with various fields in odoo, Create purchase orders without any manual entry, this module help to import purchase orders using excel or CSV.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;">
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Purchase Order Line data</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/SQfTtFx/odoo-5.png" alt="odoo Import Purchase Order Line in odoo, purchase order line import in odoo using excel or csv" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Feature allows to import purchase orders data and Import Purchase Order Line data by its Name / Barcode or Code (Internal Reference) using csv, excel file.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;">
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Inventory data in Odoo</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/5LzrMtN/odoo-6.png" alt="Import Inventory in odoo15, odoo 14, odoo 13, odoo 12, Wizard, Adjustments, inventory menu import" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Inventory data Import using excel file or CSV file format, Create Inventory data without any manual process or NO manual entry, automatic inventory data import using odoo module.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;">
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Inventory Adjustment in Odoo</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/5LzrMtN/odoo-6.png" alt="Import Inventory in odoo 14, odoo 13, odoo 12, Wizard, Adjustments, inventory menu import" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Import Inventory adjustment with barcode, code, name in odoo using excel file or CSV file. Its really easy process to import inventory data adjustment in odoo using import bridge module.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;">
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Invoice, Invoice Line Data</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/vQjJ9hB/odoo-8.png" alt="import invoice menu in odoo, Invoice Wizard in odoo" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Import Invoice data with File type CSV or Excel. Import By Name, Default Code, BarCode, Invoice stages, Invoice Type with allowing Sequence Number option to import invoice wizard in all data import module.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;">
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Journal, Journal Entry Data</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/vQjJ9hB/odoo-8.png" alt="import invoice menu in odoo, Invoice Wizard in odoo" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">You can import Journal data with fields Sequence, Journal Name, Type, Short Code and Journal Entry with fields Date, Number, Partner, Reference, Journal using csv or excel format.</p><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;">
+              <div class="card"  style="border: 1px solid cadetblue;min-height: 220px;">
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Partner, Payment Data in odoo</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/vQjJ9hB/odoo-8.png" alt="import invoice menu in odoo, Invoice Wizard in odoo" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Import Partner, Payment Data in odoo with fields like Name, Company, address, Customer, Vendor, Terms etc. and Payment data import with fields Partner, Payment Amount, Payment Journal, Payment Date, Memo.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card"  style="border: 1px solid cadetblue;min-height: 220px;">
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Sale Order, Order line, PriceList</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/vQjJ9hB/odoo-8.png" alt="import invoice menu in odoo, Invoice Wizard in odoo" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">You can import Sale Orders, Sale Orders line, Sale Price Lists data with its fields. Import excel data or csv data format make it easy and fast for importing data in odoo with Import bridge module.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;">
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Payment data in odoo</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/YRfY2VJ/odoo-9.png" alt="Import Payment Menu Wizard in odoo, Import bulk payment in odoo" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">In all data import module in odoo, import payment data feature added for importing data of Customer/Supplier Payments using excel or CSV data format.</p><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;" >
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Bank Statement data in odoo</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/k1h8873/odoo-10.png" alt="Import Bank Statement Lines, wizard in odoo, import bridge in odoo, bank statement import" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">We have added feature Menu for Import Bank Statement Lines and import bank statement in odoo using excel or CSV with various fields.</p><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;" >
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Shipment / Delivery Orders</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/7vRQvMk/odoo-11.png" alt="odoo import data in odoo, Import Incoming Shipment/Delivery Order Wizard in odoo" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Import easilty Incoming Shipments in odoo (Source location Zone, Destination location Zone)/ Import Delivery Order in odoo/ Internal Transfer from Picking Type using excel or CSV data.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;" >
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Bill of Material (BOM) in odoo</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/4Ym7VcM/odoo-12.png" alt="Import Bill of Material (BOM) odoo, import csv file in odoo, Bill of Material import" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                      <p style="color:#000000;text-align:justify;margin: 0 !important;">Import Bill of Material (BOM) data in odoo. Data fields Product, Reference, Product Qty, Material Product, UOM etc. supported for excel or CSV data import.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;" >
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Vendor Pricelist in odoo</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/gJcXJvq/odoo-13.png" alt="odoo import invoice, Import Vendor Pricelist in odoo, invoice import in odoo, odoo sale module vendor pricelist import" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Import Vendor Pricelist data with fields Partner, Product, Variant, Qty, Currency, Price, Delay etc. using excel or CSV to import vendor pricelist data.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;" >
+                <div>
+                   <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Product Pricelist</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/FVgrHL4/odoo-14.png" alt="Import Product Pricelist from csv to odoo 15, odoo 14, odoo 13, odoo 12, product pricelist import" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Import Vendor Pricelist data By Name, Barcode, Code with fields Partner, Product Template, Product Variant, Quantity, Price etc. using excel or CSV</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;" >
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Account Chart data in odoo</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/FWGCDX0/odoo-15.png" alt="Import Account Chart, all import data of odoo, account import in odoo" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Import Account Chart data in odoo using Excel and CSV file. Import by Name, Import By Barcode, Import by Code in odoo accounts using import bridge module.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;" >
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import Sales Pricelist</h2>
+                   <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/0MJLRN7/odoo-16.png" alt="Import Sale pricelist odoo import bridge, sale price import" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">You can import sale price list in odoo and Import by Name, Import By Barcode, Import by Code, product pricelist easily import using excel or CSV</p>
+                  </div>
+                </div>
+              </div>
+            </div>           
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;" >
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Import POS order and order line</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="images/pos.png" alt="import sales order in odoo, sales order import" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">User can create import pos orders in odoo customers without any manual entry and Import POS Orders from Excel or Import POS Orders from CSV data in odoo</p><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;" >
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Easy to Configure and Import data</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/DCbt3Vp/odoo-17.png" alt="import invoice wizard in odoo" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Easily import Invoice, Purchase, Sales, Inventory, Pricelist, BOM, Payment, Bank Statement, Journal, Journal Entry, Picking, Customer, Orders and import product price list in odoo.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12" style="margin-bottom: 30px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;" >
+                <div>
+                  <h2 style="font-weight: 600;font-size: 18px;color:#158dd3;text-align:left;padding: 5px 0px 0px 12px;">Easy to Use import data bridge</h2>
+                  <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;border: 0;border-top: 1px solid rgba(0,0,0,.1);">
+                </div>
+                <div class="row" style="margin:0;">
+                  <div class="col-3">
+                    <img src="https://i.ibb.co/bN0zLQ2/odoo-18.png" alt="import sales order in odoo, sales order import" style="max-width:100%;position: absolute;width: 55px;top: 50%;transform: translateY(-50%);text-align: center;margin: 0 auto;display: block;left: 0;right: 0;" />
+                  </div>
+                  <div class="col-9" style="padding-left:0;">
+                    
+                    <p style="color:#000000;text-align:justify;margin: 0 !important;">Import sales data in odoo, Purchase, Invoice, Inventory, BOM, Customer Payment, Bank Statement, Journal Entry, Products, Pricelist (Sale, Purchase)</p>
+                  </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+          <!-- Feature End -->
+          <!-- files -->
+          <a href="https://apps.odoo.com/apps/modules/13.0/import_bridge_axis/"><h2 class="text-center alert" style="font-family:Montserrat; font-weight:500;font-size: 25px; color:#ffffff; border-radius:10px; background-color:#158dd3;padding: 7px 0;">All Odoo Data Import using Excel or CSV file :</h2></a>
+          <div style="width:100%; display:inline-block; vertical-align:top" class="text-center mx-auto">
+            <img class="img-fluid" src="images/sales-border.svg" alt="">
+          </div>
+          <h2 class="text-center" style="font-family:Montserrat; font-size:25px;font-weight: 600; margin-bottom:0;color: #0f1e40;">Here are the list of fields given from which data can be imported :</h2>
+          <div style="width:100%; display:inline-block; vertical-align:top" class="mb-2 text-center mx-auto">
+            <img class="img-fluid" src="images/sales-border.svg" alt="">
+          </div>
+      <div class="row">
+            <div class="col-lg-6 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;">
+                <ul class="list-unstyled">
+            <li style="padding-bottom:5px;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import POS Orders in Odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Sales Orders in Odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Sales Order Lines in Odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import sales wizard in Odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Purchase Order in Odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Purchase Order Line in Odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import with Barcode in Odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import with Code in Odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import csv file in odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import invoice data in odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import invoice data Line in odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import product variants, Attributes in odoo</h1></li>
+           <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Journal, Journal Entries </h1></li>
+            
+          </ul>
+          
+        </div>
+      </div>
+       <div class="col-lg-6 col-sm-6 col-12" style="margin-bottom: 30px;padding-right:0px;">
+              <div class="card" style="border: 1px solid cadetblue;min-height: 220px;">
+            <ul class="list-unstyled">
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Bank Statement Line</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Bill of Material</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Partner </h1></li>
+             <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Inventory</h1></li>
+             <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Inventory Adjustment</h1></li>
+             <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Product Template </h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Product Pricelist </h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Sale Pricelist  </h1></li>
+             <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Customer/Supplier Payment</h1></li>
+             <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Chart of Account</h1></li>
+             <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Import Vendor Pricelist</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Data export from odoo</h1></li>
+            <li style="padding-bottom:5px;color:#0f1e40;position:relative;padding-left:30px;" class="d-flex"><i class="fa fa-check" style="position:absolute;top:4px;left:5px;color:#158dd3;font-size: 16px;padding-right:5px;"></i><h1 style="color:#0f1e40;font-family: 'Open Sans', sans-serif;font-weight: 500;font-size:16px">Odoo template import</h1></li>
+          </ul>
+              </div>
+            </div>
+
+        </div>
+
+          
+
+          <!-- center images -->
+          <hr>
+          <p style="font-family: 'Open Sans', sans-serif; color:#0f1e40">If you need any help to import extra fields from odoo from our sample files, we will add those fields as per your odoo requirement on our import module. You can buy this import bridge module and contact us on <a href="mailto:business@axistechnolabs.com" style="color: #158dd3 !important;font-weight: 700 !important;">business@axistechnolabs.com</a></p>
+          <div class="text-center"><img src="images/Odoo-import-Module.png" alt="all data import odoo, Sales, Orders, product, customer, journal import data with dashboard in odoo, all in one import app with dashboard for odoo" class="img-fluid"></div>
+          <hr>
+          <!-- center images -->        
+          <!-- dashboard image -->        
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Dashboard for Data import bridge odoo module </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img src="images/import_bridge_custom_dashboard.jpg" alt="Data import bridge module Dashboard, import data dashboard, odoo app for data import " style="max-width:100%;border: 1px solid #1b4080;" />
+                </span>
+                 <hr>
+                 <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;border: 1px solid transparent;border-radius: 0.125rem;">
+                    <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import Data module Users Access Rights</b>
+                  </div>
+                <span>
+                  <img src="images/user-access-rights.png" alt="odoo data import bridge module access rights " style="max-width:100%;border: 1px solid #1b4080;" />
+                </span>
+                
+              </div>
+            </div>
+          </div>
+
+          
+          <!--Import Invoice Menu-->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Invoice Menu</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Invoice_data_menu.png" alt="Import Invoice data menu for odoo import invoice data module version v13, v14">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Invoice data -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Invoice Data import with odoo module </h2>
+              </div>
+             <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <span>                  
+                    <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;border: 1px solid transparent;border-radius: 0.125rem;">
+                    <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Sample Data file Format for Invoice Data Import with Code</b>
+                  </div>
+                    <img src="images/invoice_import_code.jpg" alt="Import invoice with Code in odoo using all data import bridge module" style="max-width:100%;border: 1px solid #1b4080;" />
+
+                  <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                    <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Sample Data file Format for Invoice Data Import with Barcode</b>
+                  </div>                   
+                    <img src="images/Import_with_Barcode.png" alt="Import with Barcode in odoo all data import bridge module axistechnolabs" style="max-width:100%;border: 1px solid #1b4080;" />
+
+                   <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                      <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Sample Data file Format for Invoice Data Import with Name</b>
+                  </div>                              
+                    <img src="images/ImportwithName.png" alt="Import with Name in odoo all data import bridge module download from apps store" style="max-width:100%;border: 1px solid #1b4080;" />                  
+                </span>
+                 <div style="color:red;font-size: 14px;">*just change field "Product" values with ProductName,ProductCode,ProductBarCode.</div>
+              </div>
+            </div>
+          </div>
+        <!--Import Invoice Line-->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Invoice Data Line import with odoo module </h2>
+              </div>
+             <div class="panel-body" style="padding: 0 20px 10px 20px;">
+               <p style="color:#bd4398;font-size:20px;padding-top:5px;text-align:center;"> <b>Sample Data file Format for Import Invoice Line</b></p>                
+                <span>                  
+                    <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;border: 1px solid transparent;border-radius: 0.125rem;">
+                    <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import with Name, Import with Code, Import with Barcode</b>
+                  </div>
+                    <img src="images/import_invoice_lines_sample.png" alt="Import invoice with Code in odoo using all data import bridge module" style="max-width:100%;border: 1px solid #1b4080;" />
+                </span>
+                <div style="color:red;font-size: 14px;">*just change field "Product" values with ProductName,ProductCode,ProductBarCode.</div>
+              </div>
+            </div>
+          </div>
+          <!-- Import Invoice Wizard(With Draft Invoice) -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Invoice Wizard With Invoice Stages (Draft), Invoice Type and Import By option</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Invoice_Wizard_in_odoo.png" alt="Import Invoice Wizard With Invoice Stages, Invoice Type and Import By option, Import Invoice Wizard in odoo(With Draft Invoice)">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Invoice View -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Invoice Data View</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_invoice_using_excel_csv.png" alt="Import invoice using excel or csv in odoo, import bulk invoice in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+           <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Invoice Wizard (With Confirmed Invoice)</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_invoice_confirmed.png" alt="Import Invoice Wizard (With Confirmed Invoice) in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Invoice View -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Invoice View</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/odoo_Import_invoice_data.png" alt="Odoo Import invoice using excel, csv">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Customer/Supplier Payment -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Customer/Supplier Payment</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Sample Data File Format</b>
+                </div>
+                <hr style="margin-top:0px">
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_customers_payment_data.png" alt="Import customers payment data in odoo 15,odoo 14, odoo 13, odoo 12 enterprise and odoo community">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Payment Menu</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_payment_menu.png" alt="import payment data in odoo, import customer payment wizard in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Customer Wizard -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Customer Payment Wizard</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_customer_wizard.png" alt="Import customer payment in odoo using xlsx or csv">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Customer Payment View -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Customer Payment View</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_customer_payment_view.png" alt="Import Customer Payment View in odoo 15, odoo 14, 13, 12">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Supplier Wizard -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Supplier Payment Wizard</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_supplier_data.png" alt="Import supplier data in odoo from excel, csv , all data import bridge">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Supplier View -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Supplier View</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_supplier_data_view.png" alt="Import data bridge for supplier data import in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Journal, Journal Entries Import
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;"> 
+              <hr>              
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/journal-enteries.jpg" alt="Import Bulk POS Orders 14, 13, 12">
+                </span>
+                <hr>
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Sample Data File for Journal</b>
+                </div>
+                  <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_journal_sample.png" alt="Import journal in odoo">
+                </span>
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Sample Data File for Journal Entries</b>
+                </div>
+
+                  <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_journal_entry_sample.png" alt="Import journal enteries in odoo">
+                </span>
+                <hr>   
+                 <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/journal_import.jpg" alt="Import Bulk POS Orders 14, 13, 12">
+                </span>
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/journal_entry_import.jpg" alt="Import Bulk POS Orders 14, 13, 12">
+                </span>
+              </div>
+
+            </div>
+          </div>
+         
+          <!-- Accounting Menu Wizard -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Accounting Menu Wizard</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Accounting_Menu_Wizard.png" alt="Import bank statement entry in odoo using csv,excel version v12, v13, v14 module">
+                </span>
+              </div>
+            </div>
+          </div>
+           <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Bank Statement Line</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Sample Data File for Import Bank Statement Line</b>
+                </div>
+                <hr style="margin-top: 0px;">
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_bank_statement_in_odoo.png" alt="Import bank statement in odoo using excel or csv">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Click on Add Bank Statement Lines -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Add Bank Statement Lines</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Add_Bank_Statement_Lines.png" alt="Import multiple bank transaction statement entry in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Bank Statement Lines -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Bank Statement Lines
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_bank_statement_line.png" alt="Import bank statement line in odoo using excel odoo 15, odoo 14, odoo 13, odoo 12">
+                </span>
+              </div>
+            </div>
+          </div>
+         
+          <!-- Import Sale Order Menu -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Order Menu</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Sale_Order_Menu.png" alt="Import Sale Order in odoo v13, v14">
+                </span>
+              </div>
+            </div>
+          </div>
+           <!-- Import Sale Order -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Order data</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">               
+                   <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem 1.25rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><h2 style="color: #158dd3;font-weight: 600;font-size: 16px;display: inline;">Data File : Import with Product Code</h2>
+                </div>
+                           
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_sales_order_code.png" alt="Import code with sale order in odoo using excel or csv odoo 15,odoo 14, odoo 13, odoo 12">
+                </span>
+                <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem 1.25rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><h2 style="color: #158dd3;font-weight: 600;font-size: 16px;display: inline;">Import with Product BarCode</h2>
+                </div>
+                
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_sales_order_barcode.png" alt="Import barcode sale order in odoo using excel or csv odoo enterprise">
+                </span>
+                <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem 1.25rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><h2 style="color: #158dd3;font-weight: 600;font-size: 16px;display: inline;">Import with Product Name</h2>
+                </div>
+                
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_sales_order_name.png" alt="Import sale order data in odoo from xls or csv">
+                </span>
+                 <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem 1.25rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><h2 style="color: #158dd3;font-weight: 600;font-size: 16px;display: inline;">Import Sale Order with Custom Fields</h2>
+                </div>
+                 <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/sale_order_additional_fields.png" alt="Import sale order additional fields data in odoo from xls or csv">
+                </span>
+                 <div style="color:red;font-size: 14px;">*just change field "Product" values with ProductName,ProductCode,ProductBarCode.</div>
+              </div>
+            </div>
+          </div>
+          <!-- Import Sale Order Wizard -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Order Wizard (With draft Quotation)</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Sale_Order_Wizard.png" alt="sale order import with draft status in odoo v14, sales order import in odoo from xls or csv">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Sale Order View -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Sale Order View (With draft Quotation)</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Sale_Order_View.png" alt="Sale order view and import sale order data using excel in odoo 13">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Sale Order Wizard(With Confirm Quotation) -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Order Wizard (With Confirm Quotation)</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Sale_Order_Confirm_Quotation.png" alt="Import Sale Order Wizard(With Confirm Quotation) in odoo 15,odoo 14, odoo 13, odoo 12">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Sale Order View (With Confirm Quotation)</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/so.png" alt="Sale Order View (With Confirm Quotation), Import multiple sales order in odoo 13, odoo 14,odoo 15, community verions">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Sale Order Wizard(Using Sequence of CSV/XLSX File) -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Order Wizard(Using Sequence of CSV/XLSX File)</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_multiple_sales_order.png" alt="Import multiple sales order in odoo 13 community verions">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Sale Order View -->
+           <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Order View</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Sale_Order_View.png" alt="Import bridge odoo module, import sales data using csv odoo module download">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Import Sale Order Line Menu -->
+           <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Order Line Menu</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Sale_Order_Line_Menu.png" alt="Import sales order line in odoo using excel sheet">
+                </span>
+              </div>
+            </div>
+          </div>
+                    <!-- Import Sale Order Line -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Order Line</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Sample Data File : Import with Code</b>
+                </div>
+                <hr style="margin-top:0px">
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Sale_Order_Line.png" alt="data import sales order line module using xls in odoo">
+                </span>
+                <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import with BarCode</b>
+                </div>
+                <hr style="margin-top:0px">
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Sale_Order_Line_bc.png" alt="sale data import using xls in odoo appstore">
+                </span>
+                <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import with Name</b>
+                </div>
+                <hr style="margin-top:0px">
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Sale_Order_Line_name.png" alt="sales order line import moudle import with name in odoo">
+                </span>
+              </div>
+                <div style="color:red;font-size: 14px;">*just change field "Product" values with ProductName,ProductCode,ProductBarCode.</div>
+            </div>
+          </div>
+          <!-- Import Sale Order Line Wizard -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Order Line Wizard (Take deatils from Product)</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Sale_Order_Line_Wizard.png" alt="Import product sales orders in odoo from csv, excel">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Sale Order Line View -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Order Line View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Sale_Order_Line_View.png" alt="Import sales orders line in odoo using excel">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import all Order Line Wizard(Details from XLS File) -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import all Order Line Wizard (Details from XLS File)
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_all_Order_Line.png" alt="Import all Order Line in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Sale Order Line View -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Order Line View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/odoo_Import_Sale_Order_Line_View.png" alt="odoo Import Bill of Material, Import bill of material in odoo 15,odoo 14, odoo 13, odoo 12">
+                </span>
+              </div>
+            </div>
+          </div>
+         
+          <!-- Import Bill of Material Menu -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Bill of Material Menu
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Bill_Material_Menu.png" alt="Import bill of material in odoo, odoo import bom using excel or csv">
+                </span>
+              </div>
+            </div>
+          </div>
+           <!-- Import Bill of Material -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Bill of Material
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import Bill of Material Sample Data File
+                  </b>
+                </div>
+                <hr style="margin-top:0px">
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Bill_of_Material.png" alt="Import bill of material in odoo 14, odoo 13">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Import Bill of Material Wizard -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Bill of Material Wizard
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Bill_Material_Wizard.png" alt="Import Bill Material data in odoo using xls or csv">
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Bill of Material View-->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Bill of Material View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Bill_Material_View.png" alt="Bill of material data in odoo">
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;padding-top: 10px;" src="images/b45.png" alt="">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Purchase Order Menu</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Purchase_Order_Menu.png" alt="Import Purchase Order in odoo, data import in odoo for purchase module">
+                </span>
+              </div>
+            </div>
+          </div>
+                    <!-- Import Purchase Order -->
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Purchase Order</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Data File : Import with Code</b>
+                </div>
+                
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_purchase_code.png" alt="Import data in odoo, import odoo bridge">
+                </span>
+                <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import with BarCode
+                  </b>
+                </div>
+                
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_purchase_BarCode.png" alt="Import purchase order barcode data in odoo community, odoo enterprise">
+                </span>
+                <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import with Name</b>
+                </div>
+                
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_purchase_with_Name.png" alt="Import product purchase order with name in odoo 15,odoo 14, odoo 13, odoo 12">
+                </span>
+              </div>
+               <div style="color:red;font-size: 14px;">*just change field "Product" values with ProductName,ProductCode,ProductBarCode.</div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Purchase Order Wizard(With draft)</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Purchase_Order_Menu_wizard.png" alt="Import purchase orders with draft status in odoo 15,odoo 14, odoo 13, odoo 12">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Purchase View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Purchase_View.png" alt="Import purchase orders in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Purchase Order Wizard(With Confirmed)
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Purchase_View_confirmed.png" alt="Import confirm purchase orders for odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Purchase View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Purchase_View_odoo.png" alt="Import Purchase Order Lines from Excel or CSV File in odoo, Import Purchase Order Lines in odoo">
+                </span>
+              </div>
+            </div>
+          </div>         
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Purchase Order Line Menu
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Purchase_Order_Line_Menu.png" alt="Import Purchase Order Line from Excel in odoo, Purchase Order Line Import from Excel in Odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+           <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Purchase Order Lines</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import Purchase Order Lines Sample Data File Format
+                  </b>
+                </div>
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Purchase_Line_data.png" alt="Import purchase pricelist vendor details in product from csv/excel file">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Purchase Order Line Wizard
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import_Purchase_Order_Line_Menu_wiz.png" alt="Allow you to import the purchase order lines from excel in odoo community and odoo enterprise, odoo 15,odoo 14, odoo 13, odoo 12">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Purchase View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/pi9.png" alt="Import Bulk Purchase Order Lines from Excel or CSV File Odoo Apps, import bridge in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Purchase Order Line with XLS,XLSX File
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/pi9h.png" alt="Import Supplier Infomation in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Purchase View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/po78.png" alt="Import Purchase Order Line from Excel in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Partner Menu
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/o.png" alt="Import Partners in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Partner
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import Partner Data File Format
+                  </b>
+                </div>
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_partner_sample.png" alt="Import Products Template/Variants and Partners Advance  odoo App">
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;padding-top: 10px;" src="images/import_partner_sample1.png" alt="">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Partner Wizard
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/pd.png" alt="Advance Product Variants/Template and Partners Import and Update Odoo Apps-from CSV and XLS">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Partner View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/pv.png" alt="Import partners data in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+         
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Chart of Account Menu
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/c1.png" alt="Import Product With Vendor Details in odoo">
+                </span>
+              </div>
+            </div>
+          </div>          
+          
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Chart of Account</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import Chart of Account Data File Format</b>
+                </div>
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/c8.png" alt="Import Product With Vendor Details in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Chart of Account Wizard
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/c2.png" alt="Bulk Import products price list in odoo using excel/csv in odoo, Import Vendor price list in odoo using excel/csv in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+           <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Bank of Account View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/c5.png" alt="Import customer bank account detail in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Vendor Pricelist Menu
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/v9.png" alt="odoo all data Import Vendor Pricelist">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Vendor Pricelists</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import Vendor Pricelists Data File Format
+                  </b>
+                </div>
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_vendor_pricelist_sample.png" alt="odoo Import Vendor Pricelists">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Vendor Pricelist Wizard
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/v2.png" alt="Import Vendor Pricelist Wizard in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Vendor Pricelist View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/v1.png" alt="Import Inventory in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Inventory Menu
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/i4.png" alt="Import Inventory Stock in odoo with Serial and Import Lot Number in odoo from Excel/CSV in Odoo Apps">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Inventory
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;background-color: #F0F4F7;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Data File Import with Code</b>
+                </div>
+                <hr style="margin-top:0px">
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/89.png" alt="Import Inventory code in odoo 15,odoo 14, odoo 13, odoo 12">
+                </span>
+                <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import with BarCode
+                  </b>
+                </div>
+                <hr style="margin-top:0px">
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/90.png" alt="Import barcode in odoo community, odoo enterprise">
+                </span>
+                <div style="background-color: #F0F4F7;position: relative;padding: 0.5rem;margin: 12px 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import with Name</b>
+                </div>
+                <hr style="margin-top: 0px;">
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/67.png" alt="Import inventory product detail in odoo">
+                </span>
+              </div>
+               <div style="color:red;font-size: 14px;">*just change field "Name" values with ProductName,ProductCode,ProductBarCode.</div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Inventory Wizard
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/i8.png" alt="Import Stock Inventory from Excel/CSV File in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Inventory View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/iis.png" alt="Import Stock Inventory with Serial and Lot Number from Excel/CSV File Odoo Apps">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Inventory Adjustment Menu
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/ab.png" alt="import inventory adjustment in odoo, Import Stock with Serial number/Lot number in Odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Inventory Adjustment</h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import Inventory Adjustment Data File Format with Name
+                  </b>
+                </div>
+                <hr style="margin-top:0px">
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/ii.png" alt="">                  
+                </span>
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import Inventory Adjustment Data File Format with Code
+                  </b>
+                </div>
+                <hr style="margin-top:0px">
+                 <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/inventory_adjustment_code_sample.png" alt="">                  
+                </span>
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import Inventory Adjustment Data File Format with BarCode
+                  </b>
+                </div>
+                <hr style="margin-top:0px">
+                 <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_inventory_adjust_barcode_sample.png" alt="">                  
+                </span>
+                <div style="color:red;font-size: 14px;">*just change field "Product Name" values with ProductName,ProductCode,ProductBarCode.</div>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Inventory Adjustment Wizard
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/af.png" alt="Import Inventory Adjustment in odoo 15,odoo 14 community, odoo enterprise">
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Inventory Adjustment View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/ty.png" alt="Import Inventory Adjustment in odoo 13 community, odoo enterprise">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Product Template
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Data File for Import Product Variant Wizard
+                  </b>
+                </div>
+                <hr>
+                 <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/import_product_sample1.png" alt="">
+                  <img class="img-fluid thumbnail"  style="padding-top: 10px; border: 1px solid #7c7bad;" src="images/import_product_sample2.png" alt="Import Product Template in odoo">
+                </span>               
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Product Menu (Without Attribute/Variants) Wizard
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/cv7.png" alt="Import Product Template Menu(Without Attribute) Wizard in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Product Template View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/cv5.png" alt="">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                 <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Product Template Menu (With Attribute/Variants) Wizard
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/cv0.png" alt="Import Product Template Menu(With Attribute) Wizard in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Product Variants View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/cv9.png" alt="Import Product Template with Variants & Attributes in Odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius:5px">
+            <div class="panel panel-primary" style="margin:15px 0; border:2px solid #e4e6e8; border-radius:5px">
+              <div class="panel-heading" style="padding:10px 20px; background-color:#e4e6e8">
+                <h2 class="panel-title" style="color:#04ad86; font-size:24px; font-family:'Montserrat', sans-serif; margin:0">Imported Product Variant Deatails view.</h2>
+              </div>
+              <div class="panel-body" style="padding:0 10px 10px 10px">
+                <hr>
+                <span>
+                  <img src="images/product_varient.png" alt="where to see the imported Product Variant" style="max-width:100%;border: 1px solid #1b4080;">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Product Pricelist Menu
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/pp.png" alt="Import Bulk Pricelist from Excel or CSV File Odoo Apps">
+                </span>
+              </div>
+            </div>
+          </div>
+           <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Product Pricelist
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import Product Pricelist Sample Data File
+                  </b>
+                </div>
+                <hr style="margin-top:0px">
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/io.png" alt="Import product pricelist in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Product Pricelist Wizard
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/pp1.png" alt="IMPORT PRICELIST IN odoo 15,ODOO 14, Import Product Pricelist in odoo, Import Vendor Pricelist in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Product Pricelist View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/py.png" alt="Import data from CSV/XLS file, Import Sale Price list in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Pricelist
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import Sale Pricelist Sample Data File
+                  </b>
+                </div>
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/pp9.png" alt="">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Pricelist Menu
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/ppy.png" alt="Import Product Template from CSV/Excel file in odoo, odoo Import Sale Pricelist Menu">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Sale Pricelist Wizard
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/pp2.png" alt="Import Sale Pricelist Wizard in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Sale Pricelist View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/pp8.png" alt="Import sale pricelist in odoo 13, odoo 12, odoo 14,odoo 15">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Pos Order Menu
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import POS orders data from POS App [Click on Orders > Import POS Order menu].
+                  </b>
+                </div>
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/tet1.png" alt="Import Bulk POS Orders using excel">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Import POS Order Sample Data File Format</b>
+                </div>
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/csv.png" alt="Import pos order in odoo">
+                </span>
+             </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Import Option
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">Click on select file format(CSV or Excel) browse and choose file</b>
+                </div>
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/Import Wizard.png" alt="Import pos orders line in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">POS Order View
+                </h2>
+              </div>
+              <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">After sucessully file import pos order, All order will shows in tree view in Orders menu.</b>
+                </div>
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/POS Order View.png" alt="Import Bulk POS Orders 14, 13, 12">
+                </span>
+              </div>
+               <div class="panel-body" style="padding: 0 20px 10px 20px;">
+                <div style="position: relative;margin: 10px 0 0 0;border: 1px solid transparent;border-radius: 0.125rem;">
+                  <i class="fa fa-arrow-right" style="margin-right: 10px;color: #0f1e40;"></i><b style="color: #158dd3;">You can check pos order in the form view and all imported data from xls or csv file.
+                  </b>
+                </div>
+                <hr>
+                <span>
+                  <img class="img-fluid thumbnail" style="border: 1px solid #7c7bad;" src="images/POS Order View 2.png" alt="Import bulk order in pos order in odoo">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px;">
+            <div class="panel panel-primary" style="margin: 15px 0;border: 2px solid #e4e6e8;border-radius: 5px;">
+              <div class="panel-heading" style="padding: 10px 20px;background-color: #e4e6e8;">
+                <h2 class="panel-title" style="color: #04ad86;font-size: 24px;font-family: 'Montserrat', sans-serif;margin: 0;">Sample Files download for Import Data
+                </h2>
+              </div>
+              <img src="images/import_files.jpg" style="max-width:100%;border: 1px solid #1b4080;text-align:center;" alt="Import bulk order in pos order in odoo"/>
+            </div>
+          </div>
+          <div class="shadow-sm" style="border-radius: 5px !important;">
+            <div class="panel panel-primary" style="margin: 15px 0 !important;border: 2px solid #e4e6e8 !important;border-radius: 5px !important;padding: 5px !important;">
+            <div class="panel-heading" style="padding: 10px 20px !important;background-color: #e4e6e8 !important;">
+                <p class="panel-title" style="color: #04ad86 !important;font-size: 24px !important;font-family: 'Montserrat', sans-serif !important;margin: 0 !important;font-weight: 500 !important;">FAQ : 
+                </p>
+              </div>
+
+                <h1 style="display:contents !important;font-size: 18px !important; font-weight: 600 !important;color: black !important;">Q.1 : How to Import Data in odoo ?</h1>
+                <h2 style="margin: 13px 0 !important;font-size: 17px !important;font-weight: 400 !important;line-height: 1.4;color: black;font-family: 'Roboto', sans-serif;">A.1 : Importing data is very easy using Import data odoo module.<a href="https://apps.odoo.com/apps/modules/15.0/import_bridge_axis/"><strong>download and install Import Data Bridge Module for Odoo.</strong></a></h2>
+                            
+                <h1 style="display:contents !important;font-size: 18px !important; font-weight: 600 !important;color: black !important;">Q.2 : How to Install Data import module in odoo ?</h1>
+                 <h2 style="margin: 13px 0 !important;font-size: 17px !important;font-weight: 400 !important;line-height: 1.4;color: black;font-family: 'Roboto', sans-serif;">A.2 : For Install data import module put module in your addons folder, Run the odoo instance, search "import_bridge_axis" in your apps list. Click on Install button to Install module<a href="https://apps.odoo.com/apps/modules/14.0/import_bridge_axis/"><strong> Data Import app is ready for use</strong></a> in odoo website.</h2>
+
+                <h1 style="display:contents !important;font-size: 18px !important; font-weight: 600 !important;color: black !important;">Q.3 : How to Import Product Data in odoo ?</h1>
+                <h2 style="margin: 13px 0 !important;font-size: 17px !important;font-weight: 400 !important;line-height: 1.4;color: black;font-family: 'Roboto', sans-serif;">A.3 : <a href="https://apps.odoo.com/apps/modules/14.0/import_bridge_axis/"><strong>Importing product data using wizard</strong></a> with simple steps using sample CSV, Excel file in odoo module.</h2>
+
+                <h1 style="display:contents !important;font-size: 18px !important; font-weight: 600 !important;color: black !important;">Q.4 : How to Import Data in odoo V13, Odoo V14, Odoo V15 ?</h1>
+                <h2 style="margin: 13px 0 !important;font-size: 17px !important;font-weight: 400 !important;line-height: 1.4;color: black;font-family: 'Roboto', sans-serif;">A.4 : <a href="https://apps.odoo.com/apps/modules/15.0/import_bridge_axis/"><strong>For Importing data in odoo using excel or CSV, Download sample excel or CSV file from dashboard, add your data according to file and start importing for Import Sale Orders, Import Purchase Orders, Import POS orders, Import Order line, Import sales data, import products, payment, invoice, Import Inventory data, Pricelist, import Bill of material (BOM), Import Customer data, Import Supplier, Import Stock, Import Purchase, Import Journal data, Import journal entry data import, Import Bank entry, Import Chart Of Account only with our all in one data import bridge module using CSV file or Excel file.</strong></a> with simple steps using sample CSV, Excel file in odoo module.</h2>
+
+                <h1 style="display:contents !important;font-size: 18px !important; font-weight: 600 !important;color: black !important;">Q.5 : How to Import and Update Customer Data in Odoo 14 ?</h1></p>
+                <h2 style="margin: 13px 0 !important;font-size: 17px !important;font-weight: 400 !important;line-height: 1.4;color: black;font-family: 'Roboto', sans-serif;">A.5 : <a href="https://apps.odoo.com/apps/modules/15.0/import_bridge_axis/"><strong>Import and update customer data is very easy using all data import bridge odoo app </strong></a> Just upload data using pre. defined fields in excel.</h2>
+            </div>
+          </div>
+
+
+
+        <div style="margin-top: 50px;">        
+         
+              <br/>
+              <div class="oe_spaced">
+                <h2 class="oe_slogan text-center"><a href="https://apps.odoo.com/apps/modules/browse?search=Axis+technolabs" style="color:#4e4e4e!important;">Axis Technolabs other Apps for Purchase :</a></h2>
+                <div class="row justify-content-center">
+                 <div class="col-lg-4 col-md-6 text-center" style="margin-bottom:20px">
+                      <div class="page_design_portfolio">
+                        <div class="page_design_title" style="border-bottom:1px solid #f0f0f0; margin-bottom:10px; padding:8px; background-color:#d9cfcf; border-radius:5px">
+                          <h2 style="margin-bottom:0; color:#333; font-size:16px">Doctor Appointment Booking in odoo, Clinic Website Appointment Book in Odoo, Doctor calendar booking slot, Patient appointment booking and payment online</h2>
+                        </div>
+                        <a href="https://apps.odoo.com/apps/modules/14.0/doctor_appointment_booking_advance_axis/" target="_blank">
+                          <div class="shadow overflow-hidden" style="width:100%; height:180px">
+                            <img class="img-fluid" alt="Doctor Appointment Booking in odoo, Clinic Website Appointment Book in Odoo, Doctor calendar booking slot, Patient appointment booking and payment online" src="images/doctor_appointment.png">
+                          </div></a>
+                          <a href="https://apps.odoo.com/apps/modules/14.0/doctor_appointment_booking_advance_axis/" target="_blank" style="font-size:24px; padding-top:12px; padding-bottom:15px; line-height:normal; border-radius:5px; color:#fff; text-transform:uppercase; display:inline-block; max-width:366px; width:100%; margin-top:30px; margin-bottom:30px; background-color:#00a1b1">Buy Now</a>
+                        </div>
+                      </div>
+                    <div class="col-lg-4 col-md-6 text-center" style="margin-bottom:20px">
+                      <div class="page_design_portfolio">
+                        <div class="page_design_title" style="border-bottom:1px solid #f0f0f0; margin-bottom:10px; padding:8px; background-color:#d9cfcf; border-radius:5px">
+                          <h2 style="margin-bottom:0; color:#333; font-size:16px">Sales Contract Subscription and Recurring Invoice in odoo, Sales Contract Subscription in odoo and Recurring Invoice in odoo, Subscription management in odoo</h2>
+                        </div>
+                        <a href="https://apps.odoo.com/apps/modules/14.0/sales_contract_subscription_and_recurring_invoice_axis/" target="_blank">
+                          <div class="shadow overflow-hidden" style="width:100%; height:180px">
+                            <img class="img-fluid" alt="Sales Contract Subscription and Recurring Invoice in odoo, Sales Contract Subscription in odoo and Recurring Invoice in odoo, Subscription management in odoo" src="images/sales_contract_subscription.jpg">
+                          </div></a>
+                          <a href="https://apps.odoo.com/apps/modules/14.0/sales_contract_subscription_and_recurring_invoice_axis/" target="_blank" style="font-size:24px; padding-top:12px; padding-bottom:15px; line-height:normal; border-radius:5px; color:#fff; text-transform:uppercase; display:inline-block; max-width:366px; width:100%; margin-top:30px; margin-bottom:30px; background-color:#00a1b1">Buy Now</a>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 text-center" style="margin-bottom:20px">
+                        <div class="page_design_portfolio">
+                          <div class="page_design_title" style="border-bottom:1px solid #f0f0f0; margin-bottom:10px; padding:8px; background-color:#d9cfcf; border-radius:5px">
+                            <h2 style="margin-bottom:0; color:#333; font-size:16px">Product Warranty Management in odoo, Product Warranty Claim, Verify and set warranty period days, months, years, Dashboard Reports, Ticket Filters,Document Attachment</h2>
+                          </div>
+                          <a href="https://apps.odoo.com/apps/modules/14.0/product_warranty_axis/">
+                            <div class="shadow overflow-hidden" style="width:100%; height:180px">
+                              <img class="img-fluid" alt="Product Warranty Management in odoo, Product Warranty Claim, Verify and set warranty period days, months, years" src="images/warranty_module_image.png" style="height:auto; width:100%">
+                            </div></a>
+                            <a href="https://apps.odoo.com/apps/modules/14.0/product_warranty_axis/" target="_blank" style="font-size:24px; padding-top:12px; padding-bottom:15px; line-height:normal; border-radius:5px; color:#fff; text-transform:uppercase; display:inline-block; max-width:366px; width:100%; margin-top:30px; margin-bottom:30px; background-color:#00a1b1">Buy Now</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 text-center" style="margin-bottom:10px">
+                          <div class="page_design_portfolio">
+                            <div class="page_design_title" style="border-bottom:1px solid #f0f0f0; margin-bottom:10px; padding:8px; background-color:#bdbcbc; border-radius:5px">
+                              <h2 style="margin-bottom:0; color:#333; font-size:16px">Website Helpdesk Support Ticket in Odoo, Issue Management for customers support</h2>
+                            </div>
+                            <a href="https://apps.odoo.com/apps/modules/14.0/website_axis_helpdesk/" target="_blank">
+                              <div class="shadow overflow-hidden" style="width:100%; height:180px">
+                                <img class="img-fluid" alt="Website Helpdesk Support Ticket in Odoo, Issue Management for customers support" src="images/module_helpdesk.png" style="height:auto; width:100%">
+                              </div></a>
+                              <a href="https://apps.odoo.com/apps/modules/14.0/website_axis_helpdesk/" target="_blank" style="font-size:24px; padding-top:12px; padding-bottom:15px; line-height:normal; border-radius:5px; color:#fff; text-transform:uppercase; display:inline-block; max-width:366px; width:100%; margin-top:30px; margin-bottom:30px; background-color:#00a1b1">Buy Now</a>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6 text-center" style="margin-bottom:10px">
+                            <div class="page_design_portfolio">
+                              <div class="page_design_title" style="border-bottom:1px solid #f0f0f0; margin-bottom:10px; padding:8px; background-color:#bdbcbc; border-radius:5px">
+                                <h2 style="margin-bottom:0; color:#333; font-size:16px">Instagram Feed Snippet, Instagram posts display in odoo website
+                                </h2>
+                              </div>
+                              <a href="https://apps.odoo.com/apps/modules/14.0/instagram_feeds/" target="_blank">
+                                <div class="shadow overflow-hidden" style="width:100%; height:180px">
+                                  <img class="img-fluid" alt="Instagram Feed Snippet, Instagram posts display in odoo website" src="images/module_instagram.png">
+                                </div></a>
+                                <a href="https://apps.odoo.com/apps/modules/14.0/instagram_feeds/" target="_blank" style="font-size:24px; padding-top:12px; padding-bottom:15px; line-height:normal; border-radius:5px; color:#fff; text-transform:uppercase; display:inline-block; max-width:366px; width:100%; margin-top:30px; margin-bottom:30px; background-color:#00a1b1">Buy Now</a>
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 text-center" style="margin-bottom:10px">
+                              <div class="page_design_portfolio">
+                                <div class="page_design_title" style="border-bottom:1px solid #f0f0f0; margin-bottom:10px; padding:8px; background-color:#bdbcbc; border-radius:5px">
+                                  <h6 style="margin-bottom:0; color:#333; font-size:16px">Modern Odoo Dashboards-Odoo POS Dashboard, CRM Dashboard, Inventory Dashboard, Sales Dashboard, Account Dashboard
+                                  </h6>
+                                </div>
+                                <a href="https://apps.odoo.com/apps/modules/13.0/modern_dashboard_odoo_axis/">
+                                  <div class="shadow overflow-hidden" style="width:100%; height:180px">
+                                    <img class="img-fluid" alt="Modern Odoo Dashboards-Odoo POS Dashboard, CRM Dashboard, Inventory Dashboard, Sales Dashboard, Account Dashboard" src="images/module_dash.png" style="height:auto; width:100%">
+                                  </div></a>
+                                  <a href="https://apps.odoo.com/apps/modules/13.0/modern_dashboard_odoo_axis//" target="_blank" style="font-size:24px; padding-top:12px; padding-bottom:15px; line-height:normal; border-radius:5px; color:#fff; text-transform:uppercase; display:inline-block; max-width:366px; width:100%; margin-top:30px; margin-bottom:30px; background-color:#00a1b1">Buy Now</a>
+                                </div>
+                              </div>
+                            </div>
+                            <section class="oe_row free-support text-center" style="padding-top:32px; margin:auto">
+                              <div style="margin-bottom:24px">
+                                <h2 style="color:#333; font-weight:normal; margin-bottom:8px">For Technical Help and Support</h2>
+                              </div>
+                              <p style="margin-bottom:0; font-family:Montserrat; color:#3e3d3d; font-weight:400">At Axistechnolabs we offer end to end solution for all Odoo services which includes custom development, integration, migration, analysis &amp; consultation.</p>
+                              <p style="margin-bottom:0; font-family:Montserrat; color:#3e3d3d; font-weight:400; line-height:40px">Incase of any question regarding this module feel free to email us on <a href="mailto:business@axistechnolabs.com" style="color:#ee305d"><span class="__cf_email__">business@axistechnolabs.com</span></a></p>
+                              <span href="https://www.axistechnolabs.com/" title="Axistechnolabs" target="_blank" style="display:inline-block; color:#ee305d; margin-top:40px; margin-bottom:40px">
+                                <img src="https://i.ibb.co/Bfv0ths/download.png" alt="download doctor appoitment odoo module from odoo app store">
+                              </span>
+                              <div>
+                              
+                                <a class="btn yellow-btn btn-lg" href="skype:chirag_shah10?chat" title="Support Request" target="_blank" style="font-family:Montserrat; background-color:#00aff0; color:rgb(255, 255, 255); font-size:16px; margin-right:5px">Skype Support</a>
+                               
+                              </div>
+                            </section>
+                            <section class="oe_container oe_separator">
+                            </section>
+                          </div>
+                          <section class="oe_container mt64">
+                            <div class="oe_row oe_spaced">
+                              <div class="oe_demo">
+                                <img src="images/Odoo-devlopment.jpg">
+                              </div>
+                            </div>
+                          </section>
+                          <section class="container-fluid">
+                            <div class="oe_row oe_spaced" style="width:100%">
+                              <h3 class="oe_slogan" style="font-size: 26px;font-weight: 300;opacity: 0.5;color: #333333;font-family: Lato,Open Sans, Helvetica, Sans; margin-top: 32px;margin-bottom: 32px;text-align: center;">For Technical help and support</h3>
+                              <center>
+                              <h3>
+                              <a style="color: #21B799;text-decoration: none;font-weight: 600;" href="mailto:business@axistechnolabs.com">business@axistechnolabs.com</a>
+                              </h3>
+                              <h3>
+                              <a style="color: #21B799;text-decoration: none;font-weight: 600;" href="skype:chirag_shah10?chat">For Skype support: Axis Technolabs</a>
+                              </h3>
+                              </center>
+                            </div>
+                          </section>
+                          <section class="oe_container oe_separator">
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </body>
+                </html>

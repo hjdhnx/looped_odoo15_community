@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Email template -->
+        <record id="ks_mail_templates" model="mail.template">
+            <field name="name">Email template</field>
+            <field name="model_id" ref="ks_dynamic_financial_report.model_ks_dynamic_financial_base"/>
+            <field name="email_to">{{object.env.user.email}}</field>
+            <field name="email_from">{{object.env.user.email}}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="subject">{{ctx['ks_report_name']}} Attachments</field>
+            <field name="body_html" type="html">
+                <div class="container-fluid">
+                    Hi <t t-out="object.env.user.name or ''"/>
+                    <br/>
+                    <p>Please find below your <t t-out="ctx['ks_report_name']"/> attachments</p>
+                    <br/>
+                    <b>
+                        Thanks
+                        <br/>
+                        <t t-out="object.env.user.name or ''"/>
+                    </b>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,51 @@
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="file_save.server_configuration_form">
+      <field name="name">Server Configuration</field>
+      <field name="model">sever.configuration</field>
+      <field name="arch" type="xml">
+        <form >
+          <sheet>
+            <group>
+                <group>
+                   <field name="host" required="1"/>
+                    <field name="port" required="1"/>
+                    <field name="user_name" required="1"/>
+                    <field name="password" required="1" password="True"/>
+                    <field name="active" />
+                </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="file_save.server_configuration_tree">
+      <field name="name">Server Configuration</field>
+      <field name="model">sever.configuration</field>
+      <field name="arch" type="xml">
+        <tree >
+
+                   <field name="host" required="1"/>
+                    <field name="port" required="1"/>
+                    <field name="user_name" required="1"/>
+                    <field name="password" password="True"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="file_save.server_configuration_action_window">
+      <field name="name">Server Configuration</field>
+      <field name="res_model">sever.configuration</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+    <menuitem name="Server Configuration" id="server_configuration_menuitem" parent="file_save.menu_root"
+              action="file_save.server_configuration_action_window"/>
+  </data>
+</openerp>

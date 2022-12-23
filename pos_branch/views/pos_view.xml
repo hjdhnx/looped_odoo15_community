@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- <template id="assets_for_pos_branch" inherit_id="point_of_sale.assets">
+			<xpath expr="." position="inside">
+				<script type="text/javascript" src="/pos_branch/static/src/js/pos_extended.js"></script>
+			</xpath>
+		</template>
+		 -->
+
+	<!-- <record id="view_res_branch_form" model="ir.ui.view">
+			<field name="name">res.branch.form</field>
+			<field name="model">res.branch</field>
+			<field name="arch" type="xml">
+				<form string="Branch Information" version="7.0">
+					<sheet>
+						<group cols="4">
+							<group>
+								<field name="name"/>
+								<field name="company_id"/>
+								<field name="telephone_no"/>
+							</group>
+							<group>
+								<field name="address"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+	</record> -->
+
+
+	<!-- <record id="view_res_branch_tree" model="ir.ui.view">
+		<field name="name">res.branch.tree</field>
+		<field name="model">res.branch</field>
+		<field name="arch" type="xml">
+			<tree string="Branch Information">
+				<field name="name"/>
+				<field name="company_id"/>
+			</tree>
+		</field>
+	</record> -->
+	<!-- 
+	<record id="action_res_branch_form" model="ir.actions.act_window">
+		<field name="name">Branch</field>
+		<field name="res_model">res.branch</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem action="action_res_branch_form"
+		id="menu_action_res_branch"
+		parent="base.menu_users"
+	/>
+-->
+
+	<record id="view_user_form_extended" model="ir.ui.view">
+		<field name="name">res.user.form.extended</field>
+		<field name="model">res.users</field>
+		<field name="inherit_id" ref="base.view_users_form"/>
+		<field name="arch" type="xml">
+			<group name="preferences" position="before">
+			<!--<group>
+				<group colspan="4" string='Allowed Branches'>
+						 <field name="branch_ids"  widget="many2many_tags"/>
+					<field name="branch_id" options="{'no_create': True}" domain="[('id','in',branch_ids)]"/>
+					-->
+					<field name="is_branch_user" invisible="1"/>
+				<!--</group>
+			</group> -->
+			</group> 
+		</field>
+	</record>
+
+	<!-- Add m2m Field in POS Config -->
+	<record id="inherit_view_pos_branch_config_form" model="ir.ui.view">
+		<field name="name">inherit_bi_pos_branch_config</field>
+		<field name="model">pos.config</field>
+		<field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//div[@id='posbox_reference']" position="after">
+				<h2>Allowed POS Branch</h2>
+				<div class="row mt16 o_settings_container" id="allowed_branches">
+					<div class="col-xs-12 col-md-6 o_setting_box" title="Allowed POS Branch">
+						<div class="o_setting_right_pane">
+							<label for="branch_id" string="Allowed POS Branch"/>
+							<div class="content-group mt16">
+								<field name="branch_id" options="{'no_create': True}"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</xpath>
+		</field>
+	</record>
+
+	<record id="view_pos_ssn_form_inherit" model="ir.ui.view">
+		<field name="name">pos.session.form.inherit</field>
+		<field name="model">pos.session</field>
+		<field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='config_id']" position="after">
+				<field name="branch_id"/>
+			</xpath>
+		</field>
+	</record>
+
+
+
+	<record model="ir.ui.view" id="pos_sale_order_branch_field">
+		<field name="name">pos.order.view.form</field>
+		<field name="model">pos.order</field>
+		<field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+		<field name="arch" type="xml">
+			<field name="partner_id" position="after">
+				<field string="Branch" name="branch_id" readonly="True"/>
+			</field>
+
+			<xpath expr="//field[@name='payment_ids']/tree/field[@name='payment_method_id']" position="after">
+				<field name="branch_id"/>
+			</xpath>
+		</field>
+	</record>
+
+
+
+	<record id="view_pos_payment_tree_inherit" model="ir.ui.view">
+		<field name="name">pos.payment.tree.inherit</field>
+		<field name="model">pos.payment</field>
+		<field name="inherit_id" ref="point_of_sale.view_pos_payment_tree"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='payment_method_id']" position="after">
+				<field name="branch_id"/>
+			</xpath>
+		</field>
+	</record>
+
+	<record id="view_pos_payment_form_inherit" model="ir.ui.view">
+		<field name="name">pos.payment.form.inherit</field>
+		<field name="model">pos.payment</field>
+		<field name="inherit_id" ref="point_of_sale.view_pos_payment_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='payment_method_id']" position="after">
+				<field name="branch_id"/>
+			</xpath>
+		</field>
+	</record>
+
+	<record id="view_banck_statement_branch_view" model="ir.ui.view">
+		<field name="name">account.bank.statement.branch</field>
+		<field name="model">account.bank.statement</field>
+		<field name="inherit_id" ref="account.view_bank_statement_form"/>
+		<field name="arch" type="xml">
+			<field name="journal_id" position="after">
+				<field name="branch_id"/>
+			</field>
+			 <xpath expr="//field[@name='line_ids']/tree/field[@name='partner_id']" position="after">
+				   <field name='branch_id'/>
+			</xpath>
+
+		</field>
+	</record>
+
+
+	
+	</data>
+</odoo>
+

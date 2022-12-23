@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="late_request_view_form" model="ir.ui.view">
+            <field name="name">late.request.form</field>
+            <field name="model">late.request</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="action_submit" string="Submit" confirm="Are you sure you want to Submit ?" class="oe_highlight" states="draft" type="object"/>
+                        <button name="action_approve" string="Approve" confirm="Are you sure you want to Approve?" class="oe_highlight" states="confirm" type="object"/>
+                        <button name="action_refuse" string="Refuse" confirm="Are you sure you want to Refuse?" class="oe_highlight" states="confirm" type="object" groups="hr.group_hr_manager"/>
+                        <button name="action_draft" string="Set to Draft" confirm="Are you sure want to Set To Draft?" states="confirm,approve,refuse" type="object" groups="hr.group_hr_manager"/>
+
+                        <field name="state" widget="statusbar" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Name" readonly="1" force_save="1"/>
+                            </h1>
+                        </div>
+                        <field name="period_type" invisible="1"/>
+                        <group>
+                            <group>
+                                <field name="employee_id" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="employee_number"/>
+                                <field name="department_id"/>
+
+                                <field name="late_request_id" required="1" options="{'no_create':True}" attrs="{'readonly':[('state','!=','draft')]}" />
+
+                                <field name="penalty_id" required="1" attrs="{'readonly':[('state','!=','draft')]}" domain="[('date','=',date),('employee_id','=',employee_id),('late_request_id','=',False)]" options="{'no_create':True}"/>
+                                <field name="note" placeholder="Late Reason" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="refuse_reason" placeholder="Refuse Reason" groups="hr.group_hr_manager" attrs="{'invisible':[('state','=','draft')],'readonly':[('state','!=','confirm')]}"/>
+
+                                <!-- domain="[('employee_id','=',employee_id),('date','=',date),('late_request_id','=',False)]" -->
+                            </group>
+                            <group>
+                                <field name="date" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="manager_id"/>
+                                <field name="job_id"/>
+                                <field name="days" readonly="1" force_save="1" attrs="{'invisible':[('period_type','!=','days')],'required':[('period_type','=','days')]}" />
+                                <field name="hours" widget="float_time" readonly="1" force_save="1" attrs="{'invisible':[('period_type','!=','hours')],'required':[('period_type','=','hours')]}" />
+
+                                <field name="employee_current_days" readonly="1" force_save="1" attrs="{'invisible':[('period_type','!=','days')],'required':[('period_type','=','days')]}" />
+                                <field name="employee_current_hours" widget="float_time" readonly="1" force_save="1" attrs="{'invisible':[('period_type','!=','hours')],'required':[('period_type','=','hours')]}" />
+
+                                <field name="employee_left_days" readonly="1" force_save="1" attrs="{'invisible':[('period_type','!=','days')],'required':[('period_type','=','days')]}" />
+                                <field name="employee_left_hours" widget="float_time" readonly="1" force_save="1" attrs="{'invisible':[('period_type','!=','hours')],'required':[('period_type','=','hours')]}" />
+                                <field name="amount" invisible="1"/>
+                            </group>
+                        </group>
+                        <!-- <group>
+                            <div>
+                                <field name="note" placeholder="Late Reason" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="refuse_reason" placeholder="Refuse Reason" attrs="{'readonly':[('state','!=','confirm')]}"/>
+                            </div>
+                        </group> -->
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="late_request_kanban_view" model="ir.ui.view">
+            <field name="name">late.request.kanban</field>
+            <field name="model">late.request</field>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="employee_number"/>
+                    <field name="manager_id"/>
+                    <field name="department_id"/>
+                    <field name="job_id"/>
+                    <field name="penalty_id"/>
+                    <field name="late_request_id"/>
+                    <field name="date"/>
+                    <field name="note"/>
+                    <field name="state"/>
+                    <!-- <field name="activity_state"/>
+                <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/> -->
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        Request Number :
+                                        <field name="name"/>
+                                    </strong>
+
+                                    <!-- <t t-if="record.default_code.value">[<field name="default_code"/>]</t> -->
+
+                                    <div name="employee_id" class="mt-1">
+                                    Employee: <field name="employee_id"/>
+                                    </div>
+                                    <div name="date" class="mt-1">
+                                    Date: <field name="date"/>
+                                    </div>
+
+                                    <div name="state" class="mt-1">
+                                    State: <field name="state"/>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </t>
+
+
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="late_request_view_tree" model="ir.ui.view">
+            <field name="name">late.request.tree</field>
+            <field name="model">late.request</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="employee_number"/>
+                    <field name="manager_id"/>
+                    <field name="department_id"/>
+                    <field name="job_id"/>
+                    <field name="penalty_id"/>
+                    <field name="note"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="late_request_search">
+            <field name="name">Late Request</field>
+            <field name="model">late.request</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Employee" name="employee_id" context="{'group_by':'employee_id'}"/>
+                        <filter string="Request Type" name="late_request_id" context="{'group_by':'late_request_id'}"/>
+                        <filter string="Date" name="group_date" context="{'group_by':'date'}"/>
+                        <filter string="States" name="state" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="late_request_window_action" model="ir.actions.act_window">
+            <field name="name">Excuse Request</field>
+            <field name="res_model">late.request</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="target">current</field>
+        </record>
+
+
+        <menuitem id="all_late_request_menu" name="Excuse Requests" parent="hr_attendance.menu_hr_attendance_root" sequence="26" action="late_request_window_action"/>
+
+<menuitem id="emp_req_all_late_request_menu"
+         name="Excuse Request" 
+       parent="ext_hr_employee.menu_employee_self_service" 
+       action="late_request_window_action"
+        sequence="4"/>
+
+
+    </data>
+</odoo>

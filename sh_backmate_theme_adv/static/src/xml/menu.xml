@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+	<!--<t t-name="web.NavBar" t-inherit="web.NavBar" t-inherit-mode="extension" owl="1">
+		<xpath expr="//div[hasclass('o_menu_systray')]" position="after">
+			<button class="sh-mobile-toggle d-md-none"
+                    data-toggle="collapse"
+                    data-target=".o_main_navbar .o_menu_sections" t-on-click.prevent="click_mobile_toggle()">
+				<i class="fa fa-bars"/>
+			</button>
+		</xpath>
+	</t>-->
+	<t t-name="ChildLink" owl="1">
+		<t t-if="!sub_sections.length">
+			<t t-set="depth" t-value="1" />
+			<MenuItem
+				t-key="section.id"
+				class="action_menu 333"
+				t-att-class="{ focus: menuService.getCurrentApp() === section }"
+				payload="section"
+			>
+				<a t-att-href="getMenuItemHref(section)" t-on-click.prevent="">
+					<span>
+						<t t-esc="section.name" />
+					</span>
+				</a>
+			</MenuItem>
+		</t>
+		<t t-else="">
+			<a class="dropdown-item dropdown-toggle" href="#">
+				<!-- <span class="fa fa-circle-thin"></span>1 -->
+				<span>
+					<t t-esc="section.name" />
+				</span>
+			</a>
+			<!--  <t t-set="depth" t-value="(depth || 0) + 1"/> -->
+			<ul class="dropdown-menu dropdown-menu-right " role="menu">
+				<t t-foreach="sub_sections" t-as="sub_section">
+					<t t-set="sub_sections" t-value="currentMenuAppSections(sub_section.id)" />
+					<t t-if="sub_section.length">
+						<t t-call="ChildLink">
+							<t t-set="sub_sections" t-value="sub_sections" />
+						</t>
+						<!-- <t t-set="second_level_menu" t-value="third_level_menu" /></t>-->
+					</t>
+					<t t-else="">
+						<div t-attf-class="dropdown-header">
+							<MenuItem
+								t-key="sub_section.id"
+								class="action_menu 555"
+								t-att-class="{ focus: menuService.getCurrentApp() === sub_section }"
+								payload="sub_section"
+							>
+								<a t-att-href="getMenuItemHref(sub_section)" t-on-click.prevent="" >
+									<!-- <span class="fa fa-circle-thin"></span>2 -->
+
+									<span>
+										<t t-esc="sub_section.name" />
+									</span>
+								</a>
+							</MenuItem>
+						</div>
+					</t>
+				</t>
+			</ul>
+		</t>
+	</t>
+	<t t-name="web.NavBar.AppsMenu" t-inherit="web.NavBar.AppsMenu" t-inherit-mode="extension" owl="1">
+		<xpath expr="//Dropdown[hasclass('o_navbar_apps_menu')]" position="replace">
+			<!--  sh_backmate_theme_appmenu_div -->
+			<a style="z-index:1111;display:none;" id="js_bar_toggle_btn_mobile" class="">
+				<i class="fa fa-bars" id="toggle_bar" />
+			</a>
+			<div class="blur_div"></div>
+			<Dropdown hotkey="'h'" title="'Home Menu'" class="o_navbar_apps_menu sh_backmate_theme_appmenu_div sidebar_toggle">
+				<!--  <t t-set-slot="toggler">-->
+				<br/>
+				<br/>
+
+				<div class="logo" style="width: 100%;display: flex;max-width: 100%;align-items: center;">
+					<!-- <img t-attf-src="/web/image?model=res.company&amp;field=logo&amp;id=#{widget.current_company}" 
+	 							id="company_logo" style="height: 4rem;padding: 10px; max-width: 100%;width: 64px;margin-left: 5px;" />
+								  -->
+
+					<img t-attf-src="/web/image?model=res.company&amp;field=logo&amp;id={{get_current_company()}}"
+						id="company_logo" style="margin-left: 23px;height: 30px;width: 30px;max-width: 30px;margin-right: 19px;" />
+					<img class="img" t-attf-src="/web/image?model=res.company&amp;field=company_name_logo&amp;id={{get_current_company()}}"
+								style="height: 4rem;padding: 10px 0;width: 100%;padding-left: 0;" id="company_name_logo" />
+					<!-- <span class="icon-top_hide" id="hide_top_bar" style="margin-left: 5px;margin-top: 0px;"/>
+					<span class="icon-top_show" id="show_top_bar" style="margin-left: 5px;margin-top: 0px;"/> -->
+				
+				</div>
+				<br/>
+					<br/>
+				
+				<!-- </t> -->
+				<t t-foreach="apps" t-as="app">
+				
+					<t t-if="currentMenuAppSections(app.id).length" >
+						<t t-set="sections" t-value="currentMenuAppSections(app.id)" />
+						<t t-if="app.name == 'Looped Management'">
+					
+							<!-- <br/> -->
+						</t>
+						<t t-set="app_icon" t-value="getXmlID(app.id)"/>
+						<t t-set="icon_style" t-value="getIconStyle()"/>
+				
+						<div class="dropdown cssmenu">
+							<span
+								t-key="app.id"
+								class="dropdown-toggle dropdown-item child_app o_app2"
+								t-att-class="{ focus: menuService.getCurrentApp() === app }"
+								payload="app"
+							>
+								<t t-set="app_id" t-value="app.id" />
+								<a t-att-href="getMenuItemHref(app)" t-on-click.prevent="" >
+									<!-- <img class="img sh_standard_icon" t-attf-src="/web/image?model=ir.ui.menu&amp;field=web_icon_data&amp;id={{app_id}}" t-att-title="app.name" t-att-alt="app.name"/>		-->
+
+									<t t-if="icon_style  == '2d'">
+										   <!-- Edit -->
+										<t t-if="app_icon =='base.menu_management'">
+						               	 		<span class="icon-apps sh_fa_icon" style="opacity:0 !important;"></span>
+										</t>
+										<t t-elif="app_icon =='base.menu_administration'">
+							               	 	<span class="icon-settings sh_fa_icon" style="opacity:0 !important;"></span>
+										</t>
+										   <!-- Edit -->
+										   <t t-elif="app_icon =='looped_menus.root_menu_looped'">
+							               	 	<span class="icon-settings sh_fa_icon" style="opacity:0 !important;"></span>
+							               </t>
+
+										   <t t-elif="app_icon =='looped_menus.main_menu_looped_tech_support'">
+							               	 	<span class="icon-settings sh_fa_icon" style="opacity:0 !important;"></span>
+							               </t>
+										   <!-- Edit -->
+										   
+										<t t-elif="app_icon =='sale.sale_menu_root'">
+											<span class="icon-sales sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='account.menu_finance'">
+											<span class="icon-invoicing sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='mail.menu_root_discuss'">
+											<span class="icon-discuss_app sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='calendar.mail_menu_calendar'">
+											<span class="icon-calender sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='note.menu_note_notes'">
+											<span class="icon-notes sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='contacts.menu_contacts'">
+											<span class="icon-contact sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='crm.crm_menu_root'">
+											<span class="icon-CRM sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='website.menu_website_configuration'">
+											<span class="icon-website sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='point_of_sale.menu_point_root'">
+											<span class="icon-point-of-sale sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='purchase.menu_purchase_root'">
+											<span class="icon-purchase sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='stock.menu_stock_root'">
+											<span t-attf-class="icon-inventory sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='mrp.menu_mrp_root'">
+											<span class="icon-manufacturing sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='repair.menu_repair_order'">
+											<span class="icon-repairs sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='project.menu_main_pm'">
+											<span class="icon-project sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='hr_timesheet.timesheet_menu_root'">
+											<span class="icon-timesheet sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='event.event_main_menu'">
+											<span class="icon-event sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='survey.menu_surveys'">
+											<span class="icon-surveys sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='website_slides.website_slides_menu_root'">
+											<span class="icon-surveys sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='hr.menu_hr_root'">
+											<span class="icon-employee sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='hr_recruitment.menu_hr_recruitment_root'">
+											<span class="icon-recruitment sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='hr_attendance.menu_hr_attendance_root'">
+											<span class="icon-attendence sh_fa_icon"></span>
+										</t>
+
+										<t t-elif="app_icon =='hr_holidays.menu_hr_holidays_root'">
+											<span class="icon-times-off sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='hr_expense.menu_hr_expense_root'">
+											<span class="icon-expences sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='lunch.menu_lunch'">
+											<span class="icon-lunch sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='maintenance.menu_maintenance_title'">
+											<span class="icon-maintenence sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='fleet.menu_root'">
+											<span class="icon-fleet sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='im_livechat.menu_livechat_root'">
+											<span class="icon-live-chat sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='base.menu_board_root'">
+											<span class="icon-dashboard sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='hr_appraisal.menu_hr_appraisal_root'">
+											<span class="icon-appriasal sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='mass_mailing.mass_mailing_menu_root'">
+											<span class="icon-email-marketing sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon =='mass_mailing_sms.mass_mailing_sms_menu_root'">
+											<span class="icon-email-marketing sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon == 'sh_backmate_theme_adv.sh_dynamic_action_action_menu'">
+											<span class="icon-global-search sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon == 'utm.menu_link_tracker_root'">
+											<span class="icon-link-tracker sh_fa_icon"></span>
+										</t>
+										<t t-elif="app_icon == 'hr_payroll.menu_hr_payroll_root'">
+											<span class="icon-hr_payroll sh_fa_icon"></span>
+										</t>
+
+										<t t-else="">
+                                                 <img class="img sh_standard_icon" t-attf-src="/web/image?model=ir.ui.menu&amp;field=web_icon_data&amp;id={{app_id}}" t-att-title="app.name" t-att-alt="app.name"/> 
+										</t>
+									</t>
+									<t t-else="">
+
+						               	<img class="img sh_standard_icon" 
+										   t-attf-src="/web/image?model=ir.ui.menu&amp;field=web_icon_data&amp;id={{app_id}}" t-att-title="app.name" t-att-alt="app.name"/> 
+
+									</t>
+									<span>
+										<t t-esc="app.name"/>
+									</span>
+								</a>
+							</span>
+							<ul class="dropdown-menu dropdown-menu-right " role="menu">
+								<t t-foreach="sections" t-as="section">
+									<t t-set="sub_sections" t-value="currentMenuAppSections(section.id)" />
+									<!-- <t t-if="sub_sections.length"> -->
+
+									<div t-attf-class="dropdown-header dropdown-item o_menu_header_lvl_1">
+
+										<t t-if="sub_sections.length">
+											<t t-call="ChildLink">
+												<t t-set="sub_sections" t-value="sub_sections"></t>
+											</t>
+										</t>
+										<t t-else="">
+											<MenuItem
+												t-key="section.id"
+                                                class="action_menu 777"
+												t-att-class="{ focus: menuService.getCurrentApp() === section }"
+												payload="section"
+											>
+												<a t-att-href="getMenuItemHref(section)" t-on-click.prevent="">
+													<span class="fa fa-circle-thin"></span>
+													<span>
+														<t t-esc="section.name" />
+													</span>
+												</a>
+
+											</MenuItem>
+										</t>
+									</div>
+
+
+									<!-- <t t-foreach="sub_sections" t-as="sub_section">
+											<t t-set="sub2_sections" t-value="currentMenuAppSections(sub_section.id)" />
+											<div t-attf-class="dropdown-header o_menu_header_lvl_2">
+												<t t-if="sub2_sections.length">
+													<t t-call="ChildLink">
+														<t t-set="sub2_sections" t-value="sub2_sections"></t>
+													</t>
+												</t>
+												<t t-else="">
+													<MenuItem
+                                                            t-key="sub_section.id"
+                                                            class="action_menu 8888"
+                                                            t-att-class="{ focus: menuService.getCurrentApp() === sub_section }"
+                                                            payload="sub_section"
+                                                                >
+														<a t-att-href="getMenuItemHref(sub_section)" t-on-click.prevent="" >
+															<span class="fa fa-circle-thin"></span>
+															<span>
+																<t t-esc="sub_section.name"/>
+															</span>
+														</a>
+													</MenuItem>
+												</t>
+											</div>
+										</t> -->
+								<!-- </t> -->
+					</t>
+					</ul>
+					</div>
+				</t>
+				<t t-else="">
+					<div class="cssmenu">
+						<MenuItem
+							t-key="app.id"
+							class="o_app action_menu direct_menu 111"
+							t-att-class="{ focus: menuService.getCurrentApp() === app }"
+							payload="app"
+						>
+							<t t-set="app_id" t-value="app.id" />
+								<a t-att-href="getMenuItemHref(app)" t-on-click.prevent="" >
+								<!-- <img class="img sh_standard_icon" t-attf-src="/web/image?model=ir.ui.menu&amp;field=web_icon_data&amp;id={{app_id}}" t-att-title="app.name" t-att-alt="app.name"/>			-->
+
+								<t t-if="icon_style == '2d'">
+									<t t-if="getXmlID(app.id) =='mail.menu_root_discuss'">
+										<span class="icon-discuss_app sh_fa_icon"></span>
+									</t>
+									<t t-elif="getXmlID(app.id) =='calendar.mail_menu_calendar'">
+										<span class="icon-calender sh_fa_icon"></span>
+									</t>
+									<t t-elif="getXmlID(app.id) =='note.menu_note_notes'">
+										<span class="icon-notes sh_fa_icon"></span>
+									</t>
+									<t t-elif="getXmlID(app.id) == 'sh_backmate_theme_adv.sh_dynamic_action_action_menu'">
+										<span class="icon-global-search sh_fa_icon"></span>
+									</t>
+									<t t-elif="getXmlID(app.id) =='repair.menu_repair_order'">
+										<span class="icon-repairs sh_fa_icon"></span>
+									</t>
+									<t t-elif="getXmlID(app.id) =='base.menu_board_root'">
+										<span class="icon-base sh_fa_icon"></span>
+									</t>
+									<t t-elif="getXmlID(app.id) == 'utm.menu_link_tracker_root'">
+										<span class="icon-link-tracker sh_fa_icon"></span>
+									</t>
+									<t t-else="">
+                                               <img class="img sh_standard_icon" t-attf-src="/web/image?model=ir.ui.menu&amp;field=web_icon_data&amp;id={{app_id}}" t-att-title="app.name" t-att-alt="app.name"/> 
+									</t>
+								</t>
+								<t t-else="">
+
+                                             <img class="img sh_standard_icon" t-attf-src="/web/image?model=ir.ui.menu&amp;field=web_icon_data&amp;id={{app_id}}" t-att-title="app.name" t-att-alt="app.name"/> 
+								</t>
+
+
+                                    
+                                    
+								<span>
+										<t t-esc="app.name"/>
+								</span>
+
+							</a>
+						</MenuItem>
+					</div>
+				</t>
+					<t t-if="app.name == 'Looped Management'">
+						<br/>
+					<div style="border-bottom: 1px solid #e7e9ef;">
+					</div>
+						
+	</t>
+				</t>
+				<div class="cssmenu">
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				
+				     <img style="width: 228px;height: 182px;" class="img" src="/sh_backmate_theme_adv/static/src/img/get_pro.png"
+					 /> 
+
+					</div>
+	</Dropdown>
+			
+	</xpath>
+	</t>
+	<!--
+    <t t-name="web.NavBar.SectionsMenu.Dropdown.MenuSlot" t-inherit="web.NavBar.SectionsMenu.Dropdown.MenuSlot" t-inherit-mode="extension" owl="1"><xpath expr="//t/MenuItem" position="replace"><MenuItem
+                            t-if="!item.childrenTree.length"
+                            payload="item"
+                            href="getMenuItemHref(item)"
+                            class="dropdown-item sh_secondary_menu"
+                            t-on-click.prevent="click_secondary_submenu()"
+                            t-esc="item.name" 
+                        /></xpath><xpath expr="//MenuItem[hasclass('o_dropdown_menu_group_entry')]" position="replace"><MenuItem
+                            t-foreach="item.childrenTree"
+                            t-as="subItem"
+                            t-key="subItem.id"
+                            class="o_dropdown_menu_group_entry dropdown-item"
+                            payload="subItem"
+                            href="getMenuItemHref(subItem)"
+                            t-on-click.prevent="click_secondary_submenu()"
+                            t-esc="subItem.name"
+                            /></xpath></t>-->
+	<!-- <t t-name="web.NavBar.SectionsMenu" t-inherit="web.NavBar.SectionsMenu" t-inherit-mode="extension" owl="1"><xpath expr="//div[hasclass('o_menu_sections')]" position="replace"><t t-if="isMobile()"><div class="sh_sub_menu_div o_hidden" ><div class="sh_sub_menu_header"><span class="fa fa-times" id="close_submenu" t-on-click.prevent="click_close_submenu()"></span></div><div class="sh_sub_menu_content" ><div class="o_menu_sections" t-ref="appSubMenus" role="menu"><t t-foreach="sections" t-as="section" t-key="section.id"><t
+                            t-set="sectionsVisibleCount"
+                            t-value="(sections.length - currentAppSectionsExtra.length)"
+                            /><t t-if="section_index lt Math.min(10, sectionsVisibleCount)"><t t-set="hotkey" t-value="((section_index + 1) % 10).toString()" /></t><t t-else=""><t t-set="hotkey" t-value="undefined" /></t><t t-if="!section.childrenTree.length"><MenuItem
+                                title="section.name"
+                                class="o_nav_entry"
+                                payload="section"
+                                href="getMenuItemHref(section)"
+                                hotkey="hotkey"
+                                t-esc="section.name"
+                                t-on-click.prevent="click_secondary_submenu()"
+                            /></t><t t-else=""><MenuDropdown
+                                hotkey="hotkey"
+                                title="section.name"
+                                xmlid="section.xmlid"
+                            ><t t-set-slot="toggler"><span t-esc="section.name" t-att-data-section="section.id" /></t><t t-call="web.NavBar.SectionsMenu.Dropdown.MenuSlot"><t t-set="items" t-value="section.childrenTree" /></t></MenuDropdown></t></t><t t-if="currentAppSectionsExtra.length" t-call="web.NavBar.SectionsMenu.MoreDropdown"><t t-set="sections" t-value="currentAppSectionsExtra" /><t t-if="sectionsVisibleCount lt 10"><t t-set="hotkey" t-value="(sectionsVisibleCount + 1 % 10).toString()" /></t></t></div></div></div></t><t t-else=""><div class="sh_sub_menu_div" ><div class="sh_sub_menu_header"><span class="fa fa-times" id="close_submenu" t-on-click.prevent="click_close_submenu()"></span></div><div class="sh_sub_menu_content" ><div class="o_menu_sections" t-ref="appSubMenus" role="menu"><t t-foreach="sections" t-as="section" t-key="section.id"><t
+                            t-set="sectionsVisibleCount"
+                            t-value="(sections.length - currentAppSectionsExtra.length)"
+                            /><t t-if="section_index lt Math.min(10, sectionsVisibleCount)"><t t-set="hotkey" t-value="((section_index + 1) % 10).toString()" /></t><t t-else=""><t t-set="hotkey" t-value="undefined" /></t><t t-if="!section.childrenTree.length"><MenuItem
+                                title="section.name"
+                                class="o_nav_entry"
+                                payload="section"
+                                href="getMenuItemHref(section)"
+                                hotkey="hotkey"
+                                t-esc="section.name"
+                                t-on-click.prevent="click_secondary_submenu()"
+                            /></t><t t-else=""><MenuDropdown
+                                hotkey="hotkey"
+                                title="section.name"
+                                xmlid="section.xmlid"
+                            ><t t-set-slot="toggler"><span t-esc="section.name" t-att-data-section="section.id" /></t><t t-call="web.NavBar.SectionsMenu.Dropdown.MenuSlot"><t t-set="items" t-value="section.childrenTree" /></t></MenuDropdown></t></t><t t-if="currentAppSectionsExtra.length" t-call="web.NavBar.SectionsMenu.MoreDropdown"><t t-set="sections" t-value="currentAppSectionsExtra" /><t t-if="sectionsVisibleCount lt 10"><t t-set="hotkey" t-value="(sectionsVisibleCount + 1 % 10).toString()" /></t></t></div></div></div></t></xpath></t>-->
+	<t t-name="Menu.link">
+		<t t-set="depth" t-value="(depth || 0) + 1"/>
+		<t t-if="!menu.childrenTree.length">
+			<t t-set="_link">
+				<a role="menuitem" t-attf-href="#menu_id=#{menu.id}&amp;action=#{menu.action ? menu.action.split(',')[1] : ''}"
+					t-att-data-menu="menu.id"
+					t-att-data-action-model="menu.action ? menu.action.split(',')[0] : ''"
+					t-att-data-action-id="menu.action ? menu.action.split(',')[1] : ''"
+					t-att-data-menu-xmlid="menu.xmlid"
+					t-attf-class="#{inNavbar ? '' : 'dropdown-item '}o_menu_entry_lvl_#{depth}"
+					data-toggle="collapse" data-target="#o_navbar_collapse.in">
+					<span>
+						<t t-esc="menu.name"/>
+					</span>
+				</a>
+			</t>
+			<li t-if="inNavbar">
+				<t t-raw="_link"/>
+			</li>
+			<t t-else="">
+				<t t-raw="_link"/></t>
+		</t>
+		<t t-else="">
+			<t t-if="!mobile">
+				<div t-attf-class="dropdown-header o_menu_header_lvl_#{depth}">
+					<span>
+						<t t-esc="menu.name"/>
+					</span>
+				</div>
+				<t t-foreach="menu.childrenTree" t-as="menu">
+					<t t-call="Menu.link"/></t>
+			</t>
+			<li t-else="" class="sh_profile_menu_section">
+				<a href="#" t-attf-class="o_menu_entry_lvl_#{depth}" data-toggle="dropdown" role="button"  aria-expanded="false"  t-att-data-menu-xmlid="menu.xmlid"  >
+					<t t-esc="menu.name"/>
+					<span class="fa fa-chevron-right" id="sub_menu"/>
+				</a>
+				<ul>
+					<t t-foreach="menu.childrenTree" t-as="menu">
+						<t t-call="Menu.link"/></t>
+				</ul>
+			</li>
+		</t>
+	</t>
+	<t t-name="NightModeTemplate">
+		<div class="o_night_mode">
+			<span class="icon-moon" id="moon_button" style="height: 15px; width: 15px;"/>
+			<span class="icon-sun"  id="sun_button" style="height: 15px; width: 15px;display:none;"/>
+
+			 <input type="checkbox" id="night_checkbox" style="display:none;"/>
+
+		</div>
+	</t>
+	<t t-name="FullScreenTemplate">
+		<div class="o_full_screen">
+			<a class="open_full_screen float-right" role="button">
+				<span class="icon-expand expand_img" />
+				<span class="icon-compress compress_img" />
+				<input type="checkbox" id="fullscreen_checkbox"/>
+			</a>
+		</div>
+	</t>
+	<t t-name="ThemeConfigurationTemplate">
+		<li class="theme_settings">
+			<a class="theme_configuration float-right" role="button" >
+				<span class="icon-theme_setting theme_setting_img"/>
+			</a>
+		</li>
+	</t>
+	<t t-extend="mail.systray.MessagingMenu">
+		<t t-jquery="i.o_mail_messaging_menu_icon" t-operation="replace">
+			<span class="icon-discuss o_mail_messaging_menu_icon" style="width:17px;height:17px;"/>
+		</t>
+	</t>
+	<t t-extend="mail.systray.ActivityMenu">
+		<t t-jquery="i.fa-clock-o" t-operation="replace">
+			<span class="icon-activity" style="width:15px;height:15px;"/>
+		</t>
+	</t>
+	<t t-name="SwitchCompanyMenu">
+		<li class="o_switch_company_menu">
+			<a role="button" class="dropdown-toggle" data-toggle="dropdown" data-display="static" aria-expanded="false" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+				<i class="fa fa-building" role="img" aria-label="Change Company]"></i>
+				<span t-attf-class="#{widget.isMobile ? 'fa fa-building-o' : 'oe_topbar_name'}">
+					<t t-if="!widget.isMobile">
+						<t t-raw="widget.current_company_name"/></t>
+				</span>
+			</a>
+			<div class="dropdown-menu dropdown-menu-right" role="menu">
+				<t t-foreach="widget.user_companies" t-as="company">
+					<div role="menuitem" class="dropdown-item d-flex py-0 px-0" data-menu="company" t-att-data-company-id="company[0]">
+						<div class="ml-auto pl-3 pr-3 border border-top-0 border-left-0 border-bottom-0 toggle_company o_py">
+							<span style="height: 2rem;">
+								<t t-if="widget.allowed_company_ids.includes(company[0])">
+									<i class="fa fa-fw fa-check-square pt-2"></i>
+								</t>
+								<t t-if="!widget.allowed_company_ids.includes(company[0])">
+									<i class="fa fa-fw fa-square-o pt-2"></i>
+								</t>
+							</span>
+						</div>
+						<div class="d-flex flex-grow-1 align-items-center py-0 log_into pl-3 o_py" t-att-style="company[0] === widget.current_company ? 'background-color: lightgrey;' : ''">
+							<t t-if="widget.allowed_company_ids.includes(company[0])">
+								<span class='mr-3 company_label'>
+									<t t-esc="company[1]"/>
+								</span>
+							</t>
+							<t t-if="!widget.allowed_company_ids.includes(company[0])">
+								<span class='mr-3 company_label text-muted'>
+									<t t-esc="company[1]"/>
+								</span>
+							</t>
+						</div>
+					</div>
+				</t>
+			</div>
+		</li>
+	</t>
+</templates>

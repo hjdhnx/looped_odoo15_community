@@ -1,0 +1,333 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <!-- <record id="pos_config_form_view_inherit" model="ir.ui.view">
+      <field name="name">pos.config.hr.form</field>
+      <field name="model">pos.config</field>
+      <field name="inherit_id" ref="pos_hr.pos_config_form_view_inherit"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='employee_ids']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='employee_ids']" position="after">
+
+          <field name="user_ids" widget="many2many_tags" domain="[('company_id', '=', company_id)]"/>
+        </xpath>
+      </field>
+    </record> -->
+    <record id="view_bank_statement_form_inherit" model="ir.ui.view">
+      <field name="name">view.bank.statement.form.inherit</field>
+      <field name="model">account.bank.statement</field>
+      <field name="inherit_id" ref="account.view_bank_statement_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='company_id']" position="after">
+          <field name="note"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="pos_config_form" model="ir.ui.view">
+      <field name="name">pos.scrap_reason.form</field>
+      <field name="model">pos.config</field>
+      <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//h2[@name='order']" position="before">
+          <div class="row mt16 o_settings_container">
+            <div class="col-12 col-lg-6 o_setting_box" title="Users can scan their badge or enter a PIN to log in to a PoS session. These credentials are configurable.">
+              <div class="o_setting_left_pane">
+                <field name="is_allowed_users" attrs="{'readonly': [('has_active_session','=', True)]}"/>
+              </div>
+              <div class="o_setting_right_pane" id="login_with_users">
+                <span class="o_form_label">Authorized Users</span>
+                <div class="text-muted">
+                                    Use Users credentials to log in to the PoS session and switch cashier
+                </div>
+                <div attrs="{'invisible': [('is_allowed_users', '=', False)]}">
+                  <span class="o_form_label oe_edit_only">Allowed Users </span>
+                  <field name="user_ids" widget="many2many_tags" domain="[('company_id', '=', company_id)]"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </xpath>
+
+        <xpath expr="//label[@for='limit_categories']/../.." position="after">
+          <div class="col-12 col-lg-6 o_setting_box">
+            <div class="o_setting_left_pane">
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="exclude_pos_categ_ids"/>
+              <div class="text-muted">
+                            POS Product Categories Excluded
+              </div>
+              <div>
+                <field name="exclude_pos_categ_ids" widget="many2many_tags"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6 o_setting_box" name="exclude_products">
+            <div class="o_setting_left_pane">
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="exclude_product_ids"/>
+              <div class="text-muted">
+                            POS Products Excluded
+              </div>
+              <div>
+                <field name="exclude_product_ids" widget="many2many_tags"/>
+              </div>
+            </div>
+          </div>
+        </xpath>
+
+        <xpath expr="//div[@id='accounting_section']" position="after">
+          <h2>Discount Program</h2>
+          <div class="row mt16 o_settings_container" id="pos_discount_program">
+            <div class="col-12 col-lg-6 o_setting_box">
+              <div class="o_setting_left_pane">
+                <field name="discount_program_active" context="{'default_company_id': company_id}"/>
+              </div>
+              <div class="o_setting_right_pane">
+                <label for="discount_program_active"/>
+                <div class="text-muted">
+                                    Active Discount Program 
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible':[('discount_program_active','=',False)]}">
+              <div class="o_setting_left_pane">
+                <field name="allow_pin_code" context="{'default_company_id': company_id}"/>
+              </div>
+              <div class="o_setting_right_pane">
+                <label for="allow_pin_code"/>
+                <div class="text-muted">
+                                    Active PIN Code 
+                </div>
+                <div>
+                  <field name="pin_code" attrs="{'invisible':[('allow_pin_code','=',False)],'required':[('allow_pin_code','=',True)]}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible':[('discount_program_active','=',False)]}">
+              <div class="o_setting_left_pane">
+                <field name="is_deactive_desc_on_line" />
+              </div>
+              <div class="o_setting_right_pane">
+                <label for="is_deactive_desc_on_line"/>
+                <div class="text-muted">
+                                   Deactive Desc on Line
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible':[('discount_program_active','=',False)]}">
+              <div class="o_setting_left_pane">
+                <field name="is_allow_custom_disc" />
+              </div>
+              <div class="o_setting_right_pane">
+                <label for="is_allow_custom_disc"/>
+                <div class="text-muted"> Allow Custom Disc </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible':[('discount_program_active','=',False)]}">
+              <div class="o_setting_left_pane">
+              </div>
+              <!-- <div class="o_setting_right_pane">
+                <group>
+                  <field name="discount_program_product_id" context="{'default_company_id': company_id}"/>
+                </group>
+                <div class="text-muted"> Discount Program Product </div>
+              </div> -->
+            </div>
+            <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible':[('discount_program_active','=',False)]}">
+              <div class="o_setting_left_pane">
+              </div>
+              <div class="o_setting_right_pane">
+                <!-- <label for="aval_discount_program"/> -->
+                <group>
+                  <field name="aval_discount_program" domain="[('company_id', '=', company_id)]" context="{'default_company_id': company_id}" widget="many2many_tags"/>
+                </group>
+                <div class="text-muted"> Available Discount program </div>
+              </div>
+            </div>
+          </div>
+          <h2>Order Types</h2>
+          <div class="row mt16 o_settings_container" id="pos_discount_program">
+            <div class="col-12 col-lg-6 o_setting_box">
+              <div class="o_setting_left_pane">
+                <field name="order_type_active" />
+              </div>
+              <div class="o_setting_right_pane">
+                <label for="order_type_active"/>
+                <div class="text-muted"> Active Order Type </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible':[('order_type_active','=',False)]}">
+              <div class="o_setting_left_pane">
+              </div>
+              <div class="o_setting_right_pane">
+                <!-- <label for="aval_discount_program"/> -->
+                <group>
+                  <field name="order_type_ids" domain="[('company_id', '=', company_id)]" context="{'default_company_id': company_id}" widget="many2many_tags"/>
+                </group>
+                <!-- <div class="text-muted"> Order Types </div> -->
+                <group>
+                  <field name="order_type_payment_method_ids" domain="[('company_id', '=', company_id)]" context="{'default_company_id': company_id}" widget="many2many_tags" readonly="1" force_save = "1"/>
+                </group>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible':[('order_type_active','=',False)]}">
+              <div class="o_setting_left_pane">
+              </div>
+              <div class="o_setting_right_pane">
+                <!-- <label for="aval_discount_program"/> -->
+                <group>
+                  <field name="default_type_order_type_id" attrs="{'required':[('order_type_active','=',True)]}" />
+                </group>
+                <!-- <div class="text-muted"> Order Types </div> -->
+              </div>
+            </div>
+            <!-- <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible':[('order_type_active','=',False)]}">
+              <div class="o_setting_left_pane">
+              </div>
+              <div class="o_setting_right_pane">
+                <group>
+                  <field name="order_type_journal_ids" domain="[('company_id', '=', company_id)]" context="{'default_company_id': company_id}" widget="many2many_tags"/>
+                </group>
+                <div class="text-muted"> Journals </div>
+              </div>
+            </div> -->
+          </div>
+        </xpath>
+        <xpath expr="//h2[@name='order']" position="before">
+          <h2 name="multi_session">Multi-session</h2>
+          <div class="row mt16 o_settings_container" id="multi_session">
+            <div id="current_session_state" class="col-xs-12 col-md-6 o_setting_box">
+              <div class="o_setting_right_pane">
+                <label for="current_session_state" />
+                <div class="text-muted">
+                  <p class="oe_edit_only" attrs="{'invisible':[('current_session_state', '!=', 'opened')]}"> You need to close current session to be able modify Multi-session value </p>
+                </div>
+                <div class="content-group">
+                  <div class="mt16 row">
+                    <field name="current_session_state" class="col-xs-3 col-md-3 oe_edit_only" readonly="1" attrs="{'invisible':[('current_session_state', '!=', 'opened')]}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="multi_session_id" class="col-xs-12 col-md-6 o_setting_box">
+              <div class="o_setting_right_pane">
+                <label for="multi_session_id" />
+                <div class="content-group">
+                  <div class="mt16 row">
+                    <field name="multi_session_id" class="col-xs-3 col-md-3" attrs="{'readonly':[('current_session_state', '=', 'opened')]}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="multi_session_accept_incoming_orders" class="col-xs-12 col-md-6 o_setting_box">
+              <div class="o_setting_left_pane">
+                <field name="multi_session_accept_incoming_orders" />
+              </div>
+              <div class="o_setting_right_pane">
+                <label for="multi_session_accept_incoming_orders" />
+              </div>
+            </div>
+            <div id="multi_session_replace_empty_order" class="col-xs-12 col-md-6 o_setting_box">
+              <div class="o_setting_left_pane">
+                <field name="multi_session_replace_empty_order" attrs="{'invisible':[('multi_session_accept_incoming_orders', '=', False)]}" />
+              </div>
+              <div class="o_setting_right_pane">
+                <label for="multi_session_replace_empty_order" />
+              </div>
+            </div>
+            <div id="multi_session_deactivate_empty_order" class="col-xs-12 col-md-6 o_setting_box">
+              <div class="o_setting_left_pane">
+                <field name="multi_session_deactivate_empty_order" attrs="{'invisible':['|',('multi_session_replace_empty_order', '=', True),('multi_session_accept_incoming_orders', '=', False)]}" />
+              </div>
+              <div class="o_setting_right_pane">
+                <label for="multi_session_deactivate_empty_order" />
+              </div>
+            </div>
+          </div>
+        </xpath>
+
+        <xpath expr="//h2[@name='order']" position="before">
+          <h2 name="refunds">Longpolling</h2>
+          <div class="row mt16 o_settings_container" id="longpolling">
+            <div id="sync_server" class="col-xs-12 col-md-6 o_setting_box">
+              <div class="o_setting_right_pane">
+                <label for="sync_server" />
+                <div class="content-group">
+                  <div class="mt16 row">
+                    <field name="sync_server" class="col-xs-3 col-md-3" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="longpolling_max_silence_timeout" class="col-xs-12 col-md-6 o_setting_box">
+              <div class="o_setting_right_pane">
+                <label for="longpolling_max_silence_timeout" />
+                <div class="content-group">
+                  <field name="longpolling_max_silence_timeout" class="col-xs-3 col-md-3" widget="integer" />
+                </div>
+              </div>
+            </div>
+            <div id="longpolling_pong_timeout" class="col-xs-12 col-md-6 o_setting_box">
+              <div class="o_setting_right_pane">
+                <label for="longpolling_pong_timeout" />
+                <div class="content-group">
+                  <field name="longpolling_pong_timeout" class="col-xs-3 col-md-3" widget="integer" />
+                </div>
+              </div>
+            </div>
+            <div id="autostart_longpolling" class="col-xs-12 col-md-6 o_setting_box" invisible="0">
+              <div class="o_setting_left_pane">
+                <field name="autostart_longpolling" />
+              </div>
+              <div class="o_setting_right_pane">
+                <label for="autostart_longpolling" />
+              </div>
+            </div>
+          </div>
+        </xpath>
+
+        <xpath expr="//div[@id='company']" position="before">
+          <div class="col-12 col-lg-6 o_setting_box">
+            <div class="o_setting_right_pane">
+              <label for="code"/>
+              <div class="content-group mt16">
+                <field name="code"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6 o_setting_box" title="POS Type">
+            <div class="o_setting_right_pane">
+              <label for="pos_type_id" string="POS Type"/>
+              <div class="content-group mt16">
+                <field name="pos_type_id" options="{'no_create': True, 'no_edit': True, 'no_open': True}"/>
+                <field name="is_kds" invisible="1"/>
+
+              </div>
+
+              <div class="o_setting_left_pane" attrs="{'invisible':[('is_kds','=',False)]}">
+                <field name="is_main_kitchen"/>
+              </div>
+              <div class="o_setting_right_pane" attrs="{'invisible':[('is_kds','=',False)]}">
+                <label for="is_main_kitchen" string="Is Main KItchen?"/>
+                <div class="text-muted mb16">
+                                   Is Main Kitchen?
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+    <!-- <record id="point_of_sale.action_pos_config_kanban" model="ir.actions.act_window">
+        <field name="domain">[('pos_type', '=', 'pos')]</field>
+    </record> -->
+  </data>
+</odoo>

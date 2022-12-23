@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="late_request_type_view_form" model="ir.ui.view">
+            <field name="name">late.request.type.form</field>
+            <field name="model">late.request.type</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group col="2">
+                            <field name="name" required="1"/>
+                            <field name="period_type" required="1"/>
+                            <field name="days_limit" attrs="{'invisible':[('period_type','!=','days')],'required':[('period_type','=','days')]}"/>
+                            <field name="hours_limit" widget="float_time" attrs="{'invisible':[('period_type','!=','hours')],'required':[('period_type','=','hours')]}"/>
+                            <field name="penality_type"/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="late_request_type_view_tree" model="ir.ui.view">
+            <field name="name">late.request.type.tree</field>
+            <field name="model">late.request.type</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="period_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--TODO the most powerfull window action-->
+        <record id="late_request_type_window_action" model="ir.actions.act_window">
+            <field name="name">Excuse Request Type</field>
+            <field name="res_model">late.request.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!-- This Menu Item Must have a parent -->
+
+        <menuitem id="menu_late_request_type" name="Excuse Request Type" parent="rm_hr_attendance_sheet.menu_hr_attendance_sheet_setting" action="late_request_type_window_action" sequence="40"/>
+
+
+    </data>
+</odoo>

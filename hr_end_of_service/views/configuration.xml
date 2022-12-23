@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_loan" model="ir.ui.view">
+        <field name="name">res.config.settings.form.inherit.loan</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="End of Service" string="End of Service" data-key="hr_end_of_service">
+
+                    <h2>End OF Service</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <!-- <span class="o_form_label"> Show Petty Cash</span> -->
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <!-- <div class="text-muted">
+                                    Show Petty Cash
+                                </div> -->
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="show_petty_cash" class="col-lg-3 o_light_label"/>
+                                        <field name="show_petty_cash" options="{'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <!-- <span class="o_form_label">  Show Custody</span> -->
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." 
+                                aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <!-- <div class="text-muted">
+                                      Show Custody
+                                </div> -->
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="show_custody" class="col-lg-3 o_light_label"/>
+                                        <field name="show_custody" context="{'active_test': False}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">  Leave Money Amount Type</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." 
+                                aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <!-- <div class="text-muted">
+                                      Show Custody
+                                </div> -->
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="amount_type" class="col-lg-3 o_light_label"/>
+                                        <field name="amount_type" context="{'active_test': False}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">  Leave Money Months Days</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." 
+                                aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <!-- <div class="text-muted">
+                                      Show Custody
+                                </div> -->
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="months_days" class="col-lg-3 o_light_label"/>
+                                        <field name="months_days" context="{'active_test': False}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_hr_end_of_service_config" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'hr_end_of_service'}</field>
+    </record>
+
+    <menuitem id="menu_hr_end_of_service_config" name="Settings" parent="main_menu_hr_end_of_service" sequence="5" action="action_hr_end_of_service_config"/>
+
+</odoo>

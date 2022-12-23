@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pos_type_1" model="pos.type">
+            <field name="name">Cashier</field>
+        </record>
+        <record id="pos_type_2" model="pos.type">
+            <field name="name">Waiter</field>
+        </record>
+        <record id="pos_type_3" model="pos.type">
+            <field name="name">CDS</field>
+        </record>
+        <record id="pos_type_4" model="pos.type">
+            <field name="name">KDS</field>
+        </record>
+        <record id="pos_type_5" model="pos.type">
+            <field name="name">Kiosk</field>
+        </record>
+        <record id="pos_type_6" model="pos.type">
+            <field name="name">Notifier</field>
+        </record>
+        <record id="pos_type_7" model="pos.type">
+            <field name="name">Received</field>
+        </record>
+    </data>
+</odoo>

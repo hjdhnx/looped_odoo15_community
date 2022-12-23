@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_emp_payslip_payment_user,access_emp_payslip_payment_user,model_emp_payslip_payment,eq_payslip_payment.group_payslip_payment,1,1,1,1
+access_emp_payslip_payment_line_user,access_emp_payslip_payment_line_user,model_emp_payslip_payment_line,eq_payslip_payment.group_payslip_payment,1,1,1,1

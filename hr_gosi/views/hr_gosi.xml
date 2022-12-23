@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--    Inherit Countries View   -->
+        <record model="ir.ui.view" id="view_country_form_base_inherit">
+            <field name="name">res.country.form inherit</field>
+            <field name="model">res.country</field>
+            <field name="inherit_id" ref="base.view_country_form"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="replace">
+                    <form>
+                        <sheet>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                            <group>
+                                <group>
+                                    <field name="name"/>
+                                    <field name="currency_id"/>
+                                    <field name="code"/>
+                                </group>
+                                <group>
+                                    <field name="address_format" groups="base.group_no_one" placeholder="Address format..."/>
+                                    <field name="phone_code"/>
+                                </group>
+                            </group>
+                            <label for="state_ids"/>
+                            <field name="state_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                </tree>
+                            </field>
+                        </sheet>
+                    </form>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_country_tree_inherit">
+            <field name="name">res.country.tree inherit</field>
+            <field name="model">res.country</field>
+            <field name="inherit_id" ref="base.view_country_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="replace">
+                    <tree>
+                        <field name="name"/>
+                        <field name="arabic_name"/>
+                        <field name="gosi_for_this"/>
+                        <field name="company_share"/>
+                        <field name="employee_share"/>
+                        <field name="who_will_pay"/>
+                    </tree>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_country_form_inherit">
+            <field name="name">res.country.form inherit</field>
+            <field name="model">res.country</field>
+            <field name="inherit_id" ref="base.view_country_form"/>
+            <field name="arch" type="xml">
+                <label for="state_ids" position="replace"/>
+                <field name="state_ids" position="replace">
+                    <notebook colspan="4">
+                        <page string="Cities">
+                            <group string="Cities">
+                                <field name="state_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="code"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Gosi Calculation">
+                            <group string="Gosi Calculation">
+                                <group>
+                                    <field name="gosi_for_this"/>
+                                </group>
+                            </group>
+                            <group attrs="{'invisible':[['gosi_for_this','!=','yes']]}">
+                                <group>
+                                    <field name="who_will_pay"/>
+                                    <label for="company_share"/>
+                                    <div>
+                                        <field name="company_share" attrs="{'readonly':[['who_will_pay','=','employee_salary']]}" class="oe_inline"/>
+                                        <span attrs="{'invisible':[['who_will_pay','=','employee_salary']]}">%</span>
+                                    </div>
+                                    <label for="employee_share"/>
+                                    <div>
+                                        <field name="employee_share" attrs="{'readonly':[['who_will_pay','=','company']]}" class="oe_inline"/>
+                                        <span attrs="{'invisible':[['who_will_pay','=','company']]}">%</span>
+                                    </div>
+                                    <field name="minimum_gosi_salary"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Notes">
+                            <group string="Notes">
+                                <field name="note" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </field>
+            </field>
+        </record>
+
+        <!--    Inherit Countries View   -->
+        <record model="ir.ui.view" id="hr_contract_view_form_inherit">
+            <field name="name">hr.contract.form inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="ext_hr_contract.hr_contract_form_inherit"/>
+            <field name="arch" type="xml">
+                <page name="salary_allowance" position="before">
+                    <page name="gosi" string="GOSI">
+                        <group string="Gosi Calculation">
+                            <group>
+                                <field name="gosi_calc_based_on"/> <!--attrs="{'required':[['gosi_for_this','=','yes']]}"-->
+                                <field name="manual_gosi_salary"/>
+                                <field name="salary_for_gosi"/>
+                                <field name="who_will_pay" invisible="1"/> <!--attrs="{'required':[['gosi_for_this','=','yes']]}"-->
+                            </group>
+                            <group/>
+                            <group string="Company GOSI">
+                                <label for="company_share"/>
+                                <div>
+                                    <field name="company_share"  class="oe_inline"/>
+                                    <span >%</span>
+                                </div>
+                                <field name="company_amount"/>
+                            </group>
+                            <group string="Employee GOSI">
+                                <field name="gosi_for_this" />
+                                <label for="employee_share"/>
+                                <div>
+                                    <field name="employee_share" class="oe_inline"/>
+                                    <span >%</span>
+                                </div>
+                                <field name="minimum_gosi_salary"/>
+                                <field name="employee_amount"/>
+                                <field name="start_gosi_payslip_date" invisible="1"/> <!--attrs="{'readonly':[['gosi_for_this','!=','yes']]}"-->
+                            </group>
+                            <group invisible="1">
+                                <field name="gosi_for_this" string="GOSI Deduction for this Employee"/> <!--required="1"-->
+                            </group>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <!--Inherit Contract-->
+        <record id="hr_contract_tree_leaves" model="ir.ui.view">
+            <field name="name">hr.contract.tree.leaves</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="ext_hr_contract.hr_contract_view_tree_inherit"/>
+            <field name="arch" type="xml">
+                <field name="total" position="after">
+                    <field name="employee_share" string="GOSI Employee"/>
+                    <field name="company_share" string="GOSI Company"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

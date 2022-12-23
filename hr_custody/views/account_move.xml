@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inherit_account_move_form" model="ir.ui.view">
+        <field name="name">inherit.account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='account_id']"
+                   position="after">
+                <field name="custody_item_ids" invisible="1"/>
+                <field name="custody_item_id"
+                       options="{'no_open': True, 'no_create': True}"
+                       domain="[('id', 'in', custody_item_ids)]"
+                       attrs="{'required':[('custody_item_ids','!=',[])],'readonly':[('custody_item_ids','=',[])]}"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/tree/field[@name='account_id']"
+                   position="after">
+                <field name="custody_item_ids" invisible="1"/>
+                <field name="custody_item_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

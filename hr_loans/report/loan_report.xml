@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report id="loan_installment_report_id" model="loan.report.wizard" string="Loan Report" report_type="qweb-pdf" name="hr_loans.loan_installment_employee_report_template" file="hr_loans.loan_installment_employee_report_template" attachment_use="True" menu="False"/>
+
+        <template id="loan_installment_employee_report_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+
+
+                        <style>
+                            .mydiv {
+                            width: 100%;
+                            border: 3px solid black;
+                            border-color: #b4b4b4;
+                            padding-right: 5px;
+
+                            line-height: 25px;
+                            margin: 0px;
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            },
+                            .TFtable{
+
+                            width:100%;
+                            border-collapse:collapse;
+                            }
+                            .TFtable td{
+                            padding:7px;
+                            }
+
+                            .TFtable tr:nth-child(odd){
+                            background: #f2f3f4 ;
+                            }
+                            .TFtable tr:nth-child(even){
+                            background: #FFFFFF;
+                            }
+
+                        </style>
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+
+                        <t t-foreach="data" t-as="o">
+
+                            <div class="row mydiv">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3" style="font-weight:bold;">
+                                            Start Date :
+                                        </div>
+                                        <div class="col-3">
+                                            <span t-esc="o['date_from']"/>
+
+                                        </div>
+                                        <div class="col-3" style="font-weight:bold;">
+                                            End Date :
+                                        </div>
+                                        <div class="col-3">
+                                            <span t-esc="o['date_to']"/>
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+
+
+                            <t t-if="o['installment_data']">
+                                <h4 class="text-center">Loan Installments</h4>
+                                <t t-set="total" t-value="0.0"/>
+                                <t t-set="total_paid" t-value="0.0"/>
+                                <table width="100%" class="TFtable">
+                                    <thead>
+                                        <tr style="font-weight:bold;">
+                                            <td>
+                                                Name
+                                            </td>
+                                            <td>
+                                               Employee
+                                            </td>
+
+                                            <td>
+                                              Deduction Date
+                                            </td>
+                                            <td>
+                                               Monthly Installment
+                                            </td>
+                                            <td>
+                                               Paid
+                                            </td>
+
+                                            <td>
+                                                State
+                                            </td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <t t-set="total_paid" t-value="0"/>
+                                        <t t-set="total_monthly_installment" t-value="0"/>
+                                        <t t-set="state_code" t-value="
+                                        
+                                           {
+        'New': 'New',
+        'HR Manager Approve': 'HR Manager Approve',
+        'Financial Manager Approve': 'Financial Manager Approve',
+        'GM Approve': 'GM Approve',
+        'Loan Fully Paid': 'Loan Fully Paid',
+        'installment_return': 'Installment Return ',
+        'Refused': 'Refused',
+                                        }
+                                        "/>
+                                        <t t-foreach="o['installment_data']" t-as="inst">
+                                            <tr>
+                                                <td>
+                                                    <span t-esc="inst['name']"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="inst['employee_name']"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="inst['deduction_date']"/>
+                                                </td>
+
+                                                <td align="right">
+
+                                                    <span t-esc="'{:20,.2f}'.format(inst['monthly_installment'])"/>
+                                                    <t t-set="total_monthly_installment" t-value="total_monthly_installment + inst['monthly_installment']"/>
+
+                                                </td>
+
+                                                <td align="right">
+
+                                                    <span t-esc="'{:20,.2f}'.format(inst['paid'])"/>
+                                                    <t t-set="total_paid" t-value="total_paid + inst['paid']"/>
+
+                                                </td>
+
+                                                <td>
+                                                    <span t-esc="state_code.get(inst['state'],False)"/>
+
+                                                </td>
+
+
+                                            </tr>
+                                        </t>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td align="right" style="font-weight:bold;">
+                                                <span t-esc="'{:20,.2f}'.format(total_monthly_installment)"/>
+                                            </td>
+
+                                            <td align="right" style="font-weight:bold;">
+                                                <span t-esc="'{:20,.2f}'.format(total_paid)"/>
+                                            </td>
+
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </t>
+
+
+
+                        </t>
+
+                    </div>
+                </t>
+            </t>
+            <!--</t>-->
+        </template>
+    </data>
+</odoo>

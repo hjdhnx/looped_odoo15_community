@@ -1,0 +1,628 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* employee_payroll_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20221023\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-25 22:09+0000\n"
+"PO-Revision-Date: 2022-10-25 22:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid ":Job classification"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid ":Report currency"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid ":Work site"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid ":year"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid ":اسم المستخدم"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid ":اسم الموظف"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid ":الراتب الاساسي"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid ":الوظيفة"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid ":تاريخ التعيين"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid ":تاريخ طباعة التقرير"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid ":رمز الموظف"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid ":عدد الايام المدفوعة"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid ":وقت الطباعة"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid ""
+"<b>\n"
+"                                                شركة عبدالاله وإبراهيم ابناء عبدالعزيز الموسي العقارية\n"
+"                                            </b>"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "<b>Report totals</b>"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "<b>مجاميع التقارير</b>"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model:ir.model.fields.selection,name:employee_payroll_report.selection__employee_payroll__report_language__ar
+msgid "Arabic"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.employee_payroll_view
+msgid "Cancel"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Car insurance teams"
+msgstr "فرق تأمين السيارات"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Contact"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__date_from
+msgid "Date From"
+msgstr "التاريخ من"
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__date_to
+msgid "Date To"
+msgstr "التاريخ الي"
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__department_ids
+#: model:ir.model.fields.selection,name:employee_payroll_report.selection__employee_payroll__report_type__departments
+msgid "Departments"
+msgstr "الإدارات"
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__display_name
+#: model:ir.model.fields,field_description:employee_payroll_report.field_report_employee_payroll_report_report_employee_payslip__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Employee Name"
+msgstr "اسم الموظف"
+
+#. module: employee_payroll_report
+#: model:ir.actions.act_window,name:employee_payroll_report.employee_payroll_action
+#: model:ir.actions.report,name:employee_payroll_report.action_report_employee_payslip_pdf
+#: model:ir.ui.menu,name:employee_payroll_report.employee_payroll_menu
+msgid "Employee Payroll Report"
+msgstr "تقرير رواتب الموظف"
+
+#. module: employee_payroll_report
+#: model:ir.model,name:employee_payroll_report.model_employee_payroll
+msgid "Employee Payroll Report wizard"
+msgstr "معالج تقرير كشوف المرتبات"
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__employee_ids
+msgid "Employees"
+msgstr "الموظفين"
+
+#. module: employee_payroll_report
+#: model:ir.model.fields.selection,name:employee_payroll_report.selection__employee_payroll__report_language__en
+msgid "English"
+msgstr "إنجليزي"
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__hide_basic_salary
+msgid "Hide Basic Salary If Zero"
+msgstr "إخفاء الراتب الأساسي إذا كان صفرًا"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Hous. famil. adv."
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Hous. family"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Hous. singl"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Hous. singl. adv."
+msgstr ""
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__id
+#: model:ir.model.fields,field_description:employee_payroll_report.field_report_employee_payroll_report_report_employee_payslip__id
+msgid "ID"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__report_language
+msgid "Language"
+msgstr "لغة"
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll____last_update
+#: model:ir.model.fields,field_description:employee_payroll_report.field_report_employee_payroll_report_report_employee_payslip____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Medic. insur. teams"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Monthly Payroll Report"
+msgstr "تقرير الرواتب الشهري"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Paid in cash"
+msgstr "تدفع نقدا"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Pay value of car"
+msgstr "دفع قيمة السيارة"
+
+#. module: employee_payroll_report
+#: model:ir.actions.report,name:employee_payroll_report.payslip_report_custom_id
+msgid "Payslip Report"
+msgstr "تقرير قسيمة الدفع"
+
+#. module: employee_payroll_report
+#: model:ir.model.fields.selection,name:employee_payroll_report.selection__employee_payroll__report_type__employees
+msgid "Pick Employees"
+msgstr "اختر الموظفين"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.employee_payroll_view
+msgid "Print"
+msgstr "طباعه"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Reimb. for escorts"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model:ir.model.fields,field_description:employee_payroll_report.field_employee_payroll__report_type
+msgid "Report Type"
+msgstr "نوع التقرير"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Reward"
+msgstr "جائزة"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Social Security"
+msgstr "ضمان اجتماعي"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "The number of days"
+msgstr "عدد الايام"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "Total deductions"
+msgstr "إجمالي الخصومات"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "basic salary"
+msgstr "راتب اساسي"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "cash advance"
+msgstr "سلفة نقدية"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "code"
+msgstr "كود"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "food"
+msgstr "طعام"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "fuel allowance"
+msgstr "بدل الوقود"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "overtime"
+msgstr "العمل الإضافي"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "paid by check"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "paid to the bank"
+msgstr "تدفع للبنك"
+
+#. module: employee_payroll_report
+#: model:ir.model,name:employee_payroll_report.model_report_employee_payroll_report_report_employee_payslip
+msgid "report.employee_payroll_report.report_employee_payslip"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "total income"
+msgstr "إجمالي الدخل"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "transportation"
+msgstr "وسائل النقل"
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "wild box"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "اتصال"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "اجمالي الاقتطاعات"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "اجمالي الدخل"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "اسم الموظف"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "اقتطاع سكن"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "اقتطاعات اخري"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "اقساط سلف شهرية"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "الاجازات المدفوعه"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "الاجمالي"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "الاقتطاعات"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "التأمين الصحي"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "التأمينات الاجتماعيه"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "التامينات الاجتماعيه"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "الدخل"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "الراتب الاساسي"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "الرمز"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "السنة"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "الشهر"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "العمل الاضافي"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "الغياب"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "القيمة"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "القيمه"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "المدفوع بشيك"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "المدفوع للبنك"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "المدفوع نقدا"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "المقابل المالي للمرافقين"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "النوع"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "ايام العطل الرسمية"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "بدل محروقات"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "تفاصيل اقتطاعات اخري"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "تفاصيل السلف"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "تفاصيل العمل الاضافي"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "ساعات الاضافي"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "سداد قيمه السياره"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "سكن للاعزب"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "سكن للاعزب مقدما"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "سكن للعائلات"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "سكن للعائلات مقدمآ"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "سكن للعائلات مقدما"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "سلفه نقديه"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "صافي الراتب في البنك"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "صندوق البر"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "طعام"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "عدد الايام"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "علاوات اخري"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "فرق التامين الطبي"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "فرق تامين السيارات"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "قسيمة الراتب الشهرية"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "مجموع الاقتطاعات"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "مجموع الدخل"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+msgid "مخصصات اخري"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "مكافاه"
+msgstr ""
+
+#. module: employee_payroll_report
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.payslip_report_custom
+#: model_terms:ir.ui.view,arch_db:employee_payroll_report.report_employee_payslip
+msgid "نقل"
+msgstr ""

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_import_order_wizard" model="ir.ui.view">
+        <field name="name">import.order.form</field>
+        <field name="model">import.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="import_file"/>
+                        <field name="file_option"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="imoport_file" string="Import" type="object" default_focus="1"
+                            class="oe_highlight"/>
+                    <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_pos_import_order">
+        <field name="name">Import POS Order</field>
+        <field name="res_model">import.order</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_pos_import_order_wizard"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+
+
+                <!--    Export POS order    -->
+        <record id="view_pos_export_order_wizard" model="ir.ui.view">
+        <field name="name">import.order.form</field>
+        <field name="model">import.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <group string="Files for POS Order ">
+                    <group>
+                        <div>
+                            <p>import_pos_order.csv <a href="import_bridge_axis/static/description/pos/import_pos_order.csv" ><i class="fa fa-download"></i></a></p>
+                            <p>import_pos_order.xls <a href="import_bridge_axis/static/description/pos/import_pos_order.xls" ><i class="fa fa-download"></i></a></p>
+                        </div>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Ok" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_pos_export_order">
+        <field name="name">Export POS Order</field>
+        <field name="res_model">import.order</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_pos_export_order_wizard"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
+
+

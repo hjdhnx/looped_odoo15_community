@@ -1,0 +1,220 @@
+<odoo>
+    <data>
+        <!--Exit Re-entry types-->
+        <record id="exit_entry_form" model="ir.ui.view">
+            <field name="name">hr.exit.entry.settings form</field>
+            <field name="model">hr.exit.entry.type</field>
+            <field name="arch" type="xml">
+                <form string="Exit and re-entry">
+                    <header>
+                        <button name="confirm" string="Confirm" type="object" class="oe_highlight" states="new"/>
+                        <button name="reset" string="Set to new" type="object" states="Confirmed"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <h2>
+                            <field name="name" required="1" placeholder="Description"  attrs="{'readonly':[('state','=','Confirmed')]}" />
+                            <br/>
+                            <field name="code" readonly="1" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                        </h2>
+                        <group>
+                            <group string="Section 1:one time">
+                                <field name="min_months" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                                <field name="min_charge" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                                <field name="additional_month_cost" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                                <field name="max_month" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                                <field name="max_charge" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                            </group>
+                            <group string="Section 2:multiple">
+                                <field name="min_months2" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                                <field name="min_charge2" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                                <field name="additional_month_cost2" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                                <field name="max_month2" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                                <field name="max_charge2" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                            </group>
+                            <group string="Other information">
+                                <field name="loan_type_id" 
+                                domain="[['state','=','Confirmed']]" attrs="{'readonly':[('state','=','Confirmed')]}" />
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Exit and Re-entry">
+                                <group string="Exit and Re-entry">
+                                    <field name="request_ids" nolabel="1" force_save="1" readonly="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="exit_entry_tree" model="ir.ui.view">
+            <field name="name">hr.exit.entry.settings tree</field>
+            <field name="model">hr.exit.entry.type</field>
+            <field name="arch" type="xml">
+                <tree string="Exit and re-entry">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="min_months"/>
+                    <field name="min_charge"/>
+                    <field name="additional_month_cost"/>
+                    <field name="max_month"/>
+                    <field name="max_charge"/>
+                    <field name="min_months2"/>
+                    <field name="min_charge2"/>
+                    <field name="additional_month_cost2"/>
+                    <field name="max_month2"/>
+                    <field name="max_charge2"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_exit_entry" model="ir.actions.act_window">
+            <field name="name">Exit and re-entry</field>
+            <field name="res_model">hr.exit.entry.type</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!--Exit Re-entry Request-->
+        <record id="exit_entry_request_form" model="ir.ui.view">
+            <field name="name">hr.exit.entry.type form</field>
+            <field name="model">hr.exit.entry.request</field>
+            <field name="arch" type="xml">
+                <form string="Exit and Re-entry Request">
+                    <header>
+                        <button name="confirm" string="Confirm" type="object" class="oe_highlight" states="new"
+                                confirm="Are you sure that you want to confirm this exit and re-entry request?"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <h2>
+                            <field name="name" required="1" placeholder="Description"/>
+                            <br/>
+                            <field name="code" readonly="1"/>
+                        </h2>
+                        <group>
+                            <group>
+                                <field name="employee_id" domain="[['nationality_type', '=', 'Non-Saudi']]" options="{'no_create':True}"/>
+                                <field name="contract_id"/>
+                                <field name="department_id"/>
+                                <field name="iqama_no"/>
+                                <field name="iqama_expiry_date"/>
+                                <field name="passport"/>
+                                <field name="passport_expiry_date"/>
+                                <field name="expected_travel_date" required="1"/>
+                            </group>
+                            <group>
+                                <field name="reason"/>
+                                <field name="reason_desc" attrs="{'invisible':[['reason','!=','other']],'required':[['reason','=','other']]}"/>
+                                <field name="leave_request_id"
+                                 attrs="{'invisible':[['reason','!=','leave']],'required':[['reason','=','leave']]}"
+                                       options="{'no_create':True}" 
+                                       context="{'form_view_ref':'mits_hr_leaves.leave_request_form'}"
+                                       domain="[('employee_id','=',employee_id),('state','=','validate'),
+                                       ]"/>
+                                <field name="exit_entry_type_id" options="{'no_create':True}" required="1"/>
+                                <field name="linked_loan_request_id" readonly="1"/>
+                                <field name="one_mutli" required="1"/>
+                                <field name="min_months" readonly="1"/>
+                                <field name="min_charge" readonly="1"/>
+                                <field name="additional_month_cost"/>
+                                <field name="air_ticket_request_id" options="{'no_create':True}"
+                                       domain="[['state','=','approved'],['employee_id','=',employee_id]]"
+                                       attrs="{'invisible':[['reason','!=','air_ticket']],'required':[['reason','=','air_ticket']]}"/>
+                            </group>
+                            <group>
+                                <field name="duration_in_month"/>
+                                <field name="expected_return_date" readonly="1"/>
+                                <field name="cost"/>
+                                <field name="company_share"/>
+                                <field name="employee_share"/>
+                                <field name="absheer" attrs="{'invisible':[['employee_share','&lt;=',0]]}"/>
+                                <field name="employee_payment_method" attrs="{'invisible':['|',['employee_share','&lt;=',0],['absheer','=',True]],
+                                    'required':['!','|',['employee_share','&lt;=',0],['absheer','=',True]]}"/>
+                            </group>
+                            <group string="Other information">
+                                <field name="loan_type_id" domain="[['state','=','Confirmed']]"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Attachemnts">
+                                <group string="Attachemnts">
+                                    <field name="attachment_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="file" required="1"/>
+                                            <field name="name" required="1"/>
+                                            <field name="note" required="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Notes">
+                                <group string="Notes">
+                                    <field name="note" nolabel="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="exit_entry_request_tree" model="ir.ui.view">
+            <field name="name">hr.exit.entry.type tree</field>
+            <field name="model">hr.exit.entry.request</field>
+            <field name="arch" type="xml">
+                <tree string="Exit and Re-entry Request">
+                    <field name="employee_id"/>
+                    <field name="contract_id"/>
+                    <field name="reason"/>
+                    <field name="leave_request_id"/>
+                    <field name="exit_entry_type_id"/>
+                    <field name="one_mutli"/>
+                    <field name="min_months"/>
+                    <field name="min_charge"/>
+                    <field name="additional_month_cost"/>
+                    <field name="duration_in_month"/>
+                    <field name="cost"/>
+                    <field name="company_share"/>
+                    <field name="employee_share"/>
+                    <field name="absheer"/>
+                    <field name="employee_payment_method"/>
+                    <field name="expected_travel_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="exit_entry_request_search" model="ir.ui.view">
+            <field name="name">hr.exit.entry.type search</field>
+            <field name="model">hr.exit.entry.request</field>
+            <field name="arch" type="xml">
+                <search string="Exit and Re-entry Request">
+                    <group expand="1" string="Group By">
+                        <filter string="Employee" name='Employee' context="{'group_by':'employee_id'}"/>
+                        <filter string="One time / Multiple" name='One time / Multiple' context="{'group_by':'one_mutli'}"/>
+                        <filter string="Reason" name='Reason' context="{'group_by':'reason'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="action_exit_entry_request" model="ir.actions.act_window">
+            <field name="name">Exit and Re-entry Request</field>
+            <field name="res_model">hr.exit.entry.request</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="exit_entry_menu" name="Exit and Re-entry" parent="hr_holidays.menu_hr_holidays_root" sequence="95"/>
+        <menuitem id="exit_entry_request_menu" name="Exit  and Re-entry Request" parent="exit_entry_menu" sequence="5" action="action_exit_entry_request"/>
+
+    </data>
+</odoo>

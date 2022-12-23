@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_sever_configuration_user,access_sever_configuration_user,model_sever_configuration,base.group_user,1,1,1,1
+
+access_attachment_file_save_user,access_attachment_file_save_user,model_attachment_file_save,base.group_user,1,1,1,1
+

@@ -1,0 +1,101 @@
+<odoo>
+    <data>
+
+        <record id="pos_payment_method_view_form" model="ir.ui.view">
+            <field name="name">pos.payment.method.form</field>
+            <field name="model">pos.payment.method</field>
+            <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+            <field name="arch" type="xml">
+
+                <!-- <xpath expr="//field[@name='method_type']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath> -->
+
+                <xpath expr="//div[hasclass('oe_title')]" position="before">
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_1920'}"/>
+               
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_pos_order_tree_custom">
+            <field name="name">pos.order.view.tree</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='pos_reference']" position="replace">
+                    <field name="pos_reference_custom"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name_custom"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_pos_pos_form_custom">
+            <field name="name">pos.order.view.form</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <!-- <xpath expr="//field[@name='lines']/tree/field[@name='price_subtotal']" position="attributes">
+                    <attribute name="widget"></attribute>
+                </xpath>
+                <xpath expr="//field[@name='amount_tax']" position="attributes">
+                    <attribute name="widget"></attribute>
+                </xpath> -->
+                <xpath expr="//field[@name='pos_reference']" position="replace">
+                    <field name="pos_reference_custom"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name_custom"/>
+                </xpath>
+                <xpath expr="//field[@name='table_id']" position="after">
+                    <field name="return_to_wallet" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='lines']/tree/field[@name='tax_ids_after_fiscal_position']" position="before">
+                    <field name="product_note_ids" widget="many2many_tags"/>
+                    <field name="product_extra_ids" widget="many2many_tags"/>
+                    <field name="product_addons_ids" widget="many2many_tags"/>
+
+                </xpath>
+                <xpath expr="//notebook/page[1]" position="after">
+                    <page name="deleted_product" string="Deleted Product">
+                        <field name="line_delete_ids" readonly="1" force_save="1">
+                            <tree editable="bottom">
+                                <field name="product_id"/>
+                                <field name="price"/>
+                                <field name="quantity"/>
+                                <field name="order_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="product_line_ids" string="Products Line">
+                        <field name="product_line_ids" readonly="1" force_save="1">
+                            <tree editable="bottom">
+                                <field name="main_product_id"/>
+                                <field name="product_id"/>
+                                <field name="quantity"/>
+                                <field name="pos_order_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,send_to_kitchen,ready,paid,done" />
+                </xpath>
+                <field name="invoice_group" position="after">
+                    <field name="order_type_id" />
+                    <field name="return_reason_id" />
+                    <field name="return_order_id" readonly="1"/>
+                    <field name="discount_type_id" />
+                    <field name="driver_id" />
+                    <field name="mobile_ref" readonly="1"/>
+                    <field name="d_o_number"/>
+                    <field name="commission" readonly="1"/>
+                    <field name="commission_after_tax" readonly="1"/>
+                    <field name="qr_code" readonly="1"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

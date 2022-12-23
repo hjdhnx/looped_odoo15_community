@@ -1,0 +1,209 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pos_config_tree">
+      <field name="name">pos.config.tree</field>
+      <field name="model">pos.config</field>
+      <field name="inherit_id" ref="point_of_sale.view_pos_config_tree"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='company_id']" position="after">
+          <button string="Orders" name="action_show_orders" type="object" class="btn-primary"/>
+          <button string="Sessions" name="action_show_sessions" type="object" class="btn-primary"/>
+        </xpath>
+
+
+      </field>
+    </record>
+
+    <record id="pos_config_view_form" model="ir.ui.view">
+      <field name="name">pos.config.form.view</field>
+      <field name="model">pos.config</field>
+      <field name="arch" type="xml">
+        <form string="Point of Sale Configuration" js_class="pos_config_form">
+          <sheet>
+            <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+            <field name="active" invisible="1"/>
+            <field name="currency_id" invisible="1"/>
+            <field name="selectable_categ_ids" invisible="1"/>
+            <field name="is_installed_account_accountant" invisible="1"/>
+            <field name="company_has_template" invisible="1"/>
+            <field name="allowed_pricelist_ids" invisible="1"/>
+            <field name="has_active_session" invisible="1"/>
+            <div class="oe_title" id="title">
+              <label for="name"/>
+              <h1>
+                <field name="name" placeholder="e.g. NYC Shop"/>
+              </h1>
+            </div>
+            <div class="o_notification_alert alert alert-warning" attrs="{'invisible':[('has_active_session','=', False)]}" role="alert">
+                        A session is currently opened for this PoS. Some settings can only be changed after the session is closed.
+              <button class="btn" style="padding:0" name="open_ui" type="object">Click here to close the session</button>
+            </div>
+
+            <group>
+              <group>
+                <field name="code" />
+                <field name="server_pin_code" />
+                <field name="module_pos_restaurant" attrs="{'readonly': [('has_active_session','=', True)]}"/>
+                <div/>
+                <button class="btn-primary oe_inline" name="get_pin_Code" type="object" string="Get Server Pin Code"/>
+
+                <field name="company_id" />
+              </group>
+              <group>
+
+
+
+              </group>
+            </group>
+
+            <notebook>
+              <page string="General Setting" name="general_setting">
+                <group>
+                  <group>
+                    <field name="pos_type_id" string="Pos Type"/>
+                    <field name="is_main_kds" attrs="{'invisible': [('pos_type_id', '!=', 4)]}"/>
+                    <field name="available_pricelist_ids" string="Available Pricelist" widget="many2many_tags"/>
+                    <field name="pricelist_id" string="Default Pricelist"/>
+                    <field name="order_type_active"/>
+                    <field name="order_type_ids" widget="many2many_tags" attrs="{'invisible':[('order_type_active','=',False)]}"/>
+
+                    <field name="order_type_payment_method_ids" domain="[('company_id', '=', company_id)]" context="{'default_company_id': company_id}" widget="many2many_tags" readonly="1" force_save = "1" attrs="{'invisible':[('order_type_active','=',False)]}"/>
+
+                    <field name="default_type_order_type_id" attrs="{'required':[('order_type_active','=',True)],'invisible':[('order_type_active','=',False)]}"/>
+
+                    <field name="product_calories" />
+                    <field name="discount_program_active"/>
+                    <field name="pin_code" attrs="{'invisible':[('discount_program_active','=',False)]}"/>
+                    <field name="aval_discount_program" widget="many2many_tags" attrs="{'invisible':[('discount_program_active','=',False)]}"/>
+                    <!-- <field name="discount_product_id"/> -->
+                    <field name="discount_program_product_id" attrs="{'invisible':[('discount_program_active','=',False)]}"/>
+                    <field name="promotion_auto_add"/>
+                    <field name="promotion_ids" widget="many2many_tags"/>
+                    <field name="active_wallet"/>
+                    <field name="wallet_id"
+                    attrs="{'invisible':[('active_wallet','=',False)],'required':[('active_wallet','=',True)]}"/>
+
+                  </group>
+                </group>
+              </page>
+
+              <page string="Receipt Proprieties" name="receipt_proprieties">
+                <group>
+                  <field name="receipt_header" widget="html"/>
+                  <field name="website_confirm_order_meesage" widget="html"/>
+                  <field name="receipt_footer" widget="html"/>
+                  <field name="whatsapp_message_receipt" widget="html"/>
+                  <field name="whatsapp_send_type"/>
+                </group>
+              </page>
+
+              <page string="Floor and Table Setting" name="floor_table_setting">
+                <group>
+                  <group>
+
+                    <field name="is_table_management" attrs="{'readonly': [('has_active_session','=', True)]}"/>
+                    
+                    <field name="pos_floor_ids" string="Resturant Floors" widget="many2many_tags" attrs="{'invisible':[('is_table_management','=',False)]}" />
+                    
+                    <field name="is_order_printer" attrs="{'readonly': [('has_active_session','=', True)]}"/>
+
+                    <field name="printer_ids" widget="many2many_tags" attrs="{'invisible':[('is_order_printer','=',False)]}" />
+                    <field name="allow_split_table" />
+                    <field name="allow_transfer_table" />
+                    <field name="qrcode_order_screen" />
+
+
+
+                  </group>
+
+
+                </group>
+              </page>
+
+
+              <page string="Accounting and Inventory Setting" name="accounting_inventory_setting">
+                <group>
+                  <group>
+                    <field name="picking_type_id" />
+
+                    <field name="payment_method_ids" widget="many2many_tags" />
+                    <field name="return_payment_method_ids" widget="many2many_tags" required="1"/>
+                    
+                    <!-- <field name="payment_method_ids" widget="many2many_tags" /> -->
+
+                    <field name="branch_id" string="POS Branch" />
+
+                    <field name="journal_id" string="Sales Journal" />
+                    <field name="iface_tax_included" widget="radio"/>
+                    <field name="collection_journal"/>
+                  </group>
+                </group>
+              </page>
+
+              <page string="User Permission" name="user_permission">
+                <group>
+                  <group>
+                    <field name="user_ids" string="Authorized Users" widget="many2many_tags"/>
+
+                  </group>
+                </group>
+              </page>
+
+              <page string="Pos Info" name="pos_info">
+                <group>
+                  <group>
+                    <field name="exclude_product_ids" widget="many2many_tags"/>
+                    <field name="exclude_pos_categ_ids" widget="many2many_tags"/>
+                    <!-- <field name="exclude_pos_categ_ids" widget="many2many_tags"/> -->
+                     <field name="product_promotion_ids" widget="many2many_tags"/>
+
+                  </group>
+                </group>
+              </page>
+
+              <page string="Other Settings" name="other_settings">
+                <group>
+                  <group>
+                    <field name="pos_latitude" />
+                    <field name="pos_longitude" />
+                    <field name="multi_session_id" required="1"/>
+
+
+                  </group>
+                  <group>
+                    <field name="branch_address" />
+                    <field name="branch_phone" />
+
+
+                  </group>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="action_pos_config_pos" model="ir.actions.act_window">
+      <field name="name">Point of Sale</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">pos.config</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="point_of_sale.view_pos_config_search" />
+      <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('point_of_sale.view_pos_config_tree')}),
+            
+            (0, 0, {'view_mode': 'form', 'view_id': ref('looped_menus.pos_config_view_form')})]"/>
+
+    </record>
+
+    <menuitem id="menu_pos_config_pos" name="Point of Sale New" parent="point_of_sale.menu_point_config_product" sequence="3" action="action_pos_config_pos" groups="point_of_sale.group_pos_manager"/>
+
+
+  </data>
+</odoo>
+

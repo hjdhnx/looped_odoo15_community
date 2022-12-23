@@ -1,0 +1,82 @@
+<odoo>
+    <record id="view_import_inventory_adjustment_wizard" model="ir.ui.view">
+        <field name="name">import.inventory.adjustment.form</field>
+        <field name="model">import.inventory.adjustment</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="inventory_name"/>
+                        <field name="location"/>
+                        <field name="file_option" widget="radio"/>
+                        <div style="height:20px;"/>
+                        <field name="import_serial"/>
+                        <field name="import_location"/>
+                        <field name="product_by"/>
+                        <field name="import_file"/>
+                    </group>
+                    
+                </group>
+                <footer>
+                    <button name="import_inventory_adjustment_action" string="Import" type="object" default_focus="1" class="oe_highlight"/>
+                    <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    
+    <record model="ir.actions.act_window" id="action_import_inventory_adjustment_action">
+        <field name="name">Import Inventory Adjustment</field>
+        <field name="res_model">import.inventory.adjustment</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_import_inventory_adjustment_wizard"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+
+                <!--   Import Inventory Adjustment    -->
+        <record id="view_export_inventory_adjustment_wizard" model="ir.ui.view">
+        <field name="name">import.inventory.adjustment.form</field>
+        <field name="model">import.inventory.adjustment</field>
+        <field name="arch" type="xml">
+            <form>
+                <group string="Files for Inventory Adjustment ">
+                    <group>
+                        <div>
+                            <p>import_inventory_adjustment(name).csv <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment(name).csv" ><i class="fa fa-download"></i></a></p>
+                            <p>import_inventory_adjustment(name).xls <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment(name).xls" ><i class="fa fa-download"></i></a></p>
+
+                             <p>import_inventory_adjustment(name) (without expiray date).csv <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment(name) (without expiray date).csv" ><i class="fa fa-download"></i></a></p>
+                            <p>import_inventory_adjustment(name) (without expiray date) .xls <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment(name) (without expiray date) .xls" ><i class="fa fa-download"></i></a></p>
+                            <p>import_inventory_adjustment(name) (without inventory line).csv <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment(name) (without inventory line).csv" ><i class="fa fa-download"></i></a></p>
+                            <p>import_inventory_adjustment(name) (without inventory line).xls <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment(name) (without inventory line).xls" ><i class="fa fa-download"></i></a></p>
+
+                             <p>import_inventory_adjustment (barcode).csv <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment (barcode).csv" ><i class="fa fa-download"></i></a></p>
+                            <p>import_inventory_adjustment (barcode).xls <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment (barcode).xls" ><i class="fa fa-download"></i></a></p>
+                            <p>import_inventory_adjustment (barcode) (without expire date).csv <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment (barcode) (without expire date).csv" ><i class="fa fa-download"></i></a></p>
+                            <p>import_inventory_adjustment (barcode) (without expire date) .xls <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment (barcode) (without expire date) .xls" ><i class="fa fa-download"></i></a></p>
+
+                             <p>import_inventory_adjustment (code).csv <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment (code).csv" ><i class="fa fa-download"></i></a></p>
+                            <p>import_inventory_adjustment (code).xls <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment (code).xls" ><i class="fa fa-download"></i></a></p>
+
+                             <p>import_inventory_adjustment (code) (without expire date).csv <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment (code) (without expire date).csv" ><i class="fa fa-download"></i></a></p>
+                            <p>import_inventory_adjustment (code) (without expire date).xls <a href="import_bridge_axis/static/description/Inventory_adjustment/import_inventory_adjustment (code) (without expire date).xls" ><i class="fa fa-download"></i></a></p>
+                        </div>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Ok" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_export_inventory_adjustment_action">
+        <field name="name">Import Inventory Adjustment</field>
+        <field name="res_model">import.inventory.adjustment</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_export_inventory_adjustment_wizard"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

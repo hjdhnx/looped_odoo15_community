@@ -1,0 +1,27 @@
+<odoo>
+
+    <record id="attendance_sheet_form_view_batch_inherited" model="ir.ui.view">
+        <field name="name">attendance.sheet.form.view</field>
+        <field name="model">attendance.sheet</field>
+        <field name="inherit_id" ref="rm_hr_attendance_sheet.attendance_sheet_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='date_from']" position="before">
+                <field name="batch_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+            </xpath>
+
+        </field>
+    </record>
+    <!--<record id="view_inherit_hr_contract_form" model="ir.ui.view">
+        <field name="name">view.inherit.hr.contract.form</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+
+            &lt;!&ndash; position: after|before|replace|attributes|inside &ndash;&gt;
+            <xpath expr="//field[@name='first_contract_date']" position="after">
+                <field name="trial_date_end"/>
+            </xpath>
+
+        </field>
+    </record>-->
+</odoo>

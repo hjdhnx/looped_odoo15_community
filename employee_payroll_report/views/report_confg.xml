@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="report_employee_payslip_paperformat" model="report.paperformat">
+            <field name="name">Employee Payslip</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">0</field>
+            <field name="margin_bottom">23</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">50</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+        <report id="action_report_employee_payslip_pdf"
+                model="employee.payroll"
+                string="Employee Payroll Report"
+                name="employee_payroll_report.report_employee_payslip"
+                file="employee_payroll_report.report_employee_payslip"
+                report_type="qweb-pdf"
+        />
+
+    </data>
+</odoo>

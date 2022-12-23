@@ -1,0 +1,129 @@
+<odoo>
+    <data>
+
+        <record id="wizard_payslip_review_view" model="ir.ui.view">
+            <field name="name">wizard.payslip.review.form</field>
+            <field name="model">wizard.payslip.review</field>
+            <field name="arch" type="xml">
+                <form string="Review Payslips">
+                    <p >
+                        Attention !!!<br />
+                        Are you sure that you want to review (<field	name="number_of_records" readonly="1"/>) payslips؟ If you accept, your system will click on ( Review ) for each individual
+                        Payslip which in ( Draft ) status. this may take several minutes.
+                    </p>
+                    <footer>
+                        <button string="Review Payslips" name="payslip_review" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+<!--<record id="action_hr_payslip_review" model="ir.actions.act_window">-->
+<!--        <field name="name">Multi Review</field>-->
+<!--        <field name="res_model">wizard.payslip.review</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="target">new</field>-->
+<!--        <field name="context">{-->
+<!--         }</field>-->
+<!--        <field name="binding_model_id" ref="hr_payroll.model_hr_payslip"/>-->
+<!--        <field name="binding_view_types">form</field>-->
+<!--    </record>-->
+
+<!-- 
+        <act_window id="action_hr_payslip_review"
+            multi="True"
+            key2="client_action_multi"
+            name="Multi Review"
+            res_model="wizard.payslip.review"
+            src_model="hr.payslip"
+            view_mode="form"
+            target="new"
+            view_type="form" /> -->
+
+        <record id="wizard_payslip_final_review_view" model="ir.ui.view">
+            <field name="name">wizard.payslip.final.review.form</field>
+            <field name="model">wizard.payslip.final.review</field>
+            <field name="arch" type="xml">
+                <form string="Final Review Payslips">
+                    <p >
+                        Attention !!!<br />
+                        Are you sure that you want to Final review (<field	name="number_of_records" readonly="1"/>) payslips؟ If you accept, your system will
+                        click on ( Final Review ) for each individual Payslip which in ( Reviewed ) status. This may take several minutes.
+                    </p>
+                    <footer>
+                        <button string="Final Review Payslips" name="payslip_final_review" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- <act_window id="action_hr_payslip_final_review"
+            multi="True"
+            key2="client_action_multi"
+            name="Multi Final Review"
+            res_model="wizard.payslip.final.review"
+            src_model="hr.payslip"
+            view_mode="form"
+            target="new"
+            view_type="form" /> -->
+
+        <record id="wizard_payslip_confirm_view" model="ir.ui.view">
+            <field name="name">wizard.payslip.confirm.form</field>
+            <field name="model">wizard.payslip.confirm</field>
+            <field name="arch" type="xml">
+                <form string="Confirm Payslips">
+                    <p >
+                        Attention !!!<br />
+                        Are you sure that you want to Confirm (<field	name="number_of_records" readonly="1"/>) payslips؟ If you accept, your system will
+                        click on ( Confirm ) for each individual Payslip which in ( Final Reviewed ) status. This may take several minutes.
+                    </p>
+                    <footer>
+                        <button string="Confirm Payslips" name="payslip_confirm" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- <act_window id="action_hr_payslip_confirm"
+            multi="True"
+            key2="client_action_multi"
+            name="Multi Confirm"
+            res_model="wizard.payslip.confirm"
+            src_model="hr.payslip"
+            view_mode="form"
+            target="new"
+            view_type="form" /> -->
+
+        <record id="wizard_payslip_draft_view" model="ir.ui.view">
+            <field name="name">wizard.payslip.draft.form</field>
+            <field name="model">wizard.payslip.draft</field>
+            <field name="arch" type="xml">
+                <form string="Set Payslips To Draft">
+                    <p >
+                        Attention !!!<br />
+                        Are you sure that you want to Set (<field	name="number_of_records" readonly="1"/>) payslips to Draft؟ If you accept, your system will
+                        click on ( Set to draft ) for each individual Payslip which in (Reviewed or Final Reviewed or Rejected) status. This may take several minutes.
+                    </p>
+                    <footer>
+                        <button string="Set Payslips To Draft" name="payslip_set_draft" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+<!-- 
+        <act_window id="action_hr_payslip_draft"
+            multi="True"
+            key2="client_action_multi"
+            name="Multi Set To Draft"
+            res_model="wizard.payslip.draft"
+            src_model="hr.payslip"
+            view_mode="form"
+            target="new"
+            view_type="form" /> -->
+
+
+    </data>
+</odoo>

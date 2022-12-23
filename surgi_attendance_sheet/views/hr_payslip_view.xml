@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--        <record id="hr_payslip_view_form" model="ir.ui.view">-->
+<!--            <field name="name">hr.payslip.form</field>-->
+<!--            <field name="model">hr.payslip</field>-->
+<!--            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>-->
+<!--            <field name="arch" type="xml">-->
+
+<!--                <xpath expr="//field[@name='input_line_ids']" position="after">-->
+<!--                    <separator string="Attendance Penalties"/>-->
+<!--                    <field name="penalty_ids" colspan="4" nolabel="1">-->
+<!--                        <tree string="Penalties Data" editable="bottom" create="0" edit="0">-->
+<!--                            <field name="name"/>-->
+<!--                            <field name="date"/>-->
+<!--                            <field name="accrual_date"/>-->
+<!--                            <field name="type"/>-->
+<!--                            <field name="employee_id"/>-->
+<!--                            <field name="sheet_id"/>-->
+<!--                            <field name="amount" sum="Total"/>-->
+<!--                        </tree>-->
+<!--                    </field>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//button[@name='refund_sheet']" position="attributes">-->
+<!--                    <attribute name="confirm">-->
+<!--                    Attention !! If you created a refund for this payslip, your system will create a new payslip for the same employee and same period with negative values to reverse old payslip effect.Are you sure that you want to continue ?-->
+<!--                    </attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//button[@name='action_payslip_cancel']" position="attributes">-->
+<!--                    <attribute name="attrs">{'invisible':[('state','=','draft')]}</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//button[@name='action_payslip_done']" position="attributes">-->
+<!--                    <attribute name="invisible">0</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//button[@name='hr_verify_sheet']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//button[@name='draft']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//button[@name='final_review_payslip']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//button[@name='review_payslip']" position="replace">-->
+<!--                    &lt;!&ndash; <attribute name="states">Final Reviewed</attribute> &ndash;&gt;-->
+<!--                    <button string="Review" name="review_payslip" type="object" states="Final Reviewed" class="oe_highlight"/>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//button[@name='compute_sheet']" position="attributes">-->
+<!--                    <attribute name="states">Reviewed</attribute>-->
+<!--                    <attribute name="string">Confirm Compute</attribute>-->
+<!--                    <attribute name="context">{'is_check_percentage':True}</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//button[@name='action_refresh_from_work_entries']" position="replace">-->
+
+<!--                </xpath>-->
+<!--                <xpath expr="//button[@name='compute_sheet']" position="before">-->
+<!--                    <button string="Recompute" name="action_refresh_from_work_entries" type="object" states="Reviewed" class="oe_highlight"/>-->
+
+<!--                </xpath>-->
+
+<!--                <xpath expr="//button[@name='action_payslip_done']" position="after">-->
+<!--                    <button string="Get Penalties" name="action_set_penalty" type="object" attrs="{'invisible':[('state','!=','draft')]}" class="oe_highlight"/>-->
+<!--&lt;!&ndash; -->
+<!--                    <button string="Set To Drat" name="action_set_to_draft" type="object" class="oe_highlight"/> &ndash;&gt;-->
+
+
+<!--                </xpath>-->
+
+
+<!--            </field>-->
+<!--        </record>-->
+    </data>
+</odoo>

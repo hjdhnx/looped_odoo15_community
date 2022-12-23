@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_end_of_service_tree" model="ir.ui.view">
+            <field name="name">hr.end_of_service.tree</field>
+            <field name="model">hr.end_of_service</field>
+            <field name="arch" type="xml">
+                <tree string="End of Service" default_order="name desc">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="job_id" />
+                    <field name="department_id" />
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record id="hr_end_of_service_form" model="ir.ui.view">
+            <field name="name">hr.end_of_service.form</field>
+            <field name="model">hr.end_of_service</field>
+            <field name="arch" type="xml">
+                <form string="Employee Gratuity">
+                    <header>
+                        <field name="direct_manager" invisible="1"/>
+                        <field name="is_manager" invisible="1"/>
+
+                        <button name="action_submit" string="Submit" type="object" class="btn-primary" states="draft"/>
+
+
+                        <button name="action_direct_manager" string="Direct Manager Approve" attrs="{'invisible': ['|',('state','!=','submited'),('is_manager','=',False)]}" type="object" class="btn-primary" />
+                        <button name="action_department_manager" string="Department Manager  Approve" attrs="{'invisible': ['|',('state','!=','direct_manager'),('is_manager','=',False)]}"  type="object" class="btn-primary" />
+                        <button name="action_hr_manager" string="HR Manager  Approve" type="object" class="btn-primary" states="department_manager" groups="hr.group_hr_manager"/>
+                        <button name="action_ceo_manager" string="CEO Manager  Approve" type="object" class="btn-primary" states="hr_manager"/>
+                        <button name="action_complete" string="Complete" type="object" class="btn-primary" states="ceo_manager" groups="hr.group_hr_manager"/>
+                        <button name="action_pay" string="Pay" type="object" class="btn-primary" states="complete"/>
+                        <button name="action_refuse" string="Refuse" type="object" class="btn-primary" attrs="{'invisible' : [('state', 'in', ['draft','pay'])]}" groups="hr.group_hr_manager"/>
+
+                        <button name="set_to_draft" string="Set to draft" type="object" class="btn-primary" attrs="{'invisible' : [('state', 'in', ['draft',])]}" groups="hr.group_hr_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="submit,direct_manager,department_manager,hr_manager,ceo_manager,pay"/>
+                    </header>
+                    <sheet>
+                        <widget name="web_ribbon" text="Approved" bg_color="bg-success" attrs="{'invisible': [('state', '!=', 'approve')]}"/>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="name" readonly="1"/>
+                            </h2>
+                            <label for="employee_id" string="Employee Name" class="oe_edit_only" options="{&quot;no_create&quot;: True}"/>
+                            <h1>
+                                <field name="employee_id" string="Employee Name" placeholder="Employee" attrs="{'readonly':[('state','!=','draft')]}" required="True"/>
+                            </h1>
+                        </div>
+                        <group col="2" colspan="6">
+
+                            <field name="company_id" invisible="1" groups="base.group_multi_company"/>
+
+                            <group string="Employee Details">
+
+
+                                <field name="job_id" />
+
+                                <field name="contract_id" />
+
+                                <field name="hr_gratuity_id" required="1" attrs="{'readonly':[('state','!=','draft')]}" options="{&quot;no_create&quot;: True}"/>
+                                <field name="hr_resignation_id" required="1" domain="[('employee_id','=',employee_id),('state','=','approved')]" readonly="1" options="{&quot;no_create&quot;: True}"/>
+
+
+
+                                <field name="total_salary" />
+                                <field name="leave_balance" readonly="1" force_save="1" />
+                                <field name="leave_balance_money" readonly="1" force_save="1" />
+                                
+
+
+                            </group>
+
+                            <group >
+                                <field name="department_id" />
+
+                                <field name="contract_start_date" />
+                                <field name="expected_revealing_date" readonly="1" force_save="1"/>
+                                <field name="salary_date_from" readonly="1" force_save="1"/>
+                                <field name="salary_date_to" readonly="1" force_save="1"/>
+                                <field name="paid_duration" readonly="1" force_save="1"/>
+
+                            </group>
+
+
+
+                            <!-- <group string="Calculation Method">
+                                <field name="salary_for_eos" />
+
+
+                            </group> -->
+
+
+                            <group string="Service Duuration">
+                                <field name="employee_gratuity_only_years" string="Years"/>
+                                <field name="employee_gratuity_only_months" string="Months"/>
+                                <field name="employee_gratuity_only_days" string="Days"/>
+                            </group>
+
+                            <group string="Cause of Termination">
+                                <field name="resignation_reason_id" />
+                                <!-- <field name="journal_id" />
+                                <field name="termination_account_move" /> -->
+                                <field name="reason_text" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="comment_box" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+
+
+
+                        </group>
+
+
+                        <group string="Allowance Deductions">
+                            <group>
+                                <field name="hr_payslip" attrs="{'readonly':[('state','in',['hr_manager','ceo_manager','complete'])]}" domain="[('state','=','done'),('last_payslip','=',True)]" options="{&quot;no_create&quot;: True}"/>
+                            </group>
+                            <field name="line_ids" nolabel="1" readonly="1" force_save="1">
+                                <tree create="0" delete="0" edit="0">
+                                    <field name="name"/>
+                                    <!-- <field name="code"/> -->
+                                    <field name="category_id"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                            </field>
+                            <!-- <field name="allowance_deductions_ids" nolabel="1" readonly="1" force_save="1">
+                                <tree create="0" delete="0" edit="0">
+                                    <field name="rule_id"/>
+                                    <field name="category_id"/>
+                                    <field name="account_id" string="Remaining"/>
+                                    <field name="account_code"/>
+                                    <field name="amount"/>
+                                    <field name="end_of_service_id" invisible="1"/>
+                                </tree>
+                            </field> -->
+
+
+
+                        </group>
+
+
+                        <group string="Loans">
+                            <field name="loan_ids" nolabel="1" readonly="1" force_save="1">
+                                <tree create="0" delete="0" edit="0">
+                                    <field name="name"/>
+                                    <field name="loan_type"/>
+                                    <field name="loan_left_amount" string="Remaining"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </group>
+
+
+                        <group string="Rewards">
+                            <field name="reward_ids" nolabel="1" readonly="1" force_save="1">
+                                <tree create="0" delete="0" edit="0">
+                                    <field name="code"/>
+                                    <field name="reward_date" string="Date"/>
+                                    <field name="reward_typ_id" string="Type"/>
+                                    <field name="amount" />
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+
+
+
+                        </group>
+                        <field name="show_petty_cash" invisible="1"/>
+                        <field name="show_custody" invisible="1"/>
+
+                        <group string="Petty Cash" attrs="{'invisible':[('show_petty_cash','=',False)]}">
+                            <field name="petty_cash_ids" nolabel="1" readonly="1" force_save="1">
+                                <tree create="0" delete="0" edit="0">
+                                    <field name="name"/>
+                                    <field name="payment_date" string="Date"/>
+                                    <field name="amount" />
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </group>
+
+
+                        <group string="Custodies" attrs="{'invisible':[('show_custody','=',False)]}">
+                            <field name="hr_custody_ids" nolabel="1" readonly="1" force_save="1">
+                                <tree create="0" delete="0" edit="0">
+                                    <field name="name"/>
+                                    <field name="item_id"/>
+                                    <field name="date_request" />
+                                    <field name="return_date" />
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+
+
+
+                        </group>
+
+
+
+                        <group>
+                            <group string="Totals">
+                                <field name="total_loans"/>
+                                <field name="total_alw" string="Total Allowance"/>
+                                <field name="total_ded" string="Total Deductions"/>
+                                <field name="total_net" />
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_end_of_service" model="ir.actions.act_window">
+            <field name="name">End Of Service</field>
+            <field name="res_model">hr.end_of_service</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="main_menu_hr_end_of_service" name="End of Service" sequence="71" groups="hr.group_hr_user" web_icon="hr_end_of_service,static/description/icon.jpeg"/>
+        <menuitem id="menu_hr_end_of_Service" name="End Of Service" parent="main_menu_hr_end_of_service" action="action_end_of_service" sequence="1" groups="hr.group_hr_user"/>
+
+
+
+
+        <record id="view_hr_payslip_form" model="ir.ui.view">
+            <field name="name">hr.payslip.form</field>
+            <field name="model">hr.payslip</field>
+
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <field name="contract_id" position="after">
+                    <field name="last_payslip"/>
+                </field>
+
+
+            </field>
+        </record>
+    </data>
+</odoo>

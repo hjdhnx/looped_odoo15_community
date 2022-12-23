@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="key_type_1" model="key.type">
+            <field name="name">login</field>
+        </record>
+
+        <record id="key_type_2" model="key.type">
+            <field name="name">open_session</field>
+        </record>
+
+        <record id="key_type_3" model="key.type">
+            <field name="name">close_session</field>
+        </record>
+
+        <record id="key_type_4" model="key.type">
+            <field name="name">print_last_session_report</field>
+        </record>
+
+        <record id="key_type_5" model="key.type">
+            <field name="name">records</field>
+        </record>
+
+        <record id="key_type_6" model="key.type">
+            <field name="name">reports</field>
+        </record>
+
+        <record id="key_type_7" model="key.type">
+            <field name="name">display_promotions</field>
+        </record>
+
+        <record id="key_type_8" model="key.type">
+            <field name="name">application_settings</field>
+        </record>
+
+        <record id="key_type_9" model="key.type">
+            <field name="name">pos_settings</field>
+        </record>
+
+        <record id="key_type_10" model="key.type">
+            <field name="name">change_user</field>
+        </record>
+
+        <record id="key_type_11" model="key.type">
+            <field name="name">payment_device</field>
+        </record>
+
+        <record id="key_type_12" model="key.type">
+            <field name="name">printing_settings</field>
+        </record>
+
+        <record id="key_type_13" model="key.type">
+            <field name="name">odoo_connection_settings</field>
+        </record>
+
+        <record id="key_type_14" model="key.type">
+            <field name="name">app_settings</field>
+        </record>
+ 
+        <record id="key_type_16" model="key.type">
+            <field name="name">app_log</field>
+        </record>
+
+        <record id="key_type_17" model="key.type">
+            <field name="name">multi_session</field>
+        </record>
+        <record id="key_type_18" model="key.type">
+            <field name="name">change_casher_pin_code</field>
+        </record>
+
+
+        <record id="key_type_19" model="key.type">
+            <field name="name">order_type</field>
+        </record>
+
+
+        <record id="key_type_20" model="key.type">
+            <field name="name">discount</field>
+        </record>
+        <record id="key_type_21" model="key.type">
+            <field name="name">invoice_note</field>
+        </record>
+
+
+        <record id="key_type_22" model="key.type">
+            <field name="name">draft_print</field>
+        </record>
+
+        <record id="key_type_23" model="key.type">
+            <field name="name">delete_order</field>
+        </record>
+
+        <record id="key_type_24" model="key.type">
+            <field name="name">split_order</field>
+        </record>
+
+        <record id="key_type_25" model="key.type">
+            <field name="name">add_coupon</field>
+        </record>
+
+        <record id="key_type_26" model="key.type">
+            <field name="name">transfer_table</field>
+        </record>
+
+        <record id="key_type_27" model="key.type">
+            <field name="name">return_order</field>
+        </record>
+  
+        <record id="key_type_28" model="key.type">
+            <field name="name">add_customer</field>
+        </record>
+
+        <record id="key_type_29" model="key.type">
+            <field name="name">delete_item</field>
+        </record>
+
+        <record id="key_type_30" model="key.type">
+            <field name="name">scrap_item</field>
+        </record>
+
+        <record id="key_type_31" model="key.type">
+            <field name="name">order_payment_process</field>
+        </record>
+
+        <record id="key_type_32" model="key.type">
+            <field name="name">delete_all</field>
+        </record>
+
+        <record id="key_type_33" model="key.type">
+            <field name="name">all_order_tap</field>
+        </record>
+    </data>
+</odoo>

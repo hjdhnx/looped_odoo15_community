@@ -1,0 +1,65 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record id="pos_discount_program_form" model="ir.ui.view">
+      <field name="name">pos.discount_program.form</field>
+      <field name="model">pos.discount_program</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <div class="oe_title">
+
+              <h1>
+                <field name="name" placeholder="Name"/>
+              </h1>
+            </div>
+            <group string="" colspan="2" col="2">
+              <field name="discount_type"/>
+              <field name="require_customer"/>
+              <!-- <field name="customer_restricted"/> -->
+              <field name="amount"/>
+              <field name="pos_category_ids" widget="many2many_tags"/>
+              <field name="pos_applied" widget="many2many_tags"/>
+              <field name="company_id" groups="base.group_multi_company"/>
+              <field name="branch_id" groups="branch.group_multi_branch"/>
+              <field name="discount_program_product_id"/>
+            </group>
+
+
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="pos_discount_program_tree" model="ir.ui.view">
+      <field name="name">pos.discount_program.tree</field>
+      <field name="model">pos.discount_program</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="discount_type"/>
+          <field name="require_customer"/>
+          <!-- <field name="customer_restricted"/> -->
+          <field name="amount"/>
+          <field name="company_id" groups="base.group_multi_company"/>
+          <field name="branch_id" groups="branch.group_multi_branch"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="pos_discount_program_action">
+      <field name="name">Discount Program</field>
+      <field name="res_model">pos.discount_program</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_pos_discount_program_menu" parent="point_of_sale.menu_point_config_product" action="pos_discount_program_action" name="Discount Program" sequence="5" groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+
+
+  </data>
+</odoo>

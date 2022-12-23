@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+    <record	id="early_leave_reconciliation_wizard"	model="ir.ui.view">
+            <field	name="name">early leave reconciliation wizard</field>
+            <field	name="model">early.leave.reconciliation.wizard</field>
+            <field	name="arch"	type="xml">
+                <form>
+                    <group>
+                        <div>
+                            This employee returned early from an annual leave,
+                        </div>
+                    </group>
+                    <group>
+                        <div>
+                            <div>
+                                <label for="choice" />
+                            </div>
+                            <div>
+                                <field	name="choice" widget="radio" />
+                            </div>
+                        </div>
+                    </group>
+                    <footer>
+                        <button name="apply" type="object" string="Apply"/>
+                        <button	special="cancel" string="Refuse"/>
+                    </footer>
+                 </form>
+            </field>
+    </record>
+
+
+    </data>
+</odoo>

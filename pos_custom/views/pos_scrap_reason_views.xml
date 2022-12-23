@@ -1,0 +1,85 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record id="pos_scrap_reason_form" model="ir.ui.view">
+      <field name="name">pos.scrap_reason.form</field>
+      <field name="model">pos.scrap_reason</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="short_name"/>
+              <field name="arbic_name"/>
+            </group>
+            <group string="Description">
+              <field name="desc" nolabel="1"/>
+            </group>
+            <group >
+              <field name="company_id" groups="base.group_multi_company"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="pos_scrap_reason_tree" model="ir.ui.view">
+      <field name="name">pos.scrap_reason.tree</field>
+      <field name="model">pos.scrap_reason</field>
+      <field name="arch" type="xml">
+        <tree>
+          <!-- <field name="name"/> -->
+          <field name="short_name"/>
+          <field name="desc"/>
+           <field name="company_id" groups="base.group_multi_company"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="pos_scrap_reason_action">
+      <field name="name">Scrap Reasons</field>
+      <field name="res_model">pos.scrap_reason</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_pos_scrap_reason_menu" parent="point_of_sale.menu_point_config_product" 
+    action="pos_scrap_reason_action" name="Scrap Reasons" sequence="4" 
+    groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="pos_custom.action_server">
+      <field name="name">pos_custom server</field>
+      <field name="model_id" ref="model_pos_custom_pos_custom"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="pos_custom" id="pos_custom.menu_root"/>
+-->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="pos_custom.menu_1" parent="pos_custom.menu_root"/>
+    <menuitem name="Menu 2" id="pos_custom.menu_2" parent="pos_custom.menu_root"/>
+-->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="pos_custom.menu_1_list" parent="pos_custom.menu_1" action="pos_custom.action_window"/>
+    <menuitem name="Server to list" id="pos_custom" parent="pos_custom.menu_2" action="pos_custom.action_server"/>
+-->
+  </data>
+</odoo>

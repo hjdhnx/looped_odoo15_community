@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="stock_scrap_form_view_custom">
+            <field name="name">stock.scrap.view.form</field>
+            <field name="model">stock.scrap</field>
+            <field name="inherit_id" ref="stock.stock_scrap_form_view"/>
+            <field name="arch" type="xml">
+                <sheet position="inside">
+                    <group>
+                        <group>
+                            <field name="scrap_reason_id" />
+                            <field name="pos_order_id"/>
+                            <field name="pos_session_id" />
+                            <field name="pos_config_id" />
+                            <field name="pos_categ_id" invisible="1"/>
+                        </group>
+                        <group>
+
+                        </group>
+                    </group>
+                </sheet>
+            </field>
+        </record>
+
+    </data>
+</odoo>

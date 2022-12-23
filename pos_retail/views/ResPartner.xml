@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field eval="1" name="priority"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <div class="oe_title">
+                        <label for="arbic_name"/>
+                        <h1>
+                            <field name="arbic_name"/>
+                        </h1>
+                    </div>
+                </xpath>
+                <xpath expr="//page[@name='internal_notes']" position="before">
+                    <page string="Point of sale" name="pos" groups="point_of_sale.group_pos_manager">
+                        <group>
+                            <group string="Type">
+                                <field name="pos_partner_type_id"/>
+                                <field name="pos_total_amount"/>
+                            </group>
+                            <group string="Promotion">
+                                <field name="birthday_date"/>
+                                <field name="group_ids" widget="many2many_tags"/>
+                                <field name="mobile_ref" readonly="1"/>
+                            </group>
+                            <group string="Wallet">
+                                <field name="wallet_balance"/>
+                            </group>
+                            <!-- <group string="Loyalty">
+                                <field name="pos_loyalty_point_import" invisible="1"/>
+                                <field name="pos_loyalty_point"/>
+                                <field name="pos_loyalty_return_point"/>
+                                <field name="pos_loyalty_net_point"/>
+                                <field name="pos_loyalty_type"/>
+                                <field name="pos_loyalty_point_ids" nolabel="1" colspan="4">
+                                    <tree string="Point Histories" editable="bottom">
+                                        <field name="create_uid"/>
+                                        <field name="create_date"/>
+                                        <field name="point"/>
+                                        <field name="type"/>
+                                        <field name="end_date"/>
+                                        <field name="state"/>
+                                        <field name="is_return"/>
+                                    </tree>
+                                </field>
+                            </group> -->
+                        </group>
+                    </page>
+                    <page string="Other Address" name="other_address">
+                        <group string="Address">
+                            <field name="other_address_ids" nolabel="1" colspan="4">
+                                <tree string="Address" editable="bottom">
+                                    <field name="title"/>
+                                    <field name="details"/>
+                                    <field name="latlong"/>
+                                    <field name="is_primary" readonly="1"/>
+                                </tree>
+                            </field>
+                            <!-- <div class="o_address_format">
+                                <field name="other_street" placeholder="Street..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="other_street2" placeholder="Street 2..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="other_city" placeholder="City" class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="other_state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"/>
+                                <field name="other_zip" placeholder="ZIP" class="o_address_zip" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="other_country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}' attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                            </div> -->
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

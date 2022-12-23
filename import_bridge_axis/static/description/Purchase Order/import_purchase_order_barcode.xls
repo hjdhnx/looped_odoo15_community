@@ -1,0 +1,4 @@
+Order,Partner,Product ,Quantity,Uom,Description,Price,Salesperson,Tax,Date,Payment Terms
+POO037,Azure Interior,12345,1,Units,Large Cabinet product order.,10000,Mitchell Admin,Gst 2%,03/31/2020,Immediate Payment
+POO038,Azure Interior,6789,2,g,I want Cabinet With Doors.,10000,Mitchell Admin,Gst 2%,03/31/2020,10 Days
+POO038,Azure Interior,8907,3,kg,Large Cabinet product order.,456,Mitchell Admin,Gst 2%,03/31/2020,10 Days

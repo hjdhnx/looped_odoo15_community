@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <record id="max_deduction_percentage" model="ir.config_parameter">
+            <field name="key">max_deduction_percentage</field>
+            <field name="value">0</field>
+        </record>
+
+    </data>
+</odoo>

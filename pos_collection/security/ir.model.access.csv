@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_collection_wizard,access_pos_collection_wizard,model_pos_collection_wizard,base.group_user,1,1,1,1
+access_pos_accountant_collection_wizard,access_pos_accountant_collection_wizard,model_pos_collection_accountant_wizard,base.group_user,1,1,1,1

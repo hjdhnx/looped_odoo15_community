@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Contract Form view-->
+        <record id="hr_contract_form_inherit" model="ir.ui.view">
+            <field name="name">hr.contract.form</field>
+            <field name="model">hr.contract</field>
+            <!-- <field name="inherit_id" ref="hr_payroll_account.hr_contract_form_inherit"/> -->
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <button name="toggle_locked" type="object" class="oe_highlight" string="Lock" attrs="{'invisible': [('locked', '=', True)]}" context="{'button_toggle' : True}"/>
+                    <button name="toggle_locked" type="object" class="oe_highlight" string="Unlock" attrs="{'invisible': [('locked', '=', False)]}" context="{'button_toggle' : True}"/>
+                    <field name="locked" invisible="1"/>
+                </field>
+                <field name="employee_id" position="replace">
+                    <field name="employee_id" on_change="onchange_employee_id(employee_id)"/>
+                    <field name="employee_eng_name" readonly="1"/>
+                    <field name="employee_number" readonly="1"/>
+                </field>
+                <!-- <field name="type_id" position="attributes">
+                    <attribute name="options">{&quot;no_open&quot;: True, &quot;no_create&quot;: True}</attribute>
+                </field>
+                <field name="type_id" position="after">
+                    <field name="active"/>
+                </field> -->
+                <field name="job_id" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </field>
+                <field name="job_id" position="after">
+                    <field name="business_owner_id" readonly="1" force_save="1"/>
+                    <field name="marital" required="1"/>
+                </field>
+                <field name="department_id" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                    <attribute name="force_save">1</attribute>
+                </field>
+                <field name="notes" position="replace"/>
+                <xpath expr="//field[@name='date_end']" position="after">
+                    <label for="notice_days"/>
+                    <div class="o_row">
+                        <field name="notice_days"/>
+                        <span> days</span>
+                    </div>
+                </xpath>
+                <xpath expr="//notebook/page[1]" position="after">
+                    <!-- <notebook> -->
+                    <page name="salary_allowance" string="Salary and Allowances">
+                        <group>
+                            <group string="During Trial Period">
+                                <field name="trial_wage"/>
+                                <label for="trial_house_allowance_type"/>
+                                <div name="trial_house_allowance">
+                                    <field name="trial_house_allowance_type" class="oe_inline"/>
+                                        -
+                                    <field name="trial_house_allowance" class="oe_inline"/>
+                                        -
+                                    <field name="trial_house_allowance_amount" class="oe_inline"/>
+                                </div>
+                                <label for="trial_transportation_allowance_type"/>
+                                <div name="trial_transportation_allowance">
+                                    <field name="trial_transportation_allowance_type" class="oe_inline"/>
+                                        -
+                                    <field name="trial_transportation_allowance" class="oe_inline"/>
+                                        -
+                                    <field name="trial_transportation_allowance_amount" class="oe_inline"/>
+                                </div>
+                                <label for="trial_phone_allowance_type"/>
+                                <div name="trial_phone_allowance">
+                                    <field name="trial_phone_allowance_type" class="oe_inline"/>
+                                        -
+                                    <field name="trial_phone_allowance" class="oe_inline"/>
+                                        -
+                                    <field name="trial_phone_allowance_amount" class="oe_inline"/>
+                                </div>
+                                <field name="trial_insurance"/>
+                                <field name="trial_commission"/>
+                                <field name="trial_other_allowance"/>
+                                <field name="trial_other_allowance_name"/>
+                                <field name="trial_total"/>
+                            </group>
+                            <group string="After Trial Period">
+                                <field name="basic_salary" string="Basic Salary"/>
+                                <field name="wage" invisible="1"/>
+                                <label for="house_allowance_type"/>
+                                <div name="house_allowance">
+                                    <field name="house_allowance_type" class="oe_inline"/>
+                                        -
+                                    <field name="house_allowance" class="oe_inline"/>
+                                        -
+                                    <field name="house_allowance_amount" class="oe_inline"/>
+                                </div>
+                                <label for="transportation_allowance_type"/>
+                                <div name="transportation_allowance">
+                                    <field name="transportation_allowance_type" class="oe_inline"/>
+                                        -
+                                    <field name="transportation_allowance" class="oe_inline"/>
+                                        -
+                                    <field name="transportation_allowance_amount" class="oe_inline"/>
+                                </div>
+                                <label for="phone_allowance_type"/>
+                                <div name="phone_allowance">
+                                    <field name="phone_allowance_type" class="oe_inline"/>
+                                        -
+                                    <field name="phone_allowance" class="oe_inline"/>
+                                        -
+                                    <field name="phone_allowance_amount" class="oe_inline"/>
+                                </div>
+
+                                <label for="food_allowance_type"/>
+                                <div name="food_allowance">
+                                    <field name="food_allowance_type" class="oe_inline"/>
+                                        -
+                                    <field name="food_allowance" class="oe_inline"/>
+                                        -
+                                    <field name="food_allowance_amount" class="oe_inline"/>
+                                </div>
+
+                                <label for="school_allowance_type"/>
+                                <div name="school_allowance">
+                                    <field name="school_allowance_type" class="oe_inline"/>
+                                        -
+                                    <field name="school_allowance" class="oe_inline"/>
+                                        -
+                                    <field name="school_allowance_amount" class="oe_inline"/>
+                                </div>
+
+                                <label for="other2_allowance_type"/>
+                                <div name="other2_allowance">
+                                    <field name="other2_allowance_type" class="oe_inline"/>
+                                        -
+                                    <field name="other2_allowance" class="oe_inline"/>
+                                        -
+                                    <field name="other2_allowance_amount" class="oe_inline"/>
+                                </div>
+                                <field name="insurance"/>
+                                <field name="commission"/>
+                                <field name="other_allowance"/>
+                                <field name="other_allowance_name"/>
+                                <field name="total"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Contract Duration">
+                                <field name="duration_type" required="1"/>
+                                <field name="duration_months" attrs="{'invisible': [('duration_type', '!=', 'Limited Time Contract')]}"/>
+                                <field name="total_contract_duration" attrs="{'invisible': ['|',('active', '=', False),('duration_type','!=','Limited Time Contract')]}"/>
+                                <field name="total_contract_remaining" attrs="{'invisible': [('active', '=', False),('duration_type','!=','Limited Time Contract')]}"/>
+                                <field name="last_active_duration" attrs="{'invisible': [('active', '=', True)]}"/>
+                                <field name="trial_in_month" required="0"/>
+                                <label for="trial_date_start" string="Trial Period Duration"/>
+                                <div>
+                                    <field name="trial_date_start" class="oe_inline" readonly="1" force_save="1"/>
+                                        -
+                                    <field name="trial_date_end" required="1" class="oe_inline" readonly="1" force_save="1"/>
+                                </div>
+                                <label for="date_start" string="Contract Duration"/>
+                                <div>
+                                    <field name="date_start" class="oe_inline"/>
+                                        -
+                                    <field name="date_end" class="oe_inline"/>
+                                </div>
+                            </group>
+                            <group string="Other Information" name="other_information">
+<!--                                <field name="struct_id" required="1" readonly="1" force_save="1" options="{ &quot;no_create&quot;: True}"/>-->
+                                <!-- <field name="structure_type_id" required="1" options="{ &quot;no_create&quot;: True}"/> -->
+
+                                <field name="resource_calendar_id" options="{ &quot;no_create&quot;: True}"/>
+                                <!-- <field name="advantages" string="Other Advantages"/> -->
+                            </group>
+                        </group>
+                    </page>
+
+                    <page name="accounting" string="Accounting">
+                        <group>
+<!--                            <group>-->
+<!--                                <field name="analytic_account_id" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>-->
+<!--                            </group>-->
+<!--                            <group>-->
+<!--                                <field name="journal_id" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>-->
+<!--                            </group>-->
+                        </group>
+                    </page>
+                    <page name="note" string="Notes">
+                        <field name="notes"/>
+                    </page>
+                    <page name="contract_template" string="Contract Template">
+                        <field name="contract_template"  placeholder="Contract Template..." nolabel="1"/>
+                    </page>
+                    <page name="work_schedule" string="Other">
+                        <group string="Visa information" name="visa">
+                            <field name="visa_no"/>
+                            <field name="permit_no"/>
+                            <field name="visa_expire"/>
+                        </group>
+                    </page>
+                    <!-- </notebook> -->
+
+                </xpath>
+            </field>
+        </record>
+        <!--Contract Tree view-->
+        <record id="hr_contract_view_tree_inherit" model="ir.ui.view">
+            <field name="name">hr.contract.tree inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="replace">
+                    <tree string="Contracts" decoration-bf="message_needaction == True">
+                        <field name="employee_number"/>
+                        <field name="employee_eng_name"/>
+                        <field name="employee_id"/>
+                        <!--<field name="adjusted_date" string="Hiring date"/>-->
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="basic_salary"/>
+                        <field name="house_allowance_amount"/>
+                        <field name="transportation_allowance_amount"/>
+                        <field name="phone_allowance_amount"/>
+                        <field name="other_allowance"/>
+                        <field name="total"/>
+                        <field name="state"/>
+                        <field name="wage" invisible="1"/>
+                        <field name="message_needaction" invisible="1"/>
+                    </tree>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- <record id="hr_contract_view_search" model="ir.ui.view">
+            <field name="name">hr.contract.view.search</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_search"/>
+            <field name="arch" type="xml">
+                <field name="state">
+                    <field name="active"/>
+                    <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                </field>
+                <xpath expr="//group" position="inside">
+                    <filter string="Active" domain="[]" context="{'group_by': 'active'}"/>
+                </xpath>
+            </field>
+        </record> -->
+
+        <record id="action_hr_contract" model="ir.actions.act_window">
+            <field name="name">Contracts</field>
+            <field name="res_model">hr.contract</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{'search_default_current':1, 'search_default_active': 1}</field>
+            <!-- <field name="search_view_id" ref="hr_contract_view_search"/> -->
+            <field name="search_view_id" ref="hr_contract.hr_contract_view_search"/>
+        </record>
+        <!--/////////////////////////////  Pivot and Graph ////////////////////////////////////////-->
+        <record id="hr_contract.action_hr_contract" model="ir.actions.act_window">
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--//////////////////////////////////////////////////////////////////////////////////////-->
+        <menuitem id="hr_menu_contract_root" parent="hr.menu_hr_root" name="Contracts" sequence="3" groups="hr.group_hr_manager"/>
+<!--        <record model="ir.ui.menu" id="hr_contract.hr_menu_contract">-->
+<!--            <field name="sequence" eval="3"/>-->
+<!--            <field name="parent_id" ref="ext_hr_contract.hr_menu_contract_root"/>-->
+<!--        </record>-->
+
+
+    </data>
+</odoo>

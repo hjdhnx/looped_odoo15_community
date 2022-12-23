@@ -1,0 +1,191 @@
+<odoo>
+  <data>
+
+    <record id="product_category_form_view_inherit" model="ir.ui.view">
+      <field name="name">product.category.form.view.inherit</field>
+      <field name="model">product.category</field>
+      <field name="inherit_id" ref="product.product_category_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+          <div class="oe_title">
+            <label for="arabic_name"/>
+            <h1>
+              <field name="arabic_name"/>
+            </h1>
+          </div>
+        </xpath>
+      </field>
+    </record>
+
+    <menuitem id="menu_pos_security_main" parent="point_of_sale.menu_point_config_product" name="POS Security" sequence="8" groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+
+    <record id="pos_security_group_form" model="ir.ui.view">
+      <field name="name">pos.security.group.form</field>
+      <field name="model">pos.security.group</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                <field name="name" placeholder="Name"/>
+              </h1>
+            </div>
+            <div class="oe_title">
+              <h1>
+                <field name="arbic_name"/>
+              </h1>
+            </div>
+            <group colspan="2" col="2">
+              <field name="pos_role_ids"/>
+              <field name="pos_user_ids" widget="many2many_tags"/>
+              <field name="company_id" groups="base.group_multi_company"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="pos_security_group_tree" model="ir.ui.view">
+      <field name="name">pos.security.group.tree</field>
+      <field name="model">pos.security.group</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="pos_role_ids" widget="many2many_tags"/>
+          <field name="pos_user_ids" widget="many2many_tags"/>
+          <field name="company_id" groups="base.group_multi_company"/>
+        </tree>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="pos_security_group_action">
+      <field name="name">POS Security Group</field>
+      <field name="res_model">pos.security.group</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_pos_security_group" parent="menu_pos_security_main" action="pos_security_group_action" name="POS Security Group" sequence="1" />
+
+    <record id="pos_security_role_form" model="ir.ui.view">
+      <field name="name">pos.security.role.form</field>
+      <field name="model">pos.security.role</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                <field name="name" placeholder="English Name"/>
+                <field name="name_ar" placeholder="Arabic Name"/>
+              </h1>
+            </div>
+            <group colspan="2" col="2">
+              <field name="desc"/>
+              <!-- <field name="key_id" options="{'no_create': True, 'no_edit': True, 'no_open': True}"/> -->
+              <field name="key"/>
+              <field name="is_default_value"/>
+              <field name="have_permission"/>
+              <field name="company_id" groups="base.group_multi_company"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="pos_security_role_tree" model="ir.ui.view">
+      <field name="name">pos.security.role.tree</field>
+      <field name="model">pos.security.role</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="desc"/>
+          <field name="key_id"/>
+          <field name="is_default_value"/>
+          <field name="company_id" groups="base.group_multi_company"/>
+        </tree>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="pos_security_role_action">
+      <field name="name">POS Security Role</field>
+      <field name="res_model">pos.security.role</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_pos_security_role" parent="menu_pos_security_main" action="pos_security_role_action" name="POS Security Role" sequence="2" />
+
+    <record id="pos_security_user_form" model="ir.ui.view">
+      <field name="name">res.user.pos.form</field>
+      <field name="model">res.users</field>
+      <field name="mode">primary</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+            <div class="oe_title">
+              <label for="name" class="oe_edit_only"/>
+              <h1>
+                <field name="name" required="1"/>
+              </h1>
+            </div>
+            <div class="oe_title">
+              <label for="arabic_name" class="oe_edit_only"/>
+              <h1>
+                <field name="arabic_name"/>
+              </h1>
+            </div>
+            <notebook>
+              <page name="pos" string="Point of Sale" groups="point_of_sale.group_pos_user">
+                <group name="pos">
+                  <group>
+                    <field name="available_pos_ids" widget="many2many_tags"/>
+                    <field name="security_pin"/>
+                    <field name="pos_user_type"/>
+                    <field name="pos_security_group_ids" widget="many2many_tags"/>
+                  </group>
+                </group>
+              </page>
+              <page name="pos_log" string="POS Log">
+                <field name="pos_log_ids" readonly="1" force_save="1">
+                  <tree>
+                    <field name="login_date"/>
+                    <field name="pos_config_id"/>
+                    <field name="user_id" invisible="1"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="pos_security_user_tree" model="ir.ui.view">
+      <field name="name">res.users.pos.tree</field>
+      <field name="model">res.users</field>
+      <field name="arch" type="xml">
+        <tree>
+        <field name='name'/>
+        <field name='login'/>
+          <field name="available_pos_ids"/>
+          <field name="security_pin"/>
+          <field name="pos_user_type"/>
+          <field name="pos_security_group_ids" widget="many2many_tags"/>
+          <field name="company_id" groups="base.group_multi_company"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="pos_security_user_action">
+      <field name="name">POS Users</field>
+      <field name="res_model">res.users</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('pos_custom.pos_security_user_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('pos_custom.pos_security_user_form')})]"/>
+    </record>
+
+    <menuitem id="menu_pos_security_user" parent="menu_pos_security_main" action="pos_security_user_action" name="POS Security Users" sequence="3" />
+
+  </data>
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="emp_airticket_payment_form_view" model="ir.ui.view">
+		<field name="name">emp.airticket.payment.form</field>
+		<field name="model">emp.airticket.payment</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group col="4">
+						<field name="journal_payment_id" required="1" domain="[('type','in',['cash','bank'])]" options="{'no_create': True,'no_create_edit': True, 'no_open': True}"/>
+						<field name="airticket_id" readonly="1" force_save="1" required="1"/>
+						
+						<field name="payment_date" required="1" />
+						<field name="journal_id" readonly="1" force_save="1" required="1" />
+						<field name="airticket_amount" readonly="1" force_save="1" invisible="1"/>
+						<field name="account_id" readonly="1" force_save="1" required="1" />
+						
+						
+						
+					</group>
+					
+				</sheet>
+				<footer>
+					<button name="do_confirm_airticket_payment" string="Confirm"
+						type="object" class="oe_highlight" />
+					or
+					<button string="Close" class="oe_link" special="cancel" />
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_emp_airticket_payment" model="ir.actions.act_window">
+		<field name="name">Payment</field>
+		<field name="res_model">emp.airticket.payment</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="action_wizard_airticket_payment" model="ir.actions.act_window">
+		<field name="name">Payment</field>
+		<field name="res_model">emp.airticket.payment</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+		<!-- <field name="binding_model_id" ref="hr_loans.model_loan_advance_request" /> -->
+		<!-- <field name="context">{'payslip_ids': active_ids}</field> -->
+	</record>
+
+
+</odoo>

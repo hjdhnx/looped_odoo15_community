@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Sequences for hr.gratuity -->
+        <record id="end_of_service_seq" model="ir.sequence">
+            <field name="name">End of Service</field>
+            <field name="code">hr.end_of_service</field>
+            <field name="prefix">END/</field>
+            <field name="padding">5</field>
+        </record>
+    </data>
+</odoo>

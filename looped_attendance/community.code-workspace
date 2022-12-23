@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../usr/lib/python3/dist-packages/odoo/addons"
+		},
+		{
+			"path": "../../../../odoo20/custom/addons/to_attendance_device"
+		},
+		{
+			"path": "../../../../odoo20/custom/addons/to_base"
+		},
+		{
+			"path": "../../../../odoo20/custom/addons/to_safe_confirm_button"
+		}
+	],
+	"settings": {}
+}

@@ -1,0 +1,126 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_product_calories
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-09 22:52+0000\n"
+"PO-Revision-Date: 2020-12-10 01:20+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: pos_product_calories
+#: model_terms:ir.ui.view,arch_db:pos_product_calories.view_pos_configuration_form
+msgid "Add Calories to POS Order"
+msgstr ""
+
+#. module: pos_product_calories
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_template_attribute_value__calorie_extra
+msgid "Attribute Calorie Extra"
+msgstr ""
+
+#. module: pos_product_calories
+#: model:ir.model.fields,help:pos_product_calories.field_product_template_attribute_value__calorie_extra
+msgid ""
+"Calorie Extra: Extra Calorie for the variant with\n"
+"        this attribute value. eg. 200 Calories extra, 1000 + 200 = 1200."
+msgstr ""
+
+#. module: pos_product_calories
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_product__calories
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_template__calories
+msgid "Calories"
+msgstr "سعرات حرارية"
+
+#. module: pos_product_calories
+#: model:ir.model.fields,field_description:pos_product_calories.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_product_calories.field_pos_order__display_name
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_product__display_name
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_template__display_name
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_template_attribute_value__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: pos_product_calories
+#: model:ir.model.fields,field_description:pos_product_calories.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_product_calories.field_pos_order__id
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_product__id
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_template__id
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_template_attribute_value__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: pos_product_calories
+#: model:ir.model.fields,field_description:pos_product_calories.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_product_calories.field_pos_order____last_update
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_product____last_update
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_template____last_update
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_template_attribute_value____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: pos_product_calories
+#: model:ir.model,name:pos_product_calories.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "إعدادات نقطة البيع"
+
+#. module: pos_product_calories
+#: model:ir.model,name:pos_product_calories.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "أوامر نقطة البيع"
+
+#. module: pos_product_calories
+#: model:ir.model,name:pos_product_calories.model_product_product
+msgid "Product"
+msgstr "المنتج"
+
+#. module: pos_product_calories
+#: model:ir.model.fields,field_description:pos_product_calories.field_pos_config__product_calories
+msgid "Product Calories"
+msgstr ""
+
+#. module: pos_product_calories
+#: model:ir.model,name:pos_product_calories.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"
+
+#. module: pos_product_calories
+#: model:ir.model,name:pos_product_calories.model_product_template_attribute_value
+msgid "Product Template Attribute Value"
+msgstr ""
+
+#. module: pos_product_calories
+#: model:ir.model.fields,help:pos_product_calories.field_product_product__calories
+msgid ""
+"The calories is managed from the product template. Click on the 'Configure "
+"Variants' button to set the extra attribute Calories."
+msgstr ""
+
+#. module: pos_product_calories
+#: model:ir.model.fields,help:pos_product_calories.field_product_product__calorie_extra
+msgid "This is the sum of the extra Calorie of all attributes"
+msgstr ""
+
+#. module: pos_product_calories
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_product__tmpl_calories
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_template__tmpl_calories
+msgid "Tmpl Calories"
+msgstr ""
+
+#. module: pos_product_calories
+#: model:ir.model.fields,field_description:pos_product_calories.field_pos_order__total_calories
+msgid "Total Calories"
+msgstr ""
+
+#. module: pos_product_calories
+#: model:ir.model.fields,field_description:pos_product_calories.field_product_product__calorie_extra
+msgid "Variant calorie Extra"
+msgstr ""

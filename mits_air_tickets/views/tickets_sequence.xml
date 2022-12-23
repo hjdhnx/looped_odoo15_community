@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Sequences for air_tickets_type -->
+        <record id="att_code" model="ir.sequence">
+            <field name="name">ATT Serial Sequence</field>
+            <field name="code">mits_a_t.air_ticket_type</field>
+            <field name="prefix">ATT/</field>
+            <field name="padding">4</field>
+        </record>
+
+        <!-- Sequences for air_tickets_request -->
+        <record id="atr_code" model="ir.sequence">
+            <field name="name">ATR Serial Sequence</field>
+            <field name="code">mits_a_t.air_ticket_request</field>
+            <field name="prefix">ATR/</field>
+            <field name="padding">4</field>
+        </record>
+
+        <!--  Air ticket automatic allocation sequence  -->
+        <record id="sequence_air_ticket_automatic_allocation" model="ir.sequence">
+            <field name="name">air ticket automatic allocation</field>
+            <field name="code">air.ticket.automatic.allocation</field>
+            <field name="prefix"/>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field name="padding">4</field>
+        </record>
+
+    </data>
+</odoo>

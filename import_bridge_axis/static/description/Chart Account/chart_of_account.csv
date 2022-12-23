@@ -1,0 +1,5 @@
+code,name,user,default tax,tag_ids,group,currency,reconsile,depreated
+10122,Notes Payable,Current Assets,"SGST Sale 9%,CGST Sale 9%","Operating Activities,Financing Activities",dDemo Group1,INR,1,TRUE
+101223,Bank,Bank and Cash,SGST Sale 9%;CGST Sale 9%,Financing Activities,Demo Group2,EUR,TRUE,FALSE
+101452,Property,Income,,"Financing Activities,Operating Activities",,,0,1
+101245,Banking Account,Credit Card,CESS Purchase 1591 Per Thousand,,Demo Group4,USD,1,1

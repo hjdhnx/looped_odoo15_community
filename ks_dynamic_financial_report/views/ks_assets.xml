@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="Ks dynamic assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/ks_dynamic_financial_report/static/src/scss/ks_dynamic_financial_report.scss"/>
+            <link rel="stylesheet" href="/ks_dynamic_financial_report/static/src/scss/ks_pdf.scss"/>
+            <script type="text/javascript" src="/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js"/>
+            <script type="text/javascript" src="/ks_dynamic_financial_report/static/src/js/ks_dynamic_action_manager.js"/>
+        </xpath>
+    </template>
+</odoo>

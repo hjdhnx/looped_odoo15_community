@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+       
+        <!--  -->
+        <record model="hr.salary.rule" id="absence_salary_rule">
+            <field name="name">Absence Deduction</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="code">ABSENCE</field>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = payslip.net_absence_deduction * -1</field>
+            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>
+            <field eval="59" name="sequence"/>
+        </record>
+        <!-- <record id="ext_hr_payroll.rz_salary_structure" model="hr.payroll.structure">
+            <field name="rule_ids" eval="[
+            (4, ref('hr_loans.deduction_salary_rule')),
+            (4, ref('hr_loans.loan_salary_rule')),
+            (4, ref('hr_loans.rewards_salary_rule')),
+            (4, ref('hr_loans.absence_salary_rule')),
+            ]"/>
+        </record> -->
+
+    </data>
+
+    
+</odoo>

@@ -1,0 +1,27 @@
+<odoo>
+    <template id="custom_external_layout">
+
+            <t t-if="o and 'company_id' in o">
+
+                <t t-set="company" t-value="o.company_id"/>
+
+            </t>
+
+            <t t-if="not o or not 'company_id' in o">
+
+                <t t-set="company" t-value="res_company"/>
+
+            </t>
+
+            <div class="article">
+
+                <t t-call="heights_custom_report.custom_report_header"/>
+
+                <t t-raw="0"/>
+
+                <t t-call="heights_custom_report.custom_report_footer"/>
+
+            </div>
+
+        </template>
+</odoo>

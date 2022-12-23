@@ -1,0 +1,12 @@
+<odoo>
+    <!-- <record id="ir_cron_partner_autocomplete" model="ir.cron">
+        <field name="name">Auto Leave Allocation</field>
+        <field name="model_id" ref="hr_contract.model_hr_contract"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_allocation()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field eval="False" name="doall"/>
+    </record> -->
+</odoo>

@@ -1,0 +1,135 @@
+<odoo>
+    <data>
+        <!-- <menuitem name="Loans / Deductions / Rewards" id="base.menu_loans_root" web_icon="hr_loans,static/description/icon.png" sequence="80"/>
+        <menuitem id="deductions_menu" name="Deductions" parent="base.menu_loans_root" sequence="10"/>
+        <menuitem id="menu_loans_config" name="Configuration" groups="hr.group_hr_user" parent="base.menu_loans_root" sequence="50"/>
+        <menuitem id="menu_loans_general_root" name="General Settings" groups="hr.group_hr_user" parent="menu_loans_config" sequence="0"/>
+        <menuitem id="menu_loans_config_salary_root" name="Loans &amp; salary in advance configuration" groups="hr.group_hr_user" parent="menu_loans_config" sequence="0"/>
+ -->
+
+        <record id="hr_salary_advance_type_form" model="ir.ui.view">
+            <field name="name">hr.salary.advance.form</field>
+            <field name="model">hr_loans.loan_advance</field>
+            <field name="inherit_id" ref="hr_loans.hr_loans_advances_form"/>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='type']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+
+
+        <record id="action_hr_salary_advance_type" model="ir.actions.act_window">
+            <field name="name">Advance Type</field>
+            <field name="res_model">hr_loans.loan_advance</field>
+            <field name="context">{'default_type':'Salary In Advance'}</field>
+            <field name="domain">[('type','=','Salary In Advance')]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_loans.hr_loans_advances_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('hr_loans.hr_salary_advance_type_form')})]"/>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_hr_salary_advance_type" name="Advance Type" groups="hr.group_hr_user" parent="menu_loans_config_salary_root" sequence="1" action="action_hr_salary_advance_type"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <record id="hr_salary_advance_request_form" model="ir.ui.view">
+            <field name="name">hr.loans.advances.request.form</field>
+            <field name="model">loan.advance.request</field>
+            <field name="inherit_id" ref="hr_loans.hr_loans_advances_request_form"/>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_payment']" position="replace">
+                    <button name="action_advance_payment" states="GM Approve" string="Payment" type="object" class="oe_highlight" groups="hr.group_hr_user,account.group_account_manager" />
+
+                </xpath>
+                <xpath expr="//field[@name='type']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook/page[@name='old_loans_page']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+
+                <!-- <xpath expr="//field[@name='loan_amount']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state', '!=', 'New')]}</attribute>
+                </xpath> -->
+
+
+                <xpath expr="//field[@name='hr_manager_approval']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state', '!=', 'New')]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='financial_manager_approval']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state', '!=', 'HR Manager Approve')]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='general_manager_approval']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state', '!=', 'Financial Manager Approve')]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='month']" position="attributes">
+                    <attribute name="attrs"></attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='year']" position="attributes">
+                    <attribute name="attrs"></attribute>
+                </xpath>
+
+<!--                <xpath expr="//field[@name='payslip_id']" position="attributes">-->
+<!--                    <attribute name="attrs"></attribute>-->
+<!--                </xpath>-->
+
+                <xpath expr="//field[@name='loan_move_id']" position="attributes">
+                    <attribute name="attrs"></attribute>
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+
+
+        <record id="action_hr_loans_salary_advance_request" model="ir.actions.act_window">
+            <field name="name">Salary Advance Request</field>
+            <field name="res_model">loan.advance.request</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_type':'Salary In Advance','is_advance':True,'readonly_by_pass': True}</field>
+            <field name="domain">[('type','=','Salary In Advance')]</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_loans.hr_loans_advances_request_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('hr_loans.hr_salary_advance_request_form')})]"/>
+
+        </record>
+
+
+        <menuitem id="menu_salary_advance_request" name="Salary Advance Request" parent="hr_loans.menu_loans_request_root" sequence="1" action="action_hr_loans_salary_advance_request"/>
+
+
+        <menuitem id="emp_req_menu_salary_advance_request" name="Salary Advance Request" parent="ext_hr_employee.menu_employee_self_service" sequence="4" action="action_hr_loans_salary_advance_request"/>
+
+
+
+
+
+    </data>
+</odoo>

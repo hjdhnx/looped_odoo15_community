@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_loan" model="ir.ui.view">
+        <field name="name">res.config.settings.form.inherit.loan</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="HR Loans" string="HR Loans" data-key="hr_loans">
+
+                    <h2>Loans</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Integrate With Finance</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <div class="text-muted">
+                                    Integrate With Finance
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="default_integrate_with_finance" class="col-lg-3 o_light_label"/>
+                                        <field name="default_integrate_with_finance" options="{'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                     <div class="row mt16" attrs="{'invisible':[('default_integrate_with_finance','=',False)]}">
+                                        <label for="default_loan_journal_id" class="col-lg-3 o_light_label"/>
+                                        <field name="default_loan_journal_id" attrs="{'required':[('default_integrate_with_finance','!=',False)] , 'invisible':[('default_integrate_with_finance','=',False)]}" options="{'no_create': True,'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                    <div class="row mt16" attrs="{'invisible':[('default_integrate_with_finance','=',False)]}">
+                                        <label for="default_loan_account_id" class="col-lg-3 o_light_label"/>
+                                        <field name="default_loan_account_id" attrs="{'required':[('default_integrate_with_finance','!=',False)] , 'invisible':[('default_integrate_with_finance','=',False)]}" options="{'no_create': True,'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+
+                                    <div class="row mt16" attrs="{'invisible':[('default_integrate_with_finance','=',False)]}">
+                                        <label for="default_advance_journal_id" class="col-lg-3 o_light_label"/>
+                                        <field name="default_advance_journal_id" attrs="{'required':[('default_integrate_with_finance','!=',False)] , 'invisible':[('default_integrate_with_finance','=',False)]}" options="{'no_create': True,'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                    <div class="row mt16" attrs="{'invisible':[('default_integrate_with_finance','=',False)]}">
+                                        <label for="default_advance_account_id" class="col-lg-3 o_light_label"/>
+                                        <field name="default_advance_account_id" attrs="{'required':[('default_integrate_with_finance','!=',False)] , 'invisible':[('default_integrate_with_finance','=',False)]}" options="{'no_create': True,'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Traffic Violation</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <div class="text-muted">
+                                    Traffic Violation
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="default_integrate_traffic_violation" class="col-lg-3 o_light_label"/>
+                                        <field name="default_integrate_traffic_violation" options="{'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Request another loan before fully pay</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <div class="text-muted">
+                                    Request another loan before fully pay
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="default_another_loan_before_pay" class="col-lg-3 o_light_label"/>
+                                        <field name="default_another_loan_before_pay" options="{'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Loans monthly deduction percentage from salary</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <div class="text-muted">
+                                    Loans monthly deduction percentage from salary %
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="default_loans_deduction_percentage" class="col-lg-3 o_light_label"/>
+                                        <field name="default_loans_deduction_percentage" options="{'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Violations monthly deduction percentage from salary</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <div class="text-muted">
+                                   Violations monthly deduction percentage from salary %
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="default_violations_deduction_percentage" class="col-lg-3 o_light_label"/>
+                                        <field name="default_violations_deduction_percentage" options="{'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Previous Percentage Based On</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <div class="text-muted">
+                                  Previous Percentage Based On
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="default_previous_based_on" class="col-lg-3 o_light_label"/>
+                                        <field name="default_previous_based_on" options="{'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Default Absence  Based On</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <div class="text-muted">
+                                  Default Absence  Based On
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="default_absence_based_on" class="col-lg-3 o_light_label"/>
+                                        <field name="default_absence_based_on" options="{'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Loan Reconciliation Method</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <div class="text-muted">
+                                 Loan Reconciliation Method
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="default_loan_reconciliation_method" class="col-lg-3 o_light_label"/>
+                                        <field name="default_loan_reconciliation_method" options="{'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Installment Menu</span>
+                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                                <div class="text-muted">
+                                 Installment Menu
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="module_installment_menu" class="col-lg-3 o_light_label"/>
+                                        <field name="module_installment_menu" readonly="1" force_save="1" options="{'no_create_edit': True, 'no_open': True}" context="{'active_test': False}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_hr_loans_config" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'hr_loans'}</field>
+    </record>
+
+    <menuitem id="menu_hr_loans_config" name="Settings" parent="menu_loans_general_root" sequence="0" action="action_hr_loans_config"/>
+
+</odoo>

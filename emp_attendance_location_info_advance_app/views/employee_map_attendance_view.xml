@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="hr_attendance_view_tree_inherit2" model="ir.ui.view">
+        <field name="name">hr.attendance.view.tree.inherit</field>
+        <field name="model">hr.attendance</field>
+        <field name="priority" eval="80"/>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='check_in']" position="after">
+                <field name="checkin_message" readonly="1"/>
+                <field name="checkin_link" widget="url" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='check_out']" position="after">
+                <field name="checkout_message" readonly="1"/>
+                <field name="checkout_link" widget="url" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_attendance_view_form_inherit2" model="ir.ui.view">
+        <field name="name">hr.attendance.view.form.inherit</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[1]" position="after">
+                <h2 style="margin-top:30px;">Employee Location</h2>
+                <group>
+                    <group>
+                        <h2 style="margin-bottom:20px;">Check In</h2>
+                        <field name="checkin_message" readonly="1"/>
+                        <field name="checkin_link" widget="url" readonly="1"/>
+                        <field name="login_latitude" readonly="1"/>
+                        <field name="login_longitude" readonly="1"/>
+                    </group>
+                    <group>
+                        <h2 style="margin-bottom:20px;">Check Out</h2>
+                        <field name="checkout_message" readonly="1"/>
+                        <field name="checkout_link" widget="url" readonly="1"/>
+                        <field name="logout_latitude" readonly="1"/>
+                        <field name="logout_longitude" readonly="1"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

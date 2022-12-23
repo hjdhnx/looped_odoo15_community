@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+
+        <record id="late_request_type_form" model="ir.ui.view">
+            <field name="name">late.request.type.form</field>
+            <field name="model">late.request.type</field>
+            <field name="inherit_id" ref="hr_attendance_excuse.late_request_type_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='penality_type']" position="after">
+                    <field name="is_business_trip" attrs="{'invisible':['|',('penality_type','!=','other'),('period_type','!=','days')]}"/>
+                       <field name="duration_in_leave_request" attrs="{'invisible':[('is_business_trip','=',False)],'required':[('is_business_trip','!=',False)]}"/>
+                
+                    <field name="air_ticket_type_id" domain="[('type','=','non-annual')]" attrs="{
+                        'invisible':['|','|',('is_business_trip','=',False),('penality_type','!=','other'),('period_type','!=','days')], 'required':[('is_business_trip','=',True)]}"/>
+
+                </xpath>
+
+            </field>
+        </record>
+
+
+
+        <record id="late_request_view_form" model="ir.ui.view">
+            <field name="name">late.request.form</field>
+            <field name="model">late.request</field>
+            <field name="inherit_id" ref="hr_attendance_excuse.late_request_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='penalty_id']" position="after">
+                    <field name="is_business_trip" invisible="1" force_save="1"/>
+                    <field name="duration_in_leave_request" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='penalty_id']" position="attributes">
+                    <attribute name="required">0</attribute>
+                    <attribute name="attrs"> {'readonly':[('state','!=','draft')],'required':[('is_business_trip','=',False)],'invisible':[('is_business_trip','!=',False)]}
+                    </attribute>
+
+
+                </xpath>
+
+                <!-- <xpath expr="//field[@name='employee_current_days']" position="attributes">
+
+                    <attribute name="attrs">  {'invisible':['|',('period_type','!=','days'),('is_business_trip','!=',False)],'required':[('period_type','=','days'),('is_business_trip','=',False)]}
+                    </attribute>
+
+
+                </xpath> -->
+
+                <xpath expr="//field[@name='employee_current_days']" position="after">
+                    <label for="date_from" string="Duration" attrs="{'invisible':[('is_business_trip','=',False)]}"/>
+                    <div attrs="{'invisible':[('is_business_trip','=',False)]}">
+                    <field name="duration_in_leave_request" invisible="1"/>
+                        <div>
+                            <field name="date_from" widget="date" attrs="{'required':[('is_business_trip','=',True)],'invisible':[('is_business_trip','=',False)]}" class="oe_inline" />
+                                        -
+                            <field name="date_to" widget="date" attrs="{'required':[('is_business_trip','=',True)],'invisible':[('is_business_trip','=',False)]}" class="oe_inline" />
+                        </div>
+
+                    </div>
+                    <field name="number_of_days" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

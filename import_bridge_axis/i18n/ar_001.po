@@ -1,0 +1,1694 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* import_bridge_axis
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-08 13:06+0000\n"
+"PO-Revision-Date: 2021-11-08 13:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#, python-format
+msgid " %s currency are not available."
+msgstr " %s العملة غير متوفرة."
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#, python-format
+msgid "\"%s\" Tag not in your system"
+msgstr "\"%s\" علامة ليست في نظامك"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#, python-format
+msgid "\"%s\" Tax not in your system"
+msgstr "\"%s\" الضريبة ليست في نظامك"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#, python-format
+msgid "%s Tax not in your system"
+msgstr "%s الضريبة ليست في نظامك"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+msgid "<i class=\"fa fa-file-excel-o\"/>Sample Files"
+msgstr "<i class=\"fa fa-file-excel-o\"/> ملفات عينة"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_custom_dashboard__abcd
+msgid "Abcd"
+msgstr "ا ب ت ث"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bank_statement__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bom__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client_payment__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory_adjustment__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice_line__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_order__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product_pricelist__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order_line__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order_line__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_pricelist__import_file
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_vendor_pricelist__import_file
+msgid "Add File"
+msgstr "اضف ملف"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product__product_variants
+msgid "Add Variants"
+msgstr "أضف المتغيرات"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bom__bom_type
+msgid "BOM Type"
+msgstr "نوع BOM"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_inventory__product_by__barcode
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__product_by__barcode
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice_line__product_by__barcode
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order__product_by__barcode
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order_line__product_by__barcode
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order__product_by__barcode
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order_line__product_by__barcode
+msgid "Barcode"
+msgstr "الرمز الشريطي"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_bank_statement__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_bom__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_chart_account__import_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_client__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_client_payment__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_inventory__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_inventory_adjustment__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice_line__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_journal_entry__import_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_journal_journal__import_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_order__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_product__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_product_pricelist__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order_line__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order_line__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_pricelist__file_option__csv
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_vendor_pricelist__file_option__csv
+msgid "CSV File"
+msgstr "ملف CSV"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.inherite_bom_view
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_bank_statement_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_bom_view_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_client_payment_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_client_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_inventory_adjustment_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_inventory_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_invoice_line_view_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_invoice_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_product_pricelist_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_product_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_purchase_order_line_view_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_purchase_order_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_sale_order_line_view_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_sale_order_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_sale_pricelist_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_vendor_pricelist_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_pos_import_order_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.wizard_import_chart
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.wizard_import_journal
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.wizard_import_journal_entry
+msgid "Cancel"
+msgstr "يلغي"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#, python-format
+msgid "Code field cannot be empty."
+msgstr "لا يمكن أن يكون حقل الرمز فارغًا."
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order__quotation_stage_option__validate_quotation
+msgid "Confirm Purchase Automatically With Import"
+msgstr "تأكيد الشراء تلقائيًا مع الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_custom_dashboard__count
+msgid "Count"
+msgstr "عدد"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_custom_dashboard__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bank_statement__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bom__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_chart_account__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client_payment__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory_adjustment__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice_line__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_entry__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_journal__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_order__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product_pricelist__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order_line__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order_line__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_pricelist__create_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_vendor_pricelist__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_custom_dashboard__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bank_statement__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bom__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_chart_account__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client_payment__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory_adjustment__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice_line__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_entry__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_journal__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_order__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product_pricelist__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order_line__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order_line__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_pricelist__create_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_vendor_pricelist__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.general_dashboard_action
+#: model:ir.model,name:import_bridge_axis.model_custom_dashboard
+#: model:ir.ui.menu,name:import_bridge_axis.general_dashboard_menu
+msgid "Custom Dashboard"
+msgstr "لوحة القيادة المخصصة"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__type__customer
+msgid "Customer"
+msgstr "عميل"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__type__customer_credit_note
+msgid "Customer Credit Note"
+msgstr "مذكرة ائتمان العميل"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_client_payment__payment_type__customer_payment
+msgid "Customer Payment"
+msgstr "دفع العملاء"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#, python-format
+msgid "Customer is not defined in file"
+msgstr "لم يتم تعريف العميل في الملف"
+
+#. module: import_bridge_axis
+#: model:ir.ui.menu,name:import_bridge_axis.custom_dashboard_menu
+msgid "Cutomize Dashboard"
+msgstr "تخصيص لوحة القيادة"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.general_dashboard_view_tree
+msgid "Dashboard"
+msgstr "لوحة القيادة"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#, python-format
+msgid "Date is not defined in file"
+msgstr "لم يتم تحديد التاريخ في الملف"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_inventory__product_by__code
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__product_by__code
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice_line__product_by__code
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order__product_by__code
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order_line__product_by__code
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order__product_by__code
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order_line__product_by__code
+msgid "Default Code"
+msgstr "رمز افتراضي"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#, python-format
+msgid "Default Code not added in file"
+msgstr "لم تتم إضافة الرمز الافتراضي في الملف"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_custom_dashboard__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bank_statement__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bom__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_chart_account__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client_payment__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory_adjustment__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice_line__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_entry__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_journal__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_order__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product_pricelist__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order_line__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order_line__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_pricelist__display_name
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_vendor_pricelist__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_product_product__end_date
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.my_action_export_bom_wizard
+msgid "Export BOM data"
+msgstr "تصدير بيانات BOM"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_export_client_payment
+msgid "Export Client Payment"
+msgstr "دفع العميل التصدير"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_export_invoice
+msgid "Export Invoice data"
+msgstr "تصدير بيانات الفاتورة"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_pos_export_order
+msgid "Export POS Order"
+msgstr "أمر تصدير نقاط البيع"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_export_client
+msgid "Export Partner"
+msgstr "شريك التصدير"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_export_purchase_order
+msgid "Export Purchase Order"
+msgstr "أمر شراء تصدير"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_export_sale_order
+msgid "Export Sale Order"
+msgstr "أمر بيع التصدير"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_export_sale_pricelist
+msgid "Export Sale Pricelist"
+msgstr "تصدير قائمة أسعار البيع"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_export_inventory_action
+msgid "Export inventory"
+msgstr "مخزون التصدير"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_export_product
+msgid "Export product"
+msgstr "منتج للتصدير"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_export_product_pricelist
+msgid "Export product Pricelist"
+msgstr "تصدير قائمة أسعار المنتجات"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_export_vendor_pricelist
+msgid "Export vendor Pricelist"
+msgstr "قائمة أسعار بائع التصدير"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#, python-format
+msgid "Field User is not correctly set."
+msgstr "لم يتم تعيين الحقل بشكل صحيح."
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_journal_entry.py:0
+#, python-format
+msgid "Field journal is not correctly set."
+msgstr "لم يتم تعيين المجلة الميدانية بشكل صحيح."
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.inherite_bom_view
+msgid "Files for BOM"
+msgstr "ملفات BOM"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "Files for Bank Statement"
+msgstr "ملفات كشف الحساب المصرفي"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "Files for Chart of Account"
+msgstr "ملفات مخطط الحساب"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_wizard
+msgid "Files for Inventory"
+msgstr "ملفات الجرد"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "Files for Inventory Adjustment"
+msgstr "ملفات تعديل المخزون"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "Files for Invoice"
+msgstr "ملفات الفاتورة"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "Files for Invoice line"
+msgstr "ملفات سطر الفاتورة"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "Files for Journal"
+msgstr "ملفات للمجلة"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "Files for Journal Entry"
+msgstr "ملفات لإدخال المجلة"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_pos_export_order_wizard
+msgid "Files for POS Order"
+msgstr "ملفات طلب نقاط البيع"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_client_wizard
+msgid "Files for Partner"
+msgstr "ملفات الشريك"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_client_payment_wizard
+msgid "Files for Payment"
+msgstr "ملفات للدفع"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_product_wizard
+msgid "Files for Product"
+msgstr "ملفات المنتج"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_product_pricelist_wizard
+msgid "Files for Product Pricelist"
+msgstr "ملفات لقائمة أسعار المنتج"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "Files for Purchase order"
+msgstr "ملفات لأمر الشراء"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "Files for Purchase order line"
+msgstr "ملفات سطر أمر الشراء"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_pricelist_wizard
+msgid "Files for Sale Pricelist"
+msgstr "ملفات للبيع لائحة الأسعار"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "Files for Sale order"
+msgstr "ملفات أوامر البيع"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "Files for Sale order line"
+msgstr "ملفات سطر أوامر البيع"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_vendor_pricelist_wizard
+msgid "Files for Vendor Pricelist"
+msgstr "ملفات لقائمة أسعار البائع"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_custom_dashboard__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bank_statement__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bom__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_chart_account__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client_payment__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory_adjustment__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice_line__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_entry__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_journal__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_order__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product_pricelist__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order_line__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order_line__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_pricelist__id
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_vendor_pricelist__id
+msgid "ID"
+msgstr "هوية شخصية"
+
+#. module: import_bridge_axis
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_inventory_parent
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_invoice_record
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_mrp_bom
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_purchase_records
+#: model:ir.ui.menu,name:import_bridge_axis.menu_sale_invoicing_import_menu
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.inherite_bom_view
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_bank_statement_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_bom_view_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_client_payment_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_client_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_inventory_adjustment_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_inventory_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_invoice_line_view_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_invoice_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_product_pricelist_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_product_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_purchase_order_line_view_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_purchase_order_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_sale_order_line_view_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_sale_order_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_sale_pricelist_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_vendor_pricelist_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_pos_import_order_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.wizard_import_chart
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.wizard_import_journal
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.wizard_import_journal_entry
+msgid "Import"
+msgstr "يستورد"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_bom_wizard
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_mrp_bom_records
+#, python-format
+msgid "Import BOM"
+msgstr "استيراد BOM"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+msgid "Import BOM Order"
+msgstr "أمر استيراد BOM"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_bank_statement_form_inherit
+msgid "Import Bank Statement Line"
+msgstr "استيراد خط كشف الحساب المصرفي"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_bank_statement
+msgid "Import Bank Statement Lines"
+msgstr "خطوط كشف الحساب البنكي للاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.act_chart_of_account
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.wizard_import_chart
+msgid "Import Chart Of Accounts"
+msgstr "استيراد مخطط الحسابات"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#, python-format
+msgid "Import Chart of Account"
+msgstr "استيراد مخطط الحساب"
+
+#. module: import_bridge_axis
+#: model:ir.ui.menu,name:import_bridge_axis.menu_chart_of_account
+msgid "Import Charts Of Accounts"
+msgstr "استيراد مخططات الحسابات"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_client
+#, python-format
+msgid "Import Client"
+msgstr "عميل الاستيراد"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_client_payment
+#, python-format
+msgid "Import Client Payment"
+msgstr "استيراد دفع العميل"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__invoice_stage_option__draft_invoice
+msgid "Import Draft Invoice"
+msgstr "فاتورة استيراد مسودة"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order__quotation_stage_option__draft_quotation
+msgid "Import Draft Purchase"
+msgstr "شراء كمبيالة استيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order__quotation_stage_option__draft_quotation
+msgid "Import Draft Quotation"
+msgstr "استيراد مسودة تسعير"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_inventory_action
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_inventory
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+#, python-format
+msgid "Import Inventory"
+msgstr "جرد الاستيراد"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_export_inventory_adjustment_action
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_inventory_adjustment_action
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_inventory_adjustment
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+#, python-format
+msgid "Import Inventory Adjustment"
+msgstr "تعديل جرد الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_invoice
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_invoice
+msgid "Import Invoice"
+msgstr "فاتورة الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_invoice_line_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_invoice_line_wizard
+msgid "Import Invoice Line"
+msgstr "استيراد خط فاتورة"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+#, python-format
+msgid "Import Invoice Order"
+msgstr "طلب فاتورة الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.ui.menu,name:import_bridge_axis.account_import_invoicing_menu
+msgid "Import Invoicing"
+msgstr "فواتير الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.act_import_jounal
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_journal1
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.wizard_import_journal
+msgid "Import Journal"
+msgstr "مجلة الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.act_import_jounal_entry
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_journal_entery
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.wizard_import_journal_entry
+msgid "Import Journal Entry"
+msgstr "استيراد إدخال دفتر اليومية"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_pos_import_order
+#: model:ir.ui.menu,name:import_bridge_axis.menu_point_of_sale_import_order
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+#, python-format
+msgid "Import POS Order"
+msgstr "أمر استيراد نقاط البيع"
+
+#. module: import_bridge_axis
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_partner_order
+msgid "Import Partner"
+msgstr "شريك استيراد"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+msgid "Import Partner Order"
+msgstr "طلب شريك الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_payment
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+msgid "Import Payment"
+msgstr "دفع الواردات"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_product
+#, python-format
+msgid "Import Product"
+msgstr "منتج استيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory__product_by
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__product_by
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice_line__product_by
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__product_by
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order_line__product_by
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order__product_by
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order_line__product_by
+msgid "Import Product By"
+msgstr "استيراد المنتج بواسطة"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_product_pricelist
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_product_pricelist
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+#, python-format
+msgid "Import Product Pricelist"
+msgstr "استيراد قائمة أسعار المنتج"
+
+#. module: import_bridge_axis
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_product_
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+msgid "Import Product Template"
+msgstr "استيراد قالب المنتج"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_purchase_order
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_purchase_order
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+#, python-format
+msgid "Import Purchase Order"
+msgstr "أمر شراء استيراد"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_purchase_order_line_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.import_purchase_order_line_form_inherit
+msgid "Import Purchase Order Line"
+msgstr "استيراد سطر أمر الشراء"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_sale_order
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_sale_order
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+#, python-format
+msgid "Import Sale Order"
+msgstr "أمر بيع استيراد"
+
+#. module: import_bridge_axis
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_sale_order_line_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_import_sale_order_line_button
+msgid "Import Sale Order Line"
+msgstr "سطر أمر بيع الاستيراد"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_sale_pricelist
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_sale_pricelist
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+#, python-format
+msgid "Import Sale Pricelist"
+msgstr "استيراد قائمة أسعار البيع"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/models/custom_dashboard.py:0
+#: model:ir.actions.act_window,name:import_bridge_axis.action_import_vendor_pricelist
+#: model:ir.ui.menu,name:import_bridge_axis.menu_import_vendor_pricelist
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+#, python-format
+msgid "Import Vendor Pricelist"
+msgstr "استيراد قائمة أسعار البائع"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#, python-format
+msgid "Invalid Date {} "
+msgstr "تاريخ غير صالح {} "
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#, python-format
+msgid "Invalid File or session is not defined in file!"
+msgstr "لم يتم تعريف الملف أو الجلسة غير الصالحة في الملف!"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_bank_statement.py:0
+#: code:addons/import_bridge_axis/wizard/import_bom_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_bom_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_customer_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_customer_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_customer_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_inventory.py:0
+#: code:addons/import_bridge_axis/wizard/import_inventory_adjustment.py:0
+#: code:addons/import_bridge_axis/wizard/import_invoice_line_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_invoice_line_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_invoice_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_journal.py:0
+#: code:addons/import_bridge_axis/wizard/import_journal.py:0
+#: code:addons/import_bridge_axis/wizard/import_journal_entry.py:0
+#: code:addons/import_bridge_axis/wizard/import_journal_entry.py:0
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_payment_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_payment_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_payment_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_product_pricelist.py:0
+#: code:addons/import_bridge_axis/wizard/import_product_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_product_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_purchase_order_line_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_purchase_order_line_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_purchase_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_sale_order_line_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_sale_order_line_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_sale_pricelist.py:0
+#: code:addons/import_bridge_axis/wizard/import_vendor_pricelist.py:0
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#, python-format
+msgid "Invalid file!"
+msgstr "ملف غير صالح!"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#, python-format
+msgid "Invalid session Name {}"
+msgstr "اسم الجلسة غير صالح {}"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__invoice_stage_option
+msgid "Invoice Stage Option"
+msgstr "خيار مرحلة الفاتورة"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_custom_dashboard____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bank_statement____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bom____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_chart_account____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client_payment____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory_adjustment____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice_line____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_entry____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_journal____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_order____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product_pricelist____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order_line____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order_line____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_pricelist____last_update
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_vendor_pricelist____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_custom_dashboard__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bank_statement__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bom__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_chart_account__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client_payment__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory_adjustment__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice_line__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_entry__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_journal__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_order__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product_pricelist__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order_line__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order_line__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_pricelist__write_uid
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_vendor_pricelist__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_custom_dashboard__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bank_statement__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bom__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_chart_account__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client_payment__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory_adjustment__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice_line__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_entry__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_journal__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_order__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product_pricelist__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order_line__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order_line__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_pricelist__write_date
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_vendor_pricelist__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_product_product__ax_min_quantity
+msgid "Min Quantity"
+msgstr "أقل كمية"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_custom_dashboard__name
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_inventory__product_by__name
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__product_by__name
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice_line__product_by__name
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order__product_by__name
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order_line__product_by__name
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order__product_by__name
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order_line__product_by__name
+msgid "Name"
+msgstr "اسم"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#, python-format
+msgid "Name field cannot be empty."
+msgstr "لا يمكن ترك حقل الاسم فارغًا."
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_bom__bom_type__normal
+msgid "Normal"
+msgstr "طبيعي"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_client_payment_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_client_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_product_pricelist_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_product_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_pricelist_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_vendor_pricelist_wizard
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_pos_export_order_wizard
+msgid "Ok"
+msgstr "نعم"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+msgid "POS Order"
+msgstr "طلب نقاط البيع"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_bom__bom_type__phantom
+msgid "Phantom"
+msgstr "شبح"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_journal.py:0
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#, python-format
+msgid "Please select any one from xls or csv formate!"
+msgstr "الرجاء تحديد أي واحد من تنسيق xls أو csv!"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_product_product__price
+msgid "Price"
+msgstr "السعر"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_product_product__pricelist
+msgid "Pricelist"
+msgstr "قائمة الاسعار"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.product_normal_form_view_inherit
+msgid "Pricing"
+msgstr "التسعير"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_product_product
+msgid "Product"
+msgstr "المنتج"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice_line__product_detail_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__product_detail_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order_line__product_detail_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order_line__product_detail_option
+msgid "Product Details Option"
+msgstr "تفاصيل المنتج الخيار"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#, python-format
+msgid "Product is not added in file"
+msgstr "لم يتم إضافة المنتج في الملف"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#, python-format
+msgid "Product {} Not Available"
+msgstr "المنتج {} غير متوفر"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__quotation_stage_option
+msgid "Purchase Stage Option"
+msgstr "شراء خيار المرحلة"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order__quotation_stage_option
+msgid "Quotation Stage Option"
+msgstr "خيار مرحلة الاقتباس"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+msgid "Quotations"
+msgstr "الاقتباسات"
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#: code:addons/import_bridge_axis/wizard/import_order_wizard.py:0
+#, python-format
+msgid "Sales Person is not defined in file"
+msgstr "لم يتم تعريف مندوب المبيعات في الملف"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_chart_account__import_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_entry__import_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_journal__import_option
+msgid "Select"
+msgstr "يختار"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bank_statement__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_bom__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_chart_account__File_slect
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client_payment__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_inventory_adjustment__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice_line__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_entry__File_slect
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_journal_journal__File_slect
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_order__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product_pricelist__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order_line__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order_line__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_pricelist__file_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_vendor_pricelist__file_option
+msgid "Select File"
+msgstr "حدد ملف"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_client_payment__payment_type
+msgid "Select Partner Type"
+msgstr "حدد نوع الشريك"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__sequence_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_purchase_order__sequence_option
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_sale_order__sequence_option
+msgid "Sequence Option"
+msgstr "خيار التسلسل"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_product_product__ax_start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__type__supplier
+msgid "Supplier"
+msgstr "المورد"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_client_payment__payment_type__supplier_payment
+msgid "Supplier Payment"
+msgstr "دفع المورد"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice_line__product_detail_option__detail_by_product
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order__product_detail_option__detail_by_product
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order_line__product_detail_option__detail_by_product
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order_line__product_detail_option__detail_by_product
+msgid "Take Details From the Product"
+msgstr "خذ التفاصيل من المنتج"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice_line__product_detail_option__detail_by_file
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order__product_detail_option__detail_by_file
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order_line__product_detail_option__detail_by_file
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order_line__product_detail_option__detail_by_file
+msgid "Take Details From the XLS File"
+msgstr "خذ التفاصيل من ملف XLS"
+
+#. module: import_bridge_axis
+#: model_terms:ir.actions.act_window,help:import_bridge_axis.general_dashboard_action
+msgid "To create general dashboard"
+msgstr "لإنشاء لوحة معلومات عامة"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_invoice__type
+msgid "Type"
+msgstr "نوع"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__sequence_option__file_sequence
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order__sequence_option__file_sequence
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order__sequence_option__file_sequence
+msgid "Use Excel/CSV Sequence Number"
+msgstr "استخدم رقم تسلسل Excel / CSV"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__sequence_option__default_sequence
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order__sequence_option__default_sequence
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order__sequence_option__default_sequence
+msgid "Use System Default Sequence Number"
+msgstr "استخدم رقم التسلسل الافتراضي للنظام"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__invoice_stage_option__validate_invoice
+msgid "Validate Invoice Automatically With Import"
+msgstr "التحقق من صحة الفاتورة تلقائيًا مع الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order__quotation_stage_option__validate_quotation
+msgid "Validate Quotation Automatically With Import"
+msgstr "التحقق من صحة الاقتباس تلقائيًا مع الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields,field_description:import_bridge_axis.field_import_product__is_variant
+msgid "Variants"
+msgstr "المتغيرات"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__type__vendor_credit_note
+msgid "Vendor Credit Note"
+msgstr "إشعار ائتمان البائع"
+
+#. module: import_bridge_axis
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_bank_statement__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_bom__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_chart_account__import_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_client__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_client_payment__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_inventory__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_inventory_adjustment__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_invoice_line__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_journal_entry__import_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_journal_journal__import_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_order__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_product__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_product_pricelist__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_purchase_order_line__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_order_line__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_sale_pricelist__file_option__xls
+#: model:ir.model.fields.selection,name:import_bridge_axis.selection__import_vendor_pricelist__file_option__xls
+msgid "XLS File"
+msgstr "ملف XLS"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "chart_of_account.csv"
+msgstr "chart_of_account.csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "chart_of_account.xlsx"
+msgstr "chart_of_account.xlsx"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.custom_dashboard_kanban_view
+msgid "data"
+msgstr "البيانات"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_bank_statement
+msgid "import bank statement"
+msgstr "كشف حساب بنك الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_bom
+msgid "import bom"
+msgstr "استيراد بوم"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_chart_account
+msgid "import chart account"
+msgstr "استيراد حساب الرسم البياني"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_client
+msgid "import client"
+msgstr "عميل الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_client_payment
+msgid "import client payment"
+msgstr "استيراد دفع العميل"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_inventory
+msgid "import inventory"
+msgstr "جرد الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_inventory_adjustment
+msgid "import inventory adjustment"
+msgstr "تعديل المخزون الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_invoice
+msgid "import invoice"
+msgstr "فاتورة استيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_invoice_line
+msgid "import invoice line"
+msgstr "سطر فاتورة الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_journal_journal
+msgid "import journal"
+msgstr "مجلة الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_journal_entry
+msgid "import journal Entry"
+msgstr "استيراد إدخال دفتر اليومية"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_product
+msgid "import product"
+msgstr "منتج استيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_product_pricelist
+msgid "import product pricelist"
+msgstr "قائمة أسعار المنتجات المستوردة"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_purchase_order
+msgid "import purchase order"
+msgstr "أمر شراء استيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_purchase_order_line
+msgid "import purchase order line"
+msgstr "استيراد سطر أمر الشراء"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_sale_order
+msgid "import sale order"
+msgstr "أمر بيع استيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_sale_order_line
+msgid "import sale order line"
+msgstr "سطر أمر بيع الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_sale_pricelist
+msgid "import sale pricelist"
+msgstr "قائمة أسعار بيع الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_vendor_pricelist
+msgid "import vendor pricelist"
+msgstr "قائمة أسعار بائع الاستيراد"
+
+#. module: import_bridge_axis
+#: model:ir.model,name:import_bridge_axis.model_import_order
+msgid "import.order"
+msgstr "استيراد"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_account_journal.csv"
+msgstr "import_account_journal.csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_account_journal.xlsx"
+msgstr "import_account_journal.xlsx"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_account_journal_entry.csv"
+msgstr "import_account_journal_entry.csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_account_journal_entry.xlsx"
+msgstr "import_account_journal_entry.xlsx"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_bank_statement.csv"
+msgstr "import_bank_statement.csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_bank_statement.xls"
+msgstr "import_bank_statement.xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_bank_statement.xlsx"
+msgstr "import_bank_statement.xlsx"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.inherite_bom_view
+msgid "import_bom_file.csv"
+msgstr "import_bom_file.csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.inherite_bom_view
+msgid "import_bom_file.xlsx"
+msgstr "import_bom_file.xlsx"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_wizard
+msgid "import_inventory(code).csv"
+msgstr "import_inventory (code) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_wizard
+msgid "import_inventory(code).xlsx"
+msgstr "import_inventory (code) .xlsx"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_wizard
+msgid "import_inventory(name) (barcode).csv"
+msgstr "import_inventory (الاسم) (الباركود) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_wizard
+msgid "import_inventory(name) (barcode).xlsx"
+msgstr "import_inventory (الاسم) (الرمز الشريطي) .xlsx"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_wizard
+msgid "import_inventory(name).csv"
+msgstr "import_inventory (الاسم) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment (barcode) (without expire date) .xls"
+msgstr "import_inventory_adjustment (رمز شريطي) (بدون تاريخ انتهاء الصلاحية) .xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment (barcode) (without expire date).csv"
+msgstr "import_inventory_adjustment (رمز شريطي) (بدون تاريخ انتهاء الصلاحية) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment (barcode).csv"
+msgstr "import_inventory_adjustment (الباركود) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment (barcode).xls"
+msgstr "import_inventory_adjustment (الباركود) .xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment (code) (without expire date).csv"
+msgstr "import_inventory_adjustment (كود) (بدون تاريخ انتهاء الصلاحية) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment (code) (without expire date).xls"
+msgstr "import_inventory_adjustment (كود) (بدون تاريخ انتهاء الصلاحية) .xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment (code).csv"
+msgstr "import_inventory_adjustment (code) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment (code).xls"
+msgstr "import_inventory_adjustment (code) .xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment(name) (without expiray date) .xls"
+msgstr "import_inventory_adjustment (الاسم) (بدون تاريخ انتهاء الصلاحية) .xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment(name) (without expiray date).csv"
+msgstr "import_inventory_adjustment (الاسم) (بدون تاريخ انتهاء الصلاحية) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment(name) (without inventory line).csv"
+msgstr "import_inventory_adjustment (الاسم) (بدون بند الجرد) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment(name) (without inventory line).xls"
+msgstr "import_inventory_adjustment (الاسم) (بدون بند الجرد) .xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment(name).csv"
+msgstr "import_inventory_adjustment (الاسم) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_inventory_adjustment_wizard
+msgid "import_inventory_adjustment(name).xls"
+msgstr "import_inventory_adjustment (الاسم) .xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_file(barcode).csv"
+msgstr "import_invoice_file (الرمز الشريطي) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_file(barcode).xlsx"
+msgstr "import_invoice_file (الرمز الشريطي) .xlsx"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_file(code).csv"
+msgstr "import_invoice_file (code) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_file(code).xlsx"
+msgstr "import_invoice_file (كود) .xlsx"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_file.csv"
+msgstr "import_invoice_file.csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_file.xls"
+msgstr "import_invoice_file.xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_line_file (barcode).csv"
+msgstr "import_invoice_line_file (الرمز الشريطي) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_line_file (barcode).xls"
+msgstr "import_invoice_line_file (الرمز الشريطي) .xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_line_file(code).csv"
+msgstr "import_invoice_line_file (code) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_line_file(code).xls"
+msgstr "import_invoice_line_file (code) .xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_line_file.csv"
+msgstr "import_invoice_line_file.csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_invoice_wizard
+msgid "import_invoice_line_file.xls"
+msgstr "import_invoice_line_file.xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_pos_export_order_wizard
+msgid "import_pos_order.csv"
+msgstr "import_pos_order.csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_pos_export_order_wizard
+msgid "import_pos_order.xls"
+msgstr "import_pos_order.xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_product_pricelist_wizard
+msgid "import_product_pricelist.csv"
+msgstr "import_product_pricelist.csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_product_pricelist_wizard
+msgid "import_product_pricelist.xls"
+msgstr "import_product_pricelist.xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_product_wizard
+msgid "import_products.csv"
+msgstr "import_products.csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_product_wizard
+msgid "import_products.xls"
+msgstr "import_products.xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_barcode.xls"
+msgstr "import_purchase_order_barcode.xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_file(barcode).csv"
+msgstr "import_purchase_order_file(barcode).csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_file(code).csv"
+msgstr "import_purchase_order_file(code).csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_file(code).xls"
+msgstr "import_purchase_order_file(code).xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_file(name).csv"
+msgstr "import_purchase_order_file(name).csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_file(name).xls"
+msgstr "import_purchase_order_file(name).xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_line_file ( code).csv"
+msgstr "import_purchase_order_line_file ( code).csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_line_file (barcode).csv"
+msgstr "import_purchase_order_line_file (barcode).csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_line_file(barcode).csv"
+msgstr "import_purchase_order_line_file(barcode).csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_line_file(barcode).xls"
+msgstr "import_purchase_order_line_file(barcode).xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_line_file(code).csv"
+msgstr "import_purchase_order_line_file(code).csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_line_file(code).xls"
+msgstr "import_purchase_order_line_file(code).xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_line_file.csv"
+msgstr "import_purchase_order_line_file.csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_purchase_order_wizard
+msgid "import_purchase_order_line_file.xls"
+msgstr "import_purchase_order_line_file.xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_file (barcode).csv"
+msgstr "import_sale_order_file (barcode).csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_file (barcode).xls"
+msgstr "import_sale_order_file (barcode).xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_file(code).csv"
+msgstr "import_sale_order_file(code).csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_file(code).xls"
+msgstr "import_sale_order_file(code).xls"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_file(name) .csv"
+msgstr "import_sale_order_file(name) .csv"
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_file(name).xls"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_line_file (barcode) .xls"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_line_file (barcode).csv"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_line_file (code).csv"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_line_file(code).xls"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_line_file(name).csv"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_order_wizard
+msgid "import_sale_order_line_file_name.xls"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_pricelist_wizard
+msgid "import_sale_pricelist (formula).csv"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_pricelist_wizard
+msgid "import_sale_pricelist.csv"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_sale_pricelist_wizard
+msgid "import_sale_pricelist.xls"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_vendor_pricelist_wizard
+msgid "import_vendor_pricelist).csv"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_vendor_pricelist_wizard
+msgid "import_vendor_pricelist.xls"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_client_wizard
+msgid "odoo_import_partner.csv"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_client_wizard
+msgid "odoo_import_partner.xls"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_client_payment_wizard
+msgid "odoo_import_partner_payment.csv"
+msgstr ""
+
+#. module: import_bridge_axis
+#: model_terms:ir.ui.view,arch_db:import_bridge_axis.view_export_client_payment_wizard
+msgid "odoo_import_partner_payment.xls"
+msgstr ""
+
+#. module: import_bridge_axis
+#: code:addons/import_bridge_axis/wizard/wiz_import_chart.py:0
+#, python-format
+msgid "type field cannot be empty."
+msgstr "لا يمكن أن يكون حقل النوع فارغًا."

@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record id="pos_driver_form" model="ir.ui.view">
+      <field name="name">pos.driver.form</field>
+      <field name="model">pos.driver</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+           <div class="oe_title">
+
+              <h1>
+                <field name="name" placeholder="Driver Name"/>
+              </h1>
+            </div>
+
+            <group colspan="2" col="2">
+              <field name="code" />
+              <field name="company_id" groups="base.group_multi_company"/>
+              <field name="active"/>
+            </group>
+
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="pos_driver_tree" model="ir.ui.view">
+      <field name="name">pos.driver.tree</field>
+      <field name="model">pos.driver</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="code" />
+          <field name="company_id" groups="base.group_multi_company"/>
+          <field name="active"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="pos_driver_action">
+      <field name="name">Driver</field>
+      <field name="res_model">pos.driver</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_pos_driver_menu" parent="point_of_sale.menu_point_config_product" action="pos_driver_action" name="Drivers" sequence="11" groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+
+  </data>
+</odoo>

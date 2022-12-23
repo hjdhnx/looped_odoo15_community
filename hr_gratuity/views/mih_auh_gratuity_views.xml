@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_auh_gratuity_custom_form" model="ir.ui.view">
+            <field name="name">mih.auh.gratuity.sheet.form</field>
+            <field name="model">mih.auh.gratuity.sheet</field>
+            <field name="arch" type="xml">
+                <form string="Gratuity" create="false" edit="false">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,lock"/>
+                        
+                        <button name="action_lock" type="object" string="Lock" class="btn-primary" states='draft'/>
+                        <button name="action_unlock" type="object" string="Unlock" class="btn-primary" states='lock'/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button 
+                                class="oe_stat_button" 
+                                type="object" 
+                                name="show_custom_journal_entries" 
+                                string="Journal Entries" 
+                                icon="fa-pencil-square" />
+                        </div>
+                        <group>
+                            <group string='Employee Details'>
+                                <field name="custom_employee_id" attrs="{'readonly':[('state','=','lock')]}"/>
+                                <field name='custom_type' attrs="{'readonly':[('state','=','lock')]}"/>
+                                <field name='custom_contract_id' attrs="{'readonly':[('state','=','lock')]}"/>
+                                <field name='custom_date_of_join' attrs="{'readonly':[('state','=','lock')]}"/>
+                                <field name='custom_late_working_day' attrs="{'readonly':[('state','=','lock')]}"/>
+                                <field name='currency_id'/>
+                            </group>
+                            <group string='Eligible Details'>
+                                <field name='no_of_days'/>
+                                <!-- <field name="custom_lop" attrs="{'readonly':[('state','=','lock')]}"/> -->
+                                <field name='custom_eligible_days'/>
+                                <field name='eligible_days_f_five_years'/>
+                                <field name='eligible_days_a_five_years'/>
+                            </group>
+                            <group string='Esob Details'>
+                                <field name='esob_days'/>
+                                <field name='esob_a_days'/>
+                                <field name='custom_esob_days_sum'/>
+                                <field name='custom_esob_amounts'/>
+                            </group>
+                            <group string='Basic Salary Details'>
+                                <field name='custom_basic_salary' attrs="{'readonly':[('state','=','lock')]}"/>
+                                <field name='custom_allowance' attrs="{'readonly':[('state','=','lock')]}"/>
+                                <field name='custom_net_salary'/>
+                                <field name='custom_per_day_salary'/>
+                            </group>
+                            <group string='Other Details'>
+                                <field name='created_by'/>
+                                <field name='created_date'/>
+                                <field name='custom_move_id'/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Internal Note">
+                                <group>
+                                    <field name='internal_note' nolabel='1'/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_auh_gratuity_custom_tree" model="ir.ui.view">
+            <field name="name">mih.auh.gratuity.sheet.tree</field>
+            <field name="model">mih.auh.gratuity.sheet</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false">
+                    <field name='state' invisible='1'/>
+                    <field name="custom_employee_id" attrs="{'readonly':[('state','=','lock')]}"/>
+                    <field name='custom_type' attrs="{'readonly':[('state','=','lock')]}"/>
+                    <field name='custom_contract_id' attrs="{'readonly':[('state','=','lock')]}"/>
+                    <field name='custom_date_of_join' attrs="{'readonly':[('state','=','lock')]}"/>
+                    <field name='custom_late_working_day' attrs="{'readonly':[('state','=','lock')]}"/>
+                    <field name='no_of_days'/>
+                    <field name='custom_eligible_days'/>
+                    <field name='eligible_days_f_five_years'/>
+                    <field name='eligible_days_a_five_years'/>
+                    <field name='esob_days'/>
+                    <field name='esob_a_days'/>
+                    <field name='custom_esob_days_sum'/>
+                    <field name='custom_net_salary'/>
+                    <field name='custom_per_day_salary'/>
+                    <field name='custom_esob_amounts'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_auh_gratuity_custom" model="ir.actions.act_window">
+            <field name="name">Gratuity Sheet</field>
+            <field name="res_model">mih.auh.gratuity.sheet</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="mih_auh_gratuity_sheet_custom"
+            name="Gratuity"
+            parent="hr.menu_hr_employee_payroll"
+            sequence='99'
+            />
+
+        <menuitem 
+            id="mih_auh_gratuity_sheet_sub_menu_custom"
+            name="Gratuity Sheet"
+            action="hr_gratuity.action_auh_gratuity_custom"
+            parent="mih_auh_gratuity_sheet_custom"
+            sequence='1'
+            />
+
+    </data>
+</odoo>

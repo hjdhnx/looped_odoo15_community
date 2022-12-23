@@ -1,0 +1,13 @@
+
+Version 13.0.0.1 : (13/05/20)
+		- Add record rule for pos.payment object.
+		- Add _description to branch object 
+
+Version 13.0.1.1 : (05/06/20)
+		- Add new group "non branch user" which is automatically applies when non of branch(user/manager) group is applied.
+		- When user is neither branch manager nor user,then he can see only non assigned branch records.
+		- Remove related from pos order and add branch at the time of creation of order.
+		- Remove related from pos Session and add branch at the time of starting session.
+
+Version 13.0.1.2 : (09/06/20)
+		- Change record rule domain for branch user.

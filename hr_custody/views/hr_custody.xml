@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_custody_form" model="ir.ui.view">
+        <field name="name">hr.custody.form</field>
+        <field name="model">hr.custody</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_submit"
+                            string="Send For Approval"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('state','!=','draft')]}"/>
+                    <button name="action_approve"
+                            string="Approve"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|',('state','not in',('to_approve')),('renew_return_date','=',True)]}"
+                            groups="hr_custody.group_manage_custody"/>
+                    <button name="action_renew_approve"
+                            string="Renewal Approval"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|',('state','not in',('to_approve')),('renew_return_date','=',False)]}"
+                            groups="hr_custody.group_manage_custody"/>
+                    <button name="%(hr_custody.reject_reason_action)d"
+                            string="Refuse"
+                            type="action"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|',('state','not in',('to_approve')),('renew_return_date','=',True)]}"
+                            groups="hr_custody.group_manage_custody"/>
+                    <button name="%(hr_custody.reject_reason_action)d"
+                            string="Refuse"
+                            type="action"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|',('state','not in',('to_approve')),('renew_return_date','=',False)]}"
+                            context="{'renew': True}"
+                            groups="hr_custody.group_manage_custody"/>
+                    <button name="action_draft"
+                            string="Set to Draft"
+                            type="object"
+                            attrs="{'invisible': [('state','not in',('rejected'))]}"/>
+                    <button name="action_return"
+                            string="Return"
+                            type="object"
+                            attrs="{'invisible': [('state','not in',('approved'))]}"
+                            groups="hr_custody.group_manage_custody"/>
+                    <button name="send_mail"
+                            string="Send Mail"
+                            type="object"
+                            attrs="{'invisible': ['|',('mail_send', '=', False),('state','not in',('approved'))]}"
+                            groups="hr.group_hr_manager"/>
+                    <button name="send_mail"
+                            string="Send Mail"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|',('mail_send', '=', True),('state','not in',('approved'))]}"
+                            groups="hr.group_hr_manager"/>
+                    <button name="%(hr_custody.custody_renewal_action)d"
+                            string="Renew"
+                            type="action"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|',('state','not in',('approved')),('renew_return_date','=',True)]}"/>
+                    <field name="state"
+                           widget="statusbar"
+                           statusbar_visible="draft,to_approve,approved,returned"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee"
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="item_id"
+                                   attrs="{'readonly':[('state','!=','draft')]}"
+                                   options="{'no_open': True, 'no_create': True}"/>
+                            <field name="custody_name"
+                                   options="{'no_open':True,'no_create':True}"
+                                   domain="[('item_id', '=', item_id),('state','=','available')]"
+                                   attrs="{'required':[('state', '!=', 'draft')],'readonly':[('state','not in', ['draft','to_approve'])]}"
+                                   groups="hr_custody.group_manage_custody"/>
+                            <field name="renew_return_date" invisible="1"/>
+                            <field name="renew_reject" invisible="1"/>
+                            <field name="mail_send" invisible="1"/>
+                            <field name="property_type" invisible="1"/>
+                            <field name="purpose"
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="date_request"
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="return_date"
+                                   attrs="{'invisible': [('renew_return_date','=',True),('renew_date','not in',[None,False]),('renew_reject','=',False)],'readonly':[('state','not in',['draft','to_approve'])],'required':[('state','=','to_approve')]}"/>
+                            <field name="renew_date"
+                                   attrs="{'invisible': ['|',('renew_return_date','=',False),('state','!=','to_approve')]}"/>
+                            <field name="rejected_reason"
+                                   attrs="{'invisible': [('state','not in',('rejected'))]}"/>
+                            <field name="renew_rejected_reason"
+                                   attrs="{'invisible': ['|',('renew_reject','=',False),('state','not in',('approved'))]}"/>
+                            <field name="company_id"
+                                   options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"
+                           widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_custody_tree" model="ir.ui.view">
+        <field name="name">hr.custody.tree</field>
+        <field name="model">hr.custody</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="employee"/>
+                <field name="custody_name"
+                       groups="hr_custody.group_manage_custody"/>
+                <field name="purpose"/>
+                <field name="date_request"/>
+                <field name="return_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_custody_search" model="ir.ui.view">
+        <field name="name">hr.custody.search</field>
+        <field name="model">hr.custody</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee"/>
+                <field name="custody_name"/>
+                <field name="purpose"/>
+                <field name="date_request"/>
+                <field name="return_date"/>
+                <field name="state"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="State" name="group_by_state"
+                            context="{'group_by':'state'}"/>
+                    <filter string="Employee" name="group_by_employee"
+                            context="{'group_by':'employee'}"/>
+                    <filter string="Property" name="group_by_custody_name"
+                            context="{'group_by':'custody_name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_custody_action" model="ir.actions.act_window">
+        <field name="name">Custody</field>
+        <field name="res_model">hr.custody</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hr_custody_root_menu"
+              name="Custody"
+              groups="hr_custody.group_manage_custody"
+              web_icon="hr_custody,static/description/icon.png"
+              sequence="20"/>
+
+    <menuitem id="hr_custody_menu"
+              name="Custody Request"
+              action="hr_custody_action"
+              parent="hr_custody_root_menu"
+              sequence="1"/>
+
+
+    <menuitem id="emp_req_hr_custody_menu"
+         name="Custody Request"
+       parent="ext_hr_employee.menu_employee_self_service" 
+       action="hr_custody_action"
+        sequence="3"/>
+
+</odoo>

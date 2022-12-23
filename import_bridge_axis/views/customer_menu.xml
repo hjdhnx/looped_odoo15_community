@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <menuitem 
+      id="menu_sale_invoicing_import_menu" 
+      name="Import" 
+      parent="sale.sale_menu_root" 
+      sequence="400"/>
+
+  <menuitem 
+      id="menu_import_sale_order" 
+      name="Import Sale Order" 
+      parent="menu_sale_invoicing_import_menu" 
+      action="action_import_sale_order"
+      groups="import_bridge_axis.security_group_sale_order"/>
+
+
+  <menuitem 
+      id="menu_import_partner_order" 
+      name="Import Partner" 
+      parent="menu_sale_invoicing_import_menu"
+      action="action_import_client"
+      groups="import_bridge_axis.security_group_partner"/>
+
+  <menuitem 
+      id="menu_import_product_pricelist" 
+      name="Import Product Pricelist" 
+      parent="menu_sale_invoicing_import_menu"
+      action="action_import_product_pricelist"
+      groups="import_bridge_axis.security_group_product_pricelist"/>
+
+  <menuitem 
+      id="menu_import_product" 
+      name="Import Product Template" 
+      action="action_import_product"
+      parent="menu_sale_invoicing_import_menu"
+      groups="import_bridge_axis.security_group_product_template"/>
+
+  <menuitem 
+      id="menu_import_sale_pricelist" 
+      name="Import Sale Pricelist" 
+      parent="menu_sale_invoicing_import_menu" 
+      action="action_import_sale_pricelist"
+      groups="import_bridge_axis.security_group_sale_pricelist"/>
+
+  <menuitem 
+      id="account_import_invoicing_menu" 
+      name="Import Invoicing" 
+      parent="account.menu_finance_configuration" 
+      sequence="1"
+      groups="account.group_account_invoice"/>
+
+  <menuitem 
+      id="menu_import_invoice_record" 
+      name="Import" 
+      parent="account.menu_finance"
+      sequence="4"/>
+
+  <menuitem 
+      id="menu_import_invoice" 
+      name="Import Invoice" 
+      action="action_import_invoice"
+      parent="menu_import_invoice_record" 
+      sequence="7"
+      groups="import_bridge_axis.security_group_invoice"/>
+
+   <menuitem 
+      id="menu_import_inventory_parent" 
+      name="Import"  
+      parent="stock.menu_stock_root" 
+      sequence="9"/>
+
+   <menuitem 
+      id="menu_import_inventory" 
+      name="Import Inventory" 
+      action="action_import_inventory_action" 
+      parent="menu_import_inventory_parent"
+      groups="import_bridge_axis.security_group_inventory"/>
+
+   <menuitem 
+      id="menu_import_inventory_adjustment" 
+      name="Import Inventory Adjustment" 
+      action="action_import_inventory_adjustment_action" 
+      parent="menu_import_inventory_parent" 
+      sequence="6"
+      groups="import_bridge_axis.security_group_inventory_adj"/> 
+
+  <menuitem 
+      id="menu_import_payment" 
+      name="Import Payment" 
+      action="action_import_client_payment" 
+      parent="menu_import_invoice_record" 
+      sequence="8"
+      groups="import_bridge_axis.security_group_payment"/>
+
+  <menuitem 
+      id="menu_import_purchase_records" 
+      name="Import" 
+      parent="purchase.menu_purchase_root" 
+      sequence="400"/>
+
+  <menuitem 
+      id="menu_import_purchase_order" 
+      name="Import Purchase Order" 
+      action="action_import_purchase_order" 
+      parent="menu_import_purchase_records"
+      groups="import_bridge_axis.security_group_purchase_order"/>
+
+  <menuitem 
+      id="menu_import_vendor_pricelist" 
+      name="Import Vendor Pricelist" 
+      action="action_import_vendor_pricelist" 
+      parent="menu_import_purchase_records"
+      groups="import_bridge_axis.security_group_vendor_pricelist"/>
+
+  <menuitem 
+      id="menu_import_mrp_bom" 
+      name="Import" 
+      parent="mrp.menu_mrp_root" 
+      sequence="15"/>
+
+  <menuitem 
+      id="menu_import_mrp_bom_records" 
+      name="Import BOM" 
+      action="action_import_bom_wizard" 
+      parent="menu_import_mrp_bom"
+      groups="import_bridge_axis.security_group_bom"/>
+
+  <menuitem 
+      id="menu_chart_of_account" 
+      action="act_chart_of_account" 
+      name="Import Charts Of Accounts" 
+      parent="menu_import_invoice_record" 
+      sequence="6"
+      groups="import_bridge_axis.security_group_charts_of_acc"/>
+
+  <menuitem 
+      id="menu_point_of_sale_import_order" 
+      name="Import POS Order" 
+      parent="point_of_sale.menu_point_of_sale" 
+      action="action_pos_import_order" 
+      sequence="111"
+      groups="import_bridge_axis.security_group_pos"/>
+
+  <menuitem 
+      id="menu_import_journal1" 
+      action="act_import_jounal"
+      name="Import Journal"
+      parent="menu_import_invoice_record" 
+      sequence="9"
+      groups="import_bridge_axis.security_group_journal"/>
+
+  <menuitem 
+      id="menu_import_journal_entery" 
+      action="act_import_jounal_entry"
+      name="Import Journal Entry"
+      parent="menu_import_invoice_record" 
+      sequence="10"
+      groups="import_bridge_axis.security_group_journal"/>
+
+
+</odoo>
+

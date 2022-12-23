@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_job_attachment_user,access_hr_job_attachment_user,model_job_attachment,hr.group_hr_user,1,1,1,1
+access_hr_qualifications_user,access_hr_qualifications_user,model_hr_qualifications,hr.group_hr_user,1,1,1,1
+acceshr_company_policys_hr_company_policy_user,access_hr_company_policy_user,model_job_attachment,hr.group_hr_user,1,1,1,1
+access_employee_relative,access_employee_relative_user,model_employee_relative,hr.group_hr_user,1,1,1,1
+access_hr_employee_business_owner_user,access_hr_employee_business_owner_user,model_hr_employee_business_owner,hr.group_hr_user,1,1,1,1
+
+
+
+
+
+

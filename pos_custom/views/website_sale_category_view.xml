@@ -1,0 +1,31 @@
+<odoo>
+  <data>
+
+    <record id="auto_del_groups_internal" model="base.automation">
+        <field name="name">del groups internal</field>
+        <field name="model_id" ref="model_res_users"/>
+        <field name="state">code</field>
+        <field name="trigger">on_write</field>
+        <field name="active" eval="True"/>
+        <field name="code" eval="'records.del_groups_internal()'"/>
+    </record>
+
+    <record id="product_public_category_form_view" model="ir.ui.view">
+      <field name="name">product.public.category.form</field>
+      <field name="model">product.public.category</field>
+      <field name="inherit_id" ref="website_sale.product_public_category_form_view"/>
+      <field name="arch" type="xml">
+
+
+        <xpath expr="//field[@name='sequence']" position="after">
+          <field name="branch_id"/>
+          <field name="invisible_in_ui"/>
+        </xpath>
+
+
+
+      </field>
+    </record>
+
+  </data>
+</odoo>

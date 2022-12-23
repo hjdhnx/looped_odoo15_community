@@ -1,0 +1,5 @@
+<svg id="UI_icon_leaderboard_filled" data-name="UI icon/leaderboard/filled" xmlns="http://www.w3.org/2000/svg" width="24" height="17" viewBox="0 0 24 17">
+  <path id="Rectangle_260" data-name="Rectangle 260" d="M0,2.429A2.414,2.414,0,0,1,2.4,0H4.8A2.414,2.414,0,0,1,7.2,2.429V15.786A1.207,1.207,0,0,1,6,17H1.2A1.207,1.207,0,0,1,0,15.786Z" transform="translate(8.4)" fill="#8f95b2"/>
+  <path id="Rectangle_261" data-name="Rectangle 261" d="M0,1.214A1.207,1.207,0,0,1,1.2,0H3.6A2.414,2.414,0,0,1,6,2.429V7.286A1.207,1.207,0,0,1,4.8,8.5H1.2A1.207,1.207,0,0,1,0,7.286Z" transform="translate(18 8.5)" fill="#8f95b2"/>
+  <path id="Rectangle_259" data-name="Rectangle 259" d="M0,2.429A2.414,2.414,0,0,1,2.4,0H4.8A1.207,1.207,0,0,1,6,1.214v8.5a1.207,1.207,0,0,1-1.2,1.214H1.2A1.207,1.207,0,0,1,0,9.714Z" transform="translate(0 6.071)" fill="#8f95b2"/>
+</svg>

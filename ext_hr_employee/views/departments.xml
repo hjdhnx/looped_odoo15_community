@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_department_form_inherit" model="ir.ui.view">
+            <field name="name">hr.department.form </field>
+            <field name="model">hr.department</field>
+            <field name="inherit_id" ref="hr.view_department_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//widget[@name='web_ribbon']" position="before">
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_employees" class="oe_stat_button" icon="fa-users" type="object" groups="hr.group_hr_user">
+
+                            <div class="o_stat_info">
+                                <span class="o_stat_value text-danger">
+                                    <field name="count_employees"/>
+                                </span>
+                                <span class="o_stat_text text-danger">
+                                    Employees
+                                </span>
+                            </div>
+                        </button>
+
+
+                        <button name="open_jobs" class="oe_stat_button" icon="fa-id-card" type="object" groups="hr.group_hr_user">
+
+                            <div class="o_stat_info">
+                                <span class="o_stat_value text-danger">
+                                    <field name="count_jobs"/>
+                                </span>
+                                <span class="o_stat_text text-danger">
+                                    Jobs
+                                </span>
+                            </div>
+                        </button>
+                    </div>
+                </xpath>
+                <!-- <xpath expr="//sheet//group[1]" position="before"/> -->
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="placeholder">Arabic Name</attribute>
+                </xpath>
+                <field name="name" position="after">
+                    <field name="english_name" placeholder="English Name"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_department_tree_inherit" model="ir.ui.view">
+            <field name="name">hr.department.tree </field>
+            <field name="model">hr.department</field>
+            <field name="inherit_id" ref="hr.view_department_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='display_name']" position="after">
+                    <field name="english_name"/>
+                </xpath>
+                <xpath expr="//field[@name='parent_id']" position="before">
+                    <field name="count_employees"/>
+                    <field name="count_jobs"/>
+                </xpath>
+                <!-- <tree position="replace">
+                <tree string="Companies">
+                    <field name="complete_name"/>
+                    <field name="arabic_name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="manager_id"/>
+                    <field name="count_employees"/>
+                    <field name="count_jobs"/>
+                    <field name="parent_id"/>
+                </tree>
+            </tree> -->
+            </field>
+        </record>
+
+        <!-- <record model="ir.ui.view" id="view_department_list_xx">
+        <field name="name">department.list.inherit</field>
+        <field name="model">hr.department</field>
+        <field name="arch" type="xml">
+            <tree string="Companies">
+                <field name="complete_name"/>
+                <field name="arabic_name"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="manager_id"/>
+                <field name="parent_id"/>
+            </tree>
+        </field>
+    </record> -->
+
+
+    </data>
+</odoo>

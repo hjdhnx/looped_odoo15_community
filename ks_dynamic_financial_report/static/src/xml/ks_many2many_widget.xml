@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates>
+    <div t-name='ksMany2ManyWidgetStructure' class="o_form_view">
+        <table class="o_group o_inner_group">
+            <tr t-foreach="fields" t-as="field">
+                <td class="o_td_label">
+                    <label class="o_form_label" t-esc="fields[field].label"/>
+                </td>
+                <td t-att-id="field + '_field'" style="min-width:200px;"/>
+            </tr>
+        </table>
+    </div>
+</templates>

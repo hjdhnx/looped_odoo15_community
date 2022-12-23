@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle 
+ -->
+<odoo>
+    <data noupdate="1">
+        <!--Email template -->
+        <record id="hr_loan_deduction_violation_type" model="mail.template">
+            <field name="name">Violation Deduction</field>
+            <field name="email_from">${(object.user_id.email and '%s &lt;%s&gt;' % (object.user_id.company_id.name, object.user_id.email) or '')|safe}</field>
+            <field name="subject">Loan ${object.name} Request form ${object.employee_id.name}</field>
+            <field name="partner_to"></field>
+            <field name="model_id" ref="hr_loans.model_deduction_violation_type"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+            
+            	<p>Dear <i>${object.employee_id.department_id.manager_id.name}</i></p>
+            	<p></p>
+            	<p> Violation Deduction for <b><i>${object.employee_id.name}</i></b></p>
+            	<p>
+            		<b>Deduction Detail:</b><br/>
+            		<b>Deduction Type: </b> ${object.violation_type_id.name}<br/>
+            		<b>Deduction Amount: </b>${"%.2f" % object.amount}<br/>
+            		<b>Deduction Date: </b>${object.deduction_date}<br/>
+            	
+                </p>
+            	
+            	
+            	<b>Regards,</b><br/>
+            	
+                ]]>            </field>
+        </record>
+    </data>
+
+
+</odoo>
+        
+        
+        
+      
+        
+        
+    

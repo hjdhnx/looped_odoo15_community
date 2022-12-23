@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="parm_combo_server" model="ir.config_parameter">
+            <field name="key">combo_server_link</field>
+            <field name="value">109.205.182.152</field>
+        </record>
+            <record id="parm_combo_server2" model="ir.config_parameter">
+            <field name="key">combo_server_version</field>
+            <field name="value">15</field>
+        </record>
+             <record id="parm_combo_server3" model="ir.config_parameter">
+            <field name="key">combo_server_db_name</field>
+            <field name="value">subscription</field>
+        </record>
+              <record id="parm_combo_server4" model="ir.config_parameter">
+            <field name="key">combo_server_user_name</field>
+            <field name="value">combo_server</field>
+        </record>
+            <record id="parm_combo_server5" model="ir.config_parameter">
+            <field name="key">combo_server_password</field>
+            <field name="value">combo_server</field>
+        </record>
+              <record id="parm_combo_server6" model="ir.config_parameter">
+            <field name="key">combo_server_port</field>
+            <field name="value">8003</field>
+        </record>
+    </data>
+</odoo>

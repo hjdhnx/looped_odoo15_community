@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template id="payslip_report_custom">
+        <t t-call="web.html_container">
+            <t t-foreach="inside_foreach_docs or docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-set="o" t-value="o.with_context(lang=o.employee_id.address_home_id.lang or o.env.lang)"/>
+                    <div class="page">
+                        <table style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th style="width:20%">
+                                        <img style="width:70%;height:70%;"
+                                             src="/hr_end_of_service/static/src/img/emp_payslip.png"/>
+                                    </th>
+                                    <th style="width:50%" class="text-center">
+                                        <p style="font-size:30px;">
+                                            <b>
+                                                شركة عبدالاله وإبراهيم ابناء عبدالعزيز الموسي العقارية
+                                            </b>
+                                        </p>
+
+                                    </th>
+                                    <th style="width:20%">
+                                        <div class="text-right">
+                                            <p style="font-size:10px;">
+                                                :تاريخ طباعة التقرير
+                                            </p>
+                                            <p style="font-size:10px;">
+                                                :وقت الطباعة
+                                            </p>
+                                            <p style="font-size:10px;">
+                                                :اسم المستخدم
+                                            </p>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="text-center">
+                            <p style="font-size:12px;">
+                                قسيمة الراتب الشهرية
+                            </p>
+                        </div>
+                        <table style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th style="width:33%">
+                                        <div class="text-right">
+                                            <p style="font-size:12px;">
+                                                <span t-esc="o.contract_id.start_work"/>
+                                                :تاريخ التعيين
+                                            </p>
+                                            <p style="font-size:12px;">
+                                                <span t-esc="o.contract_id.wage"/>
+                                                :الراتب الاساسي
+                                            </p>
+                                        </div>
+                                    </th>
+                                    <th style="width:33%">
+                                        <div class="text-right">
+                                            <p style="font-size:12px;">
+                                                <span t-esc="o.contract_id.job_id.name"/>
+                                                :الوظيفة
+                                            </p>
+                                            <p style="font-size:12px;">
+                                                <span t-esc="o.number_of_days"/>
+                                                :عدد الايام المدفوعة
+                                            </p>
+                                        </div>
+                                    </th>
+                                    <th style="width:33%">
+                                        <div class="text-right">
+                                            <p style="font-size:12px;">
+                                                <span t-esc="o.employee_id.name"/>
+                                                :رمز الموظف
+                                            </p>
+                                            <p style="font-size:12px;">
+                                                <span t-esc="o.employee_id.name"/>
+                                                :اسم الموظف
+                                            </p>
+                                        </div>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                        </table>
+                        <style type="text/css">
+                            .tg {border-collapse:collapse;border-spacing:0;}
+                            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial,
+                            sans-serif;font-size:14px;
+                            overflow:hidden;padding:10px 5px;word-break:normal;}
+                            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial,
+                            sans-serif;font-size:14px;
+                            font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                            .tg .tg-baqh{text-align:center;vertical-align:top}
+                            .tg .tg-lqy6{text-align:right;vertical-align:top}
+                            .tg .tg-0lax{text-align:left;vertical-align:top}
+
+
+                            .tg {border-collapse:collapse;border-spacing:0;}
+                            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial,
+                            sans-serif;font-size:14px;
+                            overflow:hidden;padding:10px 5px;word-break:normal;}
+                            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial,
+                            sans-serif;font-size:14px;
+                            font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                            .tg
+                            .tg-34fe{background-color:#c0c0c0;border-color:inherit;text-align:center;vertical-align:top}
+                            .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+                            .tg .tg-lqy6{text-align:right;vertical-align:top}
+                            .tg .tg-dvpl{border-color:inherit;text-align:right;vertical-align:top}
+                            .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+                            .tg .tg-0lax{text-align:left;vertical-align:top}
+                            .tg {border-collapse:collapse;border-spacing:0;}
+                            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial,
+                            sans-serif;font-size:14px;
+                            overflow:hidden;padding:10px 5px;word-break:normal;}
+                            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial,
+                            sans-serif;font-size:14px;
+                            font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                            .tg .tg-baqh{text-align:center;vertical-align:top}
+                            .tg .tg-lqy6{text-align:right;vertical-align:top}
+                            .tg .tg-0lax{text-align:left;vertical-align:top}
+                        </style>
+                        <br/>
+                        <table class="tg" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th class="tg-baqh" colspan="2">الاقتطاعات</th>
+                                    <th class="tg-baqh" colspan="2">الدخل</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="all_allowances" t-value="0"/>
+                                <t t-set="all_deductions" t-value="0"/>
+
+                                <tr>
+                                    <td class="tg-baqh">الشهر</td>
+                                    <td class="tg-baqh">
+                                        <span t-esc="o.month"/>
+                                    </td>
+                                    <td class="tg-baqh">السنة</td>
+                                    <td class="tg-baqh">
+                                        <span t-esc="o.year"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-lqy6">التأمينات الاجتماعيه</td>
+                                    <td class="tg-baqh">
+                                        <span t-esc="o.contract_id.wage"/>
+                                        <t t-set="all_allowances" t-value="all_allowances + o.contract_id.wage"/>
+                                    </td>
+                                    <td class="tg-lqy6">الراتب الاساسي</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-lqy6">التأمين الصحي</td>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-lqy6">الغياب</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-lqy6">اقساط سلف شهرية</td>
+                                    <td class="tg-baqh">
+                                        <span t-esc="o.contract_id.house_allowance_amount"/>
+                                        <t t-set="all_allowances"
+                                           t-value="all_allowances + o.contract_id.house_allowance_amount"/>
+                                    </td>
+                                    <td class="tg-lqy6">سكن للعائلات مقدمآ</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-lqy6">اقتطاعات اخري</td>
+                                    <td class="tg-baqh">
+                                        <span t-esc="o.contract_id.transportation_allowance_amount"/>
+                                        <t t-set="all_allowances"
+                                           t-value="all_allowances + o.contract_id.transportation_allowance_amount"/>
+                                    </td>
+                                    <td class="tg-lqy6">نقل</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-0lax"></td>
+                                    <td class="tg-baqh">
+                                        <span t-esc="o.contract_id.food_allowance_amount"/>
+                                        <t t-set="all_allowances"
+                                           t-value="all_allowances + o.contract_id.food_allowance_amount"/>
+                                    </td>
+                                    <td class="tg-lqy6">طعام</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-0lax"></td>
+                                    <td class="tg-baqh">
+                                        <span t-esc="o.contract_id.other_allowance"/>
+                                        <t t-set="all_allowances"
+                                           t-value="all_allowances + o.contract_id.other_allowance"/>
+                                    </td>
+                                    <td class="tg-lqy6">علاوات اخري</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-0lax"></td>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-lqy6">الاجازات المدفوعه</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-lqy6">اجمالي الاقتطاعات</td>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-lqy6">مخصصات اخري</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-baqh"></td>
+                                    <td class="tg-lqy6">اجمالي الاقتطاعات</td>
+                                    <td class="tg-baqh">
+                                        <span t-esc="all_allowances"/>
+                                    </td>
+                                    <td class="tg-lqy6">اجمالي الدخل</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <style type="text/css">
+                            .tg {border-collapse:collapse;border-spacing:0;}
+                            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial,
+                            sans-serif;font-size:14px;
+                            overflow:hidden;padding:10px 5px;word-break:normal;}
+                            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial,
+                            sans-serif;font-size:14px;
+                            font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                            .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+                            .tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+                            .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+                            .tg .tg-dvpl{border-color:inherit;text-align:right;vertical-align:top}
+                        </style>
+                        <br/>
+                        <table class="tg" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th class="tg-7btt" colspan="4">صافي الراتب في البنك</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="tg-c3ow" colspan="2">تفاصيل اقتطاعات اخري</td>
+                                    <td class="tg-c3ow" colspan="2">تفاصيل السلف</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-c3ow">القيمة</td>
+                                    <td class="tg-c3ow">النوع</td>
+                                    <td class="tg-c3ow">القيمة</td>
+                                    <td class="tg-c3ow">النوع</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-0pky"></td>
+                                    <td class="tg-dvpl">اقتطاع سكن</td>
+                                    <td class="tg-0pky"></td>
+                                    <td class="tg-dvpl">المقابل المالي للمرافقين</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-0pky"></td>
+                                    <td class="tg-dvpl">الاجمالي</td>
+                                    <td class="tg-0pky"></td>
+                                    <td class="tg-dvpl">الاجمالي</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="tg" style="float:right;width:50%;">
+                            <thead>
+                                <tr>
+                                    <th class="tg-34fe" colspan="3">تفاصيل العمل الاضافي</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="tg-c3ow">القيمه</td>
+                                    <td class="tg-c3ow">ساعات الاضافي</td>
+                                    <td class="tg-dvpl">النوع</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-0pky"></td>
+                                    <td class="tg-0pky"></td>
+                                    <td class="tg-dvpl">ايام العطل الرسمية</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-0lax"></td>
+                                    <td class="tg-0lax"></td>
+                                    <td class="tg-lqy6">الاجمالي</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

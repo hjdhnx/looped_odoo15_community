@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="custody_email_notification_template" model="mail.template">
+        <field name="name">Custody e-mail template</field>
+        <field name="email_from">${object.company_id and object.company_id.email or ''}</field>
+        <field name="subject">Notification to return company asset-${object.custody_name.name}</field>
+        <field name="email_to">${object.email|safe}</field>
+        <field name="lang">${object.lang}</field>
+        <field name="model_id" ref="hr_custody.model_hr_custody"/>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html">
+            <![CDATA[
+                      <p>Dear ${(object.employee.name)},<br/><br/>
+                      You are in possession of the company asset
+                      <strong>"${(object.custody_name.name)}"</strong>
+                      since <strong>${(object.return_date)}.</strong><br/><br/>
+                      Please kindly return the property as soon as possible.<br/><br/></p>
+                      Regards,<br/><br/>
+                      ${(object.company_id.name)}
+            ]]>
+        </field>
+    </record>
+
+    <record id="reminder_custody_email_template" model="mail.template">
+        <field name="name">Reminder Custody</field>
+        <field name="email_from">${object.company_id and object.company_id.email or ''}</field>
+        <field name="subject">Reminder to return company asset-${object.custody_name.name}</field>
+        <field name="email_to">${object.employee.email|safe}</field>
+        <field name="lang">${object.lang}</field>
+        <field name="model_id" ref="hr_custody.model_hr_custody"/>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html">
+            <![CDATA[
+                    <p><b>Dear ${object.employee.name},</b></p><br/>
+                    As per the ${object.name} you took ${object.custody_name.name} on ${object.date_request} for the purpose of ${object.purpose}. So we
+                    remind you that you have to return that on or before ${object.return_date}. Otherwise, you can
+                    renew the reference number(${object.name}) by extending the return date through following
+                    link. <br/> <div style = "text-align: center; margin-top: 16px;"><a href = "${object.env['ir.config_parameter'].get_param('web.base.url') + '/web#id=${object.id}&amp;view_type=form&amp;model=hr.custody&amp;menu_id='}"
+                    style = "padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF;
+                    border-color:#875A7B;text-decoration: none; display: inline-block;
+                    margin-bottom: 0px; font-weight: 400;text-align: center; vertical-align: middle;
+                    cursor: pointer; white-space: nowrap; background-image: none;
+                    background-color: #875A7B; border: 1px solid #875A7B; border-radius:3px;">
+                    Renew ${object.name}</a></div>
+            ]]>
+        </field>
+    </record>
+</odoo>

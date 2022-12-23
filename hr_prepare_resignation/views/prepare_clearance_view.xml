@@ -1,0 +1,145 @@
+<odoo>
+
+    <record id="seq_prepare_clearance" model="ir.sequence">
+        <field name="name">seq_prepare_clearance</field>
+        <field name="code">seq_clearance</field>
+        <field name="prefix">CL</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="employee_clearance_tree" model="ir.ui.view">
+            <field name="name">prepare.clearance.tree</field>
+            <field name="model">prepare.clearance</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Employee Clearance">
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                    <field name="clearance_type"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+    <record id="employee_clearance_form" model="ir.ui.view">
+        <field name="name">prepare.clearance.form</field>
+        <field name="model">prepare.clearance</field>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <form string="Employee Clearance">
+                <header>
+
+                    <button string="Reject" type="object" name="reject_resignation" attrs="{'invisible': [('is_manager','=',False)]}"
+                    style="background-color: #875A7B;border: none;color: aliceblue;"/>
+
+                    <button string="Reject" type="object" name="reject_resignation2" attrs="{'invisible': [('is_computer','=',False)]}"
+                    style="background-color: #875A7B;border: none;color: aliceblue;"/>
+
+                    <button string="Reject" type="object" name="reject_resignation3" attrs="{'invisible': [('is_stock','=',False)]}"
+                    style="background-color: #875A7B;border: none;color: aliceblue;"/>
+
+                    <button string="Reject" type="object" name="reject_resignation4" states='acc_man' groups="account.group_account_manager"
+                    style="background-color: #875A7B;border: none;color: aliceblue;"/>
+
+                    <button string="Reject" type="object" name="reject_resignation5" states='hr' groups="hr.group_hr_manager"
+                    style="background-color: #875A7B;border: none;color: aliceblue;"/>
+
+                    <button string="Reset To Draft" type="object" groups="hr.group_hr_user" name="to_draft" states='hr,dir_man,gen_man,acc_man,stoc_dep'
+                    style="background-color: #875A7B;border: none;color: aliceblue;"/>
+
+                    <button string="To Direct Manager" type="object" groups="base.group_user" name="to_dir_man" states='draft'
+                    class="btn-primary"/>
+
+                    <button string="To Computer Dep" type="object" name="to_gen_man"
+                    class="btn-primary" attrs="{'invisible': [('is_manager','=',False)]}" />
+
+                    <!-- <button string="To Stock Department" type="object" name="to_stoc_dep"
+                    class="btn-primary" attrs="{'invisible': [('is_computer','=',False)]}"/> -->
+
+                    <button string="To Account Manager" type="object"  name="to_acc_man" states="gen_man"
+                    class="btn-primary" />
+
+                    <button string="To Approve" type="object" groups="hr.group_hr_manager" name="to_approved" states='hr'
+                    class="btn-primary"/>
+
+                    <button string="To HR" type="object" groups="account.group_account_manager" name="to_hr" states='acc_man'
+                    class="btn-primary"/>
+
+                    <button string="Print Resignation" type="object" groups="hr.group_hr_user" name="print_resignation" states='approved'
+                    class="btn-primary"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,dir_man,gen_man,acc_man,hr,approved,cancel"/>
+
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Employee Details">
+                            <field name="employee_id"/>
+                            <field name="department_id" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="resignation_id" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="company_id" attrs="{'readonly': [('state','!=','draft')]}"/>
+                        </group>
+
+                            <group string="Clearance Details">
+                                <field name="expected_revealing_date"
+                                       groups="hr_prepare_resignation.group_resignation_direct_manager"
+                                       attrs="{'required': [('state','=','dir_man')]}"/>
+                                <field name="clearance_type" groups="hr_prepare_resignation.group_resignation_users" attrs="{'readonly': [('state','!=','draft')]}"/>
+                                <field name="reason" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="is_manager" invisible="1" />
+                                <field name="is_computer" invisible="1" />
+                                <field name="is_stock" invisible="1" />
+                                <field name="hr_notice" groups="hr.group_hr_manager"  attrs="{'invisible': [('state','!=','hr')],'required': [('state','=','hr')]}" />
+                                <field name="receive_officer" groups="hr.group_hr_manager"  attrs="{'invisible': [('state','!=','hr')]}" />
+                                <field name="it_manager" invisible="1"  />
+                                <field name="stock_manager" invisible="1" />
+                                <field name="dir_man_notice"  attrs="{'invisible': [('is_manager','=',False)],'required': [('state','=','dir_man')]}" />
+                                <field name="gen_man_notice" attrs="{'invisible': [('is_computer','=', False)],'required': [('state','=','gen_man')]}" />
+                                <!-- <field name="stock_notice" attrs="{'invisible': [('is_stock','=', False)],'required': [('state','=','stoc_dep')]}" /> -->
+                                <field name="acc_notice" groups="account.group_account_manager"  attrs="{'invisible': [('state','!=','acc_man')],'required': [('state','=','acc_man')]}" />
+                            </group>
+                            <group>
+                                <field name="receive_pc" attrs="{'invisible': [('is_computer','=',False)]}"/>
+                                <field name="custody_request" widget="many2many_tags" attrs="{'invisible': [('is_computer','=',False)]}"/>
+                                <field name="fingerprint" groups="hr.group_hr_manager" attrs="{'invisible': [('state','!=','hr')]}"/>
+                                <field name="parking_sticker" groups="hr.group_hr_manager" attrs="{'invisible': [('state','!=','hr')]}"/>
+                                <field name="insurance" groups="hr.group_hr_manager" attrs="{'invisible': [('state','!=','hr')]}"/>
+                                <field name="job_card" groups="hr.group_hr_manager" attrs="{'invisible': [('state','!=','hr')]}"/>
+                            </group>
+
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="view_employee_clearance">
+        <field name="name">Employee Clearance</field>
+        <field name="res_model">prepare.clearance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Employee Clearance Form
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="employee_clearance_request" parent="employee_resignation" name="Clearance Request"
+                  action="view_employee_clearance" groups="base.group_user" sequence="4"/>
+
+
+    <menuitem id="emp_req_employee_clearance_request"
+     parent="ext_hr_employee.menu_employee_self_service" 
+ name="Clearance Request"
+                  action="view_employee_clearance" 
+                  groups="base.group_user" sequence="5"/>
+</odoo>

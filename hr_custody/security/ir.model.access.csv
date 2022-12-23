@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_group_user_hr_custody,access.group.user.hr.custody,model_hr_custody,base.group_user,1,1,1,0
+access_group_user_hr_custody_property,access.group.user.custody.property,model_custody_property,base.group_user,1,1,0,0
+access_group_user_custody_item,access.group.user.custody.item,model_custody_item,base.group_user,1,0,0,0
+access_group_hr_user_hr_custody,access.group.hr.user.hr.custody,model_hr_custody,hr.group_hr_user,1,1,1,1
+access_group_hr_user_hr_custody_property,access.group.hr.user.custody.property,model_custody_property,hr.group_hr_user,1,1,1,1
+access_group_hr_user_custody_item,access.group.hr.user.custody.item,model_custody_item,hr.group_hr_user,1,1,1,1
+access_group_hr_user_report_custody,access.group.hr.user.report.custody,model_report_custody,hr.group_hr_user,1,1,1,1
+access_group_hr_manager_hr_custody,access.group.hr.manager.hr.custody,model_hr_custody,hr.group_hr_manager,1,1,1,1
+access_group_hr_manager_hr_custody_property,access.group.hr.manager.custody.property,model_custody_property,hr.group_hr_manager,1,1,1,1
+access_group_hr_manager_custody_item,access.group.hr.manager.custody.item,model_custody_item,hr.group_hr_manager,1,1,1,1
+access_group_hr_manager_report_custody,access.group.hr.manager.report.custody,model_report_custody,hr.group_hr_manager,1,1,1,1
+access_group_manage_custody_hr_custody,access.group.manage.custody.hr.custody,model_hr_custody,group_manage_custody,1,1,1,1
+access_group_manage_custody_hr_custody_property,access.group.manage.custody.custody.property,model_custody_property,group_manage_custody,1,1,1,1
+access_group_manage_custody_custody_item,access.group.manage.custody.custody.item,model_custody_item,group_manage_custody,1,1,1,1
+access_group_manage_custody_report_custody,access.group.manage.custody.report.custody,hr_custody.model_report_custody,group_manage_custody,1,1,1,1

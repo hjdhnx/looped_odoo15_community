@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_other_request_view_form" model="ir.ui.view">
+            <field name="name">hr.other.request.form</field>
+            <field name="model">hr.other.request</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="action_submit" string="Submit" confirm="Are you sure you want to Submit ?" class="oe_highlight" states="draft" type="object"/>
+                        <button name="action_approve" string="Approve" confirm="Are you sure you want to Approve?" class="oe_highlight" states="confirm" type="object" groups="hr.group_hr_manager" />
+                        <button name="action_refuse" string="Refuse" confirm="Are you sure you want to Refuse?" class="oe_highlight" states="confirm" type="object" groups="hr.group_hr_manager"/>
+                        <button name="action_draft" string="Set to Draft" confirm="Are you sure want to Set To Draft?" states="confirm,approve,refuse" type="object" groups="hr.group_hr_manager"/>
+
+                        <field name="state" widget="statusbar" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Name" readonly="1" force_save="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee_id" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="employee_number"/>
+                                <field name="department_id"/>
+
+
+
+                            </group>
+                            <group>
+                                <field name="date" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="manager_id"/>
+                                <field name="job_id"/>
+
+                            </group>
+
+                        </group>
+                        <group>
+                            <group>
+                                <field name="request_details" placeholder="Request Reason" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="hr_manager_notes" placeholder="HR Manager Notes" groups="hr.group_hr_manager" attrs="{'invisible':[('state','=','draft')],'readonly':[('state','!=','confirm')],'required':[('state','=','confirm')]}"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record id="hr_other_request_view_tree" model="ir.ui.view">
+            <field name="name">hr.other.request.tree</field>
+            <field name="model">hr.other.request</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="employee_number"/>
+                    <field name="manager_id"/>
+                    <field name="department_id"/>
+                    <field name="job_id"/>
+                    <field name="request_details"/>
+                    <field name="hr_manager_notes"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_other_request_search">
+            <field name="name">Other Request</field>
+            <field name="model">hr.other.request</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Employee" name="employee_id" context="{'group_by':'employee_id'}"/>
+                        <filter string="Date" name="group_date" context="{'group_by':'date'}"/>
+                        <filter string="States" name="state" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hr_other_request_window_action" model="ir.actions.act_window">
+            <field name="name">Other Request</field>
+            <field name="res_model">hr.other.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+
+        <menuitem id="emp_req_all_hr_other_request_menu" name="Other Request" parent="ext_hr_employee.menu_employee_self_service" action="hr_other_request_window_action" sequence="25"/>
+
+
+    </data>
+</odoo>

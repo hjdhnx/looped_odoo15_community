@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_salary_details_user,access_salary_details_user,model_salary_details,base.group_user,1,1,1,1
+access_hr_loans_loan_advance_user,access_hr_loans_loan_advance_user,model_hr_loans_loan_advance,base.group_user,1,1,1,1
+access_loan_advance_request_user,access_loan_advance_request_user,model_loan_advance_request,base.group_user,1,1,1,1
+access_salary_details_user,access_salary_details_user,model_salary_details,base.group_user,1,1,1,1

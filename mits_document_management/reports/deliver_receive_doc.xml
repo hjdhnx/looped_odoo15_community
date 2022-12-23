@@ -1,0 +1,95 @@
+<openerp>
+<data>
+    <record id="paperformat_document_holder" model="report.paperformat">
+        <field name="name">Document Holder</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">20</field>
+        <field name="margin_bottom">23</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">68</field>
+        <field name="dpi">90</field>
+    </record>
+    <report
+        id="report_document_holder"
+        model="document.holder"
+        string="Document Holder Report"
+        name="mits_document_management.report_document_holder_view"
+        file="report_document_holder"
+        report_type="qweb-pdf"
+        paperformat="paperformat_document_holder"    />
+
+    <template id="report_document_holder_view">
+        <t t-call="web.html_container">
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+
+            <t t-foreach="docs" t-as="doc">
+               <!--<t t-call="mits_document_management.document_holder_layout">-->
+                   <div class="page" style="direction:rtl;text-align:right;">
+                       <div class="header" style="direction: rlt;font-family:FreeSerif;">
+                        <div class="row">
+                            <div class="col-xs-8 text-left" style="margin-top:20px;" t-field="company.name"/>
+                            <div class="col-xs-4">
+                                <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 100px;"/>
+                            </div>
+                        </div>
+                        <div class="row zero_min_height">
+                            <div class="col-xs-12">
+                                <div style="border-bottom: 1px solid black;"></div>
+                            </div>
+                        </div>
+                    </div>
+                        <center><h3>
+إقرار إستلام مستند
+				        </h3></center>
+                        <br/><br/><br/>
+                       <table class="table table-bordered" style="width:100%;">
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <br/><br/>
+أقر أنا
+				            : <span t-field="doc.contact_id.name"/><br />
+ بأنني أستلمت المستند
+				            : <span t-field="doc.document_id.name"/><br />
+ الخاص ب
+                        	: <span t-field="doc.member_id.name"/><br />
+ بتاريخ
+				            : <span t-field="doc.delivery_date"/><br />
+ وذلك للقيام ب
+				            : <span t-field="doc.action_type"/><br />
+                        	<br/><br/>
+                        وبهذا أقر بأستلامي للمستند بحالة جيدة وأتعهد بإعادته إليكم فور الأنتهاء من الإجراء المطلوب.
+			            </div>
+                       <br/><br/><br/>
+                        <div style="width:40%;float:left;">
+                            <label>
+إسم الموظف:
+                            </label>
+                            <span t-field="doc.contact_id"/>
+                            <br/>
+                            <label>التوقيع:</label>
+                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                   </div>
+
+                    </t>
+                </t>
+            <!--</t>-->
+        </template>
+
+    </data>
+</openerp>

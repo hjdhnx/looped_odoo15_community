@@ -1,0 +1,21 @@
+<odoo>
+  <data>
+
+    <record id="view_restaurant_printer_form" model="ir.ui.view">
+      <field name="name">restaurant.printer.form</field>
+      <field name="model">restaurant.printer</field>
+      <field name="inherit_id" ref="pos_restaurant.view_restaurant_printer_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='product_categories_ids']" position="before">
+          <field name="use_type"/>
+          <field name="default_printer" attrs="{'invisible':[('use_type','!=','cashier')]}"/>
+          <field name="main_printer"/>
+          <field name="pos_order_type_ids" widget="many2many_tags"/>
+          <field name="pos_config_ids" widget="many2many_tags"/>
+
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

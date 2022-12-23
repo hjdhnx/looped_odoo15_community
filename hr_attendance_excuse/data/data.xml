@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="ir_seq_late_request" model="ir.sequence">
+            <field name="name">Excuse Request</field>
+            <field name="code">late.request</field>
+            <field name="prefix">LR/</field>
+            <field name="padding">6</field>
+        </record>
+
+    </data>
+</odoo>

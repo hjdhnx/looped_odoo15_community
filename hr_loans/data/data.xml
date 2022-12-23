@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  
+    <data noupdate="1">
+        <record model="ir.config_parameter" id="default_loan_account_id" forcecreate="False">
+            <field name="key">hr_loans.default_loan_account_id</field>
+            <field name="value">0</field>
+        </record>
+        <record model="ir.config_parameter" id="default_loan_journal_id" forcecreate="False">
+            <field name="key">hr_loans.default_loan_journal_id</field>
+            <field name="value">0</field>
+        </record>
+
+
+        <record model="ir.config_parameter" id="default_advance_account_id" forcecreate="False">
+            <field name="key">hr_loans.default_advance_account_id</field>
+            <field name="value">0</field>
+        </record>
+        <record model="ir.config_parameter" id="default_advance_journal_id" forcecreate="False">
+            <field name="key">hr_loans.default_advance_journal_id</field>
+            <field name="value">0</field>
+        </record>
+    </data>
+    <data noupdate="1">
+
+
+
+        <record model="ir.config_parameter" id="default_integrate_with_finance" forcecreate="False">
+            <field name="key">hr_loans.default_integrate_with_finance</field>
+            <field name="value">0</field>
+        </record>
+
+
+        <record model="ir.config_parameter" id="default_integrate_traffic_violation" forcecreate="False">
+            <field name="key">hr_loans.default_integrate_traffic_violation</field>
+            <field name="value">0</field>
+        </record>
+
+        <record model="ir.config_parameter" id="default_another_loan_before_pay" forcecreate="False">
+            <field name="key">hr_loans.default_another_loan_before_pay</field>
+            <field name="value">0</field>
+        </record>
+
+        <record model="ir.config_parameter" id="default_loans_deduction_percentage" forcecreate="False">
+            <field name="key">hr_loans.default_loans_deduction_percentage</field>
+            <field name="value">25.0</field>
+        </record>
+
+
+        <record model="ir.config_parameter" id="default_violations_deduction_percentage" forcecreate="False">
+            <field name="key">hr_loans.default_violations_deduction_percentage</field>
+            <field name="value">100</field>
+        </record>
+
+
+
+        <record model="ir.config_parameter" id="default_loan_reconciliation_method" forcecreate="False">
+            <field name="key">hr_loans.default_loan_reconciliation_method</field>
+            <field name="value">percentage</field>
+        </record>
+        <record model="ir.config_parameter" id="default_previous_based_on" forcecreate="False">
+            <field name="key">hr_loans.default_previous_based_on</field>
+            <field name="value">Total salary</field>
+        </record>
+
+
+        <record model="ir.config_parameter" id="default_absence_based_on" forcecreate="False">
+            <field name="key">hr_loans.default_absence_based_on</field>
+            <field name="value">total</field>
+        </record>
+
+
+        <record model="ir.config_parameter" id="module_installment_menu" forcecreate="False">
+            <field name="key">hr_loans.module_installment_menu</field>
+            <field name="value">0</field>
+        </record>
+
+
+    </data>
+</odoo>

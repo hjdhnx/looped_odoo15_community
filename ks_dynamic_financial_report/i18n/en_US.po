@@ -1,0 +1,1894 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ks_dynamic_financial_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-02 06:36+0000\n"
+"PO-Revision-Date: 2021-04-02 06:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#, python-format
+msgid " To "
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:mail.template,subject:ks_dynamic_financial_report.ks_mail_templates
+msgid "${ctx['ks_report_name']} Attachments"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "&nbsp;"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_df_report_account_type
+msgid ""
+"'accounts': it's the sum of the linked accounts,'ks_coa_type': it's the sum "
+"of leaf accoutns with such an Chart of account_type,'account_report': it's "
+"the amount of the related report,'total': it's the sum of the children of "
+"this record 'subtract': it's the difference of the children of this record "
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_consolidate_journal
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid "*** END OF DOCUMENT ***"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_consolidate_journal
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+msgid ": General ledger"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_age_receivable
+msgid ": Partner Ageing"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid ": Partner ledger"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+msgid ": Trial Balance"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:mail.template,body_html:ks_dynamic_financial_report.ks_mail_templates
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p>\n"
+"                        <p>Dear ${object.env.user.name}</p>\n"
+"                        <p>Please find below your ${ctx['ks_report_name']} attachments</p>\n"
+"                        <p>Thanks,</p>\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_differentiate_filter
+msgid ""
+"<span class=\"fa fa-bar-chart\"/>\n"
+"                Differetiate:"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_journals_filter
+msgid "<span class=\"fa fa-book\"/>journals"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "<span class=\"fa fa-calendar\" title=\"Dates\" role=\"img\" aria-label=\"Dates\"/>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid ""
+"<span class=\"fa fa-filter\"/>\n"
+"                Options:"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_analytic_filter
+msgid ""
+"<span class=\"fa fa-folder-open\"/>\n"
+"                Analytic"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_partner_filter
+msgid ""
+"<span class=\"fa fa-folder-open\"/>\n"
+"                Partners"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_account_filter
+msgid ""
+"<span class=\"fa fa-user\"/>\n"
+"                Account:"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid "<span>Ending Balance</span>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid "<span>Initial Balance</span>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_age_receivable
+msgid "<span>Total</span>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid "<strong>Accounts:</strong>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_lines
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+msgid "<strong>Analytic:</strong>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_age_receivable
+msgid "<strong>As on Date:</strong>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_lines
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_df_executive_summary
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_tax_report
+msgid "<strong>Comparison Date From:</strong>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_lines
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_df_executive_summary
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_tax_report
+msgid "<strong>Comparison Date To:</strong>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_lines
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_df_executive_summary
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_consolidate_journal
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_tax_report
+msgid "<strong>Date From:</strong>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_lines
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_df_executive_summary
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_consolidate_journal
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_tax_report
+msgid "<strong>Date To:</strong>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid "<strong>Display Account</strong>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_lines
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_df_executive_summary
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_consolidate_journal
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid "<strong>Journals:</strong>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_age_receivable
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid "<strong>Partner:</strong>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid "<strong>Reconciled:</strong>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_ar_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_con_jrnl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model:ir.model,name:ks_dynamic_financial_report.model_account_account
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_age_receivable
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+#, python-format
+msgid "Account"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_consolidate_journal
+#, python-format
+msgid "Account Name"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_children_id
+msgid "Account Report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__type
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__type
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_df_report_account_type__ks_coa_type
+msgid "Account Type"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_df_report_account_type_ids
+msgid "Account Types"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_df_report_account_ids
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_df_report_account_type__accounts
+#, python-format
+msgid "Accounts"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__help
+msgid "Action Description"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__type
+msgid "Action Type"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: model:ir.actions.client,name:ks_dynamic_financial_report.ks_df_pay_action
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_df_pay_menu
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_payable0
+#, python-format
+msgid "Age Payable"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: model:ir.actions.client,name:ks_dynamic_financial_report.ks_df_rec_action
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_df_rec_menu
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_receivable0
+#, python-format
+msgid "Age Receivable"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.actions.report,name:ks_dynamic_financial_report.ks_dynamic_financial_age_rec_action
+msgid "Age Receivable Report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_journals_filter
+msgid "All"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_tax_report
+msgid "Amount"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_analytic_ids
+#, python-format
+msgid "Analytic Accounts"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_analytic_account_visibility
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_analytic_account_visibility
+msgid "Analytic Filter"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_differentiate_filter
+msgid "Apply"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/models/ks_dynamic_financial_report_base.py:0
+#, python-format
+msgid "As of {}"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_ar_xlsx.py:0
+#, python-format
+msgid "As on Date"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_as_on_date
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_as_on_date
+msgid "As on date"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_assets0
+msgid "Assets"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_con_jrnl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_con_jrnl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_lines
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_df_executive_summary
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_consolidate_journal
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+#, python-format
+msgid "Balance"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.actions.client,name:ks_dynamic_financial_report.ks_dynamic_reports_bal_sheet_action
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_dynamic_finance_bal_sheet
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet
+msgid "Balance Sheet"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Balance in FC"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_bank_cash
+msgid "Bank and Cash Accounts"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__binding_model_id
+msgid "Binding Model"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__binding_type
+msgid "Binding Type"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__binding_view_types
+msgid "Binding View Types"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_account_filter
+msgid "Both"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.actions.client,name:ks_dynamic_financial_report.ks_dynamic_reports_cash_flow_action
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_dynamic_finance
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_report_cash_flow0
+msgid "Cash Flow Statement"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_account_account__ks_cash_flow_category
+msgid "Cash Flow type"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ins_account_financial_report_financing_activity1
+msgid "Cash Flows From Financing Activities"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ins_cash_in_financial_1
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_cash_in_investing1
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_cash_in_opertaion1
+msgid "Cash In"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ins_cash_out_financial_2
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_cash_out_investin2
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_cash_out_opertaion2
+msgid "Cash Out"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_paid_operating_activities0
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_paid_operating_activities_closing_1
+msgid "Cash Paid For Operating Activities"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_report_cash_closing_flow0
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_report_cash_flow02
+msgid "Cash and cash equivalents,beginning period"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_equivalents_closing_bal
+msgid "Cash and cash equivalents,closing balance"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_report_cash_flow01
+msgid "Cash and cash equivelents, Begning period"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_main_operations0
+msgid "Cash flow For Operating Activities"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_financing_activity0
+msgid "Cash flows from Investing Activities"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#, python-format
+msgid "Code"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model,name:ks_dynamic_financial_report.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_differentiation
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_differentiation
+msgid "Compare Among Intervals"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tax_report.py:0
+#, python-format
+msgid "Comparison Date from"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tax_report.py:0
+#, python-format
+msgid "Comparison Date to"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_new_com
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_new_com
+msgid "Comparison Intervals"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: model:ir.actions.client,name:ks_dynamic_financial_report.ks_df_cj_action
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_df_cj_menu
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_cj0
+#, python-format
+msgid "Consolidate Journal"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.actions.report,name:ks_dynamic_financial_report.ks_dynamic_financial_cons_journal_action
+msgid "Consolidate Journal Report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_cost_of_rev0
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_cost_of_rev1
+msgid "Cost of Revenue"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__create_uid
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__create_uid
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__create_date
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__create_date
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_con_jrnl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_con_jrnl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_lines
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_df_executive_summary
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_consolidate_journal
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+#, python-format
+msgid "Credit"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_debit_credit
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_debit_credit
+msgid "Credit-Debit "
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_cur_assets0
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_current_assets
+msgid "Current Assets"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Current Cash Balance"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_current_liability0
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_current_liability1
+msgid "Current Liabilities"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_current_year_allocated_earnings
+msgid "Current Year Allocated Earnings"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_current_year_earnings
+msgid "Current Year Earnings"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_differentiate_filter
+msgid "Custom"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_base__ks_partner_type__customer
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_partner_type__customer
+msgid "Customer Only"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+#, python-format
+msgid "Date"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid ""
+"Date\n"
+"                        :"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_differentiate_filter
+msgid "Date :"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_date_fil_visibility
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_date_fil_visibility
+msgid "Date Filter Visible"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_comparison_range
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_comparison_range
+msgid "Date Range Constrained"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#, python-format
+msgid "Date cannot be empty"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_con_jrnl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tax_report.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#, python-format
+msgid "Date from"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_con_jrnl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tax_report.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#, python-format
+msgid "Date to"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_differentiate_filter
+msgid "Date:"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_con_jrnl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_con_jrnl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_lines
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_df_executive_summary
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_consolidate_journal
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+#, python-format
+msgid "Debit"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_report_depriciation0
+msgid "Depreciation"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid "Detail reports"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Details Per Month"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_account_account__display_name
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__display_name
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__display_name
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__display_name
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_res_company__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_display_detail__detail_flat
+msgid "Display children flat"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_display_detail__detail_with_hierarchy
+msgid "Display children with hierarchy"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_display_detail
+msgid "Display details"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model,name:ks_dynamic_financial_report.model_ir_actions_account_report_download
+msgid "Download accounting report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid "Draft Entries"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_ar_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_age_receivable
+#, python-format
+msgid "Due Date"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.actions.report,name:ks_dynamic_financial_report.ks_dynamic_financial_report_action
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_df_form_view
+msgid "Dynamic Financial Report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.actions.act_window,name:ks_dynamic_financial_report.ks_df_create_dyn_finance_action
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_df_create_dyn_finance_menu
+msgid "Dynamic Financial Reports"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_df_form_view
+msgid "Dynamic Report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_df_form_view
+msgid "Dynamic Report Filters"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_equity
+msgid "EQUITY"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid ""
+"End\n"
+"                        Date :"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_differentiate_filter
+msgid "End Date :"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "End of Last Financial Year"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "End of Last Month"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "End of Last Quarter"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#, python-format
+msgid "Ending Balance"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_ar_xlsx.py:0
+#, python-format
+msgid "Entry #"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_age_receivable
+#, python-format
+msgid "Entry Label"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: model:ir.actions.client,name:ks_dynamic_financial_report.ks_df_es_action
+#: model:ir.actions.report,name:ks_dynamic_financial_report.ks_dynamic_financial_executive_action
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_df_es_menu
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_es0
+#, python-format
+msgid "Executive Summary"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_expense_data
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_report_expense0
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_report_expense2
+msgid "Expense"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_repport_buttons
+msgid "Export (XLSX)"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__xml_id
+msgid "External ID"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/models/ks_dynamic_financial_report_base.py:0
+#, python-format
+msgid ""
+"From %s\n"
+"to  %s"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "From:"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model:ir.actions.client,name:ks_dynamic_financial_report.ks_df_gl_action
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_df_gl_menu
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_gl0
+#, python-format
+msgid "General Ledger"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.actions.report,name:ks_dynamic_financial_report.ks_dynamic_financial_gel_bal_action
+msgid "General Ledger Report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_gross_profit0
+msgid "Gross Profit"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_hide_default_reports
+msgid "Hide default reports"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model,name:ks_dynamic_financial_report.model_ks_dynamic_financial_reports
+msgid "Holds information of reports lines"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_account_account__id
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__id
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__id
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__id
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_res_company__id
+msgid "ID"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#, python-format
+msgid "Initial Balance"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Initial Cash Balance"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_intervals
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_intervals
+msgid "Interval Filter"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "JRNL"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_ar_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_con_jrnl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_age_receivable
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_consolidate_journal
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+#, python-format
+msgid "Journal"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Journal (code)"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_journal_filter_visiblity
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_journal_filter_visiblity
+msgid "Journal Filter"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/models/ks_dynamic_financial_report_base.py:0
+#, python-format
+msgid "Journal Groups"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Journal Items"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_con_jrnl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tb_xlsx.py:0
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_journal_ids
+#, python-format
+msgid "Journals"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_company_id
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_company_id
+msgid "Ks Company"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_email_report_value
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_email_report_value
+msgid "Ks Email Report Value"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_user_id
+msgid "Ks User"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_liability0
+msgid "LIABILITIES"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "Last Financial Year"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_account_account____last_update
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download____last_update
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base____last_update
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports____last_update
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_res_company____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "Last Month"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "Last Quarter"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__write_uid
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__write_uid
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__write_date
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__write_date
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_report_menu_id
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_report_menu_id
+msgid "Menu item for the report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+#, python-format
+msgid "Move"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Move Line"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Move line"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_report_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tax_report.py:0
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ir_actions_account_report_download__name
+#, python-format
+msgid "Name"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tax_report.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tax_report.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tax_report.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Net Amount"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_tax_report
+msgid ""
+"Net Amount\n"
+"                                                    <br/>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_tax_report
+msgid ""
+"Net Amount\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Net Cash Balance"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_net_profit0
+msgid "Net Profit"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tax_report.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tax_report.py:0
+#, python-format
+msgid "Net Tax"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_net_in_out_equivalents
+msgid "Net increase in cash and cash equivalents"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Net tax"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_tax_report
+msgid ""
+"Net tax\n"
+"                                                    <br/>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_tax_report
+msgid ""
+"Net tax\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid "No"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_differentiate_filter
+msgid "No Comparison"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_display_detail__no_detail
+msgid "No detail"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_differentiate_filter
+msgid "Number of periods :"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#, python-format
+msgid "Odoo Warning"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_operating_incm1
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_report_oi
+msgid "Operating Income"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ir_actions_account_report_download__help
+msgid ""
+"Optional help text for the users with a description of the target view, such"
+" as its usage and purpose."
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_ext_other_income0
+msgid "Other Income"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_parent_id
+msgid "Parent"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_menu_parent_id
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_menu_parent_id
+msgid "Parent Menu"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_ar_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_gl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_age_receivable
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+#, python-format
+msgid "Partner"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#, python-format
+msgid "Partner Account Type"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_partner_account_type_filter
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_partner_account_type_filter
+msgid "Partner By Account Filter"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_partner_filter
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_partner_filter
+msgid "Partner Filter"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: model:ir.actions.client,name:ks_dynamic_financial_report.ks_df_pl_action
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_partner_ledger0
+#, python-format
+msgid "Partner Ledger"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.actions.report,name:ks_dynamic_financial_report.ks_dynamic_financial_partner_led_action
+msgid "Partner Ledger Report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__partner_category_ids
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__partner_category_ids
+msgid "Partner Tag"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_partner_type
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_partner_type
+msgid "Partner Type"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_df_pl_menu
+msgid "Partner ledger"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_ar_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_partner_ids
+#, python-format
+msgid "Partners"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_base__type__payable
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__type__payable
+msgid "Payable only"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_payables
+msgid "Payables"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_plus_fixed_assets
+msgid "Plus Fixed Assets"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_plus_non_current_liabilities
+msgid "Plus Non Current Liabilities"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_plus_non_concurrent_assets
+msgid "Plus Non-current Assets"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_posted_entries
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_posted_entries
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_account_report_trial_balance
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid "Posted Entries"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid "Posted Entries,Draft Entries"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid "Posted entries"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_prepayments
+msgid "Prepayments"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_report_line_sign__1
+msgid "Preserve balance sign"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_differentiate_filter
+msgid "Previous Period"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_bs_pre_year_unallocate_earnings
+msgid "Previous Years Unallocated Earnings"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_repport_buttons
+msgid "Print (Pdf)"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.actions.client,name:ks_dynamic_financial_report.ks_pnl0
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_menu_action_account_report_pnl
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_pnl0
+msgid "Profit and Loss"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_base__type__receivable
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__type__receivable
+msgid "Receivable Only"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_receivable
+msgid "Receivables"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_pl_xlsx.py:0
+#, python-format
+msgid "Reconciled"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_general_ledger
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid "Reference"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_report_menu_id
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_report_menu_id
+msgid "Report Menu"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_df_report_account_report_ids
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_df_report_account_type__account_report
+msgid "Report Value"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_name
+msgid "Reports Name"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_bs_ret_ear
+msgid "Retained Earnings"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_report_line_sign__-1
+msgid "Reverse balance sign"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_repport_buttons
+msgid "Send Email"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ir_actions_account_report_download__binding_model_id
+msgid ""
+"Setting a value makes this action available in the sidebar for the given "
+"model."
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid ""
+"Show\n"
+"                    Unreconciled Entries"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid ""
+"Show\n"
+"                    reconciled Entriess"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_report_line_sign
+msgid "Sign on Reports"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_differentiate_filter
+msgid "Start Date :"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_df_report_account_type__subtract
+msgid "Subtraction"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_base__ks_partner_type__supplier
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_partner_type__supplier
+msgid "Supplier Only"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_tax_report.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_tax_report
+#, python-format
+msgid "Tax"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: model:ir.actions.client,name:ks_dynamic_financial_report.ks_df_tax_report_action
+#: model:ir.actions.report,name:ks_dynamic_financial_report.ks_dynamic_financial_tax_action
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_df_tax_report_menu
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_tax_report
+#, python-format
+msgid "Tax Report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_generic_tax_filter
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_generic_tax_filter
+msgid "Tax Report Filter"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "This Financial Year"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "This Month"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "This Quarter"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid "To Print Report With Details"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid "To change date range"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "Today"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_ar_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/reports/ks_dynamic_financial_ar_xlsx.py:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: model:ir.model.fields.selection,name:ks_dynamic_financial_report.selection__ks_dynamic_financial_reports__ks_df_report_account_type__total
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_age_receivable
+#, python-format
+msgid "Total"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_report_total_income0
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_report_total_income1
+msgid "Total Income"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: code:addons/ks_dynamic_financial_report/static/src/js/ks_dynamic_financial_report.js:0
+#: model:ir.actions.client,name:ks_dynamic_financial_report.ks_df_tb_action
+#: model:ir.ui.menu,name:ks_dynamic_financial_report.ks_df_tb_menu
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_df_tb0
+#, python-format
+msgid "Trial Balance"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.actions.report,name:ks_dynamic_financial_report.ks_dynamic_financial_trial_bal_action
+msgid "Trial Balance Report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_df_report_account_type
+msgid "Type"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_unposted_entries
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_unposted_entries
+msgid "UnPosted Entries"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid "UnPosted Entries(Draft)"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid "UnPosted entries"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ks.dynamic.financial.reports,ks_name:ks_dynamic_financial_report.ks_dynamic_financial_balancesheet_unallocated_earnings
+msgid "Unallocated Earnings"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_unfold_all_lines
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_unfold_all_lines
+msgid "Unfold Lines Filter"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "Unfolded"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid "Unreconciled"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_dynamic_financial_partner_ledger
+msgid "Yes"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_dif_filter_bool
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_dif_filter_bool
+msgid "diff bool "
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_generic_tax_filter
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_generic_tax_filter
+msgid "display tax report filter in tax report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_debit_credit
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_debit_credit
+msgid "display the Credit and debit filter in the report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_analytic_account_visibility
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_analytic_account_visibility
+msgid "display the analytic filters"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_differentiation
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_differentiation
+msgid "display the differentiation filter"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_journal_filter_visiblity
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_journal_filter_visiblity
+msgid "display the journal filter in the report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_partner_filter
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_partner_filter
+msgid "display the partner filter in the report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_partner_account_type_filter
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_partner_account_type_filter
+msgid "display the partner type account filter in the report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_unfold_all_lines
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_unfold_all_lines
+msgid "display the unfold all options in report"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_due_bucket_1
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_due_bucket_1
+msgid "ks_due_bucket 1"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_due_bucket_2
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_due_bucket_2
+msgid "ks_due_bucket 2"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_due_bucket_3
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_due_bucket_3
+msgid "ks_due_bucket 3"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_due_bucket_4
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_due_bucket_4
+msgid "ks_due_bucket 4"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_due_bucket_5
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_due_bucket_5
+msgid "ks_due_bucket 5"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model,name:ks_dynamic_financial_report.model_ks_dynamic_financial_base
+msgid "ks_dynamic_financial_base"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_level
+msgid "ks_level"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_label_filter
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_label_filter
+msgid "label"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_reconciled
+#: model:ir.model.fields,field_description:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_reconciled
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_extra_ks_df_informations
+msgid "reconciled"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_base__ks_intervals
+#: model:ir.model.fields,help:ks_dynamic_financial_report.field_ks_dynamic_financial_reports__ks_intervals
+msgid "specify if the report use ks_intervals or single date"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#. openerp-web
+#: code:addons/ks_dynamic_financial_report/static/src/xml/ks_dynamic_financial_report.xml:0
+#, python-format
+msgid "to"
+msgstr ""
+
+#. module: ks_dynamic_financial_report
+#: model_terms:ir.ui.view,arch_db:ks_dynamic_financial_report.ks_searchview_date_filter
+msgid "to:"
+msgstr ""

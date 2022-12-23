@@ -1,0 +1,98 @@
+<odoo>
+    <data>
+        <menuitem id="leaves_settings_menu" name="leaves Settings" parent="hr_holidays.menu_hr_holidays_root" sequence="150"/>
+        <menuitem id="leaves_config_menu" name="leaves configuration" parent="mits_hr_leaves.leaves_settings_menu" sequence="5"/>
+        <menuitem id="air_ticket_menu" name="Air tickets" parent="hr_holidays.menu_hr_holidays_root" sequence="90"/>
+        <menuitem id="air_ticket_config_menu" name="Air ticket configuration" parent="mits_hr_leaves.leaves_settings_menu" sequence="10"/>
+
+
+        <menuitem
+        id="hr_holidays.menu_open_allocation"
+        name="My Allocation Requests"
+        parent="hr_holidays.menu_hr_holidays_my_leaves"
+        action="hr_holidays.hr_leave_allocation_action_my"
+        groups="hr_holidays.group_hr_holidays_manager"
+        sequence="3"/>
+
+        <menuitem
+        id="hr_holidays.hr_leave_menu_my"
+        parent="hr_holidays.menu_hr_holidays_my_leaves"
+        action="hr_holidays.hr_leave_action_my"
+        sequence="2"/>
+        
+
+      
+
+        <!-- need mig -->
+        <!-- <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_my_leaves">
+            <field name="name">Leaves</field>
+        </record> -->
+        <!-- <record model="ir.ui.menu" id="hr_holidays.menu_open_allocation_holidays">
+            <field name="parent_id" ref="mits_hr_leaves.leaves_config_menu"/>
+        </record> -->
+        <!-- <record model="ir.ui.menu" id="hr_holidays.menu_open_ask_holidays_new">
+            <field name="action" ref="mits_hr_leaves.open_ask_holidays"/>
+            <field name="sequence" eval="15"/>
+        </record> -->
+        <!-- <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_report">
+            <field name="name">Leave reports</field>
+        </record> -->
+        <!-- <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_configuration">
+            <field name="parent_id" ref="mits_hr_leaves.leaves_config_menu"/>
+        </record> -->
+        <!-- <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_approvals">
+            <field name="active" eval="True"/>
+            <field name="groups_id" eval="[(5,),(4,ref('base.group_no_one'),False)]"/>
+        </record> -->
+
+
+              <menuitem
+        name="Time Off"
+        id="hr_holidays.menu_hr_holidays_root"
+        sequence="95"
+        web_icon="hr_holidays,static/description/icon.png"
+        groups="hr.group_hr_manager"/>
+
+
+        <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_my_leaves">
+            <field name="name">Leaves</field>
+        </record> 
+
+
+        
+        <!-- <record model="ir.ui.menu" id="hr_holidays.menu_open_allocation_holidays">
+            <field name="parent_id" ref="mits_hr_leaves.leaves_config_menu"/>
+        </record> -->
+        <menuitem id="mits_leave_menu" name="Request Leave" 
+        action="mits_hr_leaves.open_ask_holidays"
+        parent="hr_holidays.menu_hr_holidays_my_leaves" 
+        sequence="0"/>
+
+           <menuitem id="emp_req_mits_leave_menu" name="Request Leave" 
+           parent="ext_hr_employee.menu_employee_self_service"
+     sequence="1"
+    action="mits_hr_leaves.open_ask_holidays_employee"/>
+
+        <record model="ir.ui.menu" id="hr_holidays.hr_leave_menu_new_request">
+            <field name="action" ref="hr_holidays.hr_leave_action_new_request"/>
+            <field name="sequence" eval="15"/>
+        </record>
+        <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_report">
+            <field name="name">Leave reports</field>
+        </record>
+        <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_configuration">
+            <field name="parent_id" ref="mits_hr_leaves.leaves_config_menu"/>
+        </record>
+        <!-- <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_approvals">
+            <field name="active" eval="True"/>
+            <field name="groups_id" eval="[(5,),(4,ref('base.group_no_one'),False)]"/>
+        </record> -->
+
+
+
+
+
+        <menuitem id="rentry_config_menu" name="Exit and re-entry configuration" parent="leaves_settings_menu" sequence="15"/>
+        <menuitem id="rentry_settings_menu" name="Exit  and Re-entry settings" parent="rentry_config_menu" sequence="5" action="action_exit_entry"/>
+    </data>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+<template id="custom_report_header">
+     <div class="header">
+         <div class="row">
+             <div class="col-xs-3">
+             </div>
+             <div class="col-xs-9 text-right" style="margin-top:20px;">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 70px;" alt="Logo"/>
+             </div>
+         </div>
+         <div class="row zero_min_height">
+             <div class="col-xs-12">
+                 <div style="border-bottom: 1px solid black;"/>
+             </div>
+         </div>
+     </div>
+</template>
+</odoo>

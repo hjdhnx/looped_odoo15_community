@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_job_offer">
+            <t t-call="report.external_layout">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <p dir="rtl"><span style="font-size:24px;"><strong><u><span style="font-family: times new roman,times,serif;">تفاصيل عرض عمل<br />
+                        Job Offer Specification</span></u></strong></span></p>
+                        
+                        <table align="center" class="table table-bordered" border="1" cellpadding="1" cellspacing="1" style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td dir="rtl" style="text-align: center;">
+                                        <!-- <span t-field="doc.offer_date"/> -->
+                                    </td>
+                                    <td dir="rtl" style="width: 17%; background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">التاريخ :</span></span></td>
+                                    <td dir="rtl" style="width: 17%; text-align: center;">
+                                        <span t-field="doc.nationality_id.name"/>
+                                    </td>
+                                    <td dir="rtl" style="width: 17%; background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">الجنسيه :</span></span></td>
+                                    <td dir="rtl" style="width: 17%; text-align: center;">
+                                        <span t-field="doc.name"/><br />
+                                        <span t-field="doc.partner_name"/>
+                                    </td>
+                                    <td dir="rtl" style="width: 17%; background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">اﻹسم :</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td dir="rtl" style="text-align: center;">
+                                        <span t-field="doc.iqama_issue_date"/>
+                                    </td>
+                                    <td dir="rtl" style="background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">تاريخ اﻹصدار :</span></span></td>
+                                    <td dir="rtl" style="text-align: center;">
+                                        <span t-field="doc.iqama_issue_place"/>
+                                    </td>
+                                    <td dir="rtl" style="background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">مكان اﻹصدار :</span></span></td>
+                                    <td dir="rtl" style="text-align: center;">
+                                        <span t-field="doc.iqama_id"/>
+                                    </td>
+                                    <td dir="rtl" style="background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">رقم بطاقه الأحوال :</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td dir="rtl" style="text-align: center;">
+                                        <span t-field="doc.type_id"/>
+                                    </td>
+                                    <td dir="rtl" style="background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">المؤهل العلمي :</span></span></td>
+                                    <td dir="rtl" style="text-align: center;">
+
+                                    </td>
+                                    <td dir="rtl" style="background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">المرتبه :</span></span></td>
+                                    <td dir="rtl" style="text-align: center;">
+                                        <span t-field="doc.job_id.name"/>
+                                    </td>
+                                    <td dir="rtl" style="background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">الوظيفه :</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td dir="rtl" style="text-align: center;"></td>
+                                    <td dir="rtl" style="background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">الدرجه :</span></span></td>
+                                    <td dir="rtl" style="text-align: center;">
+                                        <span t-field="doc.branch_id"/>
+                                    </td>
+                                    <td dir="rtl" style="background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">الفرع :</span></span></td>
+                                    <td dir="rtl" style="text-align: center;">
+                                        <span t-field="doc.department_id"/>
+                                    </td>
+                                    <td dir="rtl" style="background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">اﻹداره : </span></span></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td dir="rtl" style="background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">تاريخ مباشره العمل : </span></span></td>
+                                    <td colspan="4" dir="rtl" rowspan="1"><input checked="checked" name="1" type="checkbox" /><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;"> عرض مؤقت <input name="12" type="checkbox" />مده العقد سنه ميلاديه <input name="123" type="checkbox" />سنتين ميلاديتين</span></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <table align="center" class="table table-bordered" border="1" cellpadding="1" cellspacing="1" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">المستندات واجراءات فتح الملف للموظف</span></span></th>
+                                    <th scope="col" style="width: 15%; background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">بعد التجربه</span></span></th>
+                                    <th scope="col" style="width: 15%; background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">فتره التجربه</span></span></th>
+                                    <th scope="col" style="width: 30%; background-color: rgb(204, 204, 204);"><span style="font-size:18px;"><span style="font-family: times new roman,times,serif;">الراتب والعلاوه</span></span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="1" dir="rtl" rowspan="6">
+                                    <p><span style="font-size:20px;"><span style="font-family: times new roman,times,serif;">1- السيره الذاتيه<br />
+                                    2- صوره شخصيه<br />
+                                    3- صوره الخبرات العمليه<br />
+                                    4- صوره الشهادات العلميه<br />
+                                    5- صوره البطاقه الشخصيه</span></span></p>
+                                    </td>
+                                    <td><span t-field="doc.basic_salary"/></td>
+                                    <td><span t-field="doc.trial_wage"/></td>
+                                    <td dir="rtl" style="text-align: center; background-color: rgb(204, 204, 204);"><span style="font-size: 18px;"><span style="font-family: times new roman,times,serif;">الراتب الاساسي</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><span t-field="doc.house_allowance_amount"/></td>
+                                    <td><span t-field="doc.trial_house_allowance_amount"/></td>
+                                    <td dir="rtl" style="text-align: center; background-color: rgb(204, 204, 204);"><span style="font-size: 18px;"><span style="font-family: times new roman,times,serif;">بدل السكن</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><span t-field="doc.transportation_allowance_amount"/></td>
+                                    <td><span t-field="doc.trial_transportation_allowance_amount"/></td>
+                                    <td dir="rtl" style="text-align: center; background-color: rgb(204, 204, 204);"><span style="font-size: 18px;"><span style="font-family: times new roman,times,serif;">بدل المواصلات</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><span t-field="doc.phone_allowance_amount"/></td>
+                                    <td><span t-field="doc.trial_phone_allowance_amount"/></td>
+                                    <td dir="rtl" style="text-align: center; background-color: rgb(204, 204, 204);"><span style="font-size: 18px;"><span style="font-family: times new roman,times,serif;">بدل الجوال</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span t-field="doc.other_allowance_name"/><br />
+                                        <span t-field="doc.other_allowance"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.trial_other_allowance_name"/><br />
+                                        <span t-field="doc.trial_other_allowance"/>
+                                    </td>
+                                    <td dir="rtl" style="text-align: center; background-color: rgb(204, 204, 204);"><span style="font-size: 18px;">
+                                        <span style="font-family: times new roman,times,serif;">
+بدلات اخرى
+                                        </span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <t t-if="doc.insurance">
+                                            مغطى
+                                        </t>
+                                        <t t-if="not doc.insurance">
+غير مغطى
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="doc.trial_insurance">
+                                            مغطى
+                                        </t>
+                                        <t t-if="not doc.trial_insurance">
+غير مغطى
+                                        </t>
+                                    </td>
+                                    <td dir="rtl" style="text-align: center; background-color: rgb(204, 204, 204);"><span style="font-size: 18px;"><span style="font-family: times new roman,times,serif;">تأمين طبي</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" dir="rtl" rowspan="2"><span style="font-size:20px;">اعتماد رئيس القسم بالموافقه: التاريخ:  </span><br />
+                                    </td>
+                                    <td>
+                                        <t t-if="doc.commission == 'illegible'">
+يستحق
+                                        </t>
+                                        <t t-if="doc.commission == 'not_illegible'">
+                                            لا يستحق
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="doc.trial_commission == 'illegible'">
+يستحق
+                                        </t>
+                                        <t t-if="doc.trial_commission == 'not_illegible'">
+                                            لايستحق
+                                        </t>
+                                    </td>
+                                    <td dir="rtl" style="text-align: center; background-color: rgb(204, 204, 204);"><span style="font-size: 18px;"><span style="font-family: times new roman,times,serif;">عمولات</span></span></td>
+                                </tr>
+                                <tr>
+                                    <td><span t-field="doc.total"/></td>
+                                    <td><span t-field="doc.trial_total"/></td>
+                                    <td dir="rtl" style="text-align: center; background-color: rgb(204, 204, 204);">إجمالي</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <table align="center" border="1" cellpadding="1" class="table table-bordered" cellspacing="1" style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td colspan="3" dir="rtl" style="text-align: center; background-color: rgb(204, 204, 204);"><strong><u><span style="font-size:22px;"><span style="font-family: times new roman,times,serif;">مميزات وشروط أخري</span></span></u></strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" dir="rtl"><strong><span style="font-size:20px;"><span style="font-family: times new roman,times,serif;">1- فتره التجربه: (90) يوما اعتبار من تاريخ المباشره قابله للتجديد</span></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" dir="rtl"><strong><span style="font-size:20px;"><span style="font-family: times new roman,times,serif;">2- يعتبر هذا العرض نهائيا ويحل محل اي اتفاقيات او مفاوضات سابقه</span></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" dir="rtl"><strong><span style="font-size:20px;"><span style="font-family: times new roman,times,serif;">3- التأمين الطبي: يستحق الموظف وثلاثه من افراد عائلته (حسب نظام الشركه)</span></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" dir="rtl"><strong><span style="font-size:20px;"><span style="font-family: times new roman,times,serif;">4- يتم تقييم الموظف بشكل شهري ويصدر تقرير مجمع ربع سنوي يحق للاداره بناء علي التوصيه بالزياده او الخصم او الايقاف عن العمل</span></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" dir="rtl"><strong><span style="font-size:20px;"><span style="font-family: times new roman,times,serif;">5- يعتبر هذا العرض لاغيا في حاله عدم مباشره العمل في التاريخ المتفق عليه</span></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td dir="rtl" style="width: 33%;"><strong><span style="font-size:20px;"><span style="font-family: times new roman,times,serif;">اعتماد الإداره:</span></span></strong><br />
+                                    </td>
+                                    <td dir="rtl" style="width: 33%;"><strong><span style="font-size:20px;"><span style="font-family: times new roman,times,serif;">مدير الإداره:</span></span></strong><br />
+                                    </td>
+                                    <td dir="rtl" style="width: 33%;"><strong><span style="font-size:20px;"><span style="font-family: times new roman,times,serif;">شؤون الموظفين:</span></span></strong><br />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" dir="rtl"><strong><span style="font-size:20px;"><span style="font-family: times new roman,times,serif;">أوافق علي ما جاء في تفاصيل هذا العرض ,,, و أؤكد بأنني علي استعداد لمباشره العمل في (  /  /   ) والالتزام بالنود المدونه اعلاه.</span></span></strong></td>
+                                </tr>
+                                <tr>
+                                    <td dir="rtl" style="width: 33%;"><br />
+                                    </td>
+                                    <td dir="rtl" style="width: 33%;"><br />
+                                    </td>
+                                    <td dir="rtl" style="width: 33%;"><br />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <p></p>
+
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

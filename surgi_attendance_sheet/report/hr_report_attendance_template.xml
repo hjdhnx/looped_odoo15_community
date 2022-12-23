@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_attendance_sheet_details">
+        <t t-call="web.html_container">
+            <t t-foreach="inside_foreach_docs or docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-set="o" t-value="o.with_context(lang=o.employee_id.address_home_id.lang or o.env.lang)"/>
+                    <div class="page">
+                        <h2 t-field="o.name"/>
+                    
+
+                        <table name="employee-infos" class="table table-sm table-bordered">
+                            <tr>
+                                <td class="w-25">
+                                    <strong> Employee</strong>
+                                </td>
+                                <td class="w-25">
+                                    <strong> Month</strong>
+                                </td>
+                                <td class="w-25">
+                                    <strong>Date From</strong>
+                                </td>
+                                <td class="w-25">
+                                    <strong>Date TO</strong>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span t-field="o.employee_id"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.month"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.date_from"/>
+                                </td>
+                                <td>
+                                     <span t-field="o.date_to"/>
+                                </td>
+                            </tr>
+
+                        </table>
+
+
+                        <div id="total">
+                            <table class="table table-sm table-bordered" >
+                                <thead class="o_black_border">
+                                    <tr>
+                                        <td class="w-25">
+                                            <strong> Date</strong>
+                                        </td>
+                                        <td class="w-25">
+                                            <strong>Day</strong>
+                                        </td>
+                                        <td class="w-25">
+                                            <strong>PL/IN</strong>
+                                        </td>
+                                        <td class="w-25">
+                                            <strong>PL/OUT</strong>
+                                        </td>
+
+                                         <td class="w-25">
+                                            <strong>ACT/IN</strong>
+                                        </td>
+
+                                         <td class="w-25">
+                                            <strong>ACT/OUT</strong>
+                                        </td>
+                                         <td class="w-25">
+                                            <strong>ACT/Late</strong>
+                                        </td>
+                                         <td class="w-25">
+                                            <strong>Overtime</strong>
+                                        </td>
+                                         <td class="w-25">
+                                            <strong>States</strong>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <span t-foreach="o.line_ids" t-as="worked_days">
+                                        <t >
+                                            <tr style="color:none">
+                                                <td>
+                                                    <span t-field="worked_days.date"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="worked_days.day"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="worked_days.pl_sign_in"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="worked_days.pl_sign_out"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="worked_days.ac_sign_in"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="worked_days.ac_sign_out"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="worked_days.act_late_in"/>
+                                                </td>
+                                                 <td>
+                                                    <span t-field="worked_days.overtime"/>
+                                                </td>
+                                                  <td>
+                                                    <span t-field="worked_days.status"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </span>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_attendance_sheet">
+        <t t-foreach="docs" t-as="o">
+            <t t-set="inside_foreach_docs" t-value="o"/>
+            <t t-call="surgi_attendance_sheet.report_attendance_sheet_details" t-lang="o.employee_id.sudo().address_home_id.lang"/>
+        </t>
+    </template>
+</odoo>

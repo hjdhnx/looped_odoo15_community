@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--Salary rule Category ( DED )-->
+<!--        <record id="GOSI" model="hr.salary.rule.category">-->
+<!--            <field name="name">GOSI</field>-->
+<!--            <field name="code">GOSI</field>-->
+<!--        </record>-->
+        <!--Gosi Company share-->
+<!--        <record id="hr_rule_gosi_company" model="hr.salary.rule">-->
+<!--            <field name="name">Gosi Company share</field>-->
+<!--            <field name="code">GOSIC</field>-->
+<!--            <field name="category_id" ref="hr_gosi.GOSI"/>-->
+<!--            <field name="condition_select">none</field>-->
+<!--            <field name="amount_select">code</field>-->
+<!--            <field name="amount_python_compute">result = payslip.dict.gosi_company_rule()</field>-->
+<!--            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>-->
+<!--            <field name="sequence" eval="105"/>-->
+<!--        </record>-->
+        <!--Gosi Company share-->
+<!--        <record id="hr_rule_gosi_employee" model="hr.salary.rule">-->
+<!--            <field name="name">Gosi Employee share</field>-->
+<!--            <field name="code">GOSIE</field>-->
+<!--            <field name="category_id" ref="hr_gosi.GOSI"/>-->
+<!--            <field name="condition_select">none</field>-->
+<!--            <field name="amount_select">code</field>-->
+<!--            <field name="amount_python_compute">result = payslip.dict.gosi_employee_rule()</field>-->
+<!--            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>-->
+<!--            <field name="sequence" eval="99"/>-->
+<!--        </record>-->
+
+        <!--Salary Structure-->
+        <!-- <record id="ext_hr_payroll.rz_salary_structure" model="hr.payroll.structure">
+            <field name="rule_ids" eval="[
+            (4, ref('hr_gosi.hr_rule_gosi_company')),
+            (4, ref('hr_gosi.hr_rule_gosi_employee')),
+            ]"/>
+        </record> -->
+    </data>
+</odoo>

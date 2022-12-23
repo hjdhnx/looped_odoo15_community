@@ -1,0 +1,372 @@
+<odoo>
+    <data>
+
+        <record id="family_member_form" model="ir.ui.view">
+            <field name="name">family.member.form</field>
+            <field name="model">family.member</field>
+            <field name="arch" type="xml">
+                <form string="Owners">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_inline oe_stat_button" name="action_view_documents" type="object" icon="fa-pencil-square-o" string="Documents"/>
+                        </div>
+                        <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;:&quot;image_medium&quot;}"/>
+                        <group>
+                            <field name="name" />
+                            <field name="arabic_name" />
+                            <field name="type" />
+                            <field name="notes" />
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <!-- need mig -->
+        <!-- <record model="ir.ui.view" id="family_member_kanban">
+            <field name="name">Family member and companies Kanban</field>
+            <field name="model">family.member</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <kanban class="o_hr_employee_kanban">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('family.member', 'image_medium', record.id.value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                    <br />
+                                    <strong>
+                                        <field name="arabic_name"/>
+                                    </strong>
+                                    <div class="o_kanban_button">
+                                        <button name="action_view_documents" type="object" class="o_follow_btn o_following btn btn-sm btn-default">
+                                            <span >Documents</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+            </field>
+        </record> -->
+
+        <record id="family_member_search" model="ir.ui.view">
+            <field name="name">family.member.search</field>
+            <field name="model">family.member</field>
+            <field name="arch" type="xml">
+                <search string="Family member and companies">
+                    <filter name="filter_member" string="One Of The Family Members" domain="[('type', '=', 'One Of The Family Members')]"/>
+                    <filter name="filter_company" string="A Company" domain="[('type', '=', 'A Company')]"/>
+                    <group string="Group By">
+                        <filter name="by_type" string="Type" context="{'group_by': 'type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <menuitem name="Documents" id="menu_docs_root" groups="mits_document_management.document_user" web_icon="mits_document_management,static/description/icon.png" sequence="55"/>
+
+
+        <record model="ir.actions.act_window" id="action_family_member">
+            <field name="name">Owners</field>
+            <field name="res_model">family.member</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <menuitem id="menu_documents_family_member" sequence="1" parent="menu_docs_root" name="Owners" action="action_family_member" groups="mits_document_management.document_manager"/>
+
+        <record id="family_document_form" model="ir.ui.view">
+            <field name="name">family.document.form</field>
+            <field name="model">family.document</field>
+            <field name="arch" type="xml">
+                <form string="Documents">
+                    <header>
+                        <button name="action_confirm" attrs="{'invisible': ['|',('create_date', '=', False),('state', '!=', 'Draft')]}" string="Confirm" type="object" class="oe_highlight" groups="mits_document_management.document_manager" />
+                        <field name="state" widget="statusbar" readonly="1" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="owner_id" options="{'no_create' : True}" />
+                            <field name="number" />
+                            <field name="parent_document" options="{'no_create' : True}" />
+                            <field name="file" />
+                            <field name="current_holder" />
+                            <field name="document_issue_date" />
+                            <field name="manage_expiry_date" />
+                            <field name="document_expiry_date" attrs="{'invisible': [('manage_expiry_date', '=', False)],'required':[('manage_expiry_date', '=', True)]}" />
+                            <field name="reminder_before" attrs="{'invisible': [('manage_expiry_date', '=', False)]}" />
+                            <field name="active" />
+                            <field name="create_date" invisible="1" />
+                        </group>
+                        <notebook>
+                            <page string="History">
+                                <field name="holder_ids" readonly="1" />
+                            </page>
+                            <page string="Child Documents">
+                                <field name="child_docs" readonly="1" />
+                            </page>
+                            <page string="Notes">
+                                <field name="notes" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="family_document_tree" model="ir.ui.view">
+            <field name="name">family.document.tree</field>
+            <field name="model">family.document</field>
+            <field name="arch" type="xml">
+                <tree string="Document">
+                    <field name="name" />
+                    <field name="owner_id" />
+                    <field name="parent_document" />
+                    <field name="number" />
+                    <field name="current_holder" />
+                    <field name="document_issue_date" />
+                    <field name="document_expiry_date" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- <record model="ir.ui.view" id="family_document_kanban">
+            <field name="name">Documents Kanban</field>
+            <field name="model">family.document</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <kanban class="o_hr_employee_kanban">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('family.document', 'file', record.id.value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                    <br />
+                                    <strong>
+                                        <field name="current_holder"/>
+                                    </strong>
+                                    <br />
+                                    <strong>
+                                        <field name="document_expiry_date"/>
+                                    </strong>
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+            </field>
+        </record> -->
+
+        <record id="family_document_search" model="ir.ui.view">
+            <field name="name">family.document.search</field>
+            <field name="model">family.document</field>
+            <field name="arch" type="xml">
+                <search string="Documents">
+                    <group string="Group By">
+                        <filter name="by_type" string="Document Owner" context="{'group_by': 'owner_id'}"/>
+                        <filter name="by_type" string="Current Holder Name" context="{'group_by': 'current_holder'}"/>
+                        <filter name="by_type" string="Parent Document" context="{'group_by': 'parent_document'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_family_document">
+            <field name="name">Family Documents</field>
+            <field name="res_model">family.document</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <menuitem id="menu_documents_family_document" sequence="2" parent="menu_docs_root" name="Family Documents" action="action_family_document" groups="mits_document_management.document_user"/>
+
+
+        <record id="document_holder_form" model="ir.ui.view">
+            <field name="name">document.holder.form</field>
+            <field name="model">document.holder</field>
+            <field name="arch" type="xml">
+                <form string="Deliver / Receive Documents">
+                    <header>
+                        <button name="action_mail_send" attrs="{'invisible': ['|',('create_date', '=', False),('state', '!=', 'Draft')]}" string="Document Delivered" type="object" class="oe_highlight" confirm="Are you sure that the Contact received the document?" groups="mits_document_management.document_manager"/>
+                        <button name="action_done" states="Pending" string="Done" type="object" class="oe_highlight" groups="mits_document_management.document_manager" confirm="If you set this transaction to done, all fields will be read only "/>
+                        <field name="state" widget="statusbar" readonly="1" groups="mits_document_management.document_manager" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="member_id" options="{'no_create' : True}" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                                <field name="document_id" options="{'no_create' : True}" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                                <field name="sub_document_id" options="{'no_create' : True}" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                                <field name="action_type" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                                <field name="contact_id" options="{'no_create' : True}" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                            </group>
+                            <group>
+                                <field name="must_attach_signature" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                                <field name="contact_copy" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                                <field name="cc" widget="many2many_tags_email" options="{'no_create' : True}" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                                <field name="delivery_date" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                                <field name="receive_at" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="notes" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                            <field name="create_date" invisible="1" attrs="{'readonly':[('state', '=', 'Done')]}"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="document_holder_tree" model="ir.ui.view">
+            <field name="name">document.holder.tree</field>
+            <field name="model">document.holder</field>
+            <field name="arch" type="xml">
+                <tree string="Document Holder" default_order="create_date desc">
+                    <field name="name" />
+                    <field name="contact_id" />
+                    <field name="member_id" />
+                    <field name="document_id" />
+                    <field name="sub_document_id" />
+                    <field name="action_type" />
+                    <field name="delivery_date" />
+                    <field name="state" />
+                    <field name="create_date" invisible="1" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="document_holder_search" model="ir.ui.view">
+            <field name="name">document.holder.search</field>
+            <field name="model">document.holder</field>
+            <field name="arch" type="xml">
+                <search string="Deliver / Receive Documents">
+                    <group string="Group By">
+                        <filter name="by_member" string="Family Member / Company" context="{'group_by': 'member_id'}"/>
+                        <filter name="by_document" string="Family / Company Document" context="{'group_by': 'document_id'}"/>
+                        <filter name="by_deliver" string="Deliver To Employee" context="{'group_by': 'delivery_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_document_holder">
+            <field name="name">Deliver / Receive Documents</field>
+            <field name="res_model">document.holder</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_documents_document_holder" sequence="2" parent="menu_docs_root" name="Deliver / Receive Documents" action="action_document_holder" groups="mits_document_management.document_user"/>
+
+
+        <record model="ir.ui.view" id="partner_document_holder_form_view">
+            <field name="name">partner.document.holder</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <group name="purchase" position="after">
+                    <group string="Document Holder" name="document_holder">
+                        <field name="document_holder" />
+                    </group>
+                </group>
+            </field>
+        </record>
+
+        <record id="action_partner_document_holder_form" model="ir.actions.act_window">
+            <field name="name">Contacts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="domain">[('document_holder','=',1)]</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{'default_customer': 0,'default_supplier':0,'default_document_holder':1}</field>
+            <field name="filter" eval="True"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add a contact in your address book.
+                </p>
+                <p>
+                Odoo helps you easily track all activities related to
+                a supplier: discussions, history of purchases,
+                documents, etc.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_documents_contacts" sequence="0" parent="menu_docs_root" name="Contacts" action="action_partner_document_holder_form" groups="mits_document_management.document_manager"/>
+
+
+        <!-- Document Holder emails -->
+        <record id="email_document_delivered_email" model="mail.template">
+            <field name="name">Contact Deliver Document</field>
+            <!--<field name="email_from">${(object.manager_id.email or object.company_id.email or 'noreply@localhost')|safe}</field>-->
+            <field name="subject">
+             اشعار تسليم / استلام مستند
+            </field>
+            <field name="email_to">${object.contact_id.email}</field>
+            <field name="partner_to">${",".join(map(str, object.cc.ids))}</field>
+            <field name="model_id" ref="mits_document_management.model_document_holder"/>
+            <field name="body_html">
+                <![CDATA[
+            <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255);direction:rtl ">
+
+                <p>السيد / ${object.contact_id.name},</p>
+
+
+                <p>
+                  السلام عليكم و رحمة الله و بركاته
+                </p>
+
+                <br/>
+                نحن فى شركة
+ ${object.contact_id.company_id.name}
+نفيدكم بأنه تم تسليمكم المستند:
+  ${object.document_id.name}
+الخاص ب
+ ${object.member_id.name}
+بتاريخ
+ ${object.delivery_date}
+وذلك للقيام ب
+ ${object.action_type}.
+<br />
+فى حالة عدم استلامكم للمستند المذكور تفاصيله بالأعلى .. برجاء رفع شكوى إلى إدارة الشركه وابلاغنا بعدم استلامكم لهذا المستند ..
+<br />
+ملحوظة .. هذه الرسالة تصدر بشكل تلقائى من النظام ولا تحتاج إلى رد
+
+                </div>
+            </div>
+                        ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

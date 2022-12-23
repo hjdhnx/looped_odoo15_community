@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_attendance_log,attendance_log,model_attendance_log,base.group_user,1,1,1,1
+access_attendance_device,attendance_device,model_attendance_device,base.group_user,1,1,1,1

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="custody_renewal_form" model="ir.ui.view">
+        <field name="name">custody.renewal.form</field>
+        <field name="model">custody.renewal</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="returned_date"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="proceed" string="Proceed" type="object"
+                            class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="custody_renewal_action"
+                name="Custody Renewal"
+                res_model="custody.renewal"
+                view_mode="form"
+                target="new"/>
+
+</odoo>

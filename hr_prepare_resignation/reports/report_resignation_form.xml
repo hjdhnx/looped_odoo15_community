@@ -1,0 +1,98 @@
+<odoo>
+    <report
+        id="action_report_resignation_form"
+        string="Resignation Form"
+        model="prepare.resignation"
+        report_type="qweb-pdf"
+        file="hr_prepare_resignation.report_resignation_form"
+        name="hr_prepare_resignation.report_resignation_form"
+        print_report_name="(object._get_report_resignation_form_filename())"
+        menu="False"
+    />
+
+
+     <template id="report_resignation_form">
+        <t t-call="web.html_container">
+        <!-- <t t-call="heights_custom_report.custom_external_layout"> -->
+        <t t-call="web.external_layout">
+        <t t-foreach="docs" t-as="o">
+            <div class="page">
+                <div class="oe_structure"/>
+                <br/>
+                <div align="center">
+                <br/>
+                    <h2 style="color:#f8f9fa;background-color:#003570;background-size: 150px;width: 700px;
+                    height: 80px;display:inline-block;border-radius: 25px;">
+                        <span t-if="o.resignation_type == 'resigned'" style="position:relative; top: 20px;">أستقالة Normal Resignation</span>
+                        <span t-if="o.resignation_type == 'no_renewal'" style="position:relative; top: 20px;">Not Wanting to renewal عدم الرغبة فى التجديد</span>
+                    </h2>
+                </div>
+
+                <br/>
+                <table class="table" style="width:100%;font-size: large;text-align:center;">
+                    <tr>
+                        <td style="border: 1px solid black;">   اﻻسم  :   <span t-esc="o.employee_id.name"/>  </td>
+                        <td style="border: 1px solid black;">  Name  : <span t-esc="o.employee_id.name"/>  </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black;">   المسمي الوظيفي  :   <span t-esc="o.employee_id.job_title"/>  </td>
+                        <td style="border: 1px solid black;">  Job Title  : <span t-esc="o.employee_id.job_title"/>  </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black;"> الجنسية  :   <span t-esc="o.employee_id.country_id.name"/>  </td>
+                        <td style="border: 1px solid black;"> <span t-esc="o.employee_id.country_id.name"/> :  Nationality     </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black;">   اﻻدارة  :   <span t-field="o.employee_id.department_id"/>  </td>
+                        <td style="border: 1px solid black;">  Department  : <span t-field="o.employee_id.department_id"/>  </td>
+                    </tr>
+                    <!-- <tr>
+                        <td style="border: 1px solid black;"> القسم  :   <span t-esc="o.employee_id.department_id.name"/>  </td>
+                        <td style="border: 1px solid black;">  Section  : <span t-esc="o.employee_id.department_id.name"/>  </td>
+                    </tr> -->
+                    <tr>
+                        <td style="border: 1px solid black;"> <span>أنا الموظف الموقع أدناه أتقدم بهذا الإشعار لشركة</span> <br/> <strong style="text-align:center;">( <span t-esc="o.employee_id.company_id.name"/> )</strong> <br/> <span>أعتبارا من تاريخ</span>   ( <strong><span t-esc="o.expected_revealing_date"/></strong> ) <span> وقد أتخذت هذا القرار للأسباب اﻻتيه :</span> <br/><br/> <strong><span t-esc="o.reason"/></strong>   </td>
+                        <td style="border: 1px solid black;">   <span>Under this notice is terminated services with </span><br/> <strong style="text-align:center;">( <span t-esc="o.employee_id.company_id.name"/> )</strong> <br/> <span>As of the date of</span>   ( <strong><span t-esc="o.expected_revealing_date"/></strong> ) <span> it took this decision for the following reasons </span>  <br/><br/> <strong><span t-esc="o.reason"/></strong></td>
+                    </tr>
+                </table>
+                <br/>
+                <table class="table table-bordered" style="text-align:center;">
+                    <thead>
+                        <tr style="color:#f8f9fa;background-color:#003570;">
+                            <th style="border: 1px solid black">
+                                <strong>المسؤول</strong>
+                            </th>
+                            <th style="border: 1px solid black;text-align:center;">
+                                <strong>الحاله</strong>
+                            </th>
+                            <th style="border: 1px solid black">
+                                <strong>الملاحظات</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td style="border: 1px solid black">قسم الموارد البشرية</td>
+                        <td style="border: 1px solid black;text-align:center;">وافق</td>
+                        <td style="border: 1px solid black"><span t-esc="o.hr_notice"/></td>
+                    </tr>
+                        <tr>
+                            <td style="border: 1px solid black">المدير المباشر</td>
+                            <td style="border: 1px solid black;text-align:center;">وافق</td>
+                            <td style="border: 1px solid black"><span t-esc="o.dir_man_notice"/></td>
+                        </tr>
+<!--                        <tr>-->
+<!--                            <td style="border: 1px solid black">الرئيس</td>-->
+<!--                            <td style="border: 1px solid black;text-align:center;">وافق</td>-->
+<!--                            <td style="border: 1px solid black"><span t-esc="o.gen_man_notice"/></td>-->
+<!--                        </tr>-->
+                    </tbody>
+                </table>
+
+            </div>
+        </t>
+        </t>
+        </t>
+    </template>
+
+</odoo>
