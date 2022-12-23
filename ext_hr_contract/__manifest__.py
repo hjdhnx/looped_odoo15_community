@@ -11,12 +11,12 @@
     'category': 'Human Resources',
     'depends': ['base', 'hr', 'ext_hr_employee', 'hr_contract',
     #after select payroll module after migration uncomment
+    'hr_payroll',
+    'hr_payroll_account'
      ],
-    #'hr_payroll',
-    # 'hr_payroll_account'
     'data': [
         #need migrate after select payroll
-        # 'data/hr_payroll_data.xml',
+        'data/hr_payroll_data.xml',
         'views/hr_contract_view.xml',
     ],
     'installable': True,

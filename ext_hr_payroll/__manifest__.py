@@ -9,7 +9,7 @@
     'category': 'Human Resources',
     'author': "OserGroup",
     'website': "http://www.osergroup.com",
-    'depends': ['hr_holidays', 'basic_hr', 'ext_hr_contract', ],
+    'depends': ['hr_payroll_account','hr_holidays','basic_hr','ext_hr_contract',],
     # hr_payroll_account
     'data': [
         'security/ir.model.access.csv',
