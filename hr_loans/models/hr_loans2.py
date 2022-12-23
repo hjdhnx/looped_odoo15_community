@@ -644,136 +644,136 @@ class ContractPaidViolation(models.Model):
     note = fields.Char('Notes')
 
 
-# class Payroll(models.Model):
-#     _inherit = "hr.payslip"
-#
-#     total_deduction = fields.Float('Total deductions', compute='get_total_deduction')
-#     total_deduction_ = fields.Float('Total deductions')
-#     total_paid = fields.Float('Total paid', compute='get_total_paid')
-#     total_paid_ = fields.Float('Total paid')
-#     remaining = fields.Float('Remaining', compute='get_remaining')
-#     remaining_ = fields.Float('Remaining')
-#     remaining_deduction = fields.Float('Remaining Violations', compute="_compute_remaining_deduction")
-#     deduct_this_month_ = fields.Float('Deduct this month')
-#     remove_from_employee = fields.Float('Remove this amount from employee')
-#     next_month_balance = fields.Float('Next Month balance', compute='get_next_month_balance')
-#     next_month_balance_history = fields.Float('Next Month balance')
-#
-#     #@api.one
-#     def _compute_remaining_deduction(self):
-#         for rec in self:
-#             if rec.state == 'done':
-#                 rec.remaining_deduction = rec.remaining_
-#             else:
-#                 rec.remaining_deduction = rec.remaining
-#
-#     @api.constrains('remove_from_employee')
-#     def check_remove_from_employee(self):
-#         for rec in self:
-#             if rec.remove_from_employee < 0:
-#                 raise ValidationError(_("Remove this amount from employee can not be less than zero"))
-#
-#     #@api.one
-#     @api.depends('remaining', 'remove_from_employee', 'deduct_this_month_')
-#     def get_next_month_balance(self):
-#         for rec in self:
-#             rec.next_month_balance = rec.remaining - rec.remove_from_employee - rec.deduct_this_month_
-#
-#     #@api.one
-#     @api.constrains('deduct_this_month_')
-#     def check_deduct_this_month_(self):
-#         for rec in self:
-#             if rec.deduct_this_month_ < 0:
-#                 raise ValidationError(_("Deduct this month can not be lees than zero"))
-#
-#     #@api.one
-#     @api.depends('total_deduction', 'total_paid')
-#     def get_remaining(self):
-#         for rec in self:
-#             rec.remaining = rec.total_deduction - rec.total_paid
-#             if rec.remaining == 0:
-#                 rec.remove_from_employee = 0
-#
-#     #@api.one
-#     @api.depends('contract_id')
-#     def get_total_deduction(self):
-#         for rec in self:
-#             rec.total_deduction = rec.total_deduction_ or rec.contract_id.total_deduction_amount
-#
-#     #@api.one
-#     @api.depends('contract_id')
-#     def get_total_paid(self):
-#         for rec in self:
-#             rec.total_paid = rec.total_paid_ or rec.contract_id.total_paid_amount
-#
-#     #@api.one
-#     #need mig
-#     # def hr_verify_sheet(self):
-#     #     if self.remaining and not self.loans_data_reviewed:
-#     #         raise ValidationError(_("Attention!! \n\
-#     #         This employee  ( %s  ) had old loans or deductions or rewards which is not fully paid before confirm this payslip. kindly go to ( other payment /\
-#     #          deduction) tab,  and make sure that you checked (other payments / deduction reviewed).") % (self.employee_id.name))
-#     #     if self.next_month_balance < 0:
-#     #         raise ValidationError(_("Validation Error!\n\
-#     #             It seems that you deducted an amount bigger than the employee deduction balance. kindly review your data.\nEmployee: %s" % self.employee_id.display_name))
-#     #     self.total_deduction_ = self.total_deduction
-#     #     self.total_paid_ = self.total_paid
-#     #     self.remaining_ = self.remaining
-#     #     self.next_month_balance_history = self.next_month_balance
-#     #     if self.deduct_this_month_:
-#     #         self.env['contract.paid.violation'].create({
-#     #             'contract_id': self.contract_id.id,
-#     #             'reference_id': self.id,
-#     #             'date': self.date_to,
-#     #             'amount': self.deduct_this_month_,
-#     #         })
-#     #     if self.remove_from_employee:
-#     #         self.env['contract.paid.violation'].create({
-#     #             'contract_id': self.contract_id.id,
-#     #             'reference_id': self.id,
-#     #             'date': self.date_to,
-#     #             'amount': self.remove_from_employee,
-#     #         })
-#     #     return super(Payroll, self).hr_verify_sheet()
-#
-#     @api.model
-#     def loan_deduction_rule(self):
-#         loan_installments = self.env['loan.installment'].search([
-#             ('employee_id','=',self.employee_id.id),
-#             ('deduction_date','>=',self.date_from),
-#             ('deduction_date','<=',self.date_to),
-#             ('state','=','Loan Fully Paid'),
-#             ('loan_request_id.type','=','Loan')])
-#
-#         monthly_installment = sum([inst.monthly_installment for inst in loan_installments])
-#         # return self.deduct_this_month * -1
-#         return monthly_installment * -1
-#
-#     @api.model
-#     def salary_advance_deduction_rule(self):
-#         advance_installments = self.env['loan.advance.request'].search([
-#             ('employee_id','=',self.employee_id.id),
-#             ('expected_payment','>=',self.date_from),
-#             ('expected_payment','<=',self.date_to),
-#             ('state','=','Loan Fully Paid'),
-#             ('type','=','Salary In Advance')])
-#
-#         monthly_installment = sum([inst.loan_amount for inst in advance_installments])
-#         # return self.deduct_this_month * -1
-#         return monthly_installment * -1
-#
-#     @api.model
-#     def violation_deduction_rule(self):
-#         return self.deduct_this_month_ * -1
-#
-#     @api.model
-#     def rewards_rule(self):
-#         return self.reward_pay_this_month
-#
-#     @api.model
-#     def total_deductions(self):
-#         res = super(Payroll, self).total_deductions()
-#         return res + self.loan_deduction_rule() + self.violation_deduction_rule() + self.rewards_rule()
+class Payroll(models.Model):
+    _inherit = "hr.payslip"
+
+    total_deduction = fields.Float('Total deductions', compute='get_total_deduction')
+    total_deduction_ = fields.Float('Total deductions')
+    total_paid = fields.Float('Total paid', compute='get_total_paid')
+    total_paid_ = fields.Float('Total paid')
+    remaining = fields.Float('Remaining', compute='get_remaining')
+    remaining_ = fields.Float('Remaining')
+    remaining_deduction = fields.Float('Remaining Violations', compute="_compute_remaining_deduction")
+    deduct_this_month_ = fields.Float('Deduct this month')
+    remove_from_employee = fields.Float('Remove this amount from employee')
+    next_month_balance = fields.Float('Next Month balance', compute='get_next_month_balance')
+    next_month_balance_history = fields.Float('Next Month balance')
+
+    #@api.one
+    def _compute_remaining_deduction(self):
+        for rec in self:
+            if rec.state == 'done':
+                rec.remaining_deduction = rec.remaining_
+            else:
+                rec.remaining_deduction = rec.remaining
+
+    @api.constrains('remove_from_employee')
+    def check_remove_from_employee(self):
+        for rec in self:
+            if rec.remove_from_employee < 0:
+                raise ValidationError(_("Remove this amount from employee can not be less than zero"))
+
+    #@api.one
+    @api.depends('remaining', 'remove_from_employee', 'deduct_this_month_')
+    def get_next_month_balance(self):
+        for rec in self:
+            rec.next_month_balance = rec.remaining - rec.remove_from_employee - rec.deduct_this_month_
+
+    #@api.one
+    @api.constrains('deduct_this_month_')
+    def check_deduct_this_month_(self):
+        for rec in self:
+            if rec.deduct_this_month_ < 0:
+                raise ValidationError(_("Deduct this month can not be lees than zero"))
+
+    #@api.one
+    @api.depends('total_deduction', 'total_paid')
+    def get_remaining(self):
+        for rec in self:
+            rec.remaining = rec.total_deduction - rec.total_paid
+            if rec.remaining == 0:
+                rec.remove_from_employee = 0
+
+    #@api.one
+    @api.depends('contract_id')
+    def get_total_deduction(self):
+        for rec in self:
+            rec.total_deduction = rec.total_deduction_ or rec.contract_id.total_deduction_amount
+
+    #@api.one
+    @api.depends('contract_id')
+    def get_total_paid(self):
+        for rec in self:
+            rec.total_paid = rec.total_paid_ or rec.contract_id.total_paid_amount
+
+    #@api.one
+    #need mig
+    # def hr_verify_sheet(self):
+    #     if self.remaining and not self.loans_data_reviewed:
+    #         raise ValidationError(_("Attention!! \n\
+    #         This employee  ( %s  ) had old loans or deductions or rewards which is not fully paid before confirm this payslip. kindly go to ( other payment /\
+    #          deduction) tab,  and make sure that you checked (other payments / deduction reviewed).") % (self.employee_id.name))
+    #     if self.next_month_balance < 0:
+    #         raise ValidationError(_("Validation Error!\n\
+    #             It seems that you deducted an amount bigger than the employee deduction balance. kindly review your data.\nEmployee: %s" % self.employee_id.display_name))
+    #     self.total_deduction_ = self.total_deduction
+    #     self.total_paid_ = self.total_paid
+    #     self.remaining_ = self.remaining
+    #     self.next_month_balance_history = self.next_month_balance
+    #     if self.deduct_this_month_:
+    #         self.env['contract.paid.violation'].create({
+    #             'contract_id': self.contract_id.id,
+    #             'reference_id': self.id,
+    #             'date': self.date_to,
+    #             'amount': self.deduct_this_month_,
+    #         })
+    #     if self.remove_from_employee:
+    #         self.env['contract.paid.violation'].create({
+    #             'contract_id': self.contract_id.id,
+    #             'reference_id': self.id,
+    #             'date': self.date_to,
+    #             'amount': self.remove_from_employee,
+    #         })
+    #     return super(Payroll, self).hr_verify_sheet()
+
+    @api.model
+    def loan_deduction_rule(self):
+        loan_installments = self.env['loan.installment'].search([
+            ('employee_id','=',self.employee_id.id),
+            ('deduction_date','>=',self.date_from),
+            ('deduction_date','<=',self.date_to),
+            ('state','=','Loan Fully Paid'),
+            ('loan_request_id.type','=','Loan')])
+
+        monthly_installment = sum([inst.monthly_installment for inst in loan_installments])
+        # return self.deduct_this_month * -1
+        return monthly_installment * -1
+
+    @api.model
+    def salary_advance_deduction_rule(self):
+        advance_installments = self.env['loan.advance.request'].search([
+            ('employee_id','=',self.employee_id.id),
+            ('expected_payment','>=',self.date_from),
+            ('expected_payment','<=',self.date_to),
+            ('state','=','Loan Fully Paid'),
+            ('type','=','Salary In Advance')])
+
+        monthly_installment = sum([inst.loan_amount for inst in advance_installments])
+        # return self.deduct_this_month * -1
+        return monthly_installment * -1
+
+    @api.model
+    def violation_deduction_rule(self):
+        return self.deduct_this_month_ * -1
+
+    @api.model
+    def rewards_rule(self):
+        return self.reward_pay_this_month
+
+    @api.model
+    def total_deductions(self):
+        res = super(Payroll, self).total_deductions()
+        return res + self.loan_deduction_rule() + self.violation_deduction_rule() + self.rewards_rule()
 
 
 class Employee(models.Model):

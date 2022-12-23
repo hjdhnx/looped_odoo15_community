@@ -16,28 +16,28 @@
 
 
 
-<!--        <record id="hr_employee_employee_reward_view_form" model="ir.ui.view">-->
-<!--            <field name="name">hr.employee.late.request.view.form</field>-->
-<!--            <field name="model">hr.employee</field>-->
-<!--            <field name="inherit_id" ref="hr.view_employee_form"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <data>-->
-<!--                    <div name="button_box" position="inside">-->
-<!--                        <button name="%(act_hr_employee_2_employee_rewards)d" class="oe_stat_button" icon="fa-book" type="action" groups="hr_contract.group_hr_contract_manager">-->
+        <record id="hr_employee_employee_reward_view_form" model="ir.ui.view">
+            <field name="name">hr.employee.late.request.view.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <div name="button_box" position="inside">
+                        <button name="%(act_hr_employee_2_employee_rewards)d" class="oe_stat_button" icon="fa-book" type="action" groups="hr_contract.group_hr_contract_manager">
 
-<!--                            <div class="o_stat_info">-->
-<!--                                <span class="o_stat_value text-danger">-->
-<!--                                    <field name="employee_reward_count"/>-->
-<!--                                </span>-->
-<!--                                <span class="o_stat_text text-danger">-->
-<!--                                    Rewards-->
-<!--                                </span>-->
-<!--                            </div>-->
-<!--                        </button>-->
-<!--                    </div>-->
+                            <div class="o_stat_info">
+                                <span class="o_stat_value text-danger">
+                                    <field name="employee_reward_count"/>
+                                </span>
+                                <span class="o_stat_text text-danger">
+                                    Rewards
+                                </span>
+                            </div>
+                        </button>
+                    </div>
 
-<!--                </data>-->
-<!--            </field>-->
-<!--        </record>-->
+                </data>
+            </field>
+        </record>
     </data>
 </odoo>

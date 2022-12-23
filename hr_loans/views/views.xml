@@ -183,7 +183,7 @@
                                 <field name="general_manager_approval" attrs="{'readonly':['|',('type', '=', 'Salary In Advance'),('state', '!=', 'Financial Manager Approve')]}"/>
                                 <field name="month" readonly="1" force_save="1" attrs="{'invisible':[('type', '!=', 'Salary In Advance')]}"/>
                                 <field name="year" readonly="1" force_save="1" attrs="{'invisible':[('type', '!=', 'Salary In Advance')]}"/>
-<!--                                <field name="payslip_id" readonly="1" force_save="1" invisible="1"/>-->
+                                <field name="payslip_id" readonly="1" force_save="1" invisible="1"/>
                                 <field name="loan_move_id" readonly="1" force_save="1" attrs="{'invisible':[('loan_move_id','=',False)]}"/>
                             </group>
                         </group>
@@ -298,28 +298,28 @@
 <!--            <field name="delay_count">0</field>-->
 <!--        </record>-->
 
-<!--        <record id="loan_view_employee_form" model="ir.ui.view">-->
-<!--            <field name="name">hr.employee.form</field>-->
-<!--            <field name="model">hr.employee</field>-->
-<!--            <field name="inherit_id" ref="hr.view_employee_form"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <div name="button_box" position="inside">-->
-<!--                    <button class="oe_inline oe_stat_button" name="action_loans" type="object" icon="fa-calender">-->
-<!--                        <field string="Loans / advances" name="loans_count" widget="statinfo"/>-->
-<!--                    </button>-->
+        <record id="loan_view_employee_form" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_inline oe_stat_button" name="action_loans" type="object" icon="fa-calender">
+                        <field string="Loans / advances" name="loans_count" widget="statinfo"/>
+                    </button>
 
-<!--                    <button class="oe_inline oe_stat_button" name="open_deductions" type="object" icon="fa-ticket">-->
-<!--                        <field string="Deductions" name="deductions_count" widget="statinfo"/>-->
-<!--                    </button>-->
-<!--                    &lt;!&ndash;<button class="oe_inline oe_stat_button" name="open_rewards" type="object" icon="fa-ticket">&ndash;&gt;-->
-<!--                    &lt;!&ndash;<field string="Rewards" name="rewards_count" widget="statinfo"/>&ndash;&gt;-->
-<!--                    &lt;!&ndash;</button>&ndash;&gt;-->
-<!--                </div>-->
-<!--                <field name="user_id" position="after">-->
-<!--                    <field name="request_loan" groups="hr.group_hr_user"/>-->
-<!--                </field>-->
-<!--            </field>-->
-<!--        </record>-->
+                    <button class="oe_inline oe_stat_button" name="open_deductions" type="object" icon="fa-ticket">
+                        <field string="Deductions" name="deductions_count" widget="statinfo"/>
+                    </button>
+                    <!--<button class="oe_inline oe_stat_button" name="open_rewards" type="object" icon="fa-ticket">-->
+                    <!--<field string="Rewards" name="rewards_count" widget="statinfo"/>-->
+                    <!--</button>-->
+                </div>
+                <field name="user_id" position="after">
+                    <field name="request_loan" groups="hr.group_hr_user"/>
+                </field>
+            </field>
+        </record>
 
         <record id="hr_contract_form_loans" model="ir.ui.view">
             <field name="name">hr.contract.form.loans</field>
@@ -334,7 +334,7 @@
                         </group>
                         <field name="paid_amounts">
                             <tree string="Paid Amounts">
-<!--                                <field name="ref"/>-->
+                                <field name="ref"/>
                                 <field name="payment_date"/>
                                 <field name="paid_amount"/>
                                 <field name="notes"/>

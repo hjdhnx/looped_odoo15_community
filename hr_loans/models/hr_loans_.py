@@ -232,7 +232,7 @@ class loan_advance_request(models.Model):
 
     month = fields.Selection(_PERIOD, _('Month'), compute="_compute_month_year")
     year = fields.Integer(_('Year'), compute="_compute_month_year")
-    # payslip_id = fields.Many2one('hr.payslip', 'Payslip')
+    payslip_id = fields.Many2one('hr.payslip', 'Payslip')
     attachment_ids = fields.One2many('loan.advance.request.attaches', 'request_id', 'Attachments')
     expected_payment = fields.Date('Expected Payment To Employee')
     country_id = fields.Many2one('res.country', 'Nationality', related='employee_id.country_id', store=True)
@@ -1097,510 +1097,509 @@ class hr_contract_loan_payment(models.Model):
     _name = 'hr.contract.loan.payment'
 
     contract_id = fields.Many2one('hr.contract', string=_('Contract'), readonly=True)
-    # ref = fields.Many2one('hr.payslip', string=_('Payment Reference'), readonly=True)
+    ref = fields.Many2one('hr.payslip', string=_('Payment Reference'), readonly=True)
     payment_date = fields.Date(string=_('Payment Date'), readonly=True)
     paid_amount = fields.Float(string=_('Paid Amount'), readonly=True)
     notes = fields.Text(string=_('Notes'))
 
 
-# class hr_payslip_run(models.Model):
-#     _inherit = 'hr.payslip.run'
-#
-#     reviewed_payslip_ids = fields.One2many('hr.payslip', 'patch_reviewed_id', 'Payslips To review')
-#     payslip_reviewed = fields.Boolean('Payslip reviewed')
-#
-#     #@api.one
-#     def _compute_reviewed_payslips(self):
-#         for payslip in self.slip_ids:
-#             if payslip.current_remaining_amount > 0 or payslip.remaining > 0 or payslip.remaining_rewards > 0 or payslip.total_absence:
-#                 payslip.patch_reviewed_id = self.id
-#
-#     #@api.one
-#     def confirm_payslip_run(self):
-#         for rec in self:
-#             if rec.slip_ids:
-#                 for slip in rec.slip_ids:
-#                     if slip.state == 'draft':
-#                         slip.signal_workflow('review_payslip')
-#                         slip.signal_workflow('final_review_payslip')
-#                         slip.signal_workflow('hr_verify_sheet')
-#                     if slip.state == 'Reviewed':
-#                         slip.signal_workflow('final_review_payslip')
-#                         slip.signal_workflow('hr_verify_sheet')
-#                     if slip.state == 'Final Reviewed':
-#                         slip.signal_workflow('hr_verify_sheet')
-#             else:
-#                 raise UserError(_(
-#                     "Not allowed !! \n There is no payslips found! What is the data which you confirmed? kindly go to Payslip tab and click on Generate payslips, then select all employees which you want to create Payslip for them. "))
-#
-#             if rec.reviewed_payslip_ids and not rec.payslip_reviewed:
-#                 raise UserError(_(
-#                     "Dear Payroll team !! \n We found that there is some payslips which requires a special review, these payslips contains Loans or Violations or Rewards or Absence deduction which requires a special review, kindly make sure to review all payslip and check the ( Payslip reviewed ) field. "))
-#
-#             rec.write(
-#                 {'state': 'done', 'confirmed_by': rec.env.uid, 'confirmation_date': datetime.now().strftime('%Y-%m-%d')})
-#             body = "Document Confirmed"
-#             rec.message_post(body=body, message_type='email')
-#             return {}
+class hr_payslip_run(models.Model):
+    _inherit = 'hr.payslip.run'
 
-# need mig
-# class hr_payslip_employees(models.TransientModel):
-#     _inherit = 'hr.payslip.employees'
+    reviewed_payslip_ids = fields.One2many('hr.payslip', 'patch_reviewed_id', 'Payslips To review')
+    payslip_reviewed = fields.Boolean('Payslip reviewed')
 
-#     def compute_sheet(self, cr, uid, ids, context=None):
-#         emp_pool = self.pool.get('hr.employee')
-#         slip_pool = self.pool.get('hr.payslip')
-#         run_pool = self.pool.get('hr.payslip.run')
-#         slip_ids = []
-#         if context is None:
-#             context = {}
-#         data = self.read(cr, uid, ids, context=context)[0]
-#         run_data = {}
-#         if context and context.get('active_id', False):
-#             run_data = \
-#                 run_pool.read(cr, uid, [context['active_id']],
-#                               ['date_start', 'date_end', 'credit_note', 'month', 'year'])[
-#                     0]
-#         from_date = run_data.get('date_start', False)
-#         to_date = run_data.get('date_end', False)
-#         credit_note = run_data.get('credit_note', False)
-#         if not data['employee_ids']:
-#             raise UserError(_("You must select employee(s) to generate payslip(s)."))
-#         for emp in emp_pool.browse(cr, uid, data['employee_ids'], context=context):
-#             slip_data = slip_pool.onchange_employee_id(cr, uid, [], from_date, to_date, emp.id, contract_id=False,
-#                                                        context=context)
-#             res = {
-#                 'employee_id': emp.id,
-#                 'name': slip_data['value'].get('name', False),
-#                 'month': run_data.get('month', False),
-#                 'year': run_data.get('year', False),
-#                 'struct_id': slip_data['value'].get('struct_id', False),
-#                 'contract_id': slip_data['value'].get('contract_id', False),
-#                 'payslip_run_id': context.get('active_id', False),
-#                 'input_line_ids': [(0, 0, x) for x in slip_data['value'].get('input_line_ids', False)],
-#                 'worked_days_line_ids': [(0, 0, x) for x in slip_data['value'].get('worked_days_line_ids', False)],
-#                 'date_from': from_date,
-#                 'date_to': to_date,
-#                 'credit_note': credit_note,
-#             }
-#             slip_ids.append(slip_pool.create(cr, uid, res, context=context))
-#         slip_pool.compute_sheet(cr, uid, slip_ids, context=context)
-#         batch = context and context.get('active_id', False) and run_pool.browse(cr, uid,
-#                                                                                 context.get('active_id', False),
-#                                                                                 context=context) or None
-#         if batch:
-#             batch._compute_reviewed_payslips()
-#         return {'type': 'ir.actions.act_window_close'}
+    #@api.one
+    def _compute_reviewed_payslips(self):
+        for payslip in self.slip_ids:
+            if payslip.current_remaining_amount > 0 or payslip.remaining > 0 or payslip.remaining_rewards > 0 or payslip.total_absence:
+                payslip.patch_reviewed_id = self.id
+
+    #@api.one
+    def confirm_payslip_run(self):
+        for rec in self:
+            if rec.slip_ids:
+                for slip in rec.slip_ids:
+                    if slip.state == 'draft':
+                        slip.signal_workflow('review_payslip')
+                        slip.signal_workflow('final_review_payslip')
+                        slip.signal_workflow('hr_verify_sheet')
+                    if slip.state == 'Reviewed':
+                        slip.signal_workflow('final_review_payslip')
+                        slip.signal_workflow('hr_verify_sheet')
+                    if slip.state == 'Final Reviewed':
+                        slip.signal_workflow('hr_verify_sheet')
+            else:
+                raise UserError(_(
+                    "Not allowed !! \n There is no payslips found! What is the data which you confirmed? kindly go to Payslip tab and click on Generate payslips, then select all employees which you want to create Payslip for them. "))
+
+            if rec.reviewed_payslip_ids and not rec.payslip_reviewed:
+                raise UserError(_(
+                    "Dear Payroll team !! \n We found that there is some payslips which requires a special review, these payslips contains Loans or Violations or Rewards or Absence deduction which requires a special review, kindly make sure to review all payslip and check the ( Payslip reviewed ) field. "))
+
+            rec.write(
+                {'state': 'done', 'confirmed_by': rec.env.uid, 'confirmation_date': datetime.now().strftime('%Y-%m-%d')})
+            body = "Document Confirmed"
+            rec.message_post(body=body, message_type='email')
+            return {}
+
+class hr_payslip_employees(models.TransientModel):
+    _inherit = 'hr.payslip.employees'
+
+    def compute_sheet(self, cr, uid, ids, context=None):
+        emp_pool = self.pool.get('hr.employee')
+        slip_pool = self.pool.get('hr.payslip')
+        run_pool = self.pool.get('hr.payslip.run')
+        slip_ids = []
+        if context is None:
+            context = {}
+        data = self.read(cr, uid, ids, context=context)[0]
+        run_data = {}
+        if context and context.get('active_id', False):
+            run_data = \
+                run_pool.read(cr, uid, [context['active_id']],
+                              ['date_start', 'date_end', 'credit_note', 'month', 'year'])[
+                    0]
+        from_date = run_data.get('date_start', False)
+        to_date = run_data.get('date_end', False)
+        credit_note = run_data.get('credit_note', False)
+        if not data['employee_ids']:
+            raise UserError(_("You must select employee(s) to generate payslip(s)."))
+        for emp in emp_pool.browse(cr, uid, data['employee_ids'], context=context):
+            slip_data = slip_pool.onchange_employee_id(cr, uid, [], from_date, to_date, emp.id, contract_id=False,
+                                                       context=context)
+            res = {
+                'employee_id': emp.id,
+                'name': slip_data['value'].get('name', False),
+                'month': run_data.get('month', False),
+                'year': run_data.get('year', False),
+                'struct_id': slip_data['value'].get('struct_id', False),
+                'contract_id': slip_data['value'].get('contract_id', False),
+                'payslip_run_id': context.get('active_id', False),
+                'input_line_ids': [(0, 0, x) for x in slip_data['value'].get('input_line_ids', False)],
+                'worked_days_line_ids': [(0, 0, x) for x in slip_data['value'].get('worked_days_line_ids', False)],
+                'date_from': from_date,
+                'date_to': to_date,
+                'credit_note': credit_note,
+            }
+            slip_ids.append(slip_pool.create(cr, uid, res, context=context))
+        slip_pool.compute_sheet(cr, uid, slip_ids, context=context)
+        batch = context and context.get('active_id', False) and run_pool.browse(cr, uid,
+                                                                                context.get('active_id', False),
+                                                                                context=context) or None
+        if batch:
+            batch._compute_reviewed_payslips()
+        return {'type': 'ir.actions.act_window_close'}
 
 
-# class hr_payslip(models.Model):
-#     _inherit = "hr.payslip"
-#
-#     current_total_loans = fields.Float(string=_('Total Loans'), related="contract_id.total_loans", readonly=True)
-#     current_total_paid_amount = fields.Float(string=_('Total paid'), related="contract_id.loans_total_paid_amount",
-#                                              readonly=True)
-#     current_remaining_amount = fields.Float(string=_('Remaining Amount'), related="contract_id.remaining_amount",
-#                                             readonly=True)
-#     remaining_loans = fields.Float('Remaining Loans', compute="_compute_remaining_loans")
-#     loan_next_month_balance = fields.Float(string=_('Next Month Balance'), compute="_compute_loan_next_month_balance")
-#     loan_next_month_balance_history = fields.Float(string=_('Next Month Balance'))
-#     salary_advance_id = fields.Many2one('loan.advance.request', 'Salary in advance request')
-#     absence_ids = fields.One2many('employee.absence.line', 'payslip_m2o_id', _('Absence deduction report'))
-#     total_absence = fields.Float('Total absence deduction', compute='_compute_total_absence')
-#     absence_eduction_remove = fields.Float('Remove this amount from absence deduction')
-#     net_absence_deduction = fields.Float('Net absence deduction', compute='_compute_total_absence')
-#     # patch_reviewed_id = fields.Many2one('hr.payslip.run', 'Patch Reviewed payslip')
-#     no_update_pay = fields.Boolean('Don\'t update pay this month')
-#
-#     #@api.one
-#     def _compute_remaining_loans(self):
-#         for rec in self:
-#             rec.remaining_loans = 0
-#             if rec.state == 'done':
-#                 rec.remaining_loans = rec.remaining_amount
-#             else:
-#                 rec.remaining_loans = rec.current_remaining_amount
-#
-#     # /////////////////// Smart Buttons /////////////////////////////////////////////////////////////
-#     count_absence = fields.Float('Number of Absence Report', compute='get_count_smart_buttons')
-#
-#     #@api.one
-#     def get_count_smart_buttons(self):
-#         self.count_absence = self.env['employee.absence.line'].search_count(
-#             [('employee_id', '=', self.employee_id.id), ('year', '=', self.year), ('month', '=', self.month)])
-#
-#     #@api.multi
-#     def open_payslip(self):
-#         return {
-#             'name': _('Payslip'),
-#             'view_type': 'form',
-#             'view_mode': 'form',
-#             'res_model': self._name,
-#             'res_id': self.id,
-#             'type': 'ir.actions.act_window',
-#             'target': 'new',
-#             'context': {},
-#             'flags': {'form': {'options': {'mode': 'view'}}}
-#         }
-#
-#     #@api.multi
-#     def open_absence_report(self):
-#         return {
-#             'domain': [('employee_id', '=', self.employee_id.id), ('year', '=', self.year), ('month', '=', self.month),
-#                        ('payslip_id', 'in', [self.id])],
-#             'name': _('Absence Report'),
-#             'view_type': 'form',
-#             'view_mode': 'tree,form',
-#             'res_model': 'employee.absence.line',
-#             'type': 'ir.actions.act_window',
-#             'target': 'current',
-#             'context': {}
-#         }
-#
-#     # ///////////////////////////////////////////////////////////////////////////////////////////////////
-#
-#
-#     #@api.one
-#     @api.onchange('employee_english_name', 'month', 'year')
-#     def _compute_absence(self):
-#         if self.employee_id and self.month and self.year:
-#             absences = self.env['employee.absence.line'].search(
-#                 [('employee_id', '=', self.employee_id.id), ('paid', '=', False), ('year', '=', self.year),
-#                  ('month', '=', self.month), ('payslip_id', 'in', [self.id, False])])
-#             self.absence_ids = absences
-#
-#     #@api.one
-#     @api.depends('absence_ids')
-#     def _compute_total_absence(self):
-#         total_absence = 0
-#         for absence in self.absence_ids:
-#             total_absence += absence.deduction_amount
-#         self.total_absence = total_absence
-#         self.net_absence_deduction = self.total_absence - self.absence_eduction_remove
-#
-#     @api.constrains('absence_eduction_remove')
-#     def _check_absence_eduction_remove(self):
-#         for rec in self:
-#             if rec.absence_eduction_remove < 0:
-#                 raise exceptions.ValidationError(_("Remove this amount from absence deduction Field Can not be minus"))
-#             if rec.absence_eduction_remove > 0 and rec.absence_eduction_remove > rec.total_absence:
-#                 raise exceptions.ValidationError(_(
-#                     "Not Allowed !! \n For Employee ( %s ), It is not logic that the amount which you will remove from absence deduction is greater that total absence deduction! Kindly review your data!.") % rec.employee_id.name)
-#
-#     #@api.multi
-#     def unlink(self):
-#         for rec in self:
-#             if rec.salary_advance_id:
-#                 raise exceptions.ValidationError(_(
-#                     "Dear Payroll specialist, \n You are not allowed to delete this payslip because it is automatically created through Salary in advance request, you can refuse this payslip instead of deleting it."))
-#         return super(hr_payslip, self).unlink()
-#
-#     @api.model
-#     def create(self, vals):
-#         res = super(hr_payslip, self).create(vals)
-#         res._compute_absence()
-#         return res
-#
-#     @api.depends('current_remaining_amount', 'deduct_this_month')
-#     def _compute_loan_next_month_balance(self):
-#         for rec in self:
-#             rec.loan_next_month_balance = rec.current_remaining_amount - rec.deduct_this_month
-#
-#     def action_payslip_done(self):
-#
-#         for rec in self:
-#             rec.hr_verify_sheet()
-#         res = super(hr_payslip,self).action_payslip_done()
-#         return res
-#     #@api.multi
-#     def refund_sheet(self):
-#         """
-#         override to cancel loan paid
-#         """
-#         res = super(hr_payslip,self).refund_sheet()
-#         for rec in self:
-#
-#             domain = [
-#                 ('employee_id', '=', rec.employee_id.id),
-#                 # ('state', '=', 'Loan Fully Paid'),
-#                 ('state', '=', 'installment_return'),
-#                 ('deduction_date','<=',rec.date_to),
-#                 # ('remaining', '!=', 0),
-#             ]
-#             confirmed_installments = self.env['loan.installment'].search(domain, order="deduction_date asc")
-#
-#
-#             if confirmed_installments:
-#                 # print(".>>>>>>>>>>>>>>>>>>>confirmed_installments ",confirmed_installments)
-#                 installment_deduction = rec.deduct_this_month
-#                 for confirmed_installment in confirmed_installments:
-#                     confirmed_installment.payment_ids.unlink()
-#
-#                     confirmed_installment.state = 'Loan Fully Paid'
-#                     confirmed_installment._compute_paid()
-#
-#
-#
-#
-#                     if confirmed_installment.loan_request_id.state == 'installment_return':
-#                         confirmed_installment.loan_request_id.state = 'Loan Fully Paid'
-#             #advance salary
-#             advance_installments = self.env['loan.advance.request'].search([
-#                         ('employee_id','=',rec.employee_id.id),
-#                         ('expected_payment','>=',rec.date_from),
-#                         ('expected_payment','<=',rec.date_to),
-#                         ('state','=','installment_return'),
-#                         ('type','=','Salary In Advance')])
-#             if advance_installments:
-#                 for advance_installment in advance_installments:
-#                     if advance_installment.state == 'installment_return':
-#                         # advance_installment.paid_amount = 0
-#                         advance_installment.state = 'Loan Fully Paid'
-#         return res
-#
-#     def action_payslip_cancel(self):
-#         """
-#         override to cancel loan paid
-#         """
-#         res = super(hr_payslip,self).action_payslip_cancel()
-#         for rec in self:
-#
-#             domain = [
-#                 ('employee_id', '=', rec.employee_id.id),
-#                 # ('state', '=', 'Loan Fully Paid'),
-#                 ('state', '=', 'installment_return'),
-#                 ('deduction_date','<=',rec.date_to),
-#                 # ('remaining', '!=', 0),
-#             ]
-#             confirmed_installments = self.env['loan.installment'].search(domain, order="deduction_date asc")
-#
-#
-#             if confirmed_installments:
-#                 # print(".>>>>>>>>>>>>>>>>>>>confirmed_installments ",confirmed_installments)
-#                 installment_deduction = rec.deduct_this_month
-#                 for confirmed_installment in confirmed_installments:
-#                     confirmed_installment.payment_ids.unlink()
-#
-#                     confirmed_installment.state = 'Loan Fully Paid'
-#                     confirmed_installment._compute_paid()
-#
-#
-#
-#
-#                     if confirmed_installment.loan_request_id.state == 'installment_return':
-#                         confirmed_installment.loan_request_id.state = 'Loan Fully Paid'
-#             #advance salary
-#             advance_installments = self.env['loan.advance.request'].search([
-#                         ('employee_id','=',rec.employee_id.id),
-#                         ('expected_payment','>=',rec.date_from),
-#                         ('expected_payment','<=',rec.date_to),
-#                         ('state','=','installment_return'),
-#                         ('type','=','Salary In Advance')])
-#             if advance_installments:
-#                 for advance_installment in advance_installments:
-#                     if advance_installment.state == 'installment_return':
-#                         # advance_installment.paid_amount = 0
-#                         advance_installment.state = 'Loan Fully Paid'
-#
-#             loan_pays = rec.env['hr.contract.loan.payment'].search([('ref.employee_id','=',rec.employee_id.id),('payment_date','>=',rec.date_from),('payment_date','<=',rec.date_to)])
-#             loan_pays.unlink()
-#
-#             rec.total_loans = 0
-#             rec.total_paid_amount = 0
-#             rec.remaining_amount = 0
-#             rec.loan_next_month_balance_history = 0
-#
-#
-#         return res
-#
-#     #@api.multi
-#     def hr_verify_sheet(self):
-#         for rec in self:
-#             rec.loans_data_reviewed = True
-#             if rec.current_remaining_amount > 0:
-#                 if not rec.loans_data_reviewed:
-#                     message = _(
-#                         "Attention!! \n This employee ( %s  ) had old loans or deductions or rewards which is not fully paid before confirm this payslip."
-#                         " kindly go to ( other payment / deduction) tab,  and make sure that you checked (other payments / deduction reviewed).") % self.employee_id.name
-#                     raise exceptions.ValidationError(message)
-#                 if rec.deduct_this_month > rec.current_remaining_amount:
-#                     raise exceptions.ValidationError(
-#                         _(
-#                             "Deduction error!! We found that you are trying to deduct loan amount greater that the remaining loan amount."))
-#                 if rec.deduct_this_month > 0:
-#                     months = {
-#                         '01': 'January',
-#                         '02': 'February',
-#                         '03': 'March',
-#                         '04': 'April',
-#                         '05': 'May',
-#                         '06': 'June',
-#                         '07': 'July',
-#                         '08': 'August',
-#                         '09': 'September',
-#                         '10': 'October',
-#                         '11': 'November',
-#                         '12': 'December',
-#                     }
-#                     total_loans = rec.current_total_loans
-#                     total_paid_amount = rec.current_total_paid_amount
-#                     remaining_amount = rec.current_remaining_amount
-#                     loan_next_month_balance = rec.loan_next_month_balance
-#                     notes = _("خصم جزء من القرض عن شهر   %s") % (_(months[rec.month]))
-#                     payment_vals = {
-#                         'contract_id': rec.contract_id.id,
-#                         'ref': rec.id,
-#                         'payment_date': rec.date_from,
-#                         'paid_amount': rec.deduct_this_month,
-#                         'notes': notes,
-#                     }
-#                     payment_id = self.env['hr.contract.loan.payment'].create(payment_vals)
-#                     rec.total_loans = total_loans
-#                     rec.total_paid_amount = total_paid_amount
-#                     rec.remaining_amount = remaining_amount
-#                     rec.loan_next_month_balance_history = loan_next_month_balance
-#                     # /////////// Installment ////////////////////////
-#                     domain = [
-#                         ('employee_id', '=', rec.employee_id.id),
-#                         ('state', '=', 'Loan Fully Paid'),
-#                         ('deduction_date','<=',rec.date_to),
-#                         ('remaining', '!=', 0),
-#                     ]
-#                     confirmed_installments = self.env['loan.installment'].search(domain, order="deduction_date asc")
-#
-#
-#                     if confirmed_installments:
-#                         installment_deduction = rec.deduct_this_month
-#                         for confirmed_installment in confirmed_installments:
-#                             deducted = 0
-#                             if installment_deduction <= 0:
-#                                 break
-#                             if confirmed_installment.remaining > 0:
-#                                 # if installment_deduction < confirmed_installment.remaining:
-#                                 #     deducted = installment_deduction
-#                                 # else:
-#                                 deducted = confirmed_installment.remaining
-#                                 # Create payment to installment with deduction
-#                                 payment_vals = {
-#                                     'installment_id': confirmed_installment.id,
-#                                     'payslip_id': rec.id,
-#                                     # 'paid': deducted,
-#                                     'paid': deducted,
-#                                 }
-#                                 payment_id = self.env['loan.installment.payment'].create(payment_vals)
-#                                 installment_deduction -= deducted
-#                                 confirmed_installment.state = 'installment_return'
-#                                 confirmed_installment._compute_paid()
-#                                 all_true = True
-#                                 for installment_id in confirmed_installment.loan_request_id.installment_ids:
-#                                     if installment_id.state != 'installment_return':
-#                                         all_true = False
-#                                 if all_true:
-#                                     confirmed_installment.loan_request_id.state = 'installment_return'
-#
-#                     advance_installments = self.env['loan.advance.request'].search([
-#                         ('expected_payment','>=',rec.date_from),
-#                         ('expected_payment','<=',rec.date_to),
-#                         ('state','=','Loan Fully Paid'),
-#                         ('type','=','Salary In Advance')])
-#                     if advance_installments:
-#                         for advance_installment in advance_installments:
-#                             # advance_installment.paid_amount = advance_installment.loan_amount
-#                             advance_installment.state = 'installment_return'
-#
-#
-#             # ////////////////// Absence Report ///////////////////////////////////////
-#             # for absence in rec.absence_ids:
-#             #     absence.paid = True
-#             #     if not absence.payslip_id:
-#             #         absence.payslip_id = rec.id
-#             #         absence.absence_id.check_status()
-#             #     if not absence.patch_id and rec.payslip_run_id:
-#             #         absence.patch_id = rec.payslip_run_id.id
-#
-#                     # ////////////////////////////////////////////////////////////////////////
-#         # self.compute_sheet()
-#         # self.write(
-#         #     {'state': 'verify', 'confirmed_by': self.env.uid, 'confirmation_date': datetime.now().strftime('%Y-%m-%d')})
-#         body = "Document Confirmed"
-#         self.message_post(body=body, message_type='email')
-#         return {}
-#
-#     #@api.multi
-#     def compute_sheet(self):
-#         # for rec in self:
-#         #     rec._compute_absence()
-#
-#         for rec in self:
-#             if not rec.no_update_pay and rec.current_remaining_amount > 0 and rec.deduct_this_month == 0:
-#                 based_on = rec.env['ir.config_parameter'].sudo().get_param('hr_loans.default_previous_based_on', 'False')
-#
-#                 based_on_salary = 0
-#                 if based_on == 'Total salary':
-#                     for line in rec.line_ids:
-#                         if line.salary_rule_id.id == rec.env.ref('ext_hr_payroll.hr_rule_gross').id:
-#                             based_on_salary = line.total
-#
-#                 if based_on == 'Basic Salary':
-#                     for line in rec.line_ids:
-#                         if line.salary_rule_id.id == rec.env.ref('ext_hr_payroll.basic_salary_rule').id:
-#                             based_on_salary = line.total
-#
-#
-#                 loan_deduct_percentage = rec.env['ir.config_parameter'].sudo().get_param('hr_loans.default_loans_deduction_percentage', 'False')
-#
-#                 if loan_deduct_percentage:
-#                     loan_deduct_percentage = float(loan_deduct_percentage)/100
-#                 else:
-#                     loan_deduct_percentage = 0
-#
-#
-#                 deduction = based_on_salary * loan_deduct_percentage
-#                 if deduction < rec.current_remaining_amount:
-#                     rec.deduct_this_month = deduction
-#                 else:
-#                     rec.deduct_this_month = rec.current_remaining_amount
-#                 # ////////////////////////// Installments ////////////////////////////////////////////////////
-#                 domain = [
-#                     ('employee_id', '=', rec.employee_id.id),
-#                     ('deduction_date', '<=', rec.date_to),
-#                     ('state', '=', 'Loan Fully Paid'),
-#                 ]
-#                 confirmed_installments = rec.env['loan.installment'].search(domain)
-#                 if confirmed_installments:
-#                     total = 0
-#                     for confirmed_installment in confirmed_installments:
-#                         total += confirmed_installment.monthly_installment
-#                     if total:
-#                         rec.deduct_this_month = total
-#             if rec.remaining > 0 and rec.deduct_this_month_ == 0:
-#                 based_on = rec.env['ir.config_parameter'].sudo().get_param('hr_loans.default_previous_based_on', 'False')
-#
-#                 based_on_salary = 0
-#                 if based_on == 'Total salary':
-#                     for line in rec.line_ids:
-#                         if line.salary_rule_id.id == rec.env.ref('ext_hr_payroll.hr_rule_gross').id:
-#                             based_on_salary = line.total
-#
-#                 if based_on == 'Basic Salary':
-#                     for line in rec.line_ids:
-#                         if line.salary_rule_id.id == rec.env.ref('ext_hr_payroll.basic_salary_rule').id:
-#                             based_on_salary = line.total
-#
-#
-#                 else:
-#                     rec.deduct_this_month_ = rec.remaining
-#             # /////////////// Compute rewards ///////////////////////////////
-#             if not rec.reward_pay_this_month:
-#                 rec.reward_pay_this_month = rec.remaining_rewards
-#
-#             # ///////////////////////// Automatic Data Reviewed ///////////////////////////
-#             if not ((rec.current_remaining_amount > 0 and rec.deduct_this_month == 0) or (
-#                                 rec.remaining > 0 and rec.deduct_this_month_ == 0 and rec.remove_from_employee == 0) or (
-#                                 rec.remaining_rewards > 0 and rec.reward_pay_this_month == 0 and rec.reward_remove_amount == 0)):
-#                 rec.loans_data_reviewed = True
-#         res = super(hr_payslip, self).compute_sheet()
-#         return res
+class hr_payslip(models.Model):
+    _inherit = "hr.payslip"
+
+    current_total_loans = fields.Float(string=_('Total Loans'), related="contract_id.total_loans", readonly=True)
+    current_total_paid_amount = fields.Float(string=_('Total paid'), related="contract_id.loans_total_paid_amount",
+                                             readonly=True)
+    current_remaining_amount = fields.Float(string=_('Remaining Amount'), related="contract_id.remaining_amount",
+                                            readonly=True)
+    remaining_loans = fields.Float('Remaining Loans', compute="_compute_remaining_loans")
+    loan_next_month_balance = fields.Float(string=_('Next Month Balance'), compute="_compute_loan_next_month_balance")
+    loan_next_month_balance_history = fields.Float(string=_('Next Month Balance'))
+    salary_advance_id = fields.Many2one('loan.advance.request', 'Salary in advance request')
+    absence_ids = fields.One2many('employee.absence.line', 'payslip_m2o_id', _('Absence deduction report'))
+    total_absence = fields.Float('Total absence deduction', compute='_compute_total_absence')
+    absence_eduction_remove = fields.Float('Remove this amount from absence deduction')
+    net_absence_deduction = fields.Float('Net absence deduction', compute='_compute_total_absence')
+    patch_reviewed_id = fields.Many2one('hr.payslip.run', 'Patch Reviewed payslip')
+    no_update_pay = fields.Boolean('Don\'t update pay this month')
+
+    #@api.one
+    def _compute_remaining_loans(self):
+        for rec in self:
+            rec.remaining_loans = 0
+            if rec.state == 'done':
+                rec.remaining_loans = rec.remaining_amount
+            else:
+                rec.remaining_loans = rec.current_remaining_amount
+
+    # /////////////////// Smart Buttons /////////////////////////////////////////////////////////////
+    count_absence = fields.Float('Number of Absence Report', compute='get_count_smart_buttons')
+
+    #@api.one
+    def get_count_smart_buttons(self):
+        self.count_absence = self.env['employee.absence.line'].search_count(
+            [('employee_id', '=', self.employee_id.id), ('year', '=', self.year), ('month', '=', self.month)])
+
+    #@api.multi
+    def open_payslip(self):
+        return {
+            'name': _('Payslip'),
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': self._name,
+            'res_id': self.id,
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'context': {},
+            'flags': {'form': {'options': {'mode': 'view'}}}
+        }
+
+    #@api.multi
+    def open_absence_report(self):
+        return {
+            'domain': [('employee_id', '=', self.employee_id.id), ('year', '=', self.year), ('month', '=', self.month),
+                       ('payslip_id', 'in', [self.id])],
+            'name': _('Absence Report'),
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'res_model': 'employee.absence.line',
+            'type': 'ir.actions.act_window',
+            'target': 'current',
+            'context': {}
+        }
+
+    # ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    #@api.one
+    @api.onchange('employee_english_name', 'month', 'year')
+    def _compute_absence(self):
+        if self.employee_id and self.month and self.year:
+            absences = self.env['employee.absence.line'].search(
+                [('employee_id', '=', self.employee_id.id), ('paid', '=', False), ('year', '=', self.year),
+                 ('month', '=', self.month), ('payslip_id', 'in', [self.id, False])])
+            self.absence_ids = absences
+
+    #@api.one
+    @api.depends('absence_ids')
+    def _compute_total_absence(self):
+        total_absence = 0
+        for absence in self.absence_ids:
+            total_absence += absence.deduction_amount
+        self.total_absence = total_absence
+        self.net_absence_deduction = self.total_absence - self.absence_eduction_remove
+
+    @api.constrains('absence_eduction_remove')
+    def _check_absence_eduction_remove(self):
+        for rec in self:
+            if rec.absence_eduction_remove < 0:
+                raise exceptions.ValidationError(_("Remove this amount from absence deduction Field Can not be minus"))
+            if rec.absence_eduction_remove > 0 and rec.absence_eduction_remove > rec.total_absence:
+                raise exceptions.ValidationError(_(
+                    "Not Allowed !! \n For Employee ( %s ), It is not logic that the amount which you will remove from absence deduction is greater that total absence deduction! Kindly review your data!.") % rec.employee_id.name)
+
+    #@api.multi
+    def unlink(self):
+        for rec in self:
+            if rec.salary_advance_id:
+                raise exceptions.ValidationError(_(
+                    "Dear Payroll specialist, \n You are not allowed to delete this payslip because it is automatically created through Salary in advance request, you can refuse this payslip instead of deleting it."))
+        return super(hr_payslip, self).unlink()
+
+    @api.model
+    def create(self, vals):
+        res = super(hr_payslip, self).create(vals)
+        res._compute_absence()
+        return res
+
+    @api.depends('current_remaining_amount', 'deduct_this_month')
+    def _compute_loan_next_month_balance(self):
+        for rec in self:
+            rec.loan_next_month_balance = rec.current_remaining_amount - rec.deduct_this_month
+
+    def action_payslip_done(self):
+
+        for rec in self:
+            rec.hr_verify_sheet()
+        res = super(hr_payslip,self).action_payslip_done()
+        return res
+    #@api.multi
+    def refund_sheet(self):
+        """
+        override to cancel loan paid
+        """
+        res = super(hr_payslip,self).refund_sheet()
+        for rec in self:
+
+            domain = [
+                ('employee_id', '=', rec.employee_id.id),
+                # ('state', '=', 'Loan Fully Paid'),
+                ('state', '=', 'installment_return'),
+                ('deduction_date','<=',rec.date_to),
+                # ('remaining', '!=', 0),
+            ]
+            confirmed_installments = self.env['loan.installment'].search(domain, order="deduction_date asc")
+
+
+            if confirmed_installments:
+                # print(".>>>>>>>>>>>>>>>>>>>confirmed_installments ",confirmed_installments)
+                installment_deduction = rec.deduct_this_month
+                for confirmed_installment in confirmed_installments:
+                    confirmed_installment.payment_ids.unlink()
+
+                    confirmed_installment.state = 'Loan Fully Paid'
+                    confirmed_installment._compute_paid()
+
+
+
+
+                    if confirmed_installment.loan_request_id.state == 'installment_return':
+                        confirmed_installment.loan_request_id.state = 'Loan Fully Paid'
+            #advance salary
+            advance_installments = self.env['loan.advance.request'].search([
+                        ('employee_id','=',rec.employee_id.id),
+                        ('expected_payment','>=',rec.date_from),
+                        ('expected_payment','<=',rec.date_to),
+                        ('state','=','installment_return'),
+                        ('type','=','Salary In Advance')])
+            if advance_installments:
+                for advance_installment in advance_installments:
+                    if advance_installment.state == 'installment_return':
+                        # advance_installment.paid_amount = 0
+                        advance_installment.state = 'Loan Fully Paid'
+        return res
+
+    def action_payslip_cancel(self):
+        """
+        override to cancel loan paid
+        """
+        res = super(hr_payslip,self).action_payslip_cancel()
+        for rec in self:
+
+            domain = [
+                ('employee_id', '=', rec.employee_id.id),
+                # ('state', '=', 'Loan Fully Paid'),
+                ('state', '=', 'installment_return'),
+                ('deduction_date','<=',rec.date_to),
+                # ('remaining', '!=', 0),
+            ]
+            confirmed_installments = self.env['loan.installment'].search(domain, order="deduction_date asc")
+
+
+            if confirmed_installments:
+                # print(".>>>>>>>>>>>>>>>>>>>confirmed_installments ",confirmed_installments)
+                installment_deduction = rec.deduct_this_month
+                for confirmed_installment in confirmed_installments:
+                    confirmed_installment.payment_ids.unlink()
+
+                    confirmed_installment.state = 'Loan Fully Paid'
+                    confirmed_installment._compute_paid()
+
+
+
+
+                    if confirmed_installment.loan_request_id.state == 'installment_return':
+                        confirmed_installment.loan_request_id.state = 'Loan Fully Paid'
+            #advance salary
+            advance_installments = self.env['loan.advance.request'].search([
+                        ('employee_id','=',rec.employee_id.id),
+                        ('expected_payment','>=',rec.date_from),
+                        ('expected_payment','<=',rec.date_to),
+                        ('state','=','installment_return'),
+                        ('type','=','Salary In Advance')])
+            if advance_installments:
+                for advance_installment in advance_installments:
+                    if advance_installment.state == 'installment_return':
+                        # advance_installment.paid_amount = 0
+                        advance_installment.state = 'Loan Fully Paid'
+
+            loan_pays = rec.env['hr.contract.loan.payment'].search([('ref.employee_id','=',rec.employee_id.id),('payment_date','>=',rec.date_from),('payment_date','<=',rec.date_to)])
+            loan_pays.unlink()
+
+            rec.total_loans = 0
+            rec.total_paid_amount = 0
+            rec.remaining_amount = 0
+            rec.loan_next_month_balance_history = 0
+
+
+        return res
+
+    #@api.multi
+    def hr_verify_sheet(self):
+        for rec in self:
+            rec.loans_data_reviewed = True
+            if rec.current_remaining_amount > 0:
+                if not rec.loans_data_reviewed:
+                    message = _(
+                        "Attention!! \n This employee ( %s  ) had old loans or deductions or rewards which is not fully paid before confirm this payslip."
+                        " kindly go to ( other payment / deduction) tab,  and make sure that you checked (other payments / deduction reviewed).") % self.employee_id.name
+                    raise exceptions.ValidationError(message)
+                if rec.deduct_this_month > rec.current_remaining_amount:
+                    raise exceptions.ValidationError(
+                        _(
+                            "Deduction error!! We found that you are trying to deduct loan amount greater that the remaining loan amount."))
+                if rec.deduct_this_month > 0:
+                    months = {
+                        '01': 'January',
+                        '02': 'February',
+                        '03': 'March',
+                        '04': 'April',
+                        '05': 'May',
+                        '06': 'June',
+                        '07': 'July',
+                        '08': 'August',
+                        '09': 'September',
+                        '10': 'October',
+                        '11': 'November',
+                        '12': 'December',
+                    }
+                    total_loans = rec.current_total_loans
+                    total_paid_amount = rec.current_total_paid_amount
+                    remaining_amount = rec.current_remaining_amount
+                    loan_next_month_balance = rec.loan_next_month_balance
+                    notes = _("خصم جزء من القرض عن شهر   %s") % (_(months[rec.month]))
+                    payment_vals = {
+                        'contract_id': rec.contract_id.id,
+                        'ref': rec.id,
+                        'payment_date': rec.date_from,
+                        'paid_amount': rec.deduct_this_month,
+                        'notes': notes,
+                    }
+                    payment_id = self.env['hr.contract.loan.payment'].create(payment_vals)
+                    rec.total_loans = total_loans
+                    rec.total_paid_amount = total_paid_amount
+                    rec.remaining_amount = remaining_amount
+                    rec.loan_next_month_balance_history = loan_next_month_balance
+                    # /////////// Installment ////////////////////////
+                    domain = [
+                        ('employee_id', '=', rec.employee_id.id),
+                        ('state', '=', 'Loan Fully Paid'),
+                        ('deduction_date','<=',rec.date_to),
+                        ('remaining', '!=', 0),
+                    ]
+                    confirmed_installments = self.env['loan.installment'].search(domain, order="deduction_date asc")
+
+
+                    if confirmed_installments:
+                        installment_deduction = rec.deduct_this_month
+                        for confirmed_installment in confirmed_installments:
+                            deducted = 0
+                            if installment_deduction <= 0:
+                                break
+                            if confirmed_installment.remaining > 0:
+                                # if installment_deduction < confirmed_installment.remaining:
+                                #     deducted = installment_deduction
+                                # else:
+                                deducted = confirmed_installment.remaining
+                                # Create payment to installment with deduction
+                                payment_vals = {
+                                    'installment_id': confirmed_installment.id,
+                                    'payslip_id': rec.id,
+                                    # 'paid': deducted,
+                                    'paid': deducted,
+                                }
+                                payment_id = self.env['loan.installment.payment'].create(payment_vals)
+                                installment_deduction -= deducted
+                                confirmed_installment.state = 'installment_return'
+                                confirmed_installment._compute_paid()
+                                all_true = True
+                                for installment_id in confirmed_installment.loan_request_id.installment_ids:
+                                    if installment_id.state != 'installment_return':
+                                        all_true = False
+                                if all_true:
+                                    confirmed_installment.loan_request_id.state = 'installment_return'
+
+                    advance_installments = self.env['loan.advance.request'].search([
+                        ('expected_payment','>=',rec.date_from),
+                        ('expected_payment','<=',rec.date_to),
+                        ('state','=','Loan Fully Paid'),
+                        ('type','=','Salary In Advance')])
+                    if advance_installments:
+                        for advance_installment in advance_installments:
+                            # advance_installment.paid_amount = advance_installment.loan_amount
+                            advance_installment.state = 'installment_return'
+
+
+            # ////////////////// Absence Report ///////////////////////////////////////
+            # for absence in rec.absence_ids:
+            #     absence.paid = True
+            #     if not absence.payslip_id:
+            #         absence.payslip_id = rec.id
+            #         absence.absence_id.check_status()
+            #     if not absence.patch_id and rec.payslip_run_id:
+            #         absence.patch_id = rec.payslip_run_id.id
+
+                    # ////////////////////////////////////////////////////////////////////////
+        # self.compute_sheet()
+        # self.write(
+        #     {'state': 'verify', 'confirmed_by': self.env.uid, 'confirmation_date': datetime.now().strftime('%Y-%m-%d')})
+        body = "Document Confirmed"
+        self.message_post(body=body, message_type='email')
+        return {}
+
+    #@api.multi
+    def compute_sheet(self):
+        # for rec in self:
+        #     rec._compute_absence()
+
+        for rec in self:
+            if not rec.no_update_pay and rec.current_remaining_amount > 0 and rec.deduct_this_month == 0:
+                based_on = rec.env['ir.config_parameter'].sudo().get_param('hr_loans.default_previous_based_on', 'False')
+
+                based_on_salary = 0
+                if based_on == 'Total salary':
+                    for line in rec.line_ids:
+                        if line.salary_rule_id.id == rec.env.ref('ext_hr_payroll.hr_rule_gross').id:
+                            based_on_salary = line.total
+
+                if based_on == 'Basic Salary':
+                    for line in rec.line_ids:
+                        if line.salary_rule_id.id == rec.env.ref('ext_hr_payroll.basic_salary_rule').id:
+                            based_on_salary = line.total
+
+
+                loan_deduct_percentage = rec.env['ir.config_parameter'].sudo().get_param('hr_loans.default_loans_deduction_percentage', 'False')
+
+                if loan_deduct_percentage:
+                    loan_deduct_percentage = float(loan_deduct_percentage)/100
+                else:
+                    loan_deduct_percentage = 0
+
+
+                deduction = based_on_salary * loan_deduct_percentage
+                if deduction < rec.current_remaining_amount:
+                    rec.deduct_this_month = deduction
+                else:
+                    rec.deduct_this_month = rec.current_remaining_amount
+                # ////////////////////////// Installments ////////////////////////////////////////////////////
+                domain = [
+                    ('employee_id', '=', rec.employee_id.id),
+                    ('deduction_date', '<=', rec.date_to),
+                    ('state', '=', 'Loan Fully Paid'),
+                ]
+                confirmed_installments = rec.env['loan.installment'].search(domain)
+                if confirmed_installments:
+                    total = 0
+                    for confirmed_installment in confirmed_installments:
+                        total += confirmed_installment.monthly_installment
+                    if total:
+                        rec.deduct_this_month = total
+            if rec.remaining > 0 and rec.deduct_this_month_ == 0:
+                based_on = rec.env['ir.config_parameter'].sudo().get_param('hr_loans.default_previous_based_on', 'False')
+
+                based_on_salary = 0
+                if based_on == 'Total salary':
+                    for line in rec.line_ids:
+                        if line.salary_rule_id.id == rec.env.ref('ext_hr_payroll.hr_rule_gross').id:
+                            based_on_salary = line.total
+
+                if based_on == 'Basic Salary':
+                    for line in rec.line_ids:
+                        if line.salary_rule_id.id == rec.env.ref('ext_hr_payroll.basic_salary_rule').id:
+                            based_on_salary = line.total
+
+
+                else:
+                    rec.deduct_this_month_ = rec.remaining
+            # /////////////// Compute rewards ///////////////////////////////
+            if not rec.reward_pay_this_month:
+                rec.reward_pay_this_month = rec.remaining_rewards
+
+            # ///////////////////////// Automatic Data Reviewed ///////////////////////////
+            if not ((rec.current_remaining_amount > 0 and rec.deduct_this_month == 0) or (
+                                rec.remaining > 0 and rec.deduct_this_month_ == 0 and rec.remove_from_employee == 0) or (
+                                rec.remaining_rewards > 0 and rec.reward_pay_this_month == 0 and rec.reward_remove_amount == 0)):
+                rec.loans_data_reviewed = True
+        res = super(hr_payslip, self).compute_sheet()
+        return res
 
 
 class employee_absence(models.Model):
@@ -1712,7 +1711,7 @@ class employee_absence_line(models.Model):
     _name = 'employee.absence.line'
     _inherit = 'mail.thread'
 
-    # payslip_m2o_id = fields.Many2one('hr.payslip', "Payslip")
+    payslip_m2o_id = fields.Many2one('hr.payslip', "Payslip")
     absence_id = fields.Many2one('employee.absence', "Absence Sheet")
     employee_id = fields.Many2one('hr.employee', "Employee")
     employee_english_name = fields.Char('Employee English Name', related='employee_id.employee_english_name')
@@ -1738,8 +1737,8 @@ class employee_absence_line(models.Model):
     month = fields.Selection(_PERIOD, _('Will be deducted on'),
                              default=lambda self: self.env.context.get('month', False))
     year = fields.Integer('Year', default=lambda self: self.env.context.get('year', False))
-    # patch_id = fields.Many2one('hr.payslip.run', 'Payslip batch')
-    # payslip_id = fields.Many2one('hr.payslip', 'Employee Payslip')
+    patch_id = fields.Many2one('hr.payslip.run', 'Payslip batch')
+    payslip_id = fields.Many2one('hr.payslip', 'Employee Payslip')
     note = fields.Char('Absence notes')
     department_id = fields.Many2one('hr.department', 'Department', related='employee_id.department_id', store=True)
     job_id = fields.Many2one('hr.job', 'Job', related='employee_id.job_id', store=True)
@@ -1978,7 +1977,7 @@ class InstallmentPayment(models.Model):
     _description = "Loan Installment Payment"
 
     installment_id = fields.Many2one('loan.installment', "Installment")
-    # payslip_id = fields.Many2one('hr.payslip', 'Payslip')
+    payslip_id = fields.Many2one('hr.payslip', 'Payslip')
     paid = fields.Float('Paid Amount')
 
 

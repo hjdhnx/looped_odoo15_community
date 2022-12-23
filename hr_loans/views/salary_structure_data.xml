@@ -3,67 +3,67 @@
     <data noupdate="1">
        
 
-<!--       <record model="hr.salary.rule" id="loan_salary_rule">-->
-<!--            <field name="name">Loan Deducted</field>-->
-<!--            <field name="category_id" ref="hr_payroll.DED"/>-->
-<!--            <field name="code">LOAN</field>-->
-<!--            <field name="condition_select">none</field>-->
-<!--            <field name="amount_select">code</field>-->
-<!--            <field name="amount_python_compute">result = payslip.dict.loan_deduction_rule() #payslip.deduct_this_month * -1</field>-->
-<!--            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>-->
-<!--            <field eval="54" name="sequence"/>-->
-<!--        </record>-->
+       <record model="hr.salary.rule" id="loan_salary_rule">
+            <field name="name">Loan Deducted</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="code">LOAN</field>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = payslip.dict.loan_deduction_rule() #payslip.deduct_this_month * -1</field>
+            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>
+            <field eval="54" name="sequence"/>
+        </record>
 
-<!--        <record model="hr.salary.rule" id="advance_salary_rule">-->
-<!--            <field name="name">Salary Advance Deducted</field>-->
-<!--            <field name="category_id" ref="hr_payroll.DED"/>-->
-<!--            <field name="code">SADVANCE</field>-->
-<!--            <field name="condition_select">none</field>-->
-<!--            <field name="amount_select">code</field>-->
-<!--            <field name="amount_python_compute">result = payslip.dict.salary_advance_deduction_rule() #payslip.deduct_this_month * -1</field>-->
-<!--            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>-->
-<!--            <field eval="54" name="sequence"/>-->
-<!--        </record>-->
+        <record model="hr.salary.rule" id="advance_salary_rule">
+            <field name="name">Salary Advance Deducted</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="code">SADVANCE</field>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = payslip.dict.salary_advance_deduction_rule() #payslip.deduct_this_month * -1</field>
+            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>
+            <field eval="54" name="sequence"/>
+        </record>
 
-<!--         <record model="hr.salary.rule" id="rewards_salary_rule">-->
-<!--            <field name="name">Employee Rewards</field>-->
-<!--            <field name="category_id" ref="hr_payroll.ALW"/>-->
-<!--            <field name="code">REWARD</field>-->
-<!--            <field name="condition_select">none</field>-->
-<!--            <field name="amount_select">code</field>-->
-<!--            <field name="amount_python_compute">result = payslip.dict.rewards_rule() #payslip.reward_pay_this_month</field>-->
-<!--            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>-->
-<!--            <field eval="62" name="sequence"/>-->
-<!--        </record>-->
+         <record model="hr.salary.rule" id="rewards_salary_rule">
+            <field name="name">Employee Rewards</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="code">REWARD</field>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = payslip.dict.rewards_rule() #payslip.reward_pay_this_month</field>
+            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>
+            <field eval="62" name="sequence"/>
+        </record>
 
 
-         <!-- Deductions / Violations-->
-<!--        <record model="hr.salary.rule" id="deduction_salary_rule">-->
-<!--            <field name="name">Deductions / Violations</field>-->
-<!--            <field name="category_id" ref="hr_payroll.DED"/>-->
-<!--            <field name="code">DEDUCT</field>-->
-<!--            <field name="condition_select">none</field>-->
-<!--            <field name="amount_select">code</field>-->
-<!--            <field name="amount_python_compute">result = payslip.dict.violation_deduction_rule() #payslip.deduct_this_month_ * -1</field>-->
-<!--            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>-->
-<!--            <field eval="58" name="sequence"/>-->
-<!--        </record>-->
+          Deductions / Violations
+        <record model="hr.salary.rule" id="deduction_salary_rule">
+            <field name="name">Deductions / Violations</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="code">DEDUCT</field>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = payslip.dict.violation_deduction_rule() #payslip.deduct_this_month_ * -1</field>
+            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>
+            <field eval="58" name="sequence"/>
+        </record>
        
-       <!--Salary rule Category ( DED )-->
-<!--        <record id="DEDUCT" model="hr.salary.rule.category">-->
-<!--            <field name="name">Total deduction</field>-->
-<!--            <field name="code">DEDUCT</field>-->
-<!--        </record>-->
-        <!--Total Deduction-->
-<!--        <record id="hr_rule_total_deductions" model="hr.salary.rule">-->
-<!--            <field name="name">Total deductions</field>-->
-<!--            <field name="code">DED</field>-->
-<!--            <field name="category_id" ref="hr_loans.DEDUCT"/>-->
-<!--            <field name="condition_select">none</field>-->
-<!--            <field name="amount_select">code</field>-->
-<!--            <field name="amount_python_compute">result = categories.DED</field>-->
-<!--            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>-->
-<!--            <field name="sequence" eval="150"/>-->
-<!--        </record>-->
+       Salary rule Category ( DED )
+        <record id="DEDUCT" model="hr.salary.rule.category">
+            <field name="name">Total deduction</field>
+            <field name="code">DEDUCT</field>
+        </record>
+        Total Deduction
+        <record id="hr_rule_total_deductions" model="hr.salary.rule">
+            <field name="name">Total deductions</field>
+            <field name="code">DED</field>
+            <field name="category_id" ref="hr_loans.DEDUCT"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = categories.DED</field>
+            <field name="struct_id" ref="ext_hr_contract.normal_structure_001"/>
+            <field name="sequence" eval="150"/>
+        </record>
     </data>
 </odoo>
